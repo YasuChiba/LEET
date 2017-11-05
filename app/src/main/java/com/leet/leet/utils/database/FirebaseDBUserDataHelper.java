@@ -21,6 +21,8 @@ public class FirebaseDBUserDataHelper {
     private static DatabaseReference mDatabaseRef = FirebaseDatabase.getInstance().getReference().child("user_data");
 
 
+    //retrieve user profile data from database. "callback.getData" will call after finish retrieve and parse all of the data.
+    //If firebase cannot load the data, "callback.error" will call and empty Array will return.
     public static void getUserProfile(final FirebaseDBCallaback<UserProfileEntity> callback) {
         mDatabaseRef.child(FirebaseAuthHelper.getUserId())
                 .child(Enums.UserDataItem.UserProfile.getString())

@@ -32,7 +32,7 @@ public class FirebaseDBMenuDataHelper {
                                    final FirebaseDBCallaback<ArrayList<MenuEntity>> callback) {
 
         String dateStrng = DateHelper.getStringByDate(date);
-//aaaaa
+
         Log.d("firebaseDB",dateStrng);
         Log.d("firebaseDB",time.getString());
         Log.d("firebaseDB",restaurantName.getString());
