@@ -8,7 +8,7 @@ import com.google.firebase.auth.FirebaseAuth;
  * Created by YasuhiraChiba on 2017/10/31.
  */
 
-public class FirebaseAuthManager {
+public class FirebaseAuthHelper {
 
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener mAuthListener;
@@ -52,4 +52,9 @@ public class FirebaseAuthManager {
     public static String userId() {
         return FirebaseAuth.getInstance().getCurrentUser().getUid();
     }
+
+    public static String getUserId() {
+        return FirebaseAuth.getInstance().getCurrentUser().getUid();
+    }
+
 }
