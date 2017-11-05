@@ -24,6 +24,8 @@ public class FirebaseDBMenuDataHelper {
     private static DatabaseReference mDatabaseRef = FirebaseDatabase.getInstance().getReference().child("menu");
 
 
+    //retrieve menu data from database. "callback.getData" will call after finish retrieve and parse all of the data.
+    //If firebase cannot load the data, "callback.error" will call and empty Array will return.
     public static void getMenuData(Enums.RestaurantName restaurantName,
                                    LocalDate date,
                                    Enums.MealTime time,
