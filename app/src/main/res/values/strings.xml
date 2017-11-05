@@ -1,3 +1,14 @@
 <resources>
     <string name="app_name">LEET</string>
+
+    <!-- Xinhe Zhang, 11/05/2017 -->
+    <string name="login">LOGIN</string>
+    <string name="back">BACK</string>
+    <string name="empty">Username or password can not be empty</string>
+    <string name="login_first">Please log in first</string>
+    <string name="signup_first">Please sign up first</string>
+    <string name="already_login">You have already logged in</string>
+    <string name="already_signup">You have already signed up</string>
+
+
 </resources>
