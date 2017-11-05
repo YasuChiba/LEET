@@ -1,19 +1,19 @@
 package com.leet.leet.utils.database;
 
+import android.util.Log;
+
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.leet.leet.common.Enums;
-import com.leet.leet.utils.authentication.FirebaseAuthHelper;
+import com.leet.leet.utils.DateHelper;
 import com.leet.leet.utils.database.entities.menu.MenuEntity;
-import com.leet.leet.utils.database.entities.user.UserProfileEntity;
 
-
+import org.joda.time.LocalDate;
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
+
 
 /**
  * Created by YasuhiraChiba on 2017/10/31.
@@ -25,12 +25,19 @@ public class FirebaseDBMenuDataHelper {
 
 
     public static void getMenuData(Enums.RestaurantName restaurantName,
+                                   LocalDate date,
+                                   Enums.MealTime time,
                                    final FirebaseDBCallaback<ArrayList<MenuEntity>> callback) {
+
+        String dateStrng = DateHelper.getStringByDate(date);
+        Log.d("firebaseDB",dateStrng);
+        Log.d("firebaseDB",time.getString());
+        Log.d("firebaseDB",restaurantName.getString());
 
         mDatabase.child("menu")
                 .child(restaurantName.getString())
-                .child("11012017")
-                .child("dinnerMenu")
+                .child(dateStrng)
+                .child(time.getString())
                 .addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {

@@ -11,7 +11,7 @@ public class MenuEntity {
 
     private String name = "";
     private MenuNutritionsEntity nutritions;
-    private String price;
+    private float price;
     private MenuTagsEntity tags;
 
     public MenuNutritionsEntity getNutritions() {
@@ -21,10 +21,10 @@ public class MenuEntity {
         this.nutritions = nutritions;
     }
 
-    public String getPrice() {
+    public float getPrice() {
         return price;
     }
-    public void setPrice(String price) {
+    public void setPrice(float price) {
         this.price = price;
     }
 

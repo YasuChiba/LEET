@@ -26,4 +26,20 @@ public class Enums {
             return this.text;
         }
     }
+
+    public enum MealTime {
+        Breakfast("breakfastMenu"),
+        Lunch("lunchMenu"),
+        Dinner("dinnerMenu");
+
+        private final String text;
+
+        private MealTime(final String text) {
+            this.text = text;
+        }
+
+        public String getString() {
+            return this.text;
+        }
+    }
 }

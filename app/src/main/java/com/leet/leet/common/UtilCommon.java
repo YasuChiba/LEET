@@ -2,6 +2,8 @@ package com.leet.leet.common;
 
 import android.app.Application;
 
+import net.danlew.android.joda.JodaTimeAndroid;
+
 /**
  * Created by YasuhiraChiba on 2017/10/31.
  */
@@ -14,6 +16,7 @@ public class UtilCommon extends Application {
         super.onCreate();
 
         ContextManager.onCreateApplication(getApplicationContext());
+        JodaTimeAndroid.init(this);
     }
 
 }

@@ -1,6 +1,9 @@
 package com.leet.leet.utils.authentication;
 
+import android.support.annotation.NonNull;
+
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
@@ -14,31 +17,22 @@ public class FirebaseAuthHelper {
     private FirebaseAuth.AuthStateListener mAuthListener;
 
 
-    public static void signIn(String email, String password, OnCompleteListener<AuthResult> complteListner) {
-        if(complteListner != null) {
-            FirebaseAuth.getInstance().signInWithEmailAndPassword(email, password)
-                    .addOnCompleteListener(complteListner);
-        } else {
-            FirebaseAuth.getInstance().signInWithEmailAndPassword(email, password);
-        }
+    public static void signIn(String email, String password, final FirebaseAuthCallback callback) {
+        FirebaseAuth.getInstance()
+                .signInWithEmailAndPassword(email, password)
+                .addOnCompleteListener(new CompletionListner(callback));
     }
 
-    public static void createNewUser(String email, String password, OnCompleteListener<AuthResult> complteListner) {
-        if(complteListner != null) {
-            FirebaseAuth.getInstance().createUserWithEmailAndPassword(email, password)
-                    .addOnCompleteListener(complteListner);
-        } else {
-            FirebaseAuth.getInstance().createUserWithEmailAndPassword(email, password);
-        }
+    public static void createNewUser(String email, String password, final FirebaseAuthCallback callback) {
+        FirebaseAuth.getInstance()
+                .createUserWithEmailAndPassword(email, password)
+                .addOnCompleteListener(new CompletionListner(callback));
     }
 
-    public static void createAnonymous(OnCompleteListener<AuthResult> complteListner){
-        if(complteListner != null) {
-            FirebaseAuth.getInstance().signInAnonymously()
-                    .addOnCompleteListener(complteListner);
-        } else {
-            FirebaseAuth.getInstance().signInAnonymously();
-        }
+    public static void createAnonymous(final FirebaseAuthCallback callback){
+        FirebaseAuth.getInstance()
+                .signInAnonymously()
+                .addOnCompleteListener(new CompletionListner(callback));
     }
 
     public static void logout() {
@@ -57,4 +51,27 @@ public class FirebaseAuthHelper {
         return FirebaseAuth.getInstance().getCurrentUser().getUid();
     }
 
+
+
+
+
+    static class CompletionListner implements OnCompleteListener<AuthResult> {
+
+        FirebaseAuthCallback callback;
+
+        CompletionListner(FirebaseAuthCallback callback) {
+            this.callback = callback;
+        }
+
+        @Override
+        public void onComplete(@NonNull Task<AuthResult> task) {
+            if(callback != null) {
+                if(task.isSuccessful()) {
+                    callback.onComplete(task.isSuccessful(), null);
+                } else {
+                    callback.onComplete(task.isSuccessful(),task.getException().getMessage());
+                }
+            }
+        }
+    }
 }
