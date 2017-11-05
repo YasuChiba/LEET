@@ -1,6 +1,7 @@
 package com.leet.leet.utils.database.entities.user;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by YasuhiraChiba on 2017/11/02.
@@ -13,7 +14,8 @@ public class UserProfileEntity {
     private int age;
     private float weight;
     private float height;
-    private ArrayList<ArrayList<String>> allergies = new ArrayList<>();
+    private List<String> allergies;
+
     private UserGoalEntity goals;
 
 
@@ -59,10 +61,11 @@ public class UserProfileEntity {
         this.height = height;
     }
 
-    public ArrayList<String> getAllerigies() {
-        return this.allergies.get(0);
+
+    public List<String> getAllergies() {
+        return allergies;
     }
-    public void setAllergies(ArrayList<String> allergies) {
-        this.allergies.add(allergies);
+    public void setAllergies(List<String> allergies) {
+        this.allergies = allergies;
     }
 }

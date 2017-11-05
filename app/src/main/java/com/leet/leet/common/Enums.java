@@ -42,4 +42,19 @@ public class Enums {
             return this.text;
         }
     }
+
+    public enum UserDataItem {
+        Statistics("statistics"),
+        UserProfile("user_profile"),
+        CustomMenus("custom_menus");
+
+        private final String text;
+        private UserDataItem(final String text) {
+            this.text = text;
+        }
+
+        public String getString() {
+            return this.text;
+        }
+    }
 }

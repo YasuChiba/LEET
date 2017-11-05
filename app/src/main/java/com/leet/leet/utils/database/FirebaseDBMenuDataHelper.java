@@ -21,7 +21,7 @@ import java.util.ArrayList;
 
 public class FirebaseDBMenuDataHelper {
 
-    private static DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference();
+    private static DatabaseReference mDatabaseRef = FirebaseDatabase.getInstance().getReference().child("menu");
 
 
     public static void getMenuData(Enums.RestaurantName restaurantName,
@@ -34,8 +34,7 @@ public class FirebaseDBMenuDataHelper {
         Log.d("firebaseDB",time.getString());
         Log.d("firebaseDB",restaurantName.getString());
 
-        mDatabase.child("menu")
-                .child(restaurantName.getString())
+        mDatabaseRef.child(restaurantName.getString())
                 .child(dateStrng)
                 .child(time.getString())
                 .addListenerForSingleValueEvent(new ValueEventListener() {

@@ -34,14 +34,12 @@ public class StartModel {
 
         LocalDate d = DateHelper.getFutureDate(1);
 
-        FirebaseDBMenuDataHelper.getMenuData(Enums.RestaurantName.CafeVentanas,
-                d,
-                Enums.MealTime.Breakfast,
+        FirebaseDBMenuDataHelper.getMenuData(Enums.RestaurantName.CafeVentanas, d, Enums.MealTime.Breakfast,
                 new FirebaseDBCallaback<ArrayList<MenuEntity>>() {
-            @Override
-            public void getData(ArrayList<MenuEntity> data) {
-                Log.d("","");
-            }
-        });
+                     @Override
+                     public void getData(ArrayList<MenuEntity> data) {
+                            Log.d("","");
+                      }
+                 });
     }
 }

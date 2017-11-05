@@ -2,6 +2,7 @@ package com.leet.leet.utils.database.entities.menu;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -20,7 +21,7 @@ public class MenuNutritionsEntity {
     private float totalFat;
     private float calories;
     private String servingSize;
-    private ArrayList<ArrayList<String>> allergens = new ArrayList<>();
+    private List<String> allergens;
 
 
     public MenuNutritionsEntity(){
@@ -107,13 +108,12 @@ public class MenuNutritionsEntity {
         this.servingSize = servingSize;
     }
 
-    public ArrayList<String> getAllergens() {
-        return this.allergens.get(0);
+    public List<String> getAllergens() {
+        return allergens;
     }
 
-    public void setAllergens(ArrayList<String> name) {
-        this.allergens.add(name);
+    public void setAllergens(List<String> allergens) {
+        this.allergens = allergens;
     }
-
 }
 

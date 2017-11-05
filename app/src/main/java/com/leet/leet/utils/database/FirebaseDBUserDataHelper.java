@@ -5,6 +5,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.leet.leet.common.Enums;
 import com.leet.leet.utils.authentication.FirebaseAuthHelper;
 import com.leet.leet.utils.database.entities.user.UserProfileEntity;
 
@@ -17,13 +18,12 @@ import java.util.Map;
 
 public class FirebaseDBUserDataHelper {
 
-    private static DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference();
+    private static DatabaseReference mDatabaseRef = FirebaseDatabase.getInstance().getReference().child("user_data");
 
 
-    public static void getUserProfile(final FirebaseDBCallaback callback) {
-        mDatabase.child("userdata")
-                .child(FirebaseAuthHelper.getUserId())
-                .child("userProfile")
+    public static void getUserProfile(final FirebaseDBCallaback<UserProfileEntity> callback) {
+        mDatabaseRef.child(FirebaseAuthHelper.getUserId())
+                .child(Enums.UserDataItem.UserProfile.getString())
                 .addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(DataSnapshot dataSnapshot) {
@@ -44,7 +44,7 @@ public class FirebaseDBUserDataHelper {
     public static void setUserProfile(UserProfileEntity userProfile) {
         Map<String, Object> data = new HashMap<>();
         data.put("userProfile",userProfile);
-        mDatabase.child("userdata")
+        mDatabaseRef.child("userdata")
                 .child(FirebaseAuthHelper.getUserId())
                 .updateChildren(data);
     }
