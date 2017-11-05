@@ -7,10 +7,10 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.leet.leet.common.Enums;
 import com.leet.leet.utils.authentication.FirebaseAuthHelper;
+import com.leet.leet.utils.database.entities.menu.MenuEntity;
 import com.leet.leet.utils.database.entities.user.UserProfileEntity;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.ArrayList;
 
 /**
  * Created by YasuhiraChiba on 2017/11/04.
@@ -40,13 +40,43 @@ public class FirebaseDBUserDataHelper {
 
     }
 
-
     public static void setUserProfile(UserProfileEntity userProfile) {
-        Map<String, Object> data = new HashMap<>();
-        data.put("userProfile",userProfile);
-        mDatabaseRef.child("userdata")
-                .child(FirebaseAuthHelper.getUserId())
-                .updateChildren(data);
+
+        mDatabaseRef.child(FirebaseAuthHelper.getUserId())
+                .child(Enums.UserDataItem.UserProfile.getString())
+                .setValue(userProfile);
+    }
+
+    public static void getCustomMenus(final FirebaseDBCallaback<ArrayList<MenuEntity>> callback) {
+
+        mDatabaseRef.child(FirebaseAuthHelper.getUserId())
+                .child(Enums.UserDataItem.CustomMenus.getString())
+                .addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(DataSnapshot dataSnapshot) {
+                        ArrayList<MenuEntity> result = new ArrayList<>();
+                        for(DataSnapshot snap :dataSnapshot.getChildren()){
+                            MenuEntity ent = snap.getValue(MenuEntity.class);
+                            ent.setName(snap.getKey());
+                            result.add(ent);
+                        }
+                        callback.getData(result);
+                    }
+
+                    @Override
+                    public void onCancelled(DatabaseError databaseError) {
+                        callback.error();
+                        callback.getData(new ArrayList<MenuEntity>());
+                    }
+                });
+    }
+
+    public static void addCustomMenu(String menuName, MenuEntity menuEntity) {
+
+        mDatabaseRef.child(FirebaseAuthHelper.getUserId())
+                .child(Enums.UserDataItem.CustomMenus.getString())
+                .child(menuName)
+                .setValue(menuEntity);
     }
 
 

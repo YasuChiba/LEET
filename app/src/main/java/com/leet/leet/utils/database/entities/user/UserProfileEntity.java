@@ -1,5 +1,7 @@
 package com.leet.leet.utils.database.entities.user;
 
+import com.leet.leet.common.Enums;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -21,6 +23,15 @@ public class UserProfileEntity {
 
     public UserProfileEntity(){
 
+    }
+
+    public UserProfileEntity(String name, String gender, int age, float weight, float height, List<String> allergies) {
+        this.name = name;
+        this.gender = gender;
+        this.age = age;
+        this.weight = weight;
+        this.height = height;
+        this.allergies = allergies;
     }
 
     public String getName() {

@@ -12,7 +12,6 @@ public class MenuTagsEntity {
     private Boolean glutenFriendly;
     private Boolean vegan;
     private Boolean vegetarian;
-    private Map<String, Object> additionalProperties = new HashMap<String, Object>();
 
     public MenuTagsEntity() {
 
@@ -42,12 +41,5 @@ public class MenuTagsEntity {
         this.vegetarian = vegetarian;
     }
 
-    public Map<String, Object> getAdditionalProperties() {
-        return this.additionalProperties;
-    }
-
-    public void setAdditionalProperty(String name, Object value) {
-        this.additionalProperties.put(name, value);
-    }
 
 }

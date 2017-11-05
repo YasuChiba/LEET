@@ -1,8 +1,5 @@
 package com.leet.leet.utils.database.entities.menu;
 
-import java.util.HashMap;
-import java.util.Map;
-
 /**
  * Created by YasuhiraChiba on 2017/10/31.
  */
@@ -13,6 +10,9 @@ public class MenuEntity {
     private MenuNutritionsEntity nutritions;
     private float price;
     private MenuTagsEntity tags;
+
+
+    public MenuEntity(){}
 
     public MenuNutritionsEntity getNutritions() {
         return nutritions;
@@ -34,7 +34,6 @@ public class MenuEntity {
     public void setTags(MenuTagsEntity tags) {
         this.tags = tags;
     }
-
 
 
     public String getName() {

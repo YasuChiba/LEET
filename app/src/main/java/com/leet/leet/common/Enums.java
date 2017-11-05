@@ -57,4 +57,20 @@ public class Enums {
             return this.text;
         }
     }
+
+    public enum Gender {
+        Male("male"),
+        Female("female"),
+        Other("other");
+
+        private final String text;
+        private Gender(final String text) {
+            this.text = text;
+        }
+
+        public String getString() {
+            return this.text;
+        }
+
+    }
 }

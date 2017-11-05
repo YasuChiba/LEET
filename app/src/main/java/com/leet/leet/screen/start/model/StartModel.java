@@ -9,12 +9,14 @@ import com.leet.leet.utils.SharedPrefManager;
 import com.leet.leet.utils.authentication.FirebaseAuthHelper;
 import com.leet.leet.utils.database.FirebaseDBCallaback;
 import com.leet.leet.utils.database.FirebaseDBMenuDataHelper;
+import com.leet.leet.utils.database.FirebaseDBUserDataHelper;
 import com.leet.leet.utils.database.entities.menu.MenuEntity;
+import com.leet.leet.utils.database.entities.menu.MenuTagsEntity;
+import com.leet.leet.utils.database.entities.user.UserProfileEntity;
 
 import org.joda.time.LocalDate;
 
 import java.util.ArrayList;
-import java.util.Date;
 
 /**
  * Created by YasuhiraChiba on 2017/10/31.
@@ -41,5 +43,26 @@ public class StartModel {
                             Log.d("","");
                       }
                  });
+    }
+
+    public void setUserProfile() {
+        UserProfileEntity ent = new UserProfileEntity();
+
+        ent.setGender(Enums.Gender.Male.getString());
+        ent.setName("tes");
+        ent.setAge(20);
+        ent.setHeight(10);
+        ent.setWeight(10);
+
+        FirebaseDBUserDataHelper.setUserProfile(ent);
+    }
+
+    public void addCustomMenu() {
+        MenuEntity menu = new MenuEntity();
+
+        menu.setPrice(19);
+        menu.setTags(new MenuTagsEntity());
+
+        FirebaseDBUserDataHelper.addCustomMenu("te",menu);
     }
 }

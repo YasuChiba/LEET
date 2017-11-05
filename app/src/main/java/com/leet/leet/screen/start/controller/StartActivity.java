@@ -35,6 +35,8 @@ public class StartActivity extends AppCompatActivity {
             public void onComplete(boolean isSuccess, String message) {
                 if(isSuccess) {
                     mModel.getMenu();
+                    mModel.setUserProfile();
+                    mModel.addCustomMenu();
                 } else {
                     Log.d("",message);
                 }
