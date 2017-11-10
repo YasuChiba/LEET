@@ -31,7 +31,7 @@ public class AccountView implements AccountViewInterface, View.OnClickListener  
 */
 
     public AccountView(LayoutInflater inflater, ViewGroup container) {
-        mRootView = inflater.inflate(R.layout.view_account, container, false);
+        mRootView = inflater.inflate(R.layout.view_profile, container, false);
 
         initialize();
     }

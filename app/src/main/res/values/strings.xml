@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">LEET</string>
+    <string name="Calorie">Calorie</string>
+    <string name="Price">Price</string>
+    <string name="Protein">Protein</string>
+    <string name="Fat">Fat</string>
+    <string name="Carbs">Carbs</string>
+    <string name="RDI">Recommended Daily Intake</string>
+
+
 </resources>
