@@ -14,21 +14,5 @@ import java.util.HashMap;
 
 public class StatisticsDailyModel {
 
-    public void setDataTest() {
-        MenuEntity ent = new MenuEntity();
-        ent.setName("TEST1");
-        ent.setPrice(50);
-        FirebaseDBUserDataHelper.setStatisticsData(DateHelper.getCurrentDate(),ent);
-    }
-
-    public void getDateTest() {
-        FirebaseDBUserDataHelper.getStatisticsData(DateHelper.getCurrentDate(), DateHelper.getCurrentDate(),
-                new FirebaseDBCallaback<HashMap<String, ArrayList>>() {
-                    @Override
-                    public void getData(HashMap<String, ArrayList> data) {
-                        System.out.println(data);
-                    }
-                });
-    }
 
 }
