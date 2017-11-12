@@ -12,6 +12,8 @@ public class UserGoalEntity {
     private float carbs;
     private float protein;
 
+    public UserGoalEntity(){}
+
     public UserGoalEntity(float calorie, float price, float fat, float carbs, float protein){
         this.calorie = calorie;
         this.price = price;

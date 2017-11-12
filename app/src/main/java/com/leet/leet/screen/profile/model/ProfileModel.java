@@ -38,6 +38,13 @@ public class ProfileModel {
         UserGoalEntity goal = new UserGoalEntity(calorie, price, fat, carbs, protein);
         FirebaseDBUserDataHelper.setUserGoals(goal);
 
+        FirebaseDBUserDataHelper.getUserGoals(new FirebaseDBCallaback<UserGoalEntity>() {
+            @Override
+            public void getData(UserGoalEntity data) {
+                Log.d("", data.getCalorie() + "");
+            }
+        });
+
 
     }
 
