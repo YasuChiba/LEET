@@ -15,6 +15,9 @@ import com.leet.leet.screen.login.model.LoginModel;
 import com.leet.leet.screen.login.view.LoginView;
 import com.leet.leet.screen.login.view.LoginViewInterface;
 import com.leet.leet.screen.signup.controller.SignupActivity;
+import com.leet.leet.utils.ProgressDialogManager;
+import com.leet.leet.utils.DialogManager;
+import com.leet.leet.utils.ProgressDialogManager;
 
 /**
  * Created by xinhezhang on 11/11/17.

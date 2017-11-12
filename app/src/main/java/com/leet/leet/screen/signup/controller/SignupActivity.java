@@ -37,15 +37,20 @@ public class SignupActivity extends AppCompatActivity implements SignupViewInter
 
         setContentView(mView.getRootView());
         mView.setListener(this);
-        /*
-        Button back = (Button) findViewById(R.id.btGotoSignup);
+
+        Button back = (Button) findViewById(R.id.btBack);
 
         back.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v){
-                // TODO
+                gotoLogin();
             }
         });
-        */
+    }
+
+    @Override
+    public void gotoLogin() {
+        Intent intent = new Intent(SignupActivity.this, LoginActivity.class);
+        startActivity(intent);
     }
 
     @Override
@@ -54,11 +59,11 @@ public class SignupActivity extends AppCompatActivity implements SignupViewInter
     }
 
     @Override
-    public boolean checkPassword(String password, String password2) {
+    public boolean checkPassword(String password, String confirmPassword) {
         if (password.length() < MIN_LENGTH) {
             return false;
         }
-        return password.equals(password2);
+        return password.equals(confirmPassword);
     }
 
     @Override

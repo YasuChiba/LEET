@@ -79,7 +79,7 @@
             android:layout_height="wrap_content"
             android:inputType="textPassword"
             android:ems="10"
-            android:id="@+id/etPassword2"/>
+            android:id="@+id/etConfirmPassword"/>
 
         <Button
             android:layout_width="fill_parent"
@@ -89,5 +89,12 @@
             android:layout_gravity="center"
             android:textSize="18sp"/>
 
+        <Button
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/back"
+            android:id="@+id/btBack"
+            android:layout_gravity="center"
+            android:textSize="18sp"/>
     </TableLayout>
 </LinearLayout>

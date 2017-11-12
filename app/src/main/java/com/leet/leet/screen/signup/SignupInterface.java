@@ -5,4 +5,5 @@ package com.leet.leet.screen.signup;
  */
 
 public interface SignupInterface {
+    public void gotoLogin();
 }

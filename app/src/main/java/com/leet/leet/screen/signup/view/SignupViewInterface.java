@@ -11,7 +11,8 @@ import com.leet.leet.common.ViewBaseInterface;
 public interface SignupViewInterface extends ViewBaseInterface {
 
     interface SignupViewListener {
-        boolean checkPassword(String password, String password2);
+        void gotoLogin();
+        boolean checkPassword(String password, String confirmPassword);
         void signup(String username, String password);
         void dialog(View view);
     }

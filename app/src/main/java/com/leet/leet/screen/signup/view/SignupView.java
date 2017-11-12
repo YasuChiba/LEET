@@ -21,10 +21,11 @@ public class SignupView implements SignupViewInterface, View.OnClickListener {
     // edit text
     private EditText username;
     private EditText password;
-    private EditText password2;
+    private EditText confirmPassword;
 
     // button
     private Button signup;
+    private Button back;
 
     public SignupView(LayoutInflater inflater, ViewGroup container) {
         rootView = inflater.inflate(R.layout.view_signup, container, false);
@@ -35,9 +36,10 @@ public class SignupView implements SignupViewInterface, View.OnClickListener {
     private void initialize() {
         username = rootView.findViewById(R.id.etUsername);
         password = rootView.findViewById(R.id.etPassword);
-        password2 = rootView.findViewById(R.id.etPassword2);
+        confirmPassword = rootView.findViewById(R.id.etConfirmPassword);
 
         signup = rootView.findViewById(R.id.btSignup);
+        back = rootView.findViewById(R.id.btBack);
     }
 
 
@@ -55,11 +57,14 @@ public class SignupView implements SignupViewInterface, View.OnClickListener {
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.btSignup:
-                if (!mListener.checkPassword(password.getText().toString(), password2.getText().toString())) {
+                if (!mListener.checkPassword(password.getText().toString(), confirmPassword.getText().toString())) {
                     mListener.dialog(view);
                     break;
                 }
                 mListener.signup(username.getText().toString(), password.getText().toString());
+                break;
+            case R.id.btBack:
+                mListener.gotoLogin();
                 break;
         }
     }
