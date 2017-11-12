@@ -10,6 +10,8 @@ import com.leet.leet.screen.account.AccountInterface;
 import com.leet.leet.screen.account.controller.AccountFragment;
 import com.leet.leet.screen.main.model.MainModel;
 import com.leet.leet.screen.main.view.MainView;
+import com.leet.leet.screen.meal.model.MealModel;
+import com.leet.leet.screen.meal.controller.MealFragment;
 
 
 public class MainActivity extends AppCompatActivity implements AccountInterface {
@@ -28,6 +30,9 @@ public class MainActivity extends AppCompatActivity implements AccountInterface 
 
 
         AccountFragment accountFragment = new AccountFragment();
+        MealFragment mealFragment = new MealFragment();
+        MealFragment.setupFragement(new )
+
         accountFragment.setupFragment(this);
        // MenuSearchFragment menuSearchFragment = new MenuSearchFragment();
         fragments = new Fragment[1];
@@ -37,6 +42,7 @@ public class MainActivity extends AppCompatActivity implements AccountInterface 
         mView.setupTabs(fragments,mModel.tabTitles,getSupportFragmentManager());
 
         setContentView(mView.getRootView());
+
     }
 
 

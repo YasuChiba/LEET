@@ -22,7 +22,7 @@ public class AccountFragment extends Fragment implements AccountViewInterface.Ac
     private AccountView mView;
     private AccountModel mModel;
 
-    private AccountInterface mListner;
+    private AccountInterface mListner; //controller handles the events, right?
 
     public AccountFragment() {
     }
@@ -31,7 +31,7 @@ public class AccountFragment extends Fragment implements AccountViewInterface.Ac
         this.mListner = listner;
     }
 
-    @Override
+    @Override //what is this?
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
