@@ -30,6 +30,8 @@ public class StatisticsDailyFragment extends Fragment {
         mView = new StatisticsDailyView(inflater,container);
 
         Log.d("","ONCREATEVIEW NOWWW");
+    //    mModel.setDataTest();
+        mModel.getDateTest();
 
         return mView.getRootView();
     }
