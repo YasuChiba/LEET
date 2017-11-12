@@ -1,3 +1,27 @@
 <resources>
     <string name="app_name">LEET</string>
+
+    <!-- Xinhe Zhang, 11/05/2017 -->
+
+    <!-- General messages -->
+    <string name="login">LOGIN</string>
+    <string name="guest">LOGIN AS GUEST</string>
+    <string name="signup">SIGNUP</string>
+    <string name="confirm">CONFIRM</string>
+    <string name="back">BACK</string>
+    <string name="username">User name</string>
+    <string name="password">Password</string>
+    <string name="reenter">Confirm Password</string>
+
+    <!-- Error messages -->
+    <string name="error">ERROR</string>
+    <string name="not_match">Password not match</string>
+    <string name="ok">OK</string>
+    <string name="empty">Username or password can not be empty</string>
+    <string name="login_first">Please log in first</string>
+    <string name="signup_first">Please sign up first</string>
+    <string name="already_login">You have already logged in</string>
+    <string name="already_signup">You have already signed up</string>
+
+
 </resources>

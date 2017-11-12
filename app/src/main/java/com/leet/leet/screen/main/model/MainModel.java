@@ -6,5 +6,5 @@ package com.leet.leet.screen.main.model;
 
 public class MainModel {
 
-    public String[] tabTitles = {"account"};
+    public String[] tabTitles = {"LOGIN"};
 }
