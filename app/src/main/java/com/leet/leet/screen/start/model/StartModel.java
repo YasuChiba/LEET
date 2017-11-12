@@ -53,6 +53,7 @@ public class StartModel {
         ent.setAge(20);
         ent.setHeight(10);
         ent.setWeight(10);
+        ent.setUserGoals(null);
 
         FirebaseDBUserDataHelper.setUserProfile(ent);
     }

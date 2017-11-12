@@ -73,4 +73,15 @@ public class Enums {
         }
 
     }
+    public enum UserProfile{
+        goals("goals");
+        private final String text;
+        private UserProfile(final String text) {
+            this.text = text;
+        }
+
+        public String getString() {
+            return this.text;
+        }
+    }
 }

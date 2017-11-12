@@ -1,9 +1,11 @@
 package com.leet.leet.screen.profile.model;
 
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import com.leet.leet.R;
 import com.leet.leet.screen.profile.view.ProfileView;
+import com.leet.leet.utils.database.FirebaseDBCallaback;
 import com.leet.leet.utils.database.FirebaseDBUserDataHelper;
 import com.leet.leet.utils.database.entities.user.UserGoalEntity;
 import com.leet.leet.utils.database.entities.user.UserProfileEntity;
@@ -26,6 +28,7 @@ public class ProfileModel {
     float fat;
 
     public void saveProfileData(ProfileView v){
+        Log.d("data", "working");
         price =  Float.parseFloat(((EditText)v.getRootView().findViewById(R.id.Price)).getText().toString());
         calorie =  Float.parseFloat(((EditText)v.getRootView().findViewById(R.id.Calorie)).getText().toString());
         carbs =  Float.parseFloat(((EditText)v.getRootView().findViewById(R.id.Carbs)).getText().toString());
@@ -33,9 +36,8 @@ public class ProfileModel {
         fat =  Float.parseFloat(((EditText)v.getRootView().findViewById(R.id.Fat)).getText().toString());
 
         UserGoalEntity goal = new UserGoalEntity(calorie, price, fat, carbs, protein);
-        UserProfileEntity profileEntity = FirebaseDBUserDataHelper.getUserProfile();
-        profileEntity.setUserGoals(goal);
-        FirebaseDBUserDataHelper.setUserProfile(profileEntity);
+        FirebaseDBUserDataHelper.setUserGoals(goal);
+
 
     }
 
