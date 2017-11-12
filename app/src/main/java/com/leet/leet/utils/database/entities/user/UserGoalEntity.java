@@ -10,6 +10,17 @@ public class UserGoalEntity {
     private float price;
     private float fat;
     private float carbs;
+    private float protein;
+
+    public UserGoalEntity(float calorie, float price, float fat, float carbs, float protein){
+        this.calorie = calorie;
+        this.price = price;
+        this.fat = fat;
+        this.carbs = carbs;
+        this.protein = protein;
+
+    }
+
 
 
     public float getCalorie() {
@@ -38,6 +49,13 @@ public class UserGoalEntity {
     }
     public void setCarbs(float carbs) {
         this.carbs = carbs;
+    }
+
+    public float getProtein() {
+        return protein;
+    }
+    public void setPritein(float protein) {
+        this.protein = protein;
     }
 
 

@@ -79,4 +79,13 @@ public class UserProfileEntity {
     public void setAllergies(List<String> allergies) {
         this.allergies = allergies;
     }
+
+    public UserGoalEntity getUserGoal() {
+        return goals;
+    }
+    public void setUserGoals(UserGoalEntity goals) {
+        this.goals = goals;
+    }
+
+
 }

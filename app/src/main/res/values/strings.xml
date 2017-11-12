@@ -6,6 +6,13 @@
     <string name="Fat">Fat</string>
     <string name="Carbs">Carbs</string>
     <string name="RDI">Recommended Daily Intake</string>
+    <string name="Email">Email</string>
+    <string name="Name">Name</string>
+    <string name="Height">Height</string>
+    <string name="Weight">Weight</string>
+
+
+
 
 
 </resources>

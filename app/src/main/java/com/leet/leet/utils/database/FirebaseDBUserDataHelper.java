@@ -1,5 +1,7 @@
 package com.leet.leet.utils.database;
 
+import android.util.Log;
+
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -23,7 +25,8 @@ public class FirebaseDBUserDataHelper {
 
     //retrieve user profile data from database. "callback.getData" will call after finish retrieve and parse all of the data.
     //If firebase cannot load the data, "callback.error" will call and empty Array will return.
-    public static void getUserProfile(final FirebaseDBCallaback<UserProfileEntity> callback) {
+    /*public static void getUserProfile(final FirebaseDBCallaback<UserProfileEntity> callback) {
+
         mDatabaseRef.child(FirebaseAuthHelper.getUserId())
                 .child(Enums.UserDataItem.UserProfile.getString())
                 .addListenerForSingleValueEvent(new ValueEventListener() {
@@ -39,6 +42,24 @@ public class FirebaseDBUserDataHelper {
                     }
                 });
 
+
+    }*/
+    public static UserProfileEntity getUserProfile() {
+        final UserProfileEntity[] ent = {null};
+        mDatabaseRef.child(FirebaseAuthHelper.getUserId())
+                .child(Enums.UserDataItem.UserProfile.getString())
+                .addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(DataSnapshot dataSnapshot) {
+                        ent[0] = dataSnapshot.getValue(UserProfileEntity.class);
+                    }
+
+                    @Override
+                    public void onCancelled(DatabaseError databaseError) {
+                        Log.e("callback", "getUserProfile error");
+                    }
+                });
+        return ent[0];
 
     }
 

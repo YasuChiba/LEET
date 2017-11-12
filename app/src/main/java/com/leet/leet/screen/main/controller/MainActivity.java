@@ -6,13 +6,12 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 
-import com.leet.leet.screen.account.AccountInterface;
-import com.leet.leet.screen.account.controller.AccountFragment;
 import com.leet.leet.screen.main.model.MainModel;
 import com.leet.leet.screen.main.view.MainView;
+import com.leet.leet.screen.profile.controller.ProfileFragment;
 
 
-public class MainActivity extends AppCompatActivity implements AccountInterface {
+public class MainActivity extends AppCompatActivity {
 
     private MainView mView;
     private MainModel mModel;
@@ -27,12 +26,11 @@ public class MainActivity extends AppCompatActivity implements AccountInterface 
         mView = new MainView(LayoutInflater.from(this), null);
 
 
-        AccountFragment accountFragment = new AccountFragment();
-        accountFragment.setupFragment(this);
+        ProfileFragment profileFragment = new ProfileFragment();
        // MenuSearchFragment menuSearchFragment = new MenuSearchFragment();
         fragments = new Fragment[1];
        // fragments[0] = menuSearchFragment;
-        fragments[0] = accountFragment;
+        fragments[0] = profileFragment;
 
         mView.setupTabs(fragments,mModel.tabTitles,getSupportFragmentManager());
 
@@ -40,14 +38,6 @@ public class MainActivity extends AppCompatActivity implements AccountInterface 
     }
 
 
-    @Override
-    public void backToLogin() {
-/*
-        Intent intent = new Intent(this, LoginActivity.class);
-        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-        startActivity(intent);
-        */
 
-    }
 
 }

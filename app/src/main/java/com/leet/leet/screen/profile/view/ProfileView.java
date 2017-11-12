@@ -1,5 +1,6 @@
 package com.leet.leet.screen.profile.view;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,12 +18,12 @@ public class ProfileView implements ProfileViewInterface {
     public ProfileView(LayoutInflater inflater, ViewGroup container) {
         mRootView = inflater.inflate(R.layout.view_profile, container, false);
         initialize();
+
     }
 
     private void initialize() {
 
     }
-
     @Override
     public View getRootView() {
         return mRootView;
