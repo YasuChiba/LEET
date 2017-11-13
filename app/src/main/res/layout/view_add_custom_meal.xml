@@ -1,23 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:weightSum="1">
+    android:layout_height="match_parent">
 
     <TextView
-        android:id="@+id/meal_name"
+        android:id="@+id/title"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:layout_weight="0.05"
         android:gravity="center_horizontal"
-        android:text="Text"
+        android:text="Add Custom Meal"
         android:textSize="36sp" />
 
     <LinearLayout
-        android:id="@+id/layout_price"
+        android:id="@+id/name_layout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_weight="0.05"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/name_label"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center_horizontal"
+            android:text="Name:"
+            android:textSize="20sp" />
+
+        <EditText
+            android:id="@+id/name_value"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:ems="10"
+            android:gravity="center_horizontal"
+            android:inputType="textPersonName"
+            android:textSize="20sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/price_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:layout_weight="0.05"
         android:orientation="horizontal">
 
@@ -25,25 +50,26 @@
             android:id="@+id/price_label"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight=".66"
-            android:gravity="center_vertical|center_horizontal"
-            android:text="Price"
+            android:layout_weight="1"
+            android:gravity="center_horizontal"
+            android:text="Price:"
             android:textSize="20sp" />
 
-        <TextView
+        <EditText
             android:id="@+id/price_value"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:ems="10"
             android:gravity="center_horizontal"
-            android:text="N/A" />
-
+            android:inputType="numberDecimal"
+            android:textSize="20sp" />
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/layout_calories"
+        android:id="@+id/calories_layout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:layout_weight="0.05"
         android:orientation="horizontal">
 
@@ -51,24 +77,26 @@
             android:id="@+id/calories_label"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight=".66"
+            android:layout_weight="1"
             android:gravity="center_horizontal"
-            android:text="Calories"
+            android:text="Calories:"
             android:textSize="20sp" />
 
-        <TextView
+        <EditText
             android:id="@+id/calories_value"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:ems="10"
             android:gravity="center_horizontal"
-            android:text="N/A" />
+            android:inputType="numberDecimal"
+            android:textSize="20sp" />
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/layout_carbs"
+        android:id="@+id/carbs_layout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:layout_weight="0.05"
         android:orientation="horizontal">
 
@@ -76,24 +104,26 @@
             android:id="@+id/carbs_label"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight=".66"
+            android:layout_weight="1"
             android:gravity="center_horizontal"
-            android:text="Carbs"
+            android:text="Carbs:"
             android:textSize="20sp" />
 
-        <TextView
+        <EditText
             android:id="@+id/carbs_value"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:ems="10"
             android:gravity="center_horizontal"
-            android:text="N/A" />
+            android:inputType="numberDecimal"
+            android:textSize="20sp" />
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/layout_total_fat"
+        android:id="@+id/total_fat_layout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:layout_weight="0.05"
         android:orientation="horizontal">
 
@@ -101,24 +131,26 @@
             android:id="@+id/total_fat_label"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight=".66"
+            android:layout_weight="1"
             android:gravity="center_horizontal"
-            android:text="Total Fat"
+            android:text="Total Fat:"
             android:textSize="20sp" />
 
-        <TextView
+        <EditText
             android:id="@+id/total_fat_value"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:ems="10"
             android:gravity="center_horizontal"
-            android:text="N/A" />
+            android:inputType="numberDecimal"
+            android:textSize="20sp" />
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/layout_sat_fat"
+        android:id="@+id/sat_fat_layout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:layout_weight="0.05"
         android:orientation="horizontal">
 
@@ -126,24 +158,26 @@
             android:id="@+id/sat_fat_label"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight=".66"
+            android:layout_weight="1"
             android:gravity="center_horizontal"
-            android:text="Saturated Fat"
+            android:text="Saturated Fat:"
             android:textSize="20sp" />
 
-        <TextView
+        <EditText
             android:id="@+id/sat_fat_value"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:ems="10"
             android:gravity="center_horizontal"
-            android:text="N/A" />
+            android:inputType="numberDecimal"
+            android:textSize="20sp" />
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/layout_protein"
+        android:id="@+id/protein_layout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:layout_weight="0.05"
         android:orientation="horizontal">
 
@@ -151,24 +185,26 @@
             android:id="@+id/protein_label"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight=".66"
+            android:layout_weight="1"
             android:gravity="center_horizontal"
-            android:text="Protein"
+            android:text="Protein:"
             android:textSize="20sp" />
 
-        <TextView
+        <EditText
             android:id="@+id/protein_value"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:ems="10"
             android:gravity="center_horizontal"
-            android:text="N/A" />
+            android:inputType="numberDecimal"
+            android:textSize="20sp" />
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/layout_sodium"
+        android:id="@+id/sodium_layout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:layout_weight="0.05"
         android:orientation="horizontal">
 
@@ -176,125 +212,74 @@
             android:id="@+id/sodium_label"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight=".66"
+            android:layout_weight="1"
             android:gravity="center_horizontal"
-            android:text="Sodium"
+            android:text="Sodium:"
             android:textSize="20sp" />
 
-        <TextView
+        <EditText
             android:id="@+id/sodium_value"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:ems="10"
             android:gravity="center_horizontal"
-            android:text="N/A" />
+            android:inputType="numberDecimal"
+            android:textSize="20sp" />
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/layout_cholesterol"
+        android:id="@+id/cholesterol_layout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:layout_weight="0.05"
         android:orientation="horizontal">
 
         <TextView
-            android:id="@+id/cholersterol_label"
+            android:id="@+id/cholesterol_label"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight=".66"
+            android:layout_weight="1"
             android:gravity="center_horizontal"
             android:text="Cholesterol"
             android:textSize="20sp" />
 
-        <TextView
+        <EditText
             android:id="@+id/cholesterol_value"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:ems="10"
             android:gravity="center_horizontal"
-            android:text="N/A" />
+            android:inputType="numberDecimal"
+            android:textSize="20sp" />
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/layout_dietary_fiber"
+        android:id="@+id/dietary_fiber_layout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:layout_weight="0.05"
         android:orientation="horizontal">
 
         <TextView
-            android:id="@+id/dietary_fiber_label"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight=".66"
-            android:gravity="center_horizontal"
-            android:text="Dietary Fiber"
-            android:textSize="20sp" />
-
-        <TextView
-            android:id="@+id/dietary_fiber_value"
+            android:id="@+id/fiber_label"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="center_horizontal"
-            android:text="N/A" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/layout_serving_size"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="0.05"
-        android:orientation="horizontal">
-
-        <TextView
-            android:id="@+id/serving_size_label"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight=".66"
-            android:gravity="center_horizontal"
-            android:text="Serving Size"
+            android:text="Dietary Fiber:"
             android:textSize="20sp" />
 
-        <TextView
-            android:id="@+id/serving_size_value"
+        <EditText
+            android:id="@+id/fiber_value"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:ems="10"
             android:gravity="center_horizontal"
-            android:text="N/A" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/layout_allergens"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="0.05"
-        android:orientation="horizontal">
-
-        <TextView
-            android:id="@+id/allergens_label"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight=".66"
-            android:gravity="center_horizontal"
-            android:text="Allergens"
+            android:inputType="numberDecimal"
             android:textSize="20sp" />
-
-        <TextView
-            android:id="@+id/allergens_value"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:gravity="center_horizontal"
-            android:text="None." />
     </LinearLayout>
-
-    <Button
-        android:id="@+id/button_add_meal"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="0.05"
-        android:text="Add Meal" />
 
 </LinearLayout>
