@@ -7,7 +7,7 @@
         android:id="@+id/title"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_weight="0.05"
+        android:layout_weight="0.1"
         android:gravity="center_horizontal"
         android:text="Add Custom Meal"
         android:textSize="36sp" />
@@ -16,7 +16,7 @@
         android:id="@+id/name_layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_weight="0.05"
+        android:layout_weight=".1"
         android:orientation="horizontal">
 
         <TextView
@@ -43,7 +43,7 @@
         android:id="@+id/price_layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_weight="0.05"
+        android:layout_weight=".1"
         android:orientation="horizontal">
 
         <TextView
@@ -70,7 +70,7 @@
         android:id="@+id/calories_layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_weight="0.05"
+        android:layout_weight=".1"
         android:orientation="horizontal">
 
         <TextView
@@ -97,7 +97,7 @@
         android:id="@+id/carbs_layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_weight="0.05"
+        android:layout_weight=".1"
         android:orientation="horizontal">
 
         <TextView
@@ -124,7 +124,7 @@
         android:id="@+id/total_fat_layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_weight="0.05"
+        android:layout_weight=".1"
         android:orientation="horizontal">
 
         <TextView
@@ -151,7 +151,7 @@
         android:id="@+id/sat_fat_layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_weight="0.05"
+        android:layout_weight=".1"
         android:orientation="horizontal">
 
         <TextView
@@ -178,7 +178,7 @@
         android:id="@+id/protein_layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_weight="0.05"
+        android:layout_weight=".1"
         android:orientation="horizontal">
 
         <TextView
@@ -205,7 +205,7 @@
         android:id="@+id/sodium_layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_weight="0.05"
+        android:layout_weight=".1"
         android:orientation="horizontal">
 
         <TextView
@@ -232,7 +232,7 @@
         android:id="@+id/cholesterol_layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_weight="0.05"
+        android:layout_weight=".1"
         android:orientation="horizontal">
 
         <TextView
@@ -259,7 +259,7 @@
         android:id="@+id/dietary_fiber_layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_weight="0.05"
+        android:layout_weight=".1"
         android:orientation="horizontal">
 
         <TextView
@@ -280,6 +280,17 @@
             android:gravity="center_horizontal"
             android:inputType="numberDecimal"
             android:textSize="20sp" />
+
+
     </LinearLayout>
+
+    <Button
+        android:id="@+id/button_submit"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight=".1"
+        android:gravity="center_horizontal"
+        android:text="Create Meal"
+        android:textSize="18sp" />
 
 </LinearLayout>
