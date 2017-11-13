@@ -10,7 +10,9 @@ public interface LoginViewInterface extends ViewBaseInterface {
 
     interface LoginViewListener {
         void gotoSignup();
-        void login(String username, String password);
+        boolean checkEmail(String email);
+        boolean checkPassword(String password);
+        void login(String email, String password);
         void guestLogin();
     }
 

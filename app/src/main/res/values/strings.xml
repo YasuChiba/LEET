@@ -10,6 +10,7 @@
     <string name="confirm">CONFIRM</string>
     <string name="back">BACK</string>
     <string name="username">User name</string>
+    <string name="email">Email</string>
     <string name="password">Password</string>
     <string name="reenter">Confirm Password</string>
 

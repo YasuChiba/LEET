@@ -5,10 +5,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 
 import com.leet.leet.R;
-import com.leet.leet.screen.login.view.LoginViewInterface;
 
 /**
  * Created by xinhezhang on 11/05/17.
@@ -21,13 +19,14 @@ public class LoginView implements LoginViewInterface, View.OnClickListener  {
     private LoginViewListener mListener;
 
     // edit text
-    private EditText username;
+    private EditText email;
     private EditText password;
 
     // button
     private Button login;
     private Button guest;
     private Button signup;
+
 
     public LoginView(LayoutInflater inflater, ViewGroup container) {
         rootView = inflater.inflate(R.layout.view_login, container, false);
@@ -36,7 +35,7 @@ public class LoginView implements LoginViewInterface, View.OnClickListener  {
     }
 
     private void initialize() {
-        username = rootView.findViewById(R.id.etUsername);
+        email = rootView.findViewById(R.id.etEmail);
         password = rootView.findViewById(R.id.etPassword);
 
         login = rootView.findViewById(R.id.btLogin);
@@ -58,7 +57,7 @@ public class LoginView implements LoginViewInterface, View.OnClickListener  {
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.btLogin:
-                mListener.login(username.getText().toString(), password.getText().toString());
+                mListener.login(email.getText().toString(), password.getText().toString());
                 break;
             case R.id.btGuest:
                 mListener.guestLogin();
