@@ -20,19 +20,19 @@ public class FirebaseAuthHelper {
     public static void signIn(String email, String password, final FirebaseAuthCallback callback) {
         FirebaseAuth.getInstance()
                 .signInWithEmailAndPassword(email, password)
-                .addOnCompleteListener(new CompletionListner(callback));
+                .addOnCompleteListener(new CompletionListener(callback));
     }
 
     public static void createNewUser(String email, String password, final FirebaseAuthCallback callback) {
         FirebaseAuth.getInstance()
                 .createUserWithEmailAndPassword(email, password)
-                .addOnCompleteListener(new CompletionListner(callback));
+                .addOnCompleteListener(new CompletionListener(callback));
     }
 
     public static void createAnonymous(final FirebaseAuthCallback callback){
         FirebaseAuth.getInstance()
                 .signInAnonymously()
-                .addOnCompleteListener(new CompletionListner(callback));
+                .addOnCompleteListener(new CompletionListener(callback));
     }
 
     public static void logout() {
@@ -55,11 +55,11 @@ public class FirebaseAuthHelper {
 
 
 
-    static class CompletionListner implements OnCompleteListener<AuthResult> {
+    static class CompletionListener implements OnCompleteListener<AuthResult> {
 
         FirebaseAuthCallback callback;
 
-        CompletionListner(FirebaseAuthCallback callback) {
+        CompletionListener(FirebaseAuthCallback callback) {
             this.callback = callback;
         }
 
