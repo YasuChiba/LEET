@@ -1,5 +1,7 @@
 package com.leet.leet.utils;
 
+import com.leet.leet.common.Enums;
+
 import org.joda.time.DateTime;
 import org.joda.time.LocalDate;
 import org.joda.time.format.DateTimeFormat;
@@ -39,6 +41,11 @@ public class DateHelper {
     public static LocalDate getFutureDate(int plusDays) {
         DateTime dt = new DateTime().plusDays(plusDays);
         return dt.toLocalDate();
+    }
+
+    public static Enums.Week getWeekByString(String dayStr) {
+        DateTime dt = DateTimeFormat.forPattern(DATE_FORMAT).parseDateTime(dayStr);
+        return Enums.Week.create(dt.getDayOfWeek());
     }
 
 }

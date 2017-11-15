@@ -73,4 +73,59 @@ public class Enums {
         }
 
     }
+
+    public enum Week {
+        Monday(1),
+        Tuesday(2),
+        Wednesday(3),
+        Thursday(4),
+        Friday(5),
+        Saturday(6),
+        Sunday(7);
+
+        private final int val;
+        private Week(final int val) {
+            this.val = val;
+        }
+
+        public static Week create(int val) {
+            switch(val) {
+                case 1:
+                    return Week.Monday;
+                case 2:
+                    return Week.Tuesday;
+                case 3:
+                    return Week.Wednesday;
+                case 4:
+                    return Week.Thursday;
+                case 5:
+                    return Week.Friday;
+                case 6:
+                    return Week.Saturday;
+                case 7:
+                    return Week.Sunday;
+            }
+            return Week.Monday;
+        }
+
+        public String getString() {
+            switch(this.val) {
+                case 1:
+                    return "Monday";
+                case 2:
+                    return "Tuesday";
+                case 3:
+                    return "Wednesday";
+                case 4:
+                    return "Thursday";
+                case 5:
+                    return "Friday";
+                case 6:
+                    return "Saturday";
+                case 7:
+                    return "Sunday";
+            }
+            return "";
+        }
+    }
 }

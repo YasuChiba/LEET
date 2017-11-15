@@ -5,6 +5,8 @@ import com.leet.leet.utils.database.FirebaseDBCallaback;
 import com.leet.leet.utils.database.FirebaseDBUserDataHelper;
 import com.leet.leet.utils.database.entities.menu.MenuEntity;
 
+import org.joda.time.LocalDate;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -19,6 +21,23 @@ public class StatisticsWeeklyModel {
         ent.setName("TEST1");
         ent.setPrice(50);
         FirebaseDBUserDataHelper.setStatisticsData(DateHelper.getCurrentDate(),ent);
+    }
+
+    public void getStatisticsData(LocalDate startDate,
+                                  LocalDate endDate,
+                                  final FirebaseDBCallaback<HashMap<String,ArrayList>> callback) {
+
+        FirebaseDBUserDataHelper.getStatisticsData(startDate, endDate,
+                new FirebaseDBCallaback<HashMap<String, ArrayList>>() {
+                    @Override
+                    public void getData(HashMap<String, ArrayList> data) {
+
+
+
+
+                        callback.getData(data);
+                    }
+                });
     }
 
     public void getDateTest() {

@@ -64,12 +64,14 @@ public class StatisticsWeeklyView implements StatisticsWeeklyViewInterface {
 
     private void setDataToGraph() {
 
+        ArrayList<Integer> val = new ArrayList<>();
+        val.add(10);
+        val.add(29);
+        val.add(100);
+
         ArrayList<Entry> values = new ArrayList<Entry>();
-
-        for (int i = 0; i < 10; i++) {
-
-            float val = (float) (Math.random() * 20) + 3;
-            values.add(new Entry(i, val));
+        for(int i=0; i<val.size();i++){
+            values.add(new Entry(i, val.get(i)));
         }
 
         LineDataSet set1;
