@@ -28,6 +28,9 @@ public class LoginActivity extends AppCompatActivity implements LoginViewInterfa
     private LoginModel mModel;
     private LoginInterface mListener;
 
+    // minimum length of valid password
+    private final int MIN_LENGTH = 6;
+
     // message
     String WRONG_EMAIL = "Wrong email";
     String EMPTY_EMAIL = "Email cannot be empty";
@@ -96,7 +99,7 @@ public class LoginActivity extends AppCompatActivity implements LoginViewInterfa
     public boolean checkPassword(String password) {
         Log.d("LOGIN", "checkPassword===============================================================");
         // corner cases
-        if (password == null || password.length() < 6) {
+        if (password == null || password.length() < MIN_LENGTH) {
             Toast.makeText(this, SHORT_PASSWORD, Toast.LENGTH_SHORT).show();
             return false;
         }
@@ -115,7 +118,7 @@ public class LoginActivity extends AppCompatActivity implements LoginViewInterfa
             // TODO
             Toast.makeText(this, "200", Toast.LENGTH_SHORT).show();
         }
-        Toast.makeText(this, "400", Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "404", Toast.LENGTH_SHORT).show();
     }
 
     /**
