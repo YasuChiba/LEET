@@ -1,4 +1,4 @@
-package com.leet.leet.screen.meal.mealMain.view;
+package com.leet.leet.screen.meal.screens.mealMain.view;
 
 import com.leet.leet.common.ViewBaseInterface;
 

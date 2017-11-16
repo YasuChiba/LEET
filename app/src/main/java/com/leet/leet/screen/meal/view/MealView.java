@@ -1,4 +1,4 @@
-package com.leet.leet.screen.meal.mealBase.view;
+package com.leet.leet.screen.meal.view;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,12 +10,12 @@ import com.leet.leet.R;
  * Created by Jhern on 11/15/2017.
  */
 
-public class MealBaseView implements MealBaseViewInterface{
+public class MealView implements MealViewInterface {
 
         private View mRootView;
 
-        public MealBaseView(LayoutInflater inflater, ViewGroup container) {
-            mRootView = inflater.inflate(R.layout.view_meal_base, container, false);
+        public MealView(LayoutInflater inflater, ViewGroup container) {
+            mRootView = inflater.inflate(R.layout.view_meal, container, false);
 
         }
 

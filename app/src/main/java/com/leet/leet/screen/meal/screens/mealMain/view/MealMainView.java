@@ -1,4 +1,4 @@
-package com.leet.leet.screen.meal.mealMain.view;
+package com.leet.leet.screen.meal.screens.mealMain.view;
 
 import android.view.LayoutInflater;
 import android.view.View;
