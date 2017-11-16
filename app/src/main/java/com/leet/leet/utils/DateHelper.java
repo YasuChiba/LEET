@@ -43,6 +43,10 @@ public class DateHelper {
         return dt.toLocalDate();
     }
 
+    public static LocalDate getFutureDateOfTheDate(LocalDate date, int plusDays) {
+        return date.plusDays(plusDays);
+    }
+
     public static Enums.Week getWeekByString(String dayStr) {
         DateTime dt = DateTimeFormat.forPattern(DATE_FORMAT).parseDateTime(dayStr);
         return Enums.Week.create(dt.getDayOfWeek());

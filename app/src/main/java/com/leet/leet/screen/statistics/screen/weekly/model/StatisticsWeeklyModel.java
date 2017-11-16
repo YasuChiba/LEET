@@ -8,6 +8,7 @@ import com.leet.leet.utils.database.entities.menu.MenuEntity;
 import org.joda.time.LocalDate;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 
 /**
@@ -16,37 +17,85 @@ import java.util.HashMap;
 
 public class StatisticsWeeklyModel {
 
+    private ArrayList<String> weekList = new ArrayList<String>();
+    private ArrayList<Float> priceList = new ArrayList<Float>();
+    private ArrayList<Float> calorieList = new ArrayList<Float>();
+    private ArrayList<Float> proteinList = new ArrayList<Float>();
+    private ArrayList<Float> fatList = new ArrayList<Float>();
+    private ArrayList<Float> carbsList = new ArrayList<Float>();
+
+
     public void setDataTest() {
         MenuEntity ent = new MenuEntity();
-        ent.setName("TEST1");
-        ent.setPrice(50);
+        ent.setName("TTasdsda0");
+        ent.setPrice(200);
         FirebaseDBUserDataHelper.setStatisticsData(DateHelper.getCurrentDate(),ent);
     }
 
-    public void getStatisticsData(LocalDate startDate,
-                                  LocalDate endDate,
-                                  final FirebaseDBCallaback<HashMap<String,ArrayList>> callback) {
+    public void getStatisticsData(final LocalDate startDate,
+                                  final LocalDate endDate,
+                                  final FirebaseDBCallaback<Boolean> callback) {
 
-        FirebaseDBUserDataHelper.getStatisticsData(startDate, endDate,
-                new FirebaseDBCallaback<HashMap<String, ArrayList>>() {
-                    @Override
-                    public void getData(HashMap<String, ArrayList> data) {
+        FirebaseDBUserDataHelper.getStatisticsData(startDate, endDate, new FirebaseDBCallaback<HashMap<String, ArrayList<MenuEntity>>>() {
+            @Override
+            public void getData(HashMap<String, ArrayList<MenuEntity>> data) {
 
+                ArrayList<String> weekL = new ArrayList<String>();
+                ArrayList<Float> priceL = new ArrayList<Float>();
+                ArrayList<Float> calorieL = new ArrayList<Float>();
+                ArrayList<Float> proteinL = new ArrayList<Float>();
+                ArrayList<Float> fatL = new ArrayList<Float>();
+                ArrayList<Float> carbsL = new ArrayList<Float>();
 
+                LocalDate date = startDate;
+                LocalDate end = DateHelper.getFutureDateOfTheDate(endDate,1);
 
+                while(date.compareTo(end) != 0) {
+                    float price = 0;
+                    float calorie = 0;
+                    float protein = 0;
+                    float fat = 0;
+                    float carbs = 0;
 
-                        callback.getData(data);
+                    if(data.get(DateHelper.getStringByDate(date)) != null) {
+                        for(MenuEntity tmp : data.get(DateHelper.getStringByDate(date))) {
+                            price += tmp.getPrice();
+                            if(tmp.getNutritions() != null) {
+                                calorie += tmp.getNutritions().getCalories();
+                                protein += tmp.getNutritions().getProtein();
+                                fat += tmp.getNutritions().getTotalFat();
+                                carbs = tmp.getNutritions().getCarb();
+                            }
+                        }
                     }
-                });
+                    priceL.add(price);
+                    calorieL.add(calorie);
+                    proteinL.add(protein);
+                    fatL.add(fat);
+                    carbsL.add(carbs);
+                    weekL.add(DateHelper.getWeekByString(DateHelper.getStringByDate(date)).getString());
+                    date = DateHelper.getFutureDateOfTheDate(date,1);
+                }
+
+                priceList = priceL;
+                calorieList = calorieL;
+                proteinList = proteinL;
+                fatList = fatL;
+                carbsList = carbsL;
+                weekList = weekL;
+
+                callback.getData(true);
+            }
+        });
     }
 
-    public void getDateTest() {
-        FirebaseDBUserDataHelper.getStatisticsData(DateHelper.getCurrentDate(), DateHelper.getCurrentDate(),
-                new FirebaseDBCallaback<HashMap<String, ArrayList>>() {
-                    @Override
-                    public void getData(HashMap<String, ArrayList> data) {
-                        System.out.println(data);
-                    }
-                });
+    public ArrayList<String> getWeekList() {
+        return weekList;
     }
+
+    public ArrayList<Float> getPriceList() {
+        return priceList;
+    }
+
+
 }

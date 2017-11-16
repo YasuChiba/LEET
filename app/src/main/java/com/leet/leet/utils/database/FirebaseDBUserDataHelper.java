@@ -1,5 +1,7 @@
 package com.leet.leet.utils.database;
 
+import android.view.Menu;
+
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -88,7 +90,7 @@ public class FirebaseDBUserDataHelper {
     //hash map's key is string of date.
     public static void getStatisticsData(LocalDate startDate,
                                          LocalDate endDate,
-                                         final FirebaseDBCallaback<HashMap<String,ArrayList>> callback) {
+                                         final FirebaseDBCallaback<HashMap<String,ArrayList<MenuEntity>>> callback) {
         String start = DateHelper.getStringByDate(startDate);
         String end = DateHelper.getStringByDate(endDate);
 
@@ -101,7 +103,7 @@ public class FirebaseDBUserDataHelper {
                 .addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(DataSnapshot dataSnapshot) {
-                        HashMap<String,ArrayList> byDate = new HashMap<String,ArrayList>();
+                        HashMap<String,ArrayList<MenuEntity>> byDate = new HashMap<String,ArrayList<MenuEntity>>();
 
                         for(DataSnapshot dateSnap :dataSnapshot.getChildren()){
                             ArrayList<MenuEntity> menus = new ArrayList<>();
