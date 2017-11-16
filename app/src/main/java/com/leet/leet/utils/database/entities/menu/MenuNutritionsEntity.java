@@ -24,8 +24,23 @@ public class MenuNutritionsEntity {
     private List<String> allergens;
 
 
-    public MenuNutritionsEntity(){
+    public MenuNutritionsEntity(){} //default constructor
 
+    public MenuNutritionsEntity(float _cholesterol, float _fiber, float _protein, float sat_Fat,
+                                float _sodium, float _sugar, float _carbs, float _totalFat, float _cal,
+                                String _servingSize, List<String> _allergens){
+
+        this.cholesterol = _cholesterol;
+        this.dietaryFiber = _fiber;
+        this. protein = _protein;
+        this.satFat = sat_Fat;
+        this.sodium = _sodium;
+        this.sugars = _sugar;
+        this.carb = _carbs;
+        this.totalFat = _totalFat;
+        this.calories = _cal;
+        this.servingSize = _servingSize;
+        this.allergens = _allergens;
     }
 
     public float getCholesterol() {
