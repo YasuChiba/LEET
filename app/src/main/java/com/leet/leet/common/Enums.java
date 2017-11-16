@@ -128,4 +128,16 @@ public class Enums {
             return "";
         }
     }
+
+
+    public enum GraphElements {
+
+        Calorie,
+        Price,
+        Protein,
+        Fat,
+        Carb;
+
+    }
+
 }

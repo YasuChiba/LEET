@@ -97,5 +97,20 @@ public class StatisticsWeeklyModel {
         return priceList;
     }
 
+    public ArrayList<Float> getCalorieList() {
+        return calorieList;
+    }
+
+    public ArrayList<Float> getProteinList() {
+        return proteinList;
+    }
+
+    public ArrayList<Float> getFatList() {
+        return fatList;
+    }
+
+    public ArrayList<Float> getCarbsList() {
+        return carbsList;
+    }
 
 }
