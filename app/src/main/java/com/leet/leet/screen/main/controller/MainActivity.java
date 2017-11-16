@@ -8,16 +8,11 @@ import android.view.LayoutInflater;
 import com.leet.leet.screen.account.controller.AccountFragment;
 import com.leet.leet.screen.main.model.MainModel;
 import com.leet.leet.screen.main.view.MainView;
-<<<<<<< HEAD
-import com.leet.leet.screen.meal.MealViewInterface;
-import com.leet.leet.screen.meal.screen.meal_fragment.controller.MealFragment;
-=======
+import com.leet.leet.screen.meal.controller.MealFragment;
 import com.leet.leet.screen.statistics.controller.StatisticsFragment;
-import com.leet.leet.screen.statistics.screen.daily.controller.StatisticsDailyFragment;
->>>>>>> ae42e1f135f660c01a2017597b82be0e183f774e
 
 
-public class MainActivity extends AppCompatActivity implements MealViewInterface {
+public class MainActivity extends AppCompatActivity {
 
     private MainView mView;
     private MainModel mModel;
@@ -32,26 +27,11 @@ public class MainActivity extends AppCompatActivity implements MealViewInterface
         mView = new MainView(LayoutInflater.from(this), null);
 
 
-<<<<<<< HEAD
-        AccountFragment accountFragment = new AccountFragment();
         MealFragment mealFragment = new MealFragment();
 
-
-        //accountFragment.setupFragment(this);
-       // MenuSearchFragment menuSearchFragment = new MenuSearchFragment();
-        fragments = new Fragment[1];
-       // fragments[0] = menuSearchFragment;
+        fragments = new Fragment[2];
         fragments[0] = mealFragment;
-
-=======
-       // AccountFragment accountFragment = new AccountFragment();
-     //   accountFragment.setupFragment(this);
-       // MenuSearchFragment menuSearchFragment = new MenuSearchFragment();
-        fragments = new Fragment[1];
-       // fragments[0] = menuSearchFragment;
-      //  fragments[0] = accountFragment;
-        fragments[0] = new StatisticsFragment();
->>>>>>> ae42e1f135f660c01a2017597b82be0e183f774e
+        fragments[1] = new StatisticsFragment();
 
         mView.setupTabs(fragments,mModel.tabTitles,getSupportFragmentManager());
 
@@ -68,9 +48,5 @@ public class MainActivity extends AppCompatActivity implements MealViewInterface
 
     }
     */
-    @Override
-    public void goToMenuPage(){
-        ///////////code this part
-    }
 
 }

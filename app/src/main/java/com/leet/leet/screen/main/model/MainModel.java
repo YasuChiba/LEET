@@ -6,9 +6,6 @@ package com.leet.leet.screen.main.model;
 
 public class MainModel {
 
-<<<<<<< HEAD
-    public String[] tabTitles = {"meal"};
-=======
-    public String[] tabTitles = {"statistics"};
->>>>>>> ae42e1f135f660c01a2017597b82be0e183f774e
+    public String[] tabTitles = {"meal","statistics"};
+
 }

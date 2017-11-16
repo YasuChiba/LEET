@@ -6,6 +6,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.leet.leet.R;
+import com.leet.leet.screen.meal.screens.mealMain.controller.MealMainFragment;
 import com.leet.leet.screen.meal.view.MealView;
 
 /**
@@ -23,9 +25,13 @@ public class MealFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-
         mView = new MealView(inflater, container);
 
+        MealMainFragment fragment = new MealMainFragment();
+        getFragmentManager()
+                .beginTransaction()
+                .replace(R.id.meal_base_container, fragment)
+                .commit();
 
         return mView.getRootView();
     }
