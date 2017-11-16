@@ -11,8 +11,14 @@ public class MenuEntity {
     private float price;
     private MenuTagsEntity tags;
 
+    public MenuEntity(){} //default constructor
 
-    public MenuEntity(){}
+    public MenuEntity(String name, MenuNutritionsEntity nutritions, float price, MenuTagsEntity tags){
+        this.name = name;
+        this.nutritions = nutritions;
+        this.price = price;
+        this.tags = tags;
+    }
 
     public MenuNutritionsEntity getNutritions() {
         return nutritions;

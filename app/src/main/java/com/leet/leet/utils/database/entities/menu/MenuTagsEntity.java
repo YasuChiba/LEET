@@ -14,7 +14,12 @@ public class MenuTagsEntity {
     private Boolean vegetarian;
 
     public MenuTagsEntity() {
+    }
 
+    public MenuTagsEntity(Boolean glutenFriendly, Boolean vegan, Boolean vegetarian){
+        this.glutenFriendly = glutenFriendly;
+        this.vegan = vegan;
+        this.vegetarian = vegetarian;
     }
 
     public Boolean getGlutenFriendly() {
