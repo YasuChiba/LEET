@@ -1,20 +1,18 @@
 package com.leet.leet.screen.main.controller;
 
-import android.content.Intent;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 
-import com.leet.leet.screen.account.AccountInterface;
 import com.leet.leet.screen.account.controller.AccountFragment;
 import com.leet.leet.screen.main.model.MainModel;
 import com.leet.leet.screen.main.view.MainView;
-import com.leet.leet.screen.meal.model.MealModel;
-import com.leet.leet.screen.meal.controller.MealFragment;
+import com.leet.leet.screen.meal.MealViewInterface;
+import com.leet.leet.screen.meal.screen.meal_fragment.controller.MealFragment;
 
 
-public class MainActivity extends AppCompatActivity implements AccountInterface {
+public class MainActivity extends AppCompatActivity implements MealViewInterface {
 
     private MainView mView;
     private MainModel mModel;
@@ -31,13 +29,14 @@ public class MainActivity extends AppCompatActivity implements AccountInterface 
 
         AccountFragment accountFragment = new AccountFragment();
         MealFragment mealFragment = new MealFragment();
-        MealFragment.setupFragement(new )
 
-        accountFragment.setupFragment(this);
+
+        //accountFragment.setupFragment(this);
        // MenuSearchFragment menuSearchFragment = new MenuSearchFragment();
         fragments = new Fragment[1];
        // fragments[0] = menuSearchFragment;
-        fragments[0] = accountFragment;
+        fragments[0] = mealFragment;
+
 
         mView.setupTabs(fragments,mModel.tabTitles,getSupportFragmentManager());
 
@@ -45,15 +44,18 @@ public class MainActivity extends AppCompatActivity implements AccountInterface 
 
     }
 
-
+/*
     @Override
     public void backToLogin() {
-/*
         Intent intent = new Intent(this, LoginActivity.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         startActivity(intent);
-        */
 
+    }
+    */
+    @Override
+    public void goToMenuPage(){
+        ///////////code this part
     }
 
 }

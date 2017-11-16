@@ -17,7 +17,9 @@ import com.leet.leet.screen.start.view.StartView;
 import com.leet.leet.utils.authentication.FirebaseAuthCallback;
 import com.leet.leet.utils.authentication.FirebaseAuthHelper;
 
-public class StartActivity extends AppCompatActivity {
+public class
+
+StartActivity extends AppCompatActivity {
 
     private StartView mView;
     private StartModel mModel;
