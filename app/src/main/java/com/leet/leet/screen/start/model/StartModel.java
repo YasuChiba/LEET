@@ -51,7 +51,6 @@ public class StartModel {
         ent.setGender(Enums.Gender.Male.getString());
         ent.setName("tes");
         ent.setAge(20);
-        ent.setHeight(10);
         ent.setWeight(10);
         ent.setUserGoals(null);
 

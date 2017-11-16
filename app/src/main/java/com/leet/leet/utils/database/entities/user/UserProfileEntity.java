@@ -13,9 +13,12 @@ public class UserProfileEntity {
 
     private String name;
     private String gender;
+    private String email;
     private int age;
     private float weight;
-    private float height;
+    //private float height;
+    private float feet;
+    private float inches;
     private List<String> allergies;
 
     private UserGoalEntity goals;
@@ -25,12 +28,13 @@ public class UserProfileEntity {
 
     }
 
-    public UserProfileEntity(String name, String gender, int age, float weight, float height, List<String> allergies) {
+    public UserProfileEntity(String name, String gender, int age, float weight, float feet, float inches, List<String> allergies) {
         this.name = name;
         this.gender = gender;
         this.age = age;
         this.weight = weight;
-        this.height = height;
+        this.feet = feet;
+        this.inches = inches;
         this.allergies = allergies;
     }
 
@@ -40,6 +44,14 @@ public class UserProfileEntity {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public String getGender() {
@@ -65,11 +77,18 @@ public class UserProfileEntity {
         this.weight = weight;
     }
 
-    public float getHeight() {
-        return height;
+    public float getFeet() {
+        return feet;
     }
-    public void setHeight(float height) {
-        this.height = height;
+    public void setFeet(float feet) {
+        this.feet = feet;
+    }
+
+    public float getInches() {
+        return inches;
+    }
+    public void setInches(float inches) {
+        this.inches = inches;
     }
 
 

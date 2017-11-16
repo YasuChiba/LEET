@@ -9,7 +9,38 @@
     <string name="Email">Email</string>
     <string name="Name">Name</string>
     <string name="Height">Height</string>
-    <string name="Weight">Weight</string>
+    <string name="Weight">Weight(lb)</string>
+    <string name="Feet">Feet</string>
+    <string name="Inches">Inches</string>
+    <string name="Recommended">Recommended</string>
+    <string name="Save">Save</string>
+
+
+    <string-array name="feet_array">
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+    </string-array>
+
+    <string-array name="inches_array">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+        <item>10</item>
+        <item>11</item>
+
+    </string-array>
 
 
 

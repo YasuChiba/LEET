@@ -7,4 +7,17 @@ import com.leet.leet.common.ViewBaseInterface;
  */
 
 public interface ProfileViewInterface extends ViewBaseInterface {
+    interface ProfileViewListener{
+        void save( String price,
+                String calorie,
+                String carbs,
+                String protein,
+                String fat,
+                String feet,
+                String inches,
+                String weight,
+                String email,
+                String name);
+    }
+    void setListener(ProfileViewListener listener);
 }

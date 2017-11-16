@@ -170,7 +170,8 @@
                     android:ems="10"
                     android:gravity="center_horizontal"
                     android:layout_gravity="center"
-                    android:inputType="number" />
+                    android:text=""
+                    />
 
             </LinearLayout>
 
@@ -198,12 +199,14 @@
                     android:ems="10"
                     android:gravity="center_horizontal"
                     android:layout_gravity="center"
-                    android:inputType="number" />
+                    android:text=""
+                    android:inputType="text" />
 
             </LinearLayout>
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:gravity="center"
                 android:layout_weight="1"
                 android:orientation="vertical">
 
@@ -217,13 +220,70 @@
                     android:textColor="@color/colorPrimaryDark"
                     android:textSize="25dp" />
 
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
+
+                    <Spinner
+                        android:id="@+id/Feet"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:entries="@array/feet_array"></Spinner>
+
+
+                    <TextView
+                        android:id="@+id/textView8"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight=".25"
+                        android:textSize="20dp"
+                        android:text="@string/Feet"
+                    />
+
+                    <Spinner
+                        android:id="@+id/Inch"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:entries="@array/inches_array"></Spinner>
+
+                    <TextView
+                        android:id="@+id/textView12"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight=".25"
+                        android:textSize="20dp"
+                        android:text="@string/Inches" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/textView11"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="@string/Weight"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="25dp" />
+
                 <EditText
-                    android:id="@+id/Height"
+                    android:id="@+id/Weight"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:ems="10"
                     android:gravity="center_horizontal"
                     android:layout_gravity="center"
+                    android:text="0"
                     android:inputType="number" />
 
             </LinearLayout>
@@ -240,7 +300,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_weight="1"
-            android:text="Save" />
+            android:text="@string/Save" />
 
         <Button
             android:id="@+id/Recommended"
@@ -248,7 +308,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_weight="1"
-            android:text="Recommended" />
+            android:text="@string/Recommended" />
     </LinearLayout>
         </LinearLayout>
 
