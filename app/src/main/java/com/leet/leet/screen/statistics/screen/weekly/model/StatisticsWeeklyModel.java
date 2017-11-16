@@ -1,7 +1,9 @@
 package com.leet.leet.screen.statistics.screen.weekly.model;
 
+import com.leet.leet.common.Enums;
 import com.leet.leet.utils.DateHelper;
 import com.leet.leet.utils.database.FirebaseDBCallaback;
+import com.leet.leet.utils.database.FirebaseDBMenuDataHelper;
 import com.leet.leet.utils.database.FirebaseDBUserDataHelper;
 import com.leet.leet.utils.database.entities.menu.MenuEntity;
 
@@ -10,6 +12,7 @@ import org.joda.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.Random;
 
 /**
  * Created by YasuhiraChiba on 2017/11/07.
@@ -26,10 +29,23 @@ public class StatisticsWeeklyModel {
 
 
     public void setDataTest() {
+        FirebaseDBMenuDataHelper.getMenuData(Enums.RestaurantName.CafeVentanas, DateHelper.getCurrentDate(), Enums.MealTime.Breakfast,
+                new FirebaseDBCallaback<ArrayList<MenuEntity>>() {
+                    @Override
+                    public void getData(ArrayList<MenuEntity> data) {
+                        int ran = (int)(Math.random()*data.size());
+                        FirebaseDBUserDataHelper.setStatisticsData(DateHelper.getPastDate(3),data.get(ran));
+
+
+
+                    }
+                });
+        /*
         MenuEntity ent = new MenuEntity();
         ent.setName("TTasdsda0");
         ent.setPrice(200);
         FirebaseDBUserDataHelper.setStatisticsData(DateHelper.getCurrentDate(),ent);
+        */
     }
 
     public void getStatisticsData(final LocalDate startDate,
