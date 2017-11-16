@@ -41,7 +41,8 @@
         <EditText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/etEmail"/>
+            android:inputType="textEmailAddress"
+            android:id="@+id/etEmail" />
 
         <TextView
             android:layout_width="fill_parent"

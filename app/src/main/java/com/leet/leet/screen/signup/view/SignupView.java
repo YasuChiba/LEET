@@ -34,12 +34,21 @@ public class SignupView implements SignupViewInterface, View.OnClickListener {
     }
 
     private void initialize() {
+        // edit text
         email = rootView.findViewById(R.id.etEmail);
         password = rootView.findViewById(R.id.etPassword);
         confirmPassword = rootView.findViewById(R.id.etConfirmPassword);
 
+        email.setHint("leet@gmail.com");
+        password.setHint("At least 6 characters");
+        confirmPassword.setHint("Confirm password");
+
+        // button
         signup = rootView.findViewById(R.id.btSignup);
         back = rootView.findViewById(R.id.btBack);
+
+        signup.setOnClickListener(this);
+        back.setOnClickListener(this);
     }
 
 
@@ -57,10 +66,6 @@ public class SignupView implements SignupViewInterface, View.OnClickListener {
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.btSignup:
-                if (!mListener.checkPassword(password.getText().toString(), confirmPassword.getText().toString())) {
-                    mListener.dialog(view);
-                    break;
-                }
                 mListener.signup(email.getText().toString(), password.getText().toString(), confirmPassword.getText().toString());
                 break;
             case R.id.btBack:

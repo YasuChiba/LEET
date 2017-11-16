@@ -2,39 +2,42 @@ package com.leet.leet.screen.login.controller;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.LayoutInflater;
-import android.view.View;
-import android.widget.Button;
-import android.widget.EditText;
 import android.widget.Toast;
 
-import com.leet.leet.R;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.leet.leet.screen.login.LoginInterface;
 import com.leet.leet.screen.login.model.LoginModel;
 import com.leet.leet.screen.login.view.LoginView;
 import com.leet.leet.screen.login.view.LoginViewInterface;
+import com.leet.leet.screen.main.controller.MainActivity;
 import com.leet.leet.screen.signup.controller.SignupActivity;
+import com.leet.leet.utils.DialogManager;
+import com.leet.leet.utils.ProgressDialogManager;
+import com.leet.leet.utils.authentication.FirebaseAuthManager;
 
 
 /**
  * Created by xinhezhang on 11/11/17.
  */
 
-public class LoginActivity extends AppCompatActivity implements LoginViewInterface.LoginViewListener, LoginInterface {
+public class LoginActivity extends AppCompatActivity implements LoginViewInterface.LoginViewListener, LoginInterface, OnCompleteListener {
 
     private LoginView mView;
     private LoginModel mModel;
     private LoginInterface mListener;
 
     // minimum length of valid password
-    private final int MIN_LENGTH = 6;
+    private static final int MIN_LENGTH = 6;
 
     // message
-    String WRONG_EMAIL = "Wrong email";
-    String EMPTY_EMAIL = "Email cannot be empty";
-    String SHORT_PASSWORD = "Password must be at least 6 digits";
+    final String WRONG_EMAIL = "Wrong email";
+    final String EMPTY_EMAIL = "Email cannot be empty";
+    final String SHORT_PASSWORD = "Password must be at least 6 digits";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,37 +47,17 @@ public class LoginActivity extends AppCompatActivity implements LoginViewInterfa
 
         setContentView(mView.getRootView());
         mView.setListener(this);
-
-        // login
-        Button login = (Button) findViewById(R.id.btLogin);
-        final EditText email = (EditText) findViewById(R.id.etEmail);
-        email.setHint("leet@gmail.com");
-        final EditText password = (EditText) findViewById(R.id.etPassword);
-        password.setHint("At least 6 digits");
-        login.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v){
-                login(email.getText().toString(), password.getText().toString());
-            }
-        });
-
-        // go to signup
-        Button signup = (Button) findViewById(R.id.btGotoSignup);
-        signup.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v){
-                gotoSignup();
-            }
-        });
     }
 
     /**
      * Check if user input email is valid or not
      * check null, empty, match email pattern
      *
-     * @param email
+     * @param email user input email
      * @return true/false
      */
     @Override
-    public boolean checkEmail(String email) {
+    public boolean checkEmail(final String email) {
         Log.d("LOGIN", "checkEmail===============================================================");
         // corner cases
         if (email == null || email.equals("")) {
@@ -92,11 +75,11 @@ public class LoginActivity extends AppCompatActivity implements LoginViewInterfa
      * Check if user input password is valid or not
      * check null, at least 6 digits
      *
-     * @param password
+     * @param password user input password
      * @return true/false
      */
     @Override
-    public boolean checkPassword(String password) {
+    public boolean checkPassword(final String password) {
         Log.d("LOGIN", "checkPassword===============================================================");
         // corner cases
         if (password == null || password.length() < MIN_LENGTH) {
@@ -108,17 +91,21 @@ public class LoginActivity extends AppCompatActivity implements LoginViewInterfa
 
     /**
      * user login email and password, send to firebase
-     * @param email
-     * @param password
+     * @param email user input email
+     * @param password user input password
      */
     @Override
-    public void login(String email, String password) {
+    public void login(final String email, final String password) {
         Log.d("LOGIN", "login===============================================================");
         if (checkEmail(email) && checkPassword(password)) {
-            // TODO
             Toast.makeText(this, "200", Toast.LENGTH_SHORT).show();
+
+            // connect to firebase, from LEET-sample
+            ProgressDialogManager.showProgressDialog(this);
+            FirebaseAuthManager.signIn(email, password, this);
+        } else {
+            Toast.makeText(this, "404", Toast.LENGTH_SHORT).show();
         }
-        Toast.makeText(this, "404", Toast.LENGTH_SHORT).show();
     }
 
     /**
@@ -126,7 +113,11 @@ public class LoginActivity extends AppCompatActivity implements LoginViewInterfa
      */
     @Override
     public void guestLogin() {
-        // TODO
+        Log.d("LOGIN", "guestLogin===============================================================");
+        // connect to firebase
+        ProgressDialogManager.showProgressDialog(this);
+        FirebaseAuthManager.signInAnonymously(this);
+        Toast.makeText(this, "200", Toast.LENGTH_SHORT).show();
     }
 
     /**
@@ -139,4 +130,25 @@ public class LoginActivity extends AppCompatActivity implements LoginViewInterfa
         startActivity(intent);
     }
 
+    /**
+     * onComplete Listener, from LEET-sample
+     *
+     * @param task
+     */
+    @Override
+    public void onComplete(@NonNull Task task) {
+        ProgressDialogManager.hideProgressDialog();
+        if (!task.isSuccessful()){
+            DialogManager.simpleDialog(this, "FAIL", task.getException().getMessage(), new DialogManager.DialogTappListner() {
+                @Override
+                public void okButtonTapped() {
+                    // dismiss
+                }
+            });
+        } else {
+            Intent intent = new Intent(this, MainActivity.class);
+            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+            startActivity(intent);
+        }
+    }
 }

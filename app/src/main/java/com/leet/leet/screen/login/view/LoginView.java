@@ -35,12 +35,21 @@ public class LoginView implements LoginViewInterface, View.OnClickListener  {
     }
 
     private void initialize() {
+        // edit text
         email = rootView.findViewById(R.id.etEmail);
         password = rootView.findViewById(R.id.etPassword);
 
+        email.setHint("leet@gmail.com");
+        password.setHint("At least 6 characters");
+
+        // button
         login = rootView.findViewById(R.id.btLogin);
         guest = rootView.findViewById(R.id.btGuest);
         signup = rootView.findViewById(R.id.btGotoSignup);
+
+        login.setOnClickListener(this);
+        guest.setOnClickListener(this);
+        signup.setOnClickListener(this);
     }
 
     @Override

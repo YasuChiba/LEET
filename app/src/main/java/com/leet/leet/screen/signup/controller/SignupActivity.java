@@ -1,42 +1,57 @@
 package com.leet.leet.screen.signup.controller;
 
-import android.app.AlertDialog;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.LayoutInflater;
-import android.view.View;
-import android.widget.Button;
-import android.widget.EditText;
 import android.widget.Toast;
 
-import com.leet.leet.R;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.leet.leet.screen.login.controller.LoginActivity;
+import com.leet.leet.screen.main.controller.MainActivity;
 import com.leet.leet.screen.signup.SignupInterface;
 import com.leet.leet.screen.signup.model.SignupModel;
 import com.leet.leet.screen.signup.view.SignupView;
 import com.leet.leet.screen.signup.view.SignupViewInterface;
+import com.leet.leet.utils.DialogManager;
+import com.leet.leet.utils.ProgressDialogManager;
+import com.leet.leet.utils.authentication.FirebaseAuthManager;
+
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  * Created by xinhezhang on 11/11/17.
  */
 
-public class SignupActivity extends AppCompatActivity implements SignupViewInterface.SignupViewListener, SignupInterface {
+public class SignupActivity extends AppCompatActivity implements SignupViewInterface.SignupViewListener, SignupInterface, OnCompleteListener {
 
     private SignupView mView;
     private SignupModel mModel;
     private SignupInterface mListener;
 
     // minimum length of valid password
-    private final int MIN_LENGTH = 6;
+    private static final int MIN_LENGTH = 6;
+
+    // detectable minimum pattern length
+    private static final int PATTERN_LENGTH = 3;
 
     // message
-    String WRONG_EMAIL = "Wrong email";
-    String EMPTY_EMAIL = "Email cannot be empty";
-    String SHORT_PASSWORD = "Password must be at least 6 digits";
-    String NOT_MATCH_PASSWORD = "Password not match";
+    final String WRONG_EMAIL = "Wrong email address";
+    final String EMPTY_EMAIL = "Email cannot be empty";
+    final String SHORT_PASSWORD = "Password must contain minimum " + MIN_LENGTH + " characters";
+    final String NOT_MATCH_PASSWORD = "Password not match";
+    final String EMPTY_PASSWORD = "Password cannot be empty";
+    final String NEED_DIGIT = "You need at least one digit";
+    final String NEED_LETTER = "You need at least one letter";
+    final String NEED_LOWERCASE = "You need at least one lowercase letter";
+    final String NEED_UPPERCASE = "You need at least one uppercase letter";
+    final String NEED_SPECIAL = "You need at least one special character";
+    final String CONTAINS = "Password cannot be part of your email";
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,31 +61,11 @@ public class SignupActivity extends AppCompatActivity implements SignupViewInter
 
         setContentView(mView.getRootView());
         mView.setListener(this);
-
-
-        // signup
-        Button singup = (Button) findViewById(R.id.btSignup);
-        final EditText email = (EditText) findViewById(R.id.etEmail);
-        email.setHint("leet@gmail.com");
-        final EditText password = (EditText) findViewById(R.id.etPassword);
-        password.setHint("At least 6 digits");
-        final EditText confirmPassword = (EditText) findViewById(R.id.etConfirmPassword);
-        confirmPassword.setHint("Confirm password");
-        singup.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v){
-                signup(email.getText().toString(), password.getText().toString(), confirmPassword.getText().toString());
-            }
-        });
-
-        // go to login page
-        Button back = (Button) findViewById(R.id.btBack);
-        back.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v){
-                gotoLogin();
-            }
-        });
     }
 
+    /**
+     * go to login page
+     */
     @Override
     public void gotoLogin() {
         Log.d("SIGNUP", "gotoLogin===============================================================");
@@ -79,17 +74,48 @@ public class SignupActivity extends AppCompatActivity implements SignupViewInter
     }
 
     /**
-     * Check if user input email is valid or not
-     * check null, empty, match email pattern
+     * user login email and password, send to firebase
      *
-     * @param email
+     * @param email user input email
+     * @param password user input password
+     */
+    @Override
+    public void signup(final String email, final String password, final String confirmPassword) {
+        Log.d("SIGNUP", "signup===============================================================");
+        if (checkAll(email, password, confirmPassword)) {
+            Toast.makeText(this, "200", Toast.LENGTH_SHORT).show();
+
+            // connect to firebase, from LEET-sample
+            ProgressDialogManager.showProgressDialog(this);
+            FirebaseAuthManager.signUpNewUser(email, password, this);
+        } else {
+            Toast.makeText(this, "404", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    /**
+     * Check user input email, password, confirmed password is valid or not
+     *
+     * @param email user input email
+     * @param password user input password
+     * @param confirmPassword user confirmed password
      * @return true/false
      */
     @Override
-    public boolean checkEmail(String email) {
-        Log.d("SIGNUP", "checkEmail===============================================================");
+    public boolean checkAll(final String email, final String password, final String confirmPassword) {
+        return checkEmail(email) && checkPassword(password, confirmPassword) && checkPattern(password) && checkContains(password, email);
+    }
+
+    /**
+     * Check if user input email is valid or not
+     * check null, empty, match email pattern
+     *
+     * @param email user input email
+     * @return true/false
+     */
+    private boolean checkEmail(final String email) {
         // corner cases
-        if (email == null || email.equals("")) {
+        if (email == null || email.length() == 0) {
             Toast.makeText(this, EMPTY_EMAIL, Toast.LENGTH_SHORT).show();
             return false;
         }
@@ -104,56 +130,103 @@ public class SignupActivity extends AppCompatActivity implements SignupViewInter
      * Check if user input password is valid or not
      * check null, at least 6 digits (or preset value)
      *
-     * @param password
+     * @param password user input password
+     * @param confirmPassword user confirmed password
      * @return true/false
      */
-    @Override
-    public boolean checkPassword(String password, String confirmPassword) {
-        Log.d("SIGNUP", "checkPassword===============================================================");
+    private boolean checkPassword(final String password, final String confirmPassword) {
         // corner cases
-        if (password == null || confirmPassword == null || !password.equals(confirmPassword)) {
-            Toast.makeText(this, NOT_MATCH_PASSWORD, Toast.LENGTH_SHORT).show();
+        if (password == null || confirmPassword == null) {
+            Toast.makeText(this, EMPTY_PASSWORD, Toast.LENGTH_SHORT).show();
             return false;
         }
+        // check password length
         if (password.length() < MIN_LENGTH) {
             Toast.makeText(this, SHORT_PASSWORD, Toast.LENGTH_SHORT).show();
+            return false;
+        }
+        // check password equals confirmed password
+        if (!password.equals(confirmPassword)) {
+            Toast.makeText(this, NOT_MATCH_PASSWORD, Toast.LENGTH_SHORT).show();
             return false;
         }
         return true;
     }
 
     /**
-     * user login email and password, send to firebase
-     * @param email
-     * @param password
+     * Check password pattern
+     * at least one digit, lowercase, uppercase, special characters, part of email
+     *
+     * @param password user input password
+     * @return true/false
      */
-    @Override
-    public void signup(String email, String password, String confirmPassword) {
-        Log.d("SIGNUP", "signup===============================================================");
-        if (checkEmail(email) && checkPassword(password, confirmPassword)) {
-            // TODO
-            Toast.makeText(this, "200", Toast.LENGTH_SHORT).show();
+    private boolean checkPattern(final String password) {
+        // check digit
+        if (!password.matches(".*[0-9].*")){
+            Toast.makeText(this, NEED_DIGIT, Toast.LENGTH_SHORT).show();
+            return false;
         }
-        Toast.makeText(this, "400", Toast.LENGTH_SHORT).show();
+        // check letter
+        if (!password.matches(".*[a-zA-Z].*")) {
+            Toast.makeText(this, NEED_LETTER, Toast.LENGTH_SHORT).show();
+            return false;
+        }
+        /*
+        // check lowercase letter
+        if (!password.matches(".*[a-z].*")) {
+            Toast.makeText(this, NEED_LOWERCASE, Toast.LENGTH_SHORT).show();
+            return false;
+        }
+        // check uppercase letter
+        if (!password.matches(".*[A-Z].*")) {
+            Toast.makeText(this, NEED_UPPERCASE, Toast.LENGTH_SHORT).show();
+            return false;
+        }
+        // check special character
+        if (!password.matches(".*[!@#$%^&*+=?-].*")) {
+            Toast.makeText(this, NEED_SPECIAL, Toast.LENGTH_SHORT).show();
+            return false;
+        }
+        */
+        return true;
     }
 
+    /**
+     * check whether password is part of email for any 3 continue characters
+     *
+     * @param password user input password
+     * @param email user input email
+     * @return true/false
+     */
+    private boolean checkContains(String password, String email) {
+        for (int i = 0; i < email.length() - PATTERN_LENGTH; i++) {
+            if (password.contains(email.substring(i, i + PATTERN_LENGTH))) {
+                Toast.makeText(this, CONTAINS, Toast.LENGTH_SHORT).show();
+                return false;
+            }
+        }
+        return true;
+    }
 
     /**
-     * Display dialog message
-     * @param view
+     * onComplete Listener, from LEET-sample
+     *
+     * @param task
      */
     @Override
-    public void dialog(View view) {
-        AlertDialog alertDialog = new AlertDialog.Builder(view.getContext()).create();
-        alertDialog.setTitle("Error");
-        alertDialog.setMessage("Passwords not match");
-        alertDialog.setButton("OK",
-                new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int which) {
-                        //dismiss the dialog
-                    }
+    public void onComplete(@NonNull Task task) {
+        ProgressDialogManager.hideProgressDialog();
+        if (!task.isSuccessful()){
+            DialogManager.simpleDialog(this, "FAIL", task.getException().getMessage(), new DialogManager.DialogTappListner() {
+                @Override
+                public void okButtonTapped() {
+                    // dismiss
                 }
-        );
-        alertDialog.show();
+            });
+        } else {
+            Intent intent = new Intent(this, MainActivity.class);
+            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+            startActivity(intent);
+        }
     }
 }

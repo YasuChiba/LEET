@@ -41,6 +41,7 @@
         <EditText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:inputType="textEmailAddress"
             android:id="@+id/etEmail" />
 
         <TextView
@@ -65,6 +66,19 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="@string/pattern"
+            android:id="@+id/textview4"
+            android:layout_gravity="center_horizontal"
+            android:textSize="12sp"
+            android:textIsSelectable="true"
+            android:gravity="center"
+            android:textStyle="bold"
+            android:paddingBottom="20dp"/>
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
             android:text="@string/reenter"
             android:id="@+id/textview3"
             android:layout_gravity="center_horizontal"
@@ -78,6 +92,19 @@
             android:layout_height="wrap_content"
             android:inputType="textPassword"
             android:id="@+id/etConfirmPassword"/>
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="@string/match"
+            android:id="@+id/textview5"
+            android:layout_gravity="center_horizontal"
+            android:textSize="12sp"
+            android:textIsSelectable="true"
+            android:gravity="center"
+            android:textStyle="bold"
+            android:paddingBottom="20dp"/>
 
         <Button
             android:layout_width="fill_parent"
