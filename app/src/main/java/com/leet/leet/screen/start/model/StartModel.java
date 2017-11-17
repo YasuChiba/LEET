@@ -47,7 +47,6 @@ public class StartModel {
 
     public void setUserProfile() {
         UserProfileEntity ent = new UserProfileEntity();
-
         ent.setGender(Enums.Gender.Male.getString());
         ent.setName("tes");
         ent.setAge(20);
