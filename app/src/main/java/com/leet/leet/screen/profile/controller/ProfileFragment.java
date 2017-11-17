@@ -4,6 +4,9 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -24,6 +27,8 @@ public class ProfileFragment extends Fragment implements ProfileViewInterface.Pr
 
     private ProfileView mView;
     private ProfileModel mModel;
+    private Menu menu;
+    private boolean inProfile = false;
 
 
     @Override
@@ -33,12 +38,42 @@ public class ProfileFragment extends Fragment implements ProfileViewInterface.Pr
         mModel = new ProfileModel();
         mView = new ProfileView(inflater, container);
         mView.setListener(this);
+        setHasOptionsMenu(true);
         return mView.getRootView();
 
 
     }
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        Log.d("", "wroking");
+        inflater.inflate(R.menu.menu, menu);
+        this.menu = menu;
+        super.onCreateOptionsMenu(menu,inflater);
+    }
 
-
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle item selection
+        switch (item.getItemId()) {
+            case R.id.logout:
+                return true;
+            case R.id.edit:
+                updateMenuTitles();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
+    private void updateMenuTitles() {
+        MenuItem edit = menu.findItem(R.id.edit);
+        if (inProfile) {
+            edit.setTitle(R.string.editProfile);
+            inProfile = false;
+        } else {
+            edit.setTitle(R.string.editGoals);
+            inProfile = true;
+        }
+    }
     @Override
     public void save( String price,
                       String calorie,

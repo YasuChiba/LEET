@@ -35,7 +35,7 @@ public class ProfileView implements ProfileViewInterface, View.OnClickListener {
     private View mRootView;
 
     public ProfileView(LayoutInflater inflater, ViewGroup container) {
-        mRootView = inflater.inflate(R.layout.view_profile, container, false);
+        mRootView = inflater.inflate(R.layout.viewswitcher_test, container, false);
         initialize();
 
 
