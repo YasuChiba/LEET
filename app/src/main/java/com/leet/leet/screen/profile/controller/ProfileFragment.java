@@ -17,18 +17,23 @@ import com.leet.leet.screen.profile.view.ProfileViewInterface;
  * Created by YasuhiraChiba on 2017/11/05.
  */
 
-public class ProfileFragment extends Fragment {
+public class ProfileFragment extends Fragment implements ProfileViewInterface.ProfileViewListener{
 
     private ProfileViewInterface mView;
     private ProfileModel mModel;
+
     Button goals_edit, goals_save, acc_edit, acc_save, goals_to_acc;
     ViewSwitcher goals_to_acc_vs, acc_vs, goals_vs;
+
+
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
         mModel = new ProfileModel();
         mView = new ProfileView(inflater, container);
+
         mView.setUserInfoDefaults(mModel.getUserInfoData());
 
         // Set up profile page buttons
@@ -73,11 +78,27 @@ public class ProfileFragment extends Fragment {
             }
         });
 
+
+        mView.setListener(this);
+
         return mView.getRootView();
 
 
     }
 
 
+    @Override
+    public void save( String price,
+                      String calorie,
+                      String carbs,
+                      String protein,
+                      String fat,
+                      String feet,
+                      String inches,
+                      String weight,
+                      String email,
+                      String name) {
+        mModel.saveProfileData(price, calorie, carbs, protein, fat, feet, inches, weight, email, name);
 
+    }
 }

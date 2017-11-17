@@ -92,12 +92,52 @@ public class FirebaseDBUserDataHelper {
     }
 
     public static void setUserGoals(UserGoalEntity userGoals) {
-        Log.d("","");
+
 
         mDatabaseRef.child(FirebaseAuthHelper.getUserId())
                 .child(Enums.UserDataItem.UserProfile.getString())
                 .child(Enums.UserProfile.goals.getString())
                 .setValue(userGoals);
+    }
+
+    public static void setFeet(float feet) {
+
+        mDatabaseRef.child(FirebaseAuthHelper.getUserId())
+                .child(Enums.UserDataItem.UserProfile.getString())
+                .child(Enums.UserProfile.feet.getString())
+                .setValue(feet);
+    }
+    public static void setInches(float inches) {
+
+        mDatabaseRef.child(FirebaseAuthHelper.getUserId())
+                .child(Enums.UserDataItem.UserProfile.getString())
+                .child(Enums.UserProfile.inches.getString())
+                .setValue(inches);
+    }
+    public static void setWeight(float weight) {
+
+
+        mDatabaseRef.child(FirebaseAuthHelper.getUserId())
+                .child(Enums.UserDataItem.UserProfile.getString())
+                .child(Enums.UserProfile.weight.getString())
+                .setValue(weight);
+    }
+
+    public static void setEmail(String email) {
+
+
+        mDatabaseRef.child(FirebaseAuthHelper.getUserId())
+                .child(Enums.UserDataItem.UserProfile.getString())
+                .child(Enums.UserProfile.email.getString())
+                .setValue(email);
+    }
+    public static void setName(String name) {
+
+
+        mDatabaseRef.child(FirebaseAuthHelper.getUserId())
+                .child(Enums.UserDataItem.UserProfile.getString())
+                .child(Enums.UserProfile.name.getString())
+                .setValue(name);
     }
 
     public static void getCustomMenus(final FirebaseDBCallaback<ArrayList<MenuEntity>> callback) {
