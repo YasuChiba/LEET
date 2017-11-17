@@ -2,11 +2,14 @@ package com.leet.leet.screen.meal.controller;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.leet.leet.R;
+import com.leet.leet.screen.meal.screens.examplescreen.controller.ExampleFragment;
+import com.leet.leet.screen.meal.screens.mealMain.MealMainListner;
 import com.leet.leet.screen.meal.screens.mealMain.controller.MealMainFragment;
 import com.leet.leet.screen.meal.view.MealView;
 
@@ -15,9 +18,7 @@ import com.leet.leet.screen.meal.view.MealView;
  */
 
 //This is base fragment for Meal
-
-public class MealFragment extends Fragment {
-
+public class MealFragment extends Fragment implements MealMainListner {
 
     MealView mView;
 
@@ -27,13 +28,19 @@ public class MealFragment extends Fragment {
 
         mView = new MealView(inflater, container);
 
+        //set initial fragment.
         MealMainFragment fragment = new MealMainFragment();
-        getFragmentManager()
-                .beginTransaction()
-                .replace(R.id.meal_base_container, fragment)
-                .commit();
+        fragment.setupFragment(this);
+        mView.changeContent(getFragmentManager(),fragment,false);
 
         return mView.getRootView();
     }
 
+    @Override
+    public void moveToOtherFragment() {
+
+        //change fragment
+        ExampleFragment fragment = new ExampleFragment();
+        mView.changeContent(getFragmentManager(),fragment, true);
+    }
 }
