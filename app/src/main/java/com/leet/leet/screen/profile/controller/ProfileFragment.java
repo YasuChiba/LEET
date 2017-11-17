@@ -34,7 +34,8 @@ public class ProfileFragment extends Fragment implements ProfileViewInterface.Pr
         mModel = new ProfileModel();
         mView = new ProfileView(inflater, container);
 
-        mView.setUserInfoDefaults(mModel.getUserInfoData());
+        mView.setUserInfoDefaults(mModel.getUserInfoData().getUserInfo());
+        mView.setUserGoalDefaults(mModel.getUserInfoData().getUserGoals());
 
         // Set up profile page buttons
         goals_to_acc = mView.getRootView().findViewById(R.id.goals_to_acc_butt);

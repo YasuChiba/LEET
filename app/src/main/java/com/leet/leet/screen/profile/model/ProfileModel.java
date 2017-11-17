@@ -9,6 +9,7 @@ import com.leet.leet.screen.profile.view.ProfileView;
 import com.leet.leet.utils.database.FirebaseDBCallaback;
 import com.leet.leet.utils.database.FirebaseDBUserDataHelper;
 import com.leet.leet.utils.database.entities.user.UserGoalEntity;
+import com.leet.leet.utils.database.entities.user.UserInfoEntity;
 import com.leet.leet.utils.database.entities.user.UserProfileEntity;
 
 import java.util.List;
@@ -45,11 +46,17 @@ public class ProfileModel {
         age = Integer.parseInt(((EditText) v.getRootView().findViewById(R.id.age_field)).getText().toString());
         weight = Float.parseFloat(((EditText) v.getRootView().findViewById(R.id.weight_field)).getText().toString());
         feet = Float.parseFloat(((EditText) v.getRootView().findViewById(R.id.height_field)).getText().toString());
+
+        final UserProfileEntity new_prof = new UserProfileEntity();
+        FirebaseDBUserDataHelper.getUserProfile(new FirebaseDBCallaback<UserProfileEntity>() {
+            @Override
+            public void getData(UserProfileEntity data) {
+                new_prof.setUserInfo(data.getUserInfo());
+                new_prof.setUserGoals(data.getUserGoals());
+                FirebaseDBUserDataHelper.setUserProfile(new_prof);
+            }
+        });
     }
-
-
-    //String email;
-
 
     public void saveProfileData( String price,
                                  String calorie,
@@ -79,10 +86,10 @@ public class ProfileModel {
         FirebaseDBUserDataHelper.setFeet(this.feet);
         FirebaseDBUserDataHelper.setInches(this.inches);
         FirebaseDBUserDataHelper.setWeight(this.weight);
-    }
 
 
-        /**final UserProfileEntity new_prof = new UserProfileEntity(name, gender, age, weight, feet, inches, allergens);
+
+        final UserProfileEntity new_prof = new UserProfileEntity();
         FirebaseDBUserDataHelper.getUserGoals(new FirebaseDBCallaback<UserGoalEntity>() {
             @Override
             public void getData(UserGoalEntity data) {
@@ -91,23 +98,23 @@ public class ProfileModel {
             }
         });
 
-    }*/
+    }
 
     public UserProfileEntity getUserInfoData()
     {
-        final UserProfileEntity[] acc_info = new UserProfileEntity[1];
+        final UserProfileEntity acc_info = new UserProfileEntity();
         FirebaseDBUserDataHelper.getUserProfile(new FirebaseDBCallaback<UserProfileEntity>() {
             @Override
             public void getData(UserProfileEntity data) {
-                acc_info[0] = data;
+                acc_info.setUserInfo(data.getUserInfo());
+                acc_info.setUserGoals(data.getUserGoals());
             }
         });
 
-        Log.d("", acc_info[0].getName());
-        return acc_info[0];
+        return acc_info;
     }
 
-    public UserGoalEntity getGoalData() {
+    public UserGoalEntity getUserGoalData() {
         return new UserGoalEntity();
     }
 }
