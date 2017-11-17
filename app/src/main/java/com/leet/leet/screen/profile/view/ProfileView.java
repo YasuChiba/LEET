@@ -15,6 +15,7 @@ import android.widget.Spinner;
 
 import com.leet.leet.R;
 import com.leet.leet.utils.database.entities.user.UserGoalEntity;
+import com.leet.leet.utils.database.entities.user.UserInfoEntity;
 import com.leet.leet.utils.database.entities.user.UserProfileEntity;
 
 import org.w3c.dom.Text;
@@ -88,13 +89,15 @@ public class ProfileView implements ProfileViewInterface, View.OnClickListener {
         ((EditText) mRootView.findViewById(R.id.Protein)).setText((String.valueOf(goals.getProtein())));
     }
 
-    public void setUserInfoDefaults(UserProfileEntity acc_info) {
+    @Override
+    public void setUserInfoDefaults(UserInfoEntity acc_info) {
         ((TextView) mRootView.findViewById(R.id.name_disp)).setText((acc_info.getName()));
         ((TextView) mRootView.findViewById(R.id.gender_disp)).setText((String.valueOf(acc_info.getGender())));
         ((TextView) mRootView.findViewById(R.id.age_disp)).setText((String.valueOf(acc_info.getAge())));
         ((TextView) mRootView.findViewById(R.id.weight_disp)).setText((String.valueOf(acc_info.getWeight())));
         ((TextView) mRootView.findViewById(R.id.height_disp)).setText((String.valueOf(acc_info.getFeet())));
     }
+
 
     @Override
     public void setListener(ProfileViewListener listener) {

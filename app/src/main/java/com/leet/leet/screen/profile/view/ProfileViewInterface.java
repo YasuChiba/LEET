@@ -2,6 +2,7 @@ package com.leet.leet.screen.profile.view;
 
 import com.leet.leet.common.ViewBaseInterface;
 import com.leet.leet.utils.database.entities.user.UserGoalEntity;
+import com.leet.leet.utils.database.entities.user.UserInfoEntity;
 import com.leet.leet.utils.database.entities.user.UserProfileEntity;
 
 /**
@@ -10,7 +11,9 @@ import com.leet.leet.utils.database.entities.user.UserProfileEntity;
 
 public interface ProfileViewInterface extends ViewBaseInterface {
     public void setUserGoalDefaults(UserGoalEntity goals);
-    public void setUserInfoDefaults(UserProfileEntity acc_info);
+    public void setUserInfoDefaults(UserInfoEntity acc_info);
+
+
     interface ProfileViewListener{
         void save( String price,
                 String calorie,
@@ -24,5 +27,6 @@ public interface ProfileViewInterface extends ViewBaseInterface {
                 String name);
     }
     void setListener(ProfileViewListener listener);
+
 }
 

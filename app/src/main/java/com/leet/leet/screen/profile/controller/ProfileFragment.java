@@ -2,6 +2,7 @@ package com.leet.leet.screen.profile.controller;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -39,7 +40,8 @@ public class ProfileFragment extends Fragment implements ProfileViewInterface.Pr
         mModel = new ProfileModel();
         mView = new ProfileView(inflater, container);
 
-        mView.setUserInfoDefaults(mModel.getUserInfoData());
+        //mView.setUserInfoDefaults(mModel.getUserInfoData().getUserInfo());
+        //mView.setUserGoalDefaults(mModel.getUserInfoData().getUserGoals());
 
         // Set up profile page buttons
         goals_to_acc = mView.getRootView().findViewById(R.id.goals_to_acc_butt);
@@ -47,6 +49,7 @@ public class ProfileFragment extends Fragment implements ProfileViewInterface.Pr
         goals_save = mView.getRootView().findViewById(R.id.goals_save);
         acc_edit = mView.getRootView().findViewById(R.id.acc_edit);
         acc_save = mView.getRootView().findViewById(R.id.acc_save);
+        Log.d("", acc_save.getText().toString());
 
         // Set up profile page viewswitchers
         goals_to_acc_vs = mView.getRootView().findViewById(R.id.goals_to_acc_vs);
