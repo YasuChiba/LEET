@@ -101,8 +101,7 @@ public class SignupActivity extends AppCompatActivity implements SignupViewInter
      * @param confirmPassword user confirmed password
      * @return true/false
      */
-    @Override
-    public boolean checkAll(final String email, final String password, final String confirmPassword) {
+    private boolean checkAll(final String email, final String password, final String confirmPassword) {
         return checkEmail(email) && checkPassword(password, confirmPassword) && checkPattern(password) && checkContains(password, email);
     }
 

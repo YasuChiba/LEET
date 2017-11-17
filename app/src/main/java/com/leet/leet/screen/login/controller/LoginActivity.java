@@ -56,8 +56,7 @@ public class LoginActivity extends AppCompatActivity implements LoginViewInterfa
      * @param email user input email
      * @return true/false
      */
-    @Override
-    public boolean checkEmail(final String email) {
+    private boolean checkEmail(final String email) {
         Log.d("LOGIN", "checkEmail===============================================================");
         // corner cases
         if (email == null || email.equals("")) {
@@ -78,8 +77,7 @@ public class LoginActivity extends AppCompatActivity implements LoginViewInterfa
      * @param password user input password
      * @return true/false
      */
-    @Override
-    public boolean checkPassword(final String password) {
+    private boolean checkPassword(final String password) {
         Log.d("LOGIN", "checkPassword===============================================================");
         // corner cases
         if (password == null || password.length() < MIN_LENGTH) {

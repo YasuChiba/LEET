@@ -12,7 +12,6 @@ public interface SignupViewInterface extends ViewBaseInterface {
 
     interface SignupViewListener {
         void gotoLogin();
-        boolean checkAll(final String email, final String password, final String confirmPassword);
         void signup(final String email, final String password, final String confirmPassword);
     }
 
