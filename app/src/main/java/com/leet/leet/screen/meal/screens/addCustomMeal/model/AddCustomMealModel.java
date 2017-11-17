@@ -9,9 +9,10 @@ import java.util.List;
 
 /**
  * Created by k3vn19 on 11/15/2017.
+ *
+ * Purpose - This class is to act as the "Model" for the Add Custom Meal Page.
  */
 
-//is to be used to create the objects and add them to the database
 public class AddCustomMealModel {
 
     //Purpose - With the parameters provided by the controller, the model now creates a MenuEntity

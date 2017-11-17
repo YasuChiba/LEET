@@ -12,9 +12,10 @@ import com.leet.leet.screen.meal.screens.addCustomMeal.view.CustomMealInterface;
 
 /**
  * Created by k3vn19 on 11/15/2017.
+ *
+ * Purpose - This class is to act as the "Controller" for the Add Custom Meal Page.
  */
 
-//is to operate as the controller, passes the input from the screen/view to the model
 public class AddCustomMealFragment extends Fragment implements CustomMealInterface.CustomMealListener {
 
     //declaration of view and model for this controller
