@@ -17,7 +17,14 @@ public class MealMainView implements MealMainViewInterface, View.OnClickListener
 
     private View mRootView;
     private MealMainViewListner mListner;
-    Button sixtyFour;
+
+    private Button sixtyFour;
+    private Button cafeVentanas;
+    private Button canyonVista;
+    private Button foodworx;
+    private Button oceanview;
+    private Button pines;
+    private Button customMeal;
 
     public MealMainView(LayoutInflater inflater, ViewGroup container, MealMainViewListner listner) {
         this.mListner = listner;
@@ -28,8 +35,21 @@ public class MealMainView implements MealMainViewInterface, View.OnClickListener
     private void initialize() {
 
         sixtyFour = (Button)mRootView.findViewById(R.id.sixtyFour);
+        cafeVentanas = (Button)mRootView.findViewById(R.id.cafeVentanas);
+        canyonVista = (Button)mRootView.findViewById(R.id.canyonVista);
+        foodworx = (Button)mRootView.findViewById(R.id.foodworx);
+        oceanview = (Button)mRootView.findViewById(R.id.oceanView);
+        pines =(Button)mRootView.findViewById(R.id.pines);
+        customMeal = (Button)mRootView.findViewById(R.id.customMeal);
 
-        sixtyFour.setOnClickListener(this);
+        sixtyFour.setOnClickListener(this); //pass the event (button clicked)
+        cafeVentanas.setOnClickListener(this);
+        canyonVista.setOnClickListener(this);
+        foodworx.setOnClickListener(this);
+        oceanview.setOnClickListener(this);
+        pines.setOnClickListener(this);
+        customMeal.setOnClickListener(this);
+
     }
 
     @Override
