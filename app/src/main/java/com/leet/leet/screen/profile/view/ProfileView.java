@@ -43,6 +43,9 @@ public class ProfileView implements ProfileViewInterface, View.OnClickListener {
     Spinner feet;
     Spinner inch;
 
+    boolean goalsEdit = false;
+    boolean accEdit = false;
+
     Button goals_edit, goals_save, acc_edit, acc_save, goals_to_acc;
     ViewSwitcher goals_to_acc_vs, acc_vs, goals_vs;
 
@@ -79,6 +82,8 @@ public class ProfileView implements ProfileViewInterface, View.OnClickListener {
 
         // Set up profile page viewswitchers
         goals_to_acc_vs = (ViewSwitcher) this.getRootView().findViewById(R.id.goals_to_acc_vs);
+        setGoalsEdit(false);
+        setProfileEdit(false);
     }
     @Override
     public View getRootView() {
@@ -156,25 +161,29 @@ public class ProfileView implements ProfileViewInterface, View.OnClickListener {
             case R.id.Recommended:
                 break;
             case R.id.acc_save:
-                if(acc_save.getText() == "Edit") {
+                if(accEdit == false) {
                     acc_save.setText("Save");
                     setProfileEdit(true);
+                    accEdit = true;
                 }
                 else {
                     acc_save.setText("Edit");
                     mListner.saveInfoEntity(createUserInfoEntity());
                     setProfileEdit(false);
+                    accEdit = false;
                 }
                 break;
             case R.id.goals_save:
-                if(goals_save.getText() == "Edit"){
+                if(goalsEdit == false){
                     goals_save.setText("Save");
                     setGoalsEdit(true);
+                    goalsEdit = true;
                 }
                 else {
                     goals_save.setText("Edit");
                     mListner.saveGoalEntity(createUserGoalEntity());
                     setGoalsEdit(false);
+                    goalsEdit = false;
                 }
                 break;
 

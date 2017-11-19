@@ -29,15 +29,15 @@
                     android:id="@+id/goals_save"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Save" />
+                    android:text="Edit" />
 
                 <Button
                     android:id="@+id/Recommended"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Use Recommended"
+                    android:layout_alignParentEnd="true"
                     android:layout_alignParentTop="true"
-                    android:layout_alignParentEnd="true" />
+                    android:text="Use Recommended" />
 
             </RelativeLayout>
 
@@ -177,7 +177,6 @@
                     android:text="0" />
 
 
-
             </LinearLayout>
 
         </LinearLayout>
@@ -192,10 +191,19 @@
                 android:layout_height="wrap_content">
 
                 <Button
+                    android:id="@+id/Delete"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Delete Account"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentEnd="true"
+                    android:background="@android:color/holo_red_light"/>
+
+                <Button
                     android:id="@+id/acc_save"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Save" />
+                    android:text="Edit" />
             </RelativeLayout>
 
             <LinearLayout
