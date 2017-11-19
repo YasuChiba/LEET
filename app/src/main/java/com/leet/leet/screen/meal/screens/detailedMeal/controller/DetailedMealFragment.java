@@ -10,6 +10,11 @@ import com.leet.leet.screen.meal.screens.detailedMeal.model.DetailedMealModel;
 import com.leet.leet.screen.meal.screens.detailedMeal.view.DetailedMealInterface;
 import com.leet.leet.screen.meal.screens.detailedMeal.view.DetailedMealView;
 import com.leet.leet.utils.database.entities.menu.MenuEntity;
+import com.leet.leet.utils.database.entities.menu.MenuNutritionsEntity;
+import com.leet.leet.utils.database.entities.menu.MenuTagsEntity;
+
+import java.util.LinkedList;
+import java.util.List;
 
 /**
  * Created by k3vn19 on 11/16/2017.
@@ -31,6 +36,7 @@ public class DetailedMealFragment extends Fragment implements DetailedMealInterf
     //TODO - Need to get the Menu Entity from the previous page to pass as the parameter for the model.
     //For now using this new MenuEntity object as a place holder.
     private MenuEntity meal;
+    private MenuNutritionsEntity nutritions;
 
     public void setupFragment(DetailedMealInterface listener){
         this.mListener = listener;
@@ -45,11 +51,20 @@ public class DetailedMealFragment extends Fragment implements DetailedMealInterf
         mView.setListener(this); //not sure if needed
 
         //TODO - Need to get the MenuEntity from the previous page rather than initiate a new meal.
-        meal = new MenuEntity(); //parameters are currently null, but this won't be a problem when
+        List<String> listStrings = new LinkedList<String>();
+        MenuTagsEntity tags = new MenuTagsEntity(false,false,false);
+        listStrings.add("list");
+        nutritions = new MenuNutritionsEntity(1,1,1,1,1,1,1,1,1,"string", listStrings );
+
+        meal = new MenuEntity("test meal", nutritions, 4, tags); //parameters are currently null, but this won't be a problem when
                                  //getting the meal from the previos page.
 
         //display the MenuEntity's parameters on the screen
+<<<<<<< HEAD
         displayNutrition();   //<---I comment this out so that it could run
+=======
+       displayNutrition();   //<---I comment this out so that it could run
+>>>>>>> 5312985e104901ff744b46f54ec72b961861b162
 
         //get root view - not sure what this does exactly though
         return mView.getRootView();
@@ -57,7 +72,11 @@ public class DetailedMealFragment extends Fragment implements DetailedMealInterf
 
     //Purpose - Using the View's setters will set the TextView to display the MenuEntity's nutritional
     //          contents.
+<<<<<<< HEAD
     public void displayNutrition(){         //  <---I comment this out so that it could run
+=======
+   public void displayNutrition(){           //<---I comment this out so that it could run
+>>>>>>> 5312985e104901ff744b46f54ec72b961861b162
         mView.setMealName(meal.getName());
         mView.setPrice(meal.getPrice());
         mView.setCalories(meal.getNutritions().getCalories());
