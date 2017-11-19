@@ -70,8 +70,10 @@ public class DetailedMealFragment extends Fragment implements DetailedMealInterf
 
     //Purpose - Using the View's setters will set the TextView to display the MenuEntity's nutritional
     //          contents.
+
     public void displayNutrition(){         //  <---I comment this out so that it could run
 
+        mView.setMealName(meal.getName());
         mView.setPrice(meal.getPrice());
         mView.setCalories(meal.getNutritions().getCalories());
         mView.setCarbs(meal.getNutritions().getCarb());
@@ -89,7 +91,7 @@ public class DetailedMealFragment extends Fragment implements DetailedMealInterf
 
     @Override
     //Delegate adding meal to the model using parameters retreived from the view
-    public void addMealClick(){
+    public void addMealClick() {
         //add the meal to the user's history when the add button is pressed.
         mModel.addMeal(meal);
 

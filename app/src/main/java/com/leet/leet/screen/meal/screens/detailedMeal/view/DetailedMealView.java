@@ -54,7 +54,7 @@ public class DetailedMealView implements DetailedMealInterface, View.OnClickList
         protein = (TextView) mRootView.findViewById(R.id.protein_value);
         sodium = (TextView) mRootView.findViewById(R.id.sodium_value);
         cholesterol = (TextView) mRootView.findViewById(R.id.cholesterol_value);
-        dietaryFiber = (TextView) mRootView.findViewById(R.id.dietary_fiber_label);
+        dietaryFiber = (TextView) mRootView.findViewById(R.id.dietary_fiber_value);
         sugar = (TextView) mRootView.findViewById(R.id.sugar_value);
         servingSize = (TextView)mRootView.findViewById(R.id.serving_size_value);
         allergens = (TextView)mRootView.findViewById(R.id.allergens_value);
