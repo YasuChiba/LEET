@@ -91,7 +91,7 @@ public class DetailedMealFragment extends Fragment implements DetailedMealInterf
 
     @Override
     //Delegate adding meal to the model using parameters retreived from the view
-    public void addMealClick(){
+    public void addMealClick() {
         //add the meal to the user's history when the add button is pressed.
         mModel.addMeal(meal);
 

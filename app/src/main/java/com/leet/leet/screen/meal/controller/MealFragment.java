@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.leet.leet.R;
+import com.leet.leet.screen.meal.screens.ResultView.ResultView;
 import com.leet.leet.screen.meal.screens.addCustomMeal.controller.AddCustomMealFragment;
 import com.leet.leet.screen.meal.screens.detailedMeal.controller.DetailedMealFragment;
 import com.leet.leet.screen.meal.screens.examplescreen.controller.ExampleFragment;
@@ -48,5 +49,7 @@ public class MealFragment extends Fragment implements MealMainListner {
 
         DetailedMealFragment fragmentAddCustomMeal = new DetailedMealFragment();
         mView.changeContent(getFragmentManager(),fragmentAddCustomMeal, true);
+
+
     }
 }

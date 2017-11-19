@@ -1,4 +1,4 @@
-package com.leet.leet.screen.meal.screens.ResultView;
+ package com.leet.leet.screen.meal.screens.ResultView;
 
 
 import android.content.Context;
@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
 
+import android.support.v4.app.Fragment;
 import com.leet.leet.R;
 import com.leet.leet.screen.meal.screens.ResultView.ResultViewAdapter;
 import com.leet.leet.utils.database.entities.menu.MenuEntity;
@@ -15,7 +16,7 @@ import java.util.ArrayList;
 
 
 
-public class ResultView implements ResultViewInterface {
+public class ResultView extends Fragment implements ResultViewInterface {
 
     private View mRootView;
 
