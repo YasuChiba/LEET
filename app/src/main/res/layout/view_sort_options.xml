@@ -3,6 +3,7 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+
     <TextView
         android:id="@+id/title_sort_options"
         android:layout_width="match_parent"
@@ -26,17 +27,16 @@
             <TextView
                 android:id="@+id/criteria_label"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight=".16"
+                android:layout_height="62dp"
                 android:gravity="center_horizontal"
                 android:text="@string/criteria_title"
-                android:textSize="24sp" />
+                android:textSize="24sp"
+                android:layout_weight="0.04" />
 
             <TextView
                 android:id="@+id/price_label"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight=".16"
+                android:layout_height="69dp"
                 android:gravity="center_horizontal"
                 android:text="@string/price_title"
                 android:textSize="20sp" />
@@ -44,8 +44,7 @@
             <TextView
                 android:id="@+id/calorie_label"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight=".16"
+                android:layout_height="67dp"
                 android:gravity="center_horizontal"
                 android:text="@string/calories_title"
                 android:textSize="20sp" />
@@ -53,8 +52,7 @@
             <TextView
                 android:id="@+id/carbs_label"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight=".16"
+                android:layout_height="72dp"
                 android:gravity="center_horizontal"
                 android:text="@string/carb_title"
                 android:textSize="20sp" />
@@ -62,8 +60,7 @@
             <TextView
                 android:id="@+id/fat_label"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight=".16"
+                android:layout_height="63dp"
                 android:gravity="center_horizontal"
                 android:text="@string/fat_title"
                 android:textSize="20sp" />
@@ -71,10 +68,18 @@
             <TextView
                 android:id="@+id/protein_label"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight=".16"
+                android:layout_height="63dp"
                 android:gravity="center_horizontal"
                 android:text="@string/protein_title"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/sugar_label"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight=".16"
+                android:gravity="center_horizontal"
+                android:text="Sugar"
                 android:textSize="20sp" />
 
         </LinearLayout>
@@ -141,6 +146,17 @@
 
             <EditText
                 android:id="@+id/protein_min"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight=".16"
+                android:ems="10"
+                android:gravity="center_horizontal"
+                android:inputType="numberDecimal"
+                android:text="@string/min"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/sugar_min"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight=".16"
@@ -223,13 +239,26 @@
                 android:text="@string/max"
                 android:textSize="20sp" />
 
+            <EditText
+                android:id="@+id/sugar_max"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight=".16"
+                android:ems="10"
+                android:gravity="center_horizontal"
+                android:inputType="numberDecimal"
+                android:text="@string/max"
+                android:textSize="20sp" />
+
         </LinearLayout>
     </LinearLayout>
 
-    <TextView
-        android:id="@+id/sugar_label"
+    <Button
+        android:id="@+id/sortButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Sugar"
-        android:textSize="20sp" />
+        android:gravity="center_horizontal"
+        android:text="Sort" />
+
+
 </LinearLayout>

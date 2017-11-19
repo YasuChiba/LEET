@@ -15,6 +15,8 @@ import java.util.List;
 
 public class AddCustomMealModel {
 
+    public AddCustomMealModel(){} //default constructor
+
     //Purpose - With the parameters provided by the controller, the model now creates a MenuEntity
     //          and adds it to firebase through the use of DBUserDataHelper.
     public void addMeal(String name, int price, int calories, int carbs,

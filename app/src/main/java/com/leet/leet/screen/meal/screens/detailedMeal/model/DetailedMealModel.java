@@ -9,6 +9,9 @@ import com.leet.leet.utils.database.entities.menu.MenuEntity;
  */
 
 public class DetailedMealModel {
+
+    public DetailedMealModel(){} //default constructor
+
     //Purpose - Once the user has decided to eat a meal, they will add it to their history.
     //          This method will add the MenuEntity to the profile's history.
     public void addMeal(MenuEntity meal){
