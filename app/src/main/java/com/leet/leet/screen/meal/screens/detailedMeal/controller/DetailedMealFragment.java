@@ -1,6 +1,6 @@
 package com.leet.leet.screen.meal.screens.detailedMeal.controller;
 
-import android.app.Fragment;
+import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -49,7 +49,7 @@ public class DetailedMealFragment extends Fragment implements DetailedMealInterf
                                  //getting the meal from the previos page.
 
         //display the MenuEntity's parameters on the screen
-        displayNutrition();
+       // displayNutrition();   <---I comment this out so that it could run
 
         //get root view - not sure what this does exactly though
         return mView.getRootView();
@@ -57,7 +57,7 @@ public class DetailedMealFragment extends Fragment implements DetailedMealInterf
 
     //Purpose - Using the View's setters will set the TextView to display the MenuEntity's nutritional
     //          contents.
-    public void displayNutrition(){
+   /** public void displayNutrition(){           <---I comment this out so that it could run
         mView.setMealName(meal.getName());
         mView.setPrice(meal.getPrice());
         mView.setCalories(meal.getNutritions().getCalories());
@@ -73,7 +73,7 @@ public class DetailedMealFragment extends Fragment implements DetailedMealInterf
         //mView.setAllergens((meal.getNutritions().getAllergens()));
 
     }
-
+    */
     @Override
     //Delegate adding meal to the model using parameters retreived from the view
     public void addMealClick(){
