@@ -60,7 +60,11 @@ public class DetailedMealFragment extends Fragment implements DetailedMealInterf
                                  //getting the meal from the previos page.
 
         //display the MenuEntity's parameters on the screen
+<<<<<<< HEAD
+        displayNutrition();   //<---I comment this out so that it could run
+=======
        displayNutrition();   //<---I comment this out so that it could run
+>>>>>>> 5312985e104901ff744b46f54ec72b961861b162
 
         //get root view - not sure what this does exactly though
         return mView.getRootView();
@@ -68,7 +72,11 @@ public class DetailedMealFragment extends Fragment implements DetailedMealInterf
 
     //Purpose - Using the View's setters will set the TextView to display the MenuEntity's nutritional
     //          contents.
+<<<<<<< HEAD
+    public void displayNutrition(){         //  <---I comment this out so that it could run
+=======
    public void displayNutrition(){           //<---I comment this out so that it could run
+>>>>>>> 5312985e104901ff744b46f54ec72b961861b162
         mView.setMealName(meal.getName());
         mView.setPrice(meal.getPrice());
         mView.setCalories(meal.getNutritions().getCalories());
