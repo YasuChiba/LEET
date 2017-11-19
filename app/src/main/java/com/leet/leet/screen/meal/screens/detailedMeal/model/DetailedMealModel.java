@@ -1,6 +1,7 @@
 package com.leet.leet.screen.meal.screens.detailedMeal.model;
 
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.widget.Toast;
 
 import com.leet.leet.utils.database.FirebaseDBUserDataHelper;
@@ -28,7 +29,12 @@ public class DetailedMealModel extends AppCompatActivity {
         //add the meal to the database
         FirebaseDBUserDataHelper.setStatisticsData(new LocalDate() ,meal);
 
+        Log.d("DetailedMealModel", "firebase");
+
         Toast.makeText(this, "Added Meal To History", Toast.LENGTH_SHORT).show();
+
+        Log.d("DetailedMealModel", "addMeal toast");
+
 
     } //end of addMeal
 } //end of class
