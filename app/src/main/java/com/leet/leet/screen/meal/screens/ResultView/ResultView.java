@@ -21,7 +21,7 @@ public class ResultView implements ResultViewInterface {
 
     private ListView listView;
 
-    public ResultView(LayoutInflater inflater, ViewGroup container) {
+    public ResultView(LayoutInflater inflater, ViewGroup container, ResultControllerFragment resultControllerFragment) {
         mRootView = inflater.inflate(R.layout.view_menu_search, container, false);
 
         initialize();
