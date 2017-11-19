@@ -45,7 +45,7 @@ public class StartModel {
                  });
     }
 
-    public void setUserProfile() {
+   /* public void setUserProfile() {
         UserProfileEntity ent = new UserProfileEntity();
         ent.setGender(Enums.Gender.Male.getString());
         ent.setName("tes");
@@ -54,7 +54,7 @@ public class StartModel {
         ent.setUserGoals(null);
 
         FirebaseDBUserDataHelper.setUserProfile(ent);
-    }
+    }*/
 
     public void addCustomMenu() {
         MenuEntity menu = new MenuEntity();

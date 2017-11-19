@@ -4,7 +4,9 @@ import android.util.Log;
 import android.widget.EditText;
 import android.widget.Spinner;
 
+import com.google.firebase.auth.UserInfo;
 import com.leet.leet.R;
+import com.leet.leet.common.Enums;
 import com.leet.leet.screen.profile.view.ProfileView;
 import com.leet.leet.utils.database.FirebaseDBCallaback;
 import com.leet.leet.utils.database.FirebaseDBUserDataHelper;
@@ -19,27 +21,8 @@ import java.util.List;
  */
 
 public class ProfileModel {
-    /*EditText price;
-    EditText calorie;
-    EditText carbs;
-    EditText protein;
-    EditText fat;*/
 
-    float price;
-    float calorie;
-    float carbs;
-    float protein;
-    float fat;
-
-    String name;
-    String gender;
-    int age;
-    float weight;
-    float feet;
-    float inches;
-    List<String> allergens;
-
-    public void saveUserInfoData(ProfileView v) {
+    /*public void saveUserInfoData(ProfileView v) {
         Log.d("data", "working");
         name = ((EditText) v.getRootView().findViewById(R.id.name_field)).getText().toString();
         gender = ((EditText) v.getRootView().findViewById(R.id.gender_field)).getText().toString();
@@ -47,75 +30,45 @@ public class ProfileModel {
         weight = Float.parseFloat(((EditText) v.getRootView().findViewById(R.id.weight_field)).getText().toString());
         feet = Float.parseFloat(((EditText) v.getRootView().findViewById(R.id.height_field)).getText().toString());
 
-        final UserProfileEntity new_prof = new UserProfileEntity();
+        final UserInfoEntity new_info = new UserInfoEntity(name, gender, "", age, weight, feet, 0, allergens);
+
         FirebaseDBUserDataHelper.getUserProfile(new FirebaseDBCallaback<UserProfileEntity>() {
             @Override
             public void getData(UserProfileEntity data) {
-                new_prof.setUserInfo(data.getUserInfo());
-                new_prof.setUserGoals(data.getUserGoals());
-                FirebaseDBUserDataHelper.setUserProfile(new_prof);
+                FirebaseDBUserDataHelper.setUserProfile(new UserProfileEntity(new UserGoalEntity(10,20,30,40,50), new_info));
             }
         });
+    }*/
+
+    public void saveGoals(UserGoalEntity goalEntity){
+
+       Log.i("values", "" + goalEntity.getCalorie());
+        UserProfileEntity profileEntity = new UserProfileEntity(goalEntity, null);
+        //FirebaseDBUserDataHelper.setUserGoals(goalEntity);
+        FirebaseDBUserDataHelper.setUserProfile(profileEntity);
     }
-
-    public void saveProfileData( String price,
-                                 String calorie,
-                                 String carbs,
-                                 String protein,
-                                 String fat,
-                                 String feet,
-                                 String inches,
-                                 String weight,
-                                 String email,
-                                 String name) {
-        Log.d("data", "working");
-        this.price = Float.parseFloat(price);
-        this.calorie = Float.parseFloat(calorie);
-        this.carbs = Float.parseFloat(carbs);
-        this.protein = Float.parseFloat(protein);
-        this.fat = Float.parseFloat(fat);
-        this.feet = Float.parseFloat(feet);
-        this.inches = Float.parseFloat(inches);
-        this.weight = Float.parseFloat(weight);
-
-
-        UserGoalEntity goal = new UserGoalEntity(this.calorie, this.price, this.fat, this.carbs, this.protein);
-        FirebaseDBUserDataHelper.setUserGoals(goal);
-        FirebaseDBUserDataHelper.setEmail(email);
-        FirebaseDBUserDataHelper.setName(name);
-        FirebaseDBUserDataHelper.setFeet(this.feet);
-        FirebaseDBUserDataHelper.setInches(this.inches);
-        FirebaseDBUserDataHelper.setWeight(this.weight);
-
-
-
-        final UserProfileEntity new_prof = new UserProfileEntity();
-        FirebaseDBUserDataHelper.getUserGoals(new FirebaseDBCallaback<UserGoalEntity>() {
-            @Override
-            public void getData(UserGoalEntity data) {
-                FirebaseDBUserDataHelper.setUserProfile(new_prof);
-                FirebaseDBUserDataHelper.setUserGoals(data);
-            }
-        });
-
+    public void saveInfo(UserInfoEntity infoEntity){
+        FirebaseDBUserDataHelper.setUserInfo(infoEntity);
     }
 
     public UserProfileEntity getUserInfoData()
     {
-        //final UserProfileEntity acc_info = new UserProfileEntity();
+        final UserProfileEntity acc_info = new UserProfileEntity();
         FirebaseDBUserDataHelper.getUserProfile(new FirebaseDBCallaback<UserProfileEntity>() {
             @Override
             public void getData(UserProfileEntity data) {
-                Log.d("asdfadsf", data.getEmail());
-                //acc_info.setUserInfo(data.getUserInfo());
-                //acc_info.setUserGoals(data.getUserGoals());
+                acc_info.setUserInfo(data.getUserInfo());
+                acc_info.setUserGoals(data.getUserGoals());
             }
         });
-        return null;
-        //return acc_info;
+
+        return acc_info;
     }
 
     public UserGoalEntity getUserGoalData() {
         return new UserGoalEntity();
     }
 }
+
+
+

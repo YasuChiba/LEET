@@ -17,6 +17,9 @@
     <string name="editProfile">Profile</string>
     <string name="editGoals">Goals</string>
     <string name="logout">logout</string>
+    <string name="Age">Age</string>
+    <string name="Gender">Gender</string>
+
 
 
 
@@ -44,6 +47,10 @@
         <item>10</item>
         <item>11</item>
 
+    </string-array>
+    <string-array name="whatGender">
+        <item>male</item>
+        <item>female</item>
     </string-array>
 
 

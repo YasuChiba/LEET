@@ -12,19 +12,12 @@ import com.leet.leet.utils.database.entities.user.UserProfileEntity;
 public interface ProfileViewInterface extends ViewBaseInterface {
     public void setUserGoalDefaults(UserGoalEntity goals);
     public void setUserInfoDefaults(UserInfoEntity acc_info);
+    public void swithcViews();
 
 
     interface ProfileViewListener{
-        void save( String price,
-                String calorie,
-                String carbs,
-                String protein,
-                String fat,
-                String feet,
-                String inches,
-                String weight,
-                String email,
-                String name);
+        void saveInfoEntity(UserInfoEntity info);
+        void saveGoalEntity(UserGoalEntity goal);
     }
     void setListener(ProfileViewListener listener);
 

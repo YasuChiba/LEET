@@ -19,6 +19,8 @@ public class UserInfoEntity {
 
     private List<String> allergies;
 
+    public UserInfoEntity() {}
+
     public UserInfoEntity(String name, String gender, String email, int age, float weight, float feet, float inches, List<String> allergies)
     {
         this.name = name;
@@ -49,3 +51,4 @@ public class UserInfoEntity {
     public float getInches() {return this.inches; }
     public List<String> getAllergies() {return this.allergies; }
 }
+

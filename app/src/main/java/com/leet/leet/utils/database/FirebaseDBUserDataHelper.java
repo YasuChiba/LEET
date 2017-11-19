@@ -11,6 +11,7 @@ import com.leet.leet.common.Enums;
 import com.leet.leet.utils.authentication.FirebaseAuthHelper;
 import com.leet.leet.utils.database.entities.menu.MenuEntity;
 import com.leet.leet.utils.database.entities.user.UserGoalEntity;
+import com.leet.leet.utils.database.entities.user.UserInfoEntity;
 import com.leet.leet.utils.database.entities.user.UserProfileEntity;
 
 import java.util.ArrayList;
@@ -93,51 +94,17 @@ public class FirebaseDBUserDataHelper {
 
     public static void setUserGoals(UserGoalEntity userGoals) {
 
-
+        Log.d("", "asdfasdfasdfa");
+        mDatabaseRef.child(FirebaseAuthHelper.getUserId())
+            .child(Enums.UserDataItem.UserProfile.getString())
+            .child(Enums.UserProfile.goals.getString())
+            .setValue(userGoals);
+}
+    public static void setUserInfo(UserInfoEntity infoEntity){
         mDatabaseRef.child(FirebaseAuthHelper.getUserId())
                 .child(Enums.UserDataItem.UserProfile.getString())
-                .child(Enums.UserProfile.goals.getString())
-                .setValue(userGoals);
-    }
-
-    public static void setFeet(float feet) {
-
-        mDatabaseRef.child(FirebaseAuthHelper.getUserId())
-                .child(Enums.UserDataItem.UserProfile.getString())
-                .child(Enums.UserProfile.feet.getString())
-                .setValue(feet);
-    }
-    public static void setInches(float inches) {
-
-        mDatabaseRef.child(FirebaseAuthHelper.getUserId())
-                .child(Enums.UserDataItem.UserProfile.getString())
-                .child(Enums.UserProfile.inches.getString())
-                .setValue(inches);
-    }
-    public static void setWeight(float weight) {
-
-
-        mDatabaseRef.child(FirebaseAuthHelper.getUserId())
-                .child(Enums.UserDataItem.UserProfile.getString())
-                .child(Enums.UserProfile.weight.getString())
-                .setValue(weight);
-    }
-
-    public static void setEmail(String email) {
-
-
-        mDatabaseRef.child(FirebaseAuthHelper.getUserId())
-                .child(Enums.UserDataItem.UserProfile.getString())
-                .child(Enums.UserProfile.email.getString())
-                .setValue(email);
-    }
-    public static void setName(String name) {
-
-
-        mDatabaseRef.child(FirebaseAuthHelper.getUserId())
-                .child(Enums.UserDataItem.UserProfile.getString())
-                .child(Enums.UserProfile.name.getString())
-                .setValue(name);
+                .child(Enums.UserProfile.info.getString())
+                .setValue(infoEntity);
     }
 
     public static void getCustomMenus(final FirebaseDBCallaback<ArrayList<MenuEntity>> callback) {

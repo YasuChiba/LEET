@@ -11,9 +11,11 @@ import android.widget.TextView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.ViewSwitcher;
 
 
 import com.leet.leet.R;
+import com.leet.leet.common.Enums;
 import com.leet.leet.utils.database.entities.user.UserGoalEntity;
 import com.leet.leet.utils.database.entities.user.UserInfoEntity;
 import com.leet.leet.utils.database.entities.user.UserProfileEntity;
@@ -25,42 +27,34 @@ import org.w3c.dom.Text;
  */
 
 public class ProfileView implements ProfileViewInterface, View.OnClickListener {
-   EditText price;
-   EditText calorie;
-   EditText carbs;
-   EditText protein;
-   EditText fat;
-   EditText weight;
-   EditText email;
-   EditText name;
+    EditText price;
+    EditText calorie;
+    EditText carbs;
+    EditText protein;
+    EditText fat;
+    EditText weight;
+    EditText email;
+    EditText name;
+    EditText age;
+    Spinner gender;
 
-   ProfileViewListener mListner;
+    ProfileViewListener mListner;
 
-   Spinner feet;
-   Spinner inch;
+    Spinner feet;
+    Spinner inch;
 
+    Button goals_edit, goals_save, acc_edit, acc_save, goals_to_acc;
+    ViewSwitcher goals_to_acc_vs, acc_vs, goals_vs;
 
 
 
     private View mRootView;
 
     public ProfileView(LayoutInflater inflater, ViewGroup container) {
-        mRootView = inflater.inflate(R.layout.view_profile, container, false);
+        mRootView = inflater.inflate(R.layout.viewswitcher_test, container, false);
         initialize();
 
 
-    }
-    public void setToDefault(){
-        price.setText(String.valueOf(0));
-        calorie.setText(String.valueOf(0));
-        carbs.setText(String.valueOf(0));
-        protein.setText(String.valueOf(0));
-        fat.setText(String.valueOf(0));
-        feet.setSelection(0);
-        inch.setSelection(0);
-        weight.setText(String.valueOf(0));
-        email.setText("");
-        name.setText("");
     }
 
     private void initialize() {
@@ -69,11 +63,22 @@ public class ProfileView implements ProfileViewInterface, View.OnClickListener {
         carbs = ((EditText)this.getRootView().findViewById(R.id.Carbs));
         protein = ((EditText)this.getRootView().findViewById(R.id.Protein));
         fat = ((EditText)this.getRootView().findViewById(R.id.Fat));
-        feet = ((Spinner)this.getRootView().findViewById(R.id.Feet));
-        inch = ((Spinner)this.getRootView().findViewById(R.id.Inch));
         weight = ((EditText)this.getRootView().findViewById(R.id.Weight));
         email = ((EditText)this.getRootView().findViewById(R.id.Email));
         name = ((EditText)this.getRootView().findViewById(R.id.Name));
+        age = ((EditText)this.getRootView().findViewById(R.id.Age));
+
+        feet = ((Spinner)this.getRootView().findViewById(R.id.Feet));
+        inch = ((Spinner)this.getRootView().findViewById(R.id.Inch));
+        gender = ((Spinner)this.getRootView().findViewById(R.id.Gender));
+
+        goals_save = (Button) this.getRootView().findViewById(R.id.goals_save);
+        goals_save.setOnClickListener(this);
+        acc_save = (Button) this.getRootView().findViewById(R.id.acc_save);
+        acc_save.setOnClickListener(this);
+
+        // Set up profile page viewswitchers
+        goals_to_acc_vs = (ViewSwitcher) this.getRootView().findViewById(R.id.goals_to_acc_vs);
     }
     @Override
     public View getRootView() {
@@ -89,15 +94,36 @@ public class ProfileView implements ProfileViewInterface, View.OnClickListener {
         ((EditText) mRootView.findViewById(R.id.Protein)).setText((String.valueOf(goals.getProtein())));
     }
 
-    @Override
     public void setUserInfoDefaults(UserInfoEntity acc_info) {
-        ((TextView) mRootView.findViewById(R.id.name_disp)).setText((acc_info.getName()));
-        ((TextView) mRootView.findViewById(R.id.gender_disp)).setText((String.valueOf(acc_info.getGender())));
-        ((TextView) mRootView.findViewById(R.id.age_disp)).setText((String.valueOf(acc_info.getAge())));
-        ((TextView) mRootView.findViewById(R.id.weight_disp)).setText((String.valueOf(acc_info.getWeight())));
-        ((TextView) mRootView.findViewById(R.id.height_disp)).setText((String.valueOf(acc_info.getFeet())));
+        name.setText((acc_info.getName()));
+        gender.setSelection(0);
+        age.setText((String.valueOf(acc_info.getAge())));
+        weight.setText((String.valueOf(acc_info.getWeight())));
+        feet.setSelection(0);
+        inch.setSelection(0);
     }
-
+    private UserInfoEntity createUserInfoEntity(){
+        String name = this.name.getText().toString();
+        String email = this.email.getText().toString();
+        String gender = this.gender.getSelectedItem().toString();
+        float weight = Float.valueOf(this.weight.getText().toString());
+        float feet = Float.valueOf(this.feet.getSelectedItem().toString());
+        float inch = Float.valueOf(this.inch.getSelectedItem().toString());
+        int age = Integer.valueOf(this.age.getText().toString());
+        return new UserInfoEntity(name, gender, email, age, weight, feet, inch, null);
+    }
+    private UserGoalEntity createUserGoalEntity(){
+        float price = Float.valueOf(this.price.getText().toString());
+        float calorie = Float.valueOf(this.calorie.getText().toString());
+        float carbs = Float.valueOf(this.carbs.getText().toString());
+        float protein = Float.valueOf(this.protein.getText().toString());
+        float fat = Float.valueOf(this.fat.getText().toString());
+        return new UserGoalEntity(calorie, price, fat, carbs, protein);
+    }
+    @Override
+    public void swithcViews() {
+        goals_to_acc_vs.showNext();
+    }
 
     @Override
     public void setListener(ProfileViewListener listener) {
@@ -108,22 +134,16 @@ public class ProfileView implements ProfileViewInterface, View.OnClickListener {
     public void onClick(View v) {
         Log.i("hello", "onclick");
         switch (v.getId()){
-
             case R.id.Recommended:
-                setToDefault();
                 break;
-            case R.id.Save:
-                mListner.save(price.getText().toString(),
-                        calorie.getText().toString(),
-                        carbs.getText().toString(),
-                        protein.getText().toString(),
-                        fat.getText().toString(),
-                        feet.getSelectedItem().toString(),
-                        inch.getSelectedItem().toString(),
-                        weight.getText().toString(),
-                        email.getText().toString(),
-                        name.getText().toString());
+            case R.id.acc_save:
+                mListner.saveInfoEntity(createUserInfoEntity());
                 break;
+            case R.id.goals_save:
+                mListner.saveGoalEntity(createUserGoalEntity());
+                break;
+
         }
     }
 }
+

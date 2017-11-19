@@ -75,13 +75,7 @@ public class Enums {
     }
     public enum UserProfile{
         goals("goals"),
-        name("name"),
-        email("email"),
-        age("age"),
-        gender("gender"),
-        feet("feet"),
-        inches("inches"),
-        weight("weight");
+        info("info");
 
         private final String text;
         private UserProfile(final String text) {

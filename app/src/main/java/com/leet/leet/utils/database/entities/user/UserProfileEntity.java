@@ -12,17 +12,18 @@ import java.util.List;
 public class UserProfileEntity {
 
     private UserGoalEntity goals;
-    private String name;
-    private String gender;
-    private String email;
-    private int age;
+    private UserInfoEntity info;
+   /*private String name;
+   private String gender;
+   private String email;
+   private int age;
 
-    private float height;
-    private float weight;
+   private float height;
+   private float weight;
 
-    //private float height;
-    private float feet;
-    private float inches;
+   //private float height;
+   private float feet;
+   private float inches;*/
 
     private List<String> allergies;
 
@@ -31,73 +32,7 @@ public class UserProfileEntity {
     public UserProfileEntity(UserGoalEntity goals, UserInfoEntity info)
     {
         this.goals = goals;
-        setUserInfo(info);
-    }
-    public UserProfileEntity(String name, String gender, int age, float weight, float feet, float inches, List<String> allergies) {
-
-        this.name = name;
-        this.gender = gender;
-        this.age = age;
-        this.weight = weight;
-        this.feet = feet;
-        this.inches = inches;
-        this.allergies = allergies;
-
-    }
-
-    public String getName() {return this.name; }
-
-
-    public void setName(String name) {this.name = name; }
-
-    public String getGender() {return this.gender; }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public void setGender(String gender) {
-        this.gender = gender;
-    }
-
-    public int getAge() {
-        return this.age;
-    }
-
-    public void setAge(int age) {
-        this.age = age;
-    }
-
-    public float getWeight() {
-        return this.weight;
-    }
-    public void setWeight(float weight) {
-        this.weight = weight;
-    }
-
-
-    public float getFeet() {
-        return this.feet;
-    }
-    public void setFeet(float feet) {
-        this.feet = feet;
-    }
-
-    public float getInches() {
-        return this.inches;
-    }
-    public void setInches(float inches) {
-        this.inches = inches;
-    }
-
-
-    public List<String> getAllergies() {return this.allergies;  }
-    public void setAllergies(List<String> allergies) {
-        this.allergies = allergies;
+        this.info = info;
     }
     public UserGoalEntity getUserGoals() {
         return goals;
@@ -108,21 +43,17 @@ public class UserProfileEntity {
     }
 
     public void setUserInfo(UserInfoEntity info) {
-        this.name = info.getName();
-        this.gender = info.getGender();
-        this.email = info.getEmail();
-        this.age = info.getAge();
-        this.weight = info.getWeight();
-        this.feet = info.getFeet();
-        this.inches = info.getInches();
-        this.allergies = info.getAllergies();
+        this.info = info;
+
     }
 
     public UserInfoEntity getUserInfo()
     {
-        return new UserInfoEntity(this.name, this.gender, this.email, this.age, this.weight, this.feet, this.inches, this.allergies);
+        return this.info;
+        //return new UserInfoEntity(this.name, this.gender, this.email, this.age, this.weight, this.feet, this.inches, this.allergies);
     }
 
 
 
 }
+
