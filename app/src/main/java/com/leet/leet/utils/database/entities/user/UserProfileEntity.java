@@ -50,7 +50,6 @@ public class UserProfileEntity {
     public UserInfoEntity getUserInfo()
     {
         return this.info;
-        //return new UserInfoEntity(this.name, this.gender, this.email, this.age, this.weight, this.feet, this.inches, this.allergies);
     }
 
 

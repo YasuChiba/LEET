@@ -120,6 +120,25 @@ public class ProfileView implements ProfileViewInterface, View.OnClickListener {
         float fat = Float.valueOf(this.fat.getText().toString());
         return new UserGoalEntity(calorie, price, fat, carbs, protein);
     }
+
+    private void setProfileEdit(boolean b){
+        name.setEnabled(b);
+        email.setEnabled(b);
+        age.setEnabled(b);
+        gender.setEnabled(b);
+        feet.setEnabled(b);
+        inch.setEnabled(b);
+        weight.setEnabled(b);
+    }
+    private void setGoalsEdit(boolean b){
+        price.setEnabled(b);
+        calorie.setEnabled(b);
+        carbs.setEnabled(b);
+        fat.setEnabled(b);
+        protein.setEnabled(b);
+    }
+
+
     @Override
     public void swithcViews() {
         goals_to_acc_vs.showNext();
@@ -137,10 +156,26 @@ public class ProfileView implements ProfileViewInterface, View.OnClickListener {
             case R.id.Recommended:
                 break;
             case R.id.acc_save:
-                mListner.saveInfoEntity(createUserInfoEntity());
+                if(acc_save.getText() == "Edit") {
+                    acc_save.setText("Save");
+                    setProfileEdit(true);
+                }
+                else {
+                    acc_save.setText("Edit");
+                    mListner.saveInfoEntity(createUserInfoEntity());
+                    setProfileEdit(false);
+                }
                 break;
             case R.id.goals_save:
-                mListner.saveGoalEntity(createUserGoalEntity());
+                if(goals_save.getText() == "Edit"){
+                    goals_save.setText("Save");
+                    setGoalsEdit(true);
+                }
+                else {
+                    goals_save.setText("Edit");
+                    mListner.saveGoalEntity(createUserGoalEntity());
+                    setGoalsEdit(false);
+                }
                 break;
 
         }
