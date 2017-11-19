@@ -5,6 +5,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
+import com.leet.leet.R;
 
 /**
  * Created by k3vn19 on 11/19/2017.
@@ -41,18 +42,18 @@ public class SortMealView implements SortMealInterface, View.OnClickListener  {
 
     //Purpose - link the global variables to the components of the view_sort_options.xml file
     public void initialize(){
-        priceMin = (TextView) mRootView.findViewById(R.id.priceMin);
-        caloriesMin = (TextView) mRootView.findViewById(R.id.caloriesMin);
-        carbsMin = (TextView) mRootView.findViewById(R.id.carbsMin);
-        fatMin = (TextView) mRootView.findViewById(R.id.fatMin);
-        proteinMin = (TextView) mRootView.findViewById(R.id.proteinMin);
-        sugarMin = (TextView) mRootView.findViewById(R.id.sugarMin);
-        priceMax = (TextView) mRootView.findViewById(R.id.priceMax);
-        caloriesMax = (TextView) mRootView.findViewById(R.id.caloriesMax);
-        carbsMax = (TextView) mRootView.findViewById(R.id.carbsMax);
-        fatMax = (TextView) mRootView.findViewById(R.id.fatMax);
-        proteinMax = (TextView) mRootView.findViewById(R.id.proteinMax);
-        sugarMax = (TextView) mRootView.findViewById(R.id.sugarMax);
+        priceMin = (TextView) mRootView.findViewById(R.id.price_min);
+        caloriesMin = (TextView) mRootView.findViewById(R.id.calories_min);
+        carbsMin = (TextView) mRootView.findViewById(R.id.carbs_min);
+        fatMin = (TextView) mRootView.findViewById(R.id.fat_min);
+        proteinMin = (TextView) mRootView.findViewById(R.id.protein_min);
+        sugarMin = (TextView) mRootView.findViewById(R.id.sugar_min);
+        priceMax = (TextView) mRootView.findViewById(R.id.price_max);
+        caloriesMax = (TextView) mRootView.findViewById(R.id.calories_max);
+        carbsMax = (TextView) mRootView.findViewById(R.id.carbs_max);
+        fatMax = (TextView) mRootView.findViewById(R.id.fat_max);
+        proteinMax = (TextView) mRootView.findViewById(R.id.protein_max);
+        sugarMax = (TextView) mRootView.findViewById(R.id.sugar_max);
 
         sortSubmit = (Button) mRootView.findViewById(R.id.sortButton);
         sortSubmit.setOnClickListener(this);
