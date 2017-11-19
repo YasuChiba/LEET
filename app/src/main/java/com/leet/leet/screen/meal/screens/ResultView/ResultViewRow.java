@@ -26,17 +26,17 @@ public class ResultViewRow extends LinearLayout {
     private TextView name;
     private TextView name2;
 
-    public MenuSearchListViewRow(Context context) {
+    public ResultViewRow(Context context) {
         super(context);
         initialiseView(context);
     }
 
-    public MenuSearchListViewRow(Context context, AttributeSet attrs) {
+    public ResultViewRow(Context context, AttributeSet attrs) {
         super(context, attrs);
         initialiseView(context);
     }
 
-    public MenuSearchListViewRow(Context context, AttributeSet attrs, int defStyle) {
+    public ResultViewRow(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
         initialiseView(context);
     }
@@ -57,7 +57,7 @@ public class ResultViewRow extends LinearLayout {
 
     public void setData(MenuEntity data) {
         name.setText(data.getName());
-        name2.setText(data.getNutritions().getProtein());
+        name2.setText((int) data.getNutritions().getProtein());
     }
 
 }
