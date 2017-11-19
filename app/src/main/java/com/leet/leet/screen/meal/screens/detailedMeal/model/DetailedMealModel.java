@@ -1,9 +1,14 @@
 package com.leet.leet.screen.meal.screens.detailedMeal.model;
 
+import android.support.v7.app.AppCompatActivity;
+import android.widget.Toast;
+
 import com.leet.leet.utils.database.FirebaseDBUserDataHelper;
 import com.leet.leet.utils.database.entities.menu.MenuEntity;
 
 import org.joda.time.LocalDate;
+
+import android.widget.Toast;
 
 
 /**
@@ -12,7 +17,7 @@ import org.joda.time.LocalDate;
  * Purpose - This class serves as the "Model" for the Detailed Menu Page.
  */
 
-public class DetailedMealModel {
+public class DetailedMealModel extends AppCompatActivity {
 
     public DetailedMealModel(){} //default constructor
 
@@ -22,6 +27,8 @@ public class DetailedMealModel {
 
         //add the meal to the database
         FirebaseDBUserDataHelper.setStatisticsData(new LocalDate() ,meal);
+
+        Toast.makeText(this, "Added Meal To History", Toast.LENGTH_SHORT).show();
 
     } //end of addMeal
 } //end of class
