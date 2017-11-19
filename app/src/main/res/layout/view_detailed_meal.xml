@@ -241,6 +241,31 @@
     </LinearLayout>
 
     <LinearLayout
+        android:id="@+id/layout_sugar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.05"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/sugar_label"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight=".66"
+            android:gravity="center_horizontal"
+            android:text="Sugar"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/sugar_value"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center_horizontal"
+            android:text="N/A" />
+    </LinearLayout>
+
+    <LinearLayout
         android:id="@+id/layout_serving_size"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

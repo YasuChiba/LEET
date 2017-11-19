@@ -5,7 +5,7 @@
     android:id="@+id/meal_main_container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorPrimaryDark"
+    android:background="@android:color/darker_gray"
     android:orientation="vertical">
 
     <ScrollView
@@ -29,13 +29,11 @@
                 android:layout_marginRight="3dp"
                 android:layout_marginTop="5dp"
                 android:layout_weight="1.61"
-
-                android:background="@drawable/menupic_64degrees"
+                android:alpha="0.8"
+                android:background="@drawable/menupic_64degrees_edited35"
                 android:text="64 Degrees (Revelle College)"
-                android:textColor="?android:attr/actionMenuTextColor"
-                android:textSize="20dp"
-                tools:layout_editor_absoluteX="-5dp"
-                tools:layout_editor_absoluteY="-3dp" />
+                android:textColor="@android:color/black"
+                android:textSize="20dp" />
 
             <Button
                 android:id="@+id/cafeVentanas"
@@ -45,11 +43,10 @@
                 android:layout_marginRight="3dp"
                 android:layout_marginTop="10dp"
                 android:alpha="0.8"
-                android:background="@drawable/menupic_cafeventanas"
+                android:background="@drawable/menupic_cafeventanas43"
                 android:text="Cafe Ventanas (Roosevelt College)"
-                android:textColor="?attr/actionMenuTextColor"
-                android:textSize="20dp"
-                android:textStyle="bold" />
+                android:textColor="@android:color/black"
+                android:textSize="20dp" />
 
             <Button
                 android:id="@+id/canyonVista"
@@ -58,12 +55,13 @@
                 android:layout_marginLeft="3dp"
                 android:layout_marginRight="3dp"
                 android:layout_marginTop="10dp"
-                android:alpha="0.6"
-                android:background="@drawable/menupic_canyonvista"
+                android:alpha="0.8"
+                android:background="@drawable/menupic_canyonvista43"
                 android:text="Canyon Vista (Warren College)"
-                android:textColor="@android:color/white"
+                android:textColor="@android:color/black"
                 android:textSize="20dp"
-                android:textStyle="bold" />
+                tools:layout_editor_absoluteX="8dp"
+                tools:layout_editor_absoluteY="445dp" />
 
             <Button
                 android:id="@+id/foodworx"
@@ -72,10 +70,10 @@
                 android:layout_marginLeft="3dp"
                 android:layout_marginRight="3dp"
                 android:layout_marginTop="10dp"
-                android:alpha="0.6"
-                android:background="@drawable/menupic_foodworx"
+                android:alpha="0.8"
+                android:background="@drawable/menupic_foodworx43"
                 android:text="Foodworx (Sixth College)"
-                android:textColor="@android:color/white"
+                android:textColor="@android:color/black"
                 android:textSize="20dp" />
 
             <Button
@@ -85,10 +83,10 @@
                 android:layout_marginLeft="3dp"
                 android:layout_marginRight="3dp"
                 android:layout_marginTop="10dp"
-                android:alpha="0.6"
-                android:background="@drawable/menupic_ov"
+                android:alpha="0.8"
+                android:background="@drawable/menupic_ov43"
                 android:text="OceanView (Marshall College)"
-                android:textColor="@android:color/white"
+                android:textColor="@android:color/black"
                 android:textSize="20dp" />
 
             <Button
@@ -98,20 +96,20 @@
                 android:layout_marginLeft="3dp"
                 android:layout_marginRight="3dp"
                 android:layout_marginTop="10dp"
-                android:alpha="0.6"
-                android:background="@drawable/menupic_pines"
+                android:alpha="0.8"
+                android:background="@drawable/menupic_pines43"
                 android:text="Pines (Muir College)"
                 android:textAlignment="center"
                 android:textAllCaps="true"
-                android:textColor="@android:color/white"
-                android:textSize="20dp"
-                android:textStyle="bold" />
+                android:textColor="@android:color/black"
+                android:textSize="20dp" />
 
             <Button
                 android:id="@+id/customMeal"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1.61"
+                android:layout_marginBottom="70dp"
                 android:text="Custom Meal" />
 
         </LinearLayout>

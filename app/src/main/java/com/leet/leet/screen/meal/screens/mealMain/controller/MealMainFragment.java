@@ -20,7 +20,7 @@ import com.leet.leet.screen.meal.screens.mealMain.view.MealMainViewInterface;
 public class MealMainFragment extends Fragment implements MealMainViewInterface.MealMainViewListner {
 
     MealMainView mView;
-    MealMainListner mainListner;
+    MealMainListner mainListner; //once button is clicked, move to another fragment
 
     //Since Fragment cannot implement constructor with our original arguments, we should create this kind of method
     public void setupFragment(MealMainListner listner) {
