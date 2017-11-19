@@ -1,4 +1,4 @@
-package com.leet.leet.screen.meal.screens.ResultView;
+ package com.leet.leet.screen.meal.screens.ResultView;
 
 
 import android.content.Context;
