@@ -18,7 +18,7 @@ import android.widget.Toast;
  * Purpose - This class serves as the "Model" for the Detailed Menu Page.
  */
 
-public class DetailedMealModel extends AppCompatActivity {
+public class DetailedMealModel {
 
     public DetailedMealModel(){} //default constructor
 
@@ -28,13 +28,7 @@ public class DetailedMealModel extends AppCompatActivity {
 
         //add the meal to the database
         FirebaseDBUserDataHelper.setStatisticsData(new LocalDate() ,meal);
-
-        Log.d("DetailedMealModel", "firebase");
-
-        Toast.makeText(this, "Added Meal To History", Toast.LENGTH_SHORT).show();
-
-        Log.d("DetailedMealModel", "addMeal toast");
-
+        //Toast.makeText(this, "Added Meal To History", Toast.LENGTH_SHORT).show();
 
     } //end of addMeal
 } //end of class

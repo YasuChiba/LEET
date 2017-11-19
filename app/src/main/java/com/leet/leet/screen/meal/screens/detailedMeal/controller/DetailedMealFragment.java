@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.leet.leet.screen.meal.screens.detailedMeal.model.DetailedMealModel;
 import com.leet.leet.screen.meal.screens.detailedMeal.view.DetailedMealInterface;
@@ -38,6 +39,10 @@ public class DetailedMealFragment extends Fragment implements DetailedMealInterf
     private MenuEntity meal;
     private MenuNutritionsEntity nutritions;
 
+    /**
+     *
+     * @param listener
+     */
     public void setupFragment(DetailedMealInterface listener){
         this.mListener = listener;
     }
@@ -95,6 +100,7 @@ public class DetailedMealFragment extends Fragment implements DetailedMealInterf
         //add the meal to the user's history when the add button is pressed.
         mModel.addMeal(meal);
 
+        Toast.makeText(getContext(), "Added Meal To History", Toast.LENGTH_SHORT).show();
     }
 
 
