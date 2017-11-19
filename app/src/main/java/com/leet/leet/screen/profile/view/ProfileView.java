@@ -79,6 +79,8 @@ public class ProfileView implements ProfileViewInterface, View.OnClickListener {
 
         // Set up profile page viewswitchers
         goals_to_acc_vs = (ViewSwitcher) this.getRootView().findViewById(R.id.goals_to_acc_vs);
+        disableProfile();
+        disableGoals();
     }
     @Override
     public View getRootView() {
@@ -120,6 +122,22 @@ public class ProfileView implements ProfileViewInterface, View.OnClickListener {
         float fat = Float.valueOf(this.fat.getText().toString());
         return new UserGoalEntity(calorie, price, fat, carbs, protein);
     }
+    private void disableProfile(){
+        name.setEnabled(false);
+        email.setEnabled(false);
+        age.setEnabled(false);
+        gender.setEnabled(false);
+        feet.setEnabled(false);
+        inch.setEnabled(false);
+        weight.setEnabled(false);
+    }
+    private void disableGoals(){
+        price.setEnabled(false);
+        calorie.setEnabled(false);
+        carbs.setEnabled(false);
+        fat.setEnabled(false);
+        protein.setEnabled(false);
+    }
     @Override
     public void swithcViews() {
         goals_to_acc_vs.showNext();
@@ -138,9 +156,11 @@ public class ProfileView implements ProfileViewInterface, View.OnClickListener {
                 break;
             case R.id.acc_save:
                 mListner.saveInfoEntity(createUserInfoEntity());
+                disableProfile();
                 break;
             case R.id.goals_save:
                 mListner.saveGoalEntity(createUserGoalEntity());
+                disableGoals();
                 break;
 
         }

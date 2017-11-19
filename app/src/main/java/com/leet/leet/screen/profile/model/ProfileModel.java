@@ -41,11 +41,7 @@ public class ProfileModel {
     }*/
 
     public void saveGoals(UserGoalEntity goalEntity){
-
-       Log.i("values", "" + goalEntity.getCalorie());
-        UserProfileEntity profileEntity = new UserProfileEntity(goalEntity, null);
-        //FirebaseDBUserDataHelper.setUserGoals(goalEntity);
-        FirebaseDBUserDataHelper.setUserProfile(profileEntity);
+        FirebaseDBUserDataHelper.setUserGoals(goalEntity);
     }
     public void saveInfo(UserInfoEntity infoEntity){
         FirebaseDBUserDataHelper.setUserInfo(infoEntity);
