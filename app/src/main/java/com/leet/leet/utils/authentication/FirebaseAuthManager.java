@@ -34,7 +34,7 @@ public class FirebaseAuthManager {
     }
 
     /**
-     * sign in anonymously using firebase built-in fuunction
+     * sign in anonymously using firebase built-in function
      */
     public static void signInAnonymously(OnCompleteListener<AuthResult> complteListner) {
         if(complteListner != null) {

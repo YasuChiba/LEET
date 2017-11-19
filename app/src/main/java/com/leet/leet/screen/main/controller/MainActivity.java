@@ -5,18 +5,23 @@ import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.LayoutInflater;
+import android.widget.TextView;
 
 import com.leet.leet.screen.login.LoginInterface;
 import com.leet.leet.screen.login.controller.LoginActivity;
 import com.leet.leet.screen.main.model.MainModel;
 import com.leet.leet.screen.main.view.MainView;
 import com.leet.leet.screen.signup.controller.SignupActivity;
+import com.leet.leet.screen.start.controller.StartActivity;
+import com.leet.leet.utils.authentication.FirebaseAuthManager;
 
 
 public class MainActivity extends AppCompatActivity {
 
     private MainView mView;
     private MainModel mModel;
+
+    private TextView message;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,10 +34,11 @@ public class MainActivity extends AppCompatActivity {
 
         setContentView(mView.getRootView());
 
+        /*
         // go to login page
         Intent intent = new Intent(this, LoginActivity.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         startActivity(intent);
-
+        */
     }
 }
