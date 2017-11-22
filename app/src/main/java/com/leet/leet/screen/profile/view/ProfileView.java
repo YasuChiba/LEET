@@ -41,7 +41,7 @@ public class ProfileView implements ProfileViewInterface, View.OnClickListener {
     boolean goalsEdit = false;
     boolean accEdit = false;
 
-    Button goals_edit, goals_save, acc_edit, acc_save, goals_to_acc;
+    Button goals_edit, goals_save, acc_edit, acc_save, Recommended;
     ViewSwitcher goals_to_acc_vs, acc_vs, goals_vs;
 
 
@@ -51,8 +51,6 @@ public class ProfileView implements ProfileViewInterface, View.OnClickListener {
     public ProfileView(LayoutInflater inflater, ViewGroup container) {
         mRootView = inflater.inflate(R.layout.viewswitcher_test, container, false);
         initialize();
-
-
     }
 
     private void initialize() {
@@ -73,6 +71,7 @@ public class ProfileView implements ProfileViewInterface, View.OnClickListener {
         goals_save = (Button) this.getRootView().findViewById(R.id.goals_save);
         goals_save.setOnClickListener(this);
         acc_save = (Button) this.getRootView().findViewById(R.id.acc_save);
+        Recommended = (Button) this.getRootView().findViewById(R.id.Recommended);
         acc_save.setOnClickListener(this);
 
         // Set up profile page viewswitchers
@@ -105,6 +104,7 @@ public class ProfileView implements ProfileViewInterface, View.OnClickListener {
         feet.setSelection(0);
         inch.setSelection(0);
     }
+
     private UserInfoEntity createUserInfoEntity(){
         String name = this.name.getText().toString();
         String email = this.email.getText().toString();
@@ -115,6 +115,7 @@ public class ProfileView implements ProfileViewInterface, View.OnClickListener {
         int age = Integer.valueOf(this.age.getText().toString());
         return new UserInfoEntity(name, gender, email, age, weight, feet, inch, null);
     }
+
     private UserGoalEntity createUserGoalEntity(){
         float price = Float.valueOf(this.price.getText().toString());
         float calorie = Float.valueOf(this.calorie.getText().toString());
@@ -123,6 +124,7 @@ public class ProfileView implements ProfileViewInterface, View.OnClickListener {
         float fat = Float.valueOf(this.fat.getText().toString());
         return new UserGoalEntity(calorie, price, fat, carbs, protein);
     }
+
     private void setProfileEdit(boolean b){
         name.setEnabled(b);
         email.setEnabled(b);
@@ -132,6 +134,7 @@ public class ProfileView implements ProfileViewInterface, View.OnClickListener {
         inch.setEnabled(b);
         weight.setEnabled(b);
     }
+
     private void setGoalsEdit(boolean b){
         price.setEnabled(b);
         calorie.setEnabled(b);
@@ -161,6 +164,8 @@ public class ProfileView implements ProfileViewInterface, View.OnClickListener {
         Log.i("hello", "onclick");
         switch (v.getId()){
             case R.id.Recommended:
+                //UserGoalEntity rec = mListner.getRecommended();
+
                 break;
             case R.id.acc_save:
                 mListner.saveInfoEntity(createUserInfoEntity());
@@ -180,12 +185,14 @@ public class ProfileView implements ProfileViewInterface, View.OnClickListener {
                 mListner.saveGoalEntity(createUserGoalEntity());
                 if(goalsEdit == false){
                     goals_save.setText("Save");
+                    Recommended.setVisibility(View.VISIBLE);
                     setGoalsEdit(true);
                     goalsEdit = true;
                 }
                 else {
                     goals_save.setText("Edit");
                     mListner.saveGoalEntity(createUserGoalEntity());
+                    Recommended.setVisibility(View.GONE);
                     setGoalsEdit(false);
                     goalsEdit = false;
                 }

@@ -37,7 +37,8 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentEnd="true"
                     android:layout_alignParentTop="true"
-                    android:text="Use Recommended" />
+                    android:text="Use Recommended"
+                    android:visibility="gone" />
 
             </RelativeLayout>
 
