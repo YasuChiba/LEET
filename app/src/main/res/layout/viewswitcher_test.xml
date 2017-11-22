@@ -194,10 +194,10 @@
                     android:id="@+id/Delete"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Delete Account"
-                    android:layout_alignParentTop="true"
                     android:layout_alignParentEnd="true"
-                    android:background="@android:color/holo_red_light"/>
+                    android:layout_alignParentTop="true"
+                    android:background="@android:color/holo_red_light"
+                    android:text="Delete Account" />
 
                 <Button
                     android:id="@+id/acc_save"

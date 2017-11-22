@@ -97,7 +97,7 @@ public class ProfileView implements ProfileViewInterface, View.OnClickListener {
     }
 
     public void setUserInfoDefaults(UserInfoEntity acc_info) {
-        email.setText(acc_info.getEmail());
+        email.setText((acc_info.getEmail()));
         name.setText((acc_info.getName()));
         gender.setSelection(0);
         age.setText((String.valueOf(acc_info.getAge())));
@@ -149,6 +149,7 @@ public class ProfileView implements ProfileViewInterface, View.OnClickListener {
     public void setListener(ProfileViewListener listener) {
         mListner = listener;
     }
+
     public void setInitialData(UserProfileEntity profileEntity){
         setUserGoalDefaults(profileEntity.getGoals());
         setUserInfoDefaults(profileEntity.getInfo());

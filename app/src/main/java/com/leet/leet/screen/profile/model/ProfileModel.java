@@ -53,29 +53,28 @@ public class ProfileModel {
     public void logout(){
         FirebaseAuthHelper.logout();
     }
-    public void saveGoals(UserGoalEntity goalEntity){
+    public void saveGoals(UserGoalEntity goalEntity) {
         FirebaseDBUserDataHelper.setUserGoals(goalEntity);
     }
-    public void saveInfo(UserInfoEntity infoEntity){
+
+    public void saveInfo(UserInfoEntity infoEntity) {
         FirebaseDBUserDataHelper.setUserInfo(infoEntity);
     }
+
 //can you help me pass in the call back function here and then calling it to the firebase?
-    public void getUserData(final FirebaseDBCallaback<UserProfileEntity> callaback)
-    {
+
+    public void getUserData(final FirebaseDBCallaback<UserProfileEntity> callaback) {
         //final UserProfileEntity acc_info = new UserProfileEntity();
         FirebaseDBUserDataHelper.getUserProfile(new FirebaseDBCallaback<UserProfileEntity>() {
             @Override
             public void getData(UserProfileEntity data) {
-                //acc_info.setUserInfo(data.getUserInfo());
-                //acc_info.setUserGoals(data.getUserGoals());
                 callaback.getData(data);
-
             }
         });
 
     }
     public void deleteAccount(){
-        FirebaseDatabase.getInstance().getReference().child(FirebaseAuthHelper.getUserId()).removeValue();
+        FirebaseDBUserDataHelper.removeUserID();
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         user.delete()
                 .addOnCompleteListener(new OnCompleteListener<Void>() {
@@ -93,6 +92,7 @@ public class ProfileModel {
         return new UserGoalEntity();
     }
 }
+
 
 
 

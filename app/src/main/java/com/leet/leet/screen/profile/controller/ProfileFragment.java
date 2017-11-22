@@ -41,6 +41,7 @@ public class ProfileFragment extends Fragment implements ProfileViewInterface.Pr
         mView.setListener(this);
         mModel = new ProfileModel();
         setHasOptionsMenu(true);
+
         mModel.getUserData(new FirebaseDBCallaback<UserProfileEntity>() {
             @Override
             public void getData(UserProfileEntity data) {
@@ -48,10 +49,6 @@ public class ProfileFragment extends Fragment implements ProfileViewInterface.Pr
             }
         });
         return mView.getRootView();
-
-
-
-
     }
 
     @Override

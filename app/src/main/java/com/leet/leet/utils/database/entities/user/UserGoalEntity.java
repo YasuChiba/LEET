@@ -35,7 +35,7 @@ public class UserGoalEntity {
     public float getPrice() {
         return price;
     }
-    public void setPrice(float age) {
+    public void setPrice(float price) {
         this.price = price;
     }
 
