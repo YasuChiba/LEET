@@ -1,6 +1,11 @@
 package com.leet.leet.common;
 
 import android.app.Application;
+import android.graphics.Point;
+import android.view.Display;
+import android.view.WindowManager;
+
+import com.leet.leet.utils.SharedPrefManager;
 
 import net.danlew.android.joda.JodaTimeAndroid;
 
@@ -17,6 +22,19 @@ public class UtilCommon extends Application {
 
         ContextManager.onCreateApplication(getApplicationContext());
         JodaTimeAndroid.init(this);
+        getDisplaySize();
+
+    }
+
+
+    private void getDisplaySize() {
+        WindowManager wm = (WindowManager)getSystemService(WINDOW_SERVICE);
+        Display disp = wm.getDefaultDisplay();
+
+        Point realSize = new Point();
+        disp.getRealSize(realSize);
+        SharedPrefManager.saveRealDisplaySizeX(realSize.x);
+        SharedPrefManager.saveRealDisplaySizeY(realSize.y);
     }
 
 }

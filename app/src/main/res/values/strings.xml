@@ -1,5 +1,6 @@
 <resources>
     <string name="app_name">LEET</string>
+<<<<<<< HEAD
     <string name="Calorie">Calorie</string>
     <string name="Price">Price</string>
     <string name="Protein">Protein</string>
@@ -55,6 +56,41 @@
 
 
 
+=======
+<<<<<<< HEAD
+
+    <!-- Xinhe Zhang, 11/05/2017 -->
+    <string name="login">LOGIN</string>
+    <string name="back">BACK</string>
+=======
+    <string name="daily_goal">DAILY GOAL</string>
+
+    <!-- Xinhe Zhang, 11/05/2017 -->
+
+    <!-- General messages -->
+    <string name="login">LOGIN</string>
+    <string name="guest">LOGIN AS GUEST</string>
+    <string name="signup">SIGNUP</string>
+    <string name="confirm">CONFIRM</string>
+    <string name="back">BACK</string>
+    <string name="username">User name</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="reenter">Confirm Password</string>
+    <string name="pattern">Password must be contains at least one digit and one letter</string>
+    <string name="match">Re-entered password must match</string>
+
+    <!-- Error messages -->
+    <string name="error">ERROR</string>
+    <string name="not_match">Password not match</string>
+    <string name="ok">OK</string>
+>>>>>>> 88f2683795bcbada0b980fb8fc2e13d1caed76b9
+    <string name="empty">Username or password can not be empty</string>
+    <string name="login_first">Please log in first</string>
+    <string name="signup_first">Please sign up first</string>
+    <string name="already_login">You have already logged in</string>
+    <string name="already_signup">You have already signed up</string>
+>>>>>>> master
 
 
 </resources>
