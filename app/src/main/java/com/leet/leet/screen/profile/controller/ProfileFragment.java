@@ -63,9 +63,10 @@ public class ProfileFragment extends Fragment implements ProfileViewInterface.Pr
         // Handle item selection
         switch (item.getItemId()) {
             case R.id.logout:
+                mModel.logout();
                 return true;
             case R.id.edit:
-                mView.swithcViews();
+                mView.switchViews();
                 updateMenuTitles();
                 return true;
             default:
@@ -91,6 +92,11 @@ public class ProfileFragment extends Fragment implements ProfileViewInterface.Pr
     @Override
     public void saveGoalEntity(UserGoalEntity goal) {
         mModel.saveGoals(goal);
+    }
+
+    @Override
+    public void deleteAcc() {
+        mModel.deleteAccount();
     }
 }
 

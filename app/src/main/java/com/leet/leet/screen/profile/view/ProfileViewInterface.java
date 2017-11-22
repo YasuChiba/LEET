@@ -13,12 +13,13 @@ public interface ProfileViewInterface extends ViewBaseInterface {
     public void setUserGoalDefaults(UserGoalEntity goals);
     public void setUserInfoDefaults(UserInfoEntity acc_info);
     public void setInitialData(UserProfileEntity profileEntity);
-    public void swithcViews();
+    public void switchViews();
 
 
     interface ProfileViewListener{
         void saveInfoEntity(UserInfoEntity info);
         void saveGoalEntity(UserGoalEntity goal);
+        void deleteAcc();
     }
     void setListener(ProfileViewListener listener);
 
