@@ -78,35 +78,37 @@ public class AddCustomMealView implements CustomMealInterface, View.OnClickListe
     //Getter methods for all private member variables of this class
     //These getters are used by the controller in getting paramaters to pass into the model
     public String getPriceVal() {
-            return price.getText().toString();
+        return price.getText().toString().length() == 0 ? "0" : price.getText().toString();
     }
     public String getCalVal() {
-        return (calories.getText().toString());
+        return calories.getText().toString().length() == 0 ? "0" : calories.getText().toString();
     }
     public String getCarbsVal() {
-        return (carbs.getText().toString());
+        return carbs.getText().toString().length() == 0 ? "0" : calories.getText().toString();
     }
     public String getTotalFatVal() {
-        return (totalFat.getText().toString());
+        return totalFat.getText().toString().length() == 0 ? "0" : totalFat.getText().toString();
     }
     public String getSatFatVal() {
-        return (saturatedFat.getText().toString());
+        return saturatedFat.getText().toString().length() == 0 ? "0" : saturatedFat.getText().toString();
     }
     public String getProteinVal() {
-        return (protein.getText().toString());
+        return protein.getText().toString().length() == 0 ? "0" : protein.getText().toString();
     }
     public String getSodiumVal() {
-        return (sodium.getText().toString());
+        return sodium.getText().toString().length() == 0 ? "0" : sodium.getText().toString();
     }
     public String getCholesterolVal() {
-        return (cholesterol.getText().toString());
+        return cholesterol.getText().toString().length() == 0 ? "0" : cholesterol.getText().toString();
     }
     public String getDietaryFiberVal() {
-        return (dietaryFiber.getText().toString());
+        return dietaryFiber.getText().toString().length() == 0 ? "0" : dietaryFiber.getText().toString();
     }
     public String getSugarVal() {
-        return (sugar.getText().toString());
+        return sugar.getText().toString().length() == 0 ? "0" : sugar.getText().toString();
     }
+
+    // do not have default value
     public String getMealName() {
         return name.getText().toString();
     }
