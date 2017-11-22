@@ -75,12 +75,60 @@ public class StatisticsWeeklyModel {
             @Override
             public void getData(ArrayList<UserStatisticsEntity> data) {
 
+                ArrayList<LocalDate> dayL = new ArrayList<>();
+                ArrayList<Float> priceL = new ArrayList<Float>();
+                ArrayList<Float> calorieL = new ArrayList<Float>();
+                ArrayList<Float> proteinL = new ArrayList<Float>();
+                ArrayList<Float> fatL = new ArrayList<Float>();
+                ArrayList<Float> carbsL = new ArrayList<Float>();
+
+
                 for(UserStatisticsEntity entity : data) {
+                    float price = 0;
+                    float calorie = 0;
+                    float protein = 0;
+                    float fat = 0;
+                    float carbs = 0;
 
+                    for(MenuEntity menu : entity.getBreakfastMenu()) {
+                        price += menu.getPrice();
+                        calorie += menu.getNutritions().getCalories();
+                        protein += menu.getNutritions().getProtein();
+                        fat += menu.getNutritions().getTotalFat();
+                        carbs += menu.getNutritions().getCarb();
+                    }
 
+                    for(MenuEntity menu : entity.getLunchMenu()) {
+                        price += menu.getPrice();
+                        calorie += menu.getNutritions().getCalories();
+                        protein += menu.getNutritions().getProtein();
+                        fat += menu.getNutritions().getTotalFat();
+                        carbs += menu.getNutritions().getCarb();
+                    }
+
+                    for(MenuEntity menu : entity.getDinnerMenu()) {
+                        price += menu.getPrice();
+                        calorie += menu.getNutritions().getCalories();
+                        protein += menu.getNutritions().getProtein();
+                        fat += menu.getNutritions().getTotalFat();
+                        carbs += menu.getNutritions().getCarb();
+                    }
+                    priceL.add(price);
+                    calorieL.add(calorie);
+                    proteinL.add(protein);
+                    fatL.add(fat);
+                    carbsL.add(carbs);
+                    dayL.add(DateHelper.getDateByString(entity.getDate()));
                 }
 
+                priceList = priceL;
+                calorieList = calorieL;
+                proteinList = proteinL;
+                fatList = fatL;
+                carbsList = carbsL;
+                dayList = dayL;
 
+                callback.getData(true);
             }
         });
 /*
