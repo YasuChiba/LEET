@@ -34,7 +34,7 @@ public class AddCustomMealModel {
         nutrition = new MenuNutritionsEntity(Float.parseFloat(cholesterol), Float.parseFloat(fiber),
                 Float.parseFloat(protein), Float.parseFloat(satFat), Float.parseFloat(sodium),
                 Float.parseFloat(sugar), Float.parseFloat(carbs), Float.parseFloat(totalFat),
-                Float.parseFloat(calories),"",allergens);
+                Float.parseFloat(calories), "", allergens);
 
         //initialize the MenuEntity
         meal = new MenuEntity(name, nutrition, Float.parseFloat(price), tags);

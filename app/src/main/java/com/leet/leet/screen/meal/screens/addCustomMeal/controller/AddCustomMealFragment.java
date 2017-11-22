@@ -63,7 +63,7 @@ public class AddCustomMealFragment extends Fragment implements CustomMealInterfa
         }
         else {
             //Toast telling the user they have invalid input
-            Toast.makeText(getContext(), "Invalid Input. Meal Must Have A Name.", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getContext(), "Meal Must Have A Name.", Toast.LENGTH_SHORT).show();
         }
 
     } //end of addMealClick()
