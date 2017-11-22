@@ -32,6 +32,7 @@ public class StartModel {
         return FirebaseAuthHelper.isLoggedIn();
     }
 
+    /*
     public void getMenu() {
 
         LocalDate d = DateHelper.getFutureDate(1);

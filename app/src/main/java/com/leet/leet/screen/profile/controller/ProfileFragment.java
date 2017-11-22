@@ -1,5 +1,6 @@
 package com.leet.leet.screen.profile.controller;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -12,6 +13,7 @@ import android.widget.Button;
 import android.widget.ViewSwitcher;
 
 import com.leet.leet.R;
+import com.leet.leet.screen.login.controller.LoginActivity;
 import com.leet.leet.screen.profile.model.ProfileModel;
 import com.leet.leet.screen.profile.view.ProfileView;
 import com.leet.leet.screen.profile.view.ProfileViewInterface;
@@ -64,6 +66,8 @@ public class ProfileFragment extends Fragment implements ProfileViewInterface.Pr
         switch (item.getItemId()) {
             case R.id.logout:
                 mModel.logout();
+                Intent logInIntent = new Intent(getActivity(), LoginActivity.class);
+                startActivity(logInIntent);
                 return true;
             case R.id.edit:
                 mView.switchViews();
