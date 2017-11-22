@@ -50,34 +50,23 @@ public class AddCustomMealFragment extends Fragment implements CustomMealInterfa
     //Delegate adding meal to the model using parameters retreived from the view
     public void addMealClick(){
 
-        if (validateFields()) {
+        if(mView.getMealName().length() != 0){
             mModel.addMeal(mView.getMealName(), mView.getPriceVal(), mView.getCalVal(),
                     mView.getCarbsVal(), mView.getTotalFatVal(), mView.getSatFatVal(), mView.getProteinVal(),
                     mView.getSodiumVal(), mView.getCholesterolVal(), mView.getDietaryFiberVal(),
                     mView.getSugarVal());
+
             clearFields();
 
             //Toast telling the user meal has been added
             Toast.makeText(getContext(), "Created Meal", Toast.LENGTH_SHORT).show();
-
         }
         else {
             //Toast telling the user they have invalid input
-            Toast.makeText(getContext(), "Invalid Input", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getContext(), "Invalid Input. Meal Must Have A Name.", Toast.LENGTH_SHORT).show();
         }
-    } //end of addMealClick()
 
-    /**
-     * Purpose - Validate the user input for adding custom meals
-     * @return true if entries are valid, false otherwise
-     */
-    public boolean validateFields(){
-        //make sure there is some name
-        if(mView.getMealName().length() == 0){
-            return false;
-        }
-        return true;
-    }
+    } //end of addMealClick()
 
 
     /**
