@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/filter_sorting_image"
+    android:orientation="vertical">
 
 
     <TextView
@@ -28,15 +30,16 @@
                 android:id="@+id/criteria_label"
                 android:layout_width="match_parent"
                 android:layout_height="62dp"
+                android:layout_weight="0.14"
                 android:gravity="center_horizontal"
                 android:text="@string/criteria_title"
-                android:textSize="24sp"
-                android:layout_weight="0.04" />
+                android:textSize="24sp" />
 
             <TextView
                 android:id="@+id/price_label"
                 android:layout_width="match_parent"
                 android:layout_height="69dp"
+                android:layout_weight=".14"
                 android:gravity="center_horizontal"
                 android:text="@string/price_title"
                 android:textSize="20sp" />
@@ -45,6 +48,7 @@
                 android:id="@+id/calorie_label"
                 android:layout_width="match_parent"
                 android:layout_height="67dp"
+                android:layout_weight=".14"
                 android:gravity="center_horizontal"
                 android:text="@string/calories_title"
                 android:textSize="20sp" />
@@ -53,6 +57,7 @@
                 android:id="@+id/carbs_label"
                 android:layout_width="match_parent"
                 android:layout_height="72dp"
+                android:layout_weight=".14"
                 android:gravity="center_horizontal"
                 android:text="@string/carb_title"
                 android:textSize="20sp" />
@@ -61,6 +66,7 @@
                 android:id="@+id/fat_label"
                 android:layout_width="match_parent"
                 android:layout_height="63dp"
+                android:layout_weight=".14"
                 android:gravity="center_horizontal"
                 android:text="@string/fat_title"
                 android:textSize="20sp" />
@@ -69,6 +75,7 @@
                 android:id="@+id/protein_label"
                 android:layout_width="match_parent"
                 android:layout_height="63dp"
+                android:layout_weight="0.42"
                 android:gravity="center_horizontal"
                 android:text="@string/protein_title"
                 android:textSize="20sp" />
@@ -77,9 +84,9 @@
                 android:id="@+id/sugar_label"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight=".16"
+                android:layout_weight="4.22"
                 android:gravity="center_horizontal"
-                android:text="Sugar"
+                android:text="Sugar:"
                 android:textSize="20sp" />
 
         </LinearLayout>
@@ -108,7 +115,6 @@
                 android:ems="10"
                 android:gravity="center_horizontal"
                 android:inputType="numberDecimal"
-                android:text="@string/min"
                 android:textSize="20sp" />
 
             <EditText
@@ -119,7 +125,6 @@
                 android:ems="10"
                 android:gravity="center_horizontal"
                 android:inputType="numberDecimal"
-                android:text="@string/min"
                 android:textSize="20sp" />
 
             <EditText
@@ -130,7 +135,6 @@
                 android:ems="10"
                 android:gravity="center_horizontal"
                 android:inputType="numberDecimal"
-                android:text="@string/min"
                 android:textSize="20sp" />
 
             <EditText
@@ -141,7 +145,6 @@
                 android:ems="10"
                 android:gravity="center_horizontal"
                 android:inputType="numberDecimal"
-                android:text="@string/min"
                 android:textSize="20sp" />
 
             <EditText
@@ -152,7 +155,6 @@
                 android:ems="10"
                 android:gravity="center_horizontal"
                 android:inputType="numberDecimal"
-                android:text="@string/min"
                 android:textSize="20sp" />
 
             <EditText
@@ -163,7 +165,6 @@
                 android:ems="10"
                 android:gravity="center_horizontal"
                 android:inputType="numberDecimal"
-                android:text="@string/min"
                 android:textSize="20sp" />
 
         </LinearLayout>
@@ -192,7 +193,6 @@
                 android:ems="10"
                 android:gravity="center_horizontal"
                 android:inputType="numberDecimal"
-                android:text="@string/max"
                 android:textSize="20sp" />
 
             <EditText
@@ -203,7 +203,6 @@
                 android:ems="10"
                 android:gravity="center_horizontal"
                 android:inputType="numberDecimal"
-                android:text="@string/max"
                 android:textSize="20sp" />
 
             <EditText
@@ -214,7 +213,6 @@
                 android:ems="10"
                 android:gravity="center_horizontal"
                 android:inputType="numberDecimal"
-                android:text="@string/max"
                 android:textSize="20sp" />
 
             <EditText
@@ -225,7 +223,6 @@
                 android:ems="10"
                 android:gravity="center_horizontal"
                 android:inputType="numberDecimal"
-                android:text="@string/max"
                 android:textSize="20sp" />
 
             <EditText
@@ -236,7 +233,6 @@
                 android:ems="10"
                 android:gravity="center_horizontal"
                 android:inputType="numberDecimal"
-                android:text="@string/max"
                 android:textSize="20sp" />
 
             <EditText
@@ -247,7 +243,6 @@
                 android:ems="10"
                 android:gravity="center_horizontal"
                 android:inputType="numberDecimal"
-                android:text="@string/max"
                 android:textSize="20sp" />
 
         </LinearLayout>
