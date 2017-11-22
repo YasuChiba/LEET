@@ -1,11 +1,14 @@
 package com.leet.leet.screen.statistics.screen.weekly.model;
 
+import android.util.Log;
+
 import com.leet.leet.common.Enums;
 import com.leet.leet.utils.DateHelper;
 import com.leet.leet.utils.database.FirebaseDBCallaback;
 import com.leet.leet.utils.database.FirebaseDBMenuDataHelper;
 import com.leet.leet.utils.database.FirebaseDBUserDataHelper;
 import com.leet.leet.utils.database.entities.menu.MenuEntity;
+import com.leet.leet.utils.database.entities.user.UserStatisticsEntity;
 
 import org.joda.time.LocalDate;
 
@@ -31,17 +34,30 @@ public class StatisticsWeeklyModel {
 
 
     public void setDataTest() {
-        FirebaseDBMenuDataHelper.getMenuData(Enums.RestaurantName.CafeVentanas, DateHelper.getCurrentDate(), Enums.MealTime.Breakfast,
-                new FirebaseDBCallaback<ArrayList<MenuEntity>>() {
-                    @Override
-                    public void getData(ArrayList<MenuEntity> data) {
-                        int ran = (int)(Math.random()*data.size());
-                        FirebaseDBUserDataHelper.setStatisticsData(DateHelper.getPastDate(3),data.get(ran));
 
+        for(int i=0;i<10;i++){
+            LocalDate date = DateHelper.getPastDate(i);
 
+            for(int j=0;j<3;j++){
+                Enums.MealTime time = Enums.MealTime.Breakfast;
+                if(j==0) time = Enums.MealTime.Breakfast;
+                if(j==1)time = Enums.MealTime.Lunch;
+                if(j==2)time = Enums.MealTime.Dinner;
 
-                    }
-                });
+                for(int k=0;k<5;k++) {
+                    final LocalDate d = date;
+                    final Enums.MealTime t = time;
+                    FirebaseDBMenuDataHelper.getMenuData(Enums.RestaurantName.CafeVentanas, DateHelper.getCurrentDate(), time,
+                            new FirebaseDBCallaback<ArrayList<MenuEntity>>() {
+                                @Override
+                                public void getData(ArrayList<MenuEntity> data) {
+                                    int ran = (int)(Math.random()*data.size());
+                                    FirebaseDBUserDataHelper.setStatisticsData(d, t,data.get(ran));
+                                }
+                            });
+                }
+            }
+        }
         /*
         MenuEntity ent = new MenuEntity();
         ent.setName("TTasdsda0");
@@ -54,6 +70,20 @@ public class StatisticsWeeklyModel {
                                   final LocalDate endDate,
                                   final FirebaseDBCallaback<Boolean> callback) {
 
+
+        FirebaseDBUserDataHelper.getStatisticsData(startDate, endDate, new FirebaseDBCallaback<ArrayList<UserStatisticsEntity>>() {
+            @Override
+            public void getData(ArrayList<UserStatisticsEntity> data) {
+
+                for(UserStatisticsEntity entity : data) {
+
+
+                }
+
+
+            }
+        });
+/*
         FirebaseDBUserDataHelper.getStatisticsData(startDate, endDate, new FirebaseDBCallaback<HashMap<String, ArrayList<MenuEntity>>>() {
             @Override
             public void getData(HashMap<String, ArrayList<MenuEntity>> data) {
@@ -106,6 +136,7 @@ public class StatisticsWeeklyModel {
                 callback.getData(true);
             }
         });
+        */
     }
 
     public ArrayList<LocalDate> getDayList() {

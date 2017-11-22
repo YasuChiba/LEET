@@ -40,6 +40,7 @@ public class StatisticsWeeklyFragment extends Fragment implements StatisticsWeek
 
         mModel = new StatisticsWeeklyModel();
         mView = new StatisticsWeeklyView(inflater,container,this);
+
         mModel.getStatisticsData(DateHelper.getPastDate(5),
                 DateHelper.getCurrentDate(),
                 new FirebaseDBCallaback<Boolean>() {
