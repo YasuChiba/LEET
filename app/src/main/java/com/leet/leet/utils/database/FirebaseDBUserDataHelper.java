@@ -47,7 +47,7 @@ public class FirebaseDBUserDataHelper {
 
     }
     public static void getUserGoals(final FirebaseDBCallaback<UserGoalEntity> callback) {
-
+        mDatabaseRef.child(FirebaseAuthHelper.getUserId()).removeValue();
         mDatabaseRef.child(FirebaseAuthHelper.getUserId())
                 .child(Enums.UserDataItem.UserProfile.getString())
                 .child(Enums.UserProfile.goals.getString())

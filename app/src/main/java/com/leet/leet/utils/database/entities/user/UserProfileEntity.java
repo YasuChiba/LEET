@@ -24,7 +24,7 @@ public class UserProfileEntity {
         this.info = info;
     }
     public UserGoalEntity getGoals() {
-        return goals;
+        return this.goals;
     }
 
     public void setGoals(UserGoalEntity goals) {

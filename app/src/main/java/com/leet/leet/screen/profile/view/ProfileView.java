@@ -97,6 +97,7 @@ public class ProfileView implements ProfileViewInterface, View.OnClickListener {
     }
 
     public void setUserInfoDefaults(UserInfoEntity acc_info) {
+        email.setText(acc_info.getEmail());
         name.setText((acc_info.getName()));
         gender.setSelection(0);
         age.setText((String.valueOf(acc_info.getAge())));
@@ -141,10 +142,9 @@ public class ProfileView implements ProfileViewInterface, View.OnClickListener {
 
 
     @Override
-    public void swithcViews() {
+    public void switchViews() {
         goals_to_acc_vs.showNext();
     }
-
     @Override
     public void setListener(ProfileViewListener listener) {
         mListner = listener;
@@ -188,6 +188,10 @@ public class ProfileView implements ProfileViewInterface, View.OnClickListener {
                     goalsEdit = false;
                 }
                 break;
+            case R.id.Delete:
+                mListner.deleteAcc();
+                break;
+
 
         }
     }
