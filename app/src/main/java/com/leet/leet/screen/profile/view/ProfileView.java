@@ -152,8 +152,8 @@ public class ProfileView implements ProfileViewInterface, View.OnClickListener {
         mListner = listener;
     }
     public void setInitialData(UserProfileEntity profileEntity){
-        setUserGoalDefaults(profileEntity.getUserGoals());
-        setUserInfoDefaults(profileEntity.getUserInfo());
+        setUserGoalDefaults(profileEntity.getGoals());
+        setUserInfoDefaults(profileEntity.getInfo());
     }
 
     @Override

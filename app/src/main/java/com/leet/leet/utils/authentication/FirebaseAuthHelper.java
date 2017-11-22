@@ -52,9 +52,6 @@ public class FirebaseAuthHelper {
     }
 
 
-
-
-
     static class CompletionListner implements OnCompleteListener<AuthResult> {
 
         FirebaseAuthCallback callback;

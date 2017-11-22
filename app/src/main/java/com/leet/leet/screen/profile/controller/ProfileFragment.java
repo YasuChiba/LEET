@@ -15,6 +15,7 @@ import com.leet.leet.R;
 import com.leet.leet.screen.profile.model.ProfileModel;
 import com.leet.leet.screen.profile.view.ProfileView;
 import com.leet.leet.screen.profile.view.ProfileViewInterface;
+import com.leet.leet.utils.database.FirebaseDBCallaback;
 import com.leet.leet.utils.database.entities.user.UserGoalEntity;
 import com.leet.leet.utils.database.entities.user.UserInfoEntity;
 import com.leet.leet.utils.database.entities.user.UserProfileEntity;
@@ -36,20 +37,23 @@ public class ProfileFragment extends Fragment implements ProfileViewInterface.Pr
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        mModel = new ProfileModel();
         mView = new ProfileView(inflater, container);
         mView.setListener(this);
+        mModel = new ProfileModel();
         setHasOptionsMenu(true);
-        mModel.getUserData();
+        mModel.getUserData(new FirebaseDBCallaback<UserProfileEntity>() {
+            @Override
+            public void getData(UserProfileEntity data) {
+                mView.setInitialData(data);
+            }
+        });
         return mView.getRootView();
 
 
 
 
     }
-    public void initialData(UserProfileEntity profileEntity){
-        mView.setInitialData(profileEntity);
-    }
+
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         inflater.inflate(R.menu.menu, menu);

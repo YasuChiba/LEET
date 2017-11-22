@@ -9,6 +9,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.leet.leet.common.Enums;
 import com.leet.leet.utils.DateHelper;
+import com.leet.leet.utils.authentication.FirebaseAuthHelper;
 import com.leet.leet.utils.database.entities.menu.MenuEntity;
 
 import org.joda.time.LocalDate;
@@ -36,7 +37,6 @@ public class FirebaseDBMenuDataHelper {
         Log.d("firebaseDB",dateStrng);
         Log.d("firebaseDB",time.getString());
         Log.d("firebaseDB",restaurantName.getString());
-
         mDatabaseRef.child(restaurantName.getString())
                 .child(dateStrng)
                 .child(time.getString())

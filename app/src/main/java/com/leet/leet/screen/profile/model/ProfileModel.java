@@ -47,17 +47,16 @@ public class ProfileModel {
     public void saveInfo(UserInfoEntity infoEntity){
         FirebaseDBUserDataHelper.setUserInfo(infoEntity);
     }
-
-    public void getUserData()
+//can you help me pass in the call back function here and then calling it to the firebase?
+    public void getUserData(final FirebaseDBCallaback<UserProfileEntity> callaback)
     {
         //final UserProfileEntity acc_info = new UserProfileEntity();
         FirebaseDBUserDataHelper.getUserProfile(new FirebaseDBCallaback<UserProfileEntity>() {
             @Override
             public void getData(UserProfileEntity data) {
-                ProfileFragment fragment = new ProfileFragment();
-                fragment.initialData(data);
                 //acc_info.setUserInfo(data.getUserInfo());
                 //acc_info.setUserGoals(data.getUserGoals());
+                callaback.getData(data);
             }
         });
 
