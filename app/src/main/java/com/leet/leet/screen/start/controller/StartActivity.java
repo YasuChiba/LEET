@@ -14,8 +14,11 @@ import com.leet.leet.R;
 import com.leet.leet.screen.main.controller.MainActivity;
 import com.leet.leet.screen.start.model.StartModel;
 import com.leet.leet.screen.start.view.StartView;
+import com.leet.leet.utils.DateHelper;
 import com.leet.leet.utils.authentication.FirebaseAuthCallback;
 import com.leet.leet.utils.authentication.FirebaseAuthHelper;
+
+import org.joda.time.LocalDate;
 
 public class StartActivity extends AppCompatActivity {
 
@@ -51,6 +54,8 @@ public class StartActivity extends AppCompatActivity {
                     Log.d("",message);
                 }
                 */
+
+                    LocalDate date = DateHelper.getPastDate(3);
 
                 }
             });

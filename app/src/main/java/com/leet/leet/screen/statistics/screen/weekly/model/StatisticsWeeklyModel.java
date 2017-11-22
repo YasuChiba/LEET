@@ -9,6 +9,7 @@ import com.leet.leet.utils.database.entities.menu.MenuEntity;
 
 import org.joda.time.LocalDate;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
@@ -20,7 +21,8 @@ import java.util.Random;
 
 public class StatisticsWeeklyModel {
 
-    private ArrayList<String> weekList = new ArrayList<String>();
+
+    private ArrayList<LocalDate> dayList = new ArrayList<>();
     private ArrayList<Float> priceList = new ArrayList<Float>();
     private ArrayList<Float> calorieList = new ArrayList<Float>();
     private ArrayList<Float> proteinList = new ArrayList<Float>();
@@ -56,7 +58,7 @@ public class StatisticsWeeklyModel {
             @Override
             public void getData(HashMap<String, ArrayList<MenuEntity>> data) {
 
-                ArrayList<String> weekL = new ArrayList<String>();
+                ArrayList<LocalDate> dayL = new ArrayList<>();
                 ArrayList<Float> priceL = new ArrayList<Float>();
                 ArrayList<Float> calorieL = new ArrayList<Float>();
                 ArrayList<Float> proteinL = new ArrayList<Float>();
@@ -89,7 +91,8 @@ public class StatisticsWeeklyModel {
                     proteinL.add(protein);
                     fatL.add(fat);
                     carbsL.add(carbs);
-                    weekL.add(DateHelper.getWeekByString(DateHelper.getStringByDate(date)).getString());
+
+                    dayL.add(date);
                     date = DateHelper.getFutureDateOfTheDate(date,1);
                 }
 
@@ -98,15 +101,23 @@ public class StatisticsWeeklyModel {
                 proteinList = proteinL;
                 fatList = fatL;
                 carbsList = carbsL;
-                weekList = weekL;
+                dayList = dayL;
 
                 callback.getData(true);
             }
         });
     }
 
+    public ArrayList<LocalDate> getDayList() {
+        return dayList;
+    }
+
     public ArrayList<String> getWeekList() {
-        return weekList;
+        ArrayList<String> returnVal = new ArrayList<>();
+        for(LocalDate tmp:dayList) {
+            returnVal.add(DateHelper.getWeekByString(DateHelper.getStringByDate(tmp)).getString());
+        }
+        return returnVal;
     }
 
     public ArrayList<Float> getPriceList() {
