@@ -71,55 +71,41 @@ public class AddCustomMealView implements CustomMealInterface, View.OnClickListe
 
     @Override
     public void onClick(View view) {
-<<<<<<< HEAD
-        if (name.getText().length() > 0 && price.getText().length() > 0
-                && calories.getText().length() > 0 && carbs.getText().length() > 0
-                && totalFat.getText().length() > 0 && saturatedFat.getText().length() > 0
-                && protein.getText().length() > 0 && sodium.getText().length() > 0
-                && sugar.getText().length() > 0 && cholesterol.getText().length() > 0
-                && dietaryFiber.getText().length() > 0) {
-            mListener.addMealClick();
-        }
 
-    } //end of onClick
-=======
         mListener.addMealClick();
     }
 
-
->>>>>>> e67c6f6efbc064e64cc7662f3d328d327d90e6ed
-
     //Getter methods for all private member variables of this class
     //These getters are used by the controller in getting paramaters to pass into the model
-    public int getPriceVal() {
-        return Integer.parseInt(price.getText().toString());
+    public String getPriceVal() {
+            return price.getText().toString();
     }
-    public int getCalVal() {
-        return Integer.parseInt(calories.getText().toString());
+    public String getCalVal() {
+        return (calories.getText().toString());
     }
-    public int getCarbsVal() {
-        return Integer.parseInt(carbs.getText().toString());
+    public String getCarbsVal() {
+        return (carbs.getText().toString());
     }
-    public int getTotalFatVal() {
-        return Integer.parseInt(totalFat.getText().toString());
+    public String getTotalFatVal() {
+        return (totalFat.getText().toString());
     }
-    public int getSatFatVal() {
-        return Integer.parseInt(saturatedFat.getText().toString());
+    public String getSatFatVal() {
+        return (saturatedFat.getText().toString());
     }
-    public int getProteinVal() {
-        return Integer.parseInt(protein.getText().toString());
+    public String getProteinVal() {
+        return (protein.getText().toString());
     }
-    public int getSodiumVal() {
-        return Integer.parseInt(sodium.getText().toString());
+    public String getSodiumVal() {
+        return (sodium.getText().toString());
     }
-    public int getCholesterolVal() {
-        return Integer.parseInt(cholesterol.getText().toString());
+    public String getCholesterolVal() {
+        return (cholesterol.getText().toString());
     }
-    public int getDietaryFiberVal() {
-        return Integer.parseInt(dietaryFiber.getText().toString());
+    public String getDietaryFiberVal() {
+        return (dietaryFiber.getText().toString());
     }
-    public int getSugarVal() {
-        return Integer.parseInt(sugar.getText().toString());
+    public String getSugarVal() {
+        return (sugar.getText().toString());
     }
     public String getMealName() {
         return name.getText().toString();

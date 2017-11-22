@@ -50,10 +50,7 @@ public class AddCustomMealFragment extends Fragment implements CustomMealInterfa
     //Delegate adding meal to the model using parameters retreived from the view
     public void addMealClick(){
 
-        //validate user input
-        boolean validated = validateFeilds();
-
-        if (validated) {
+        if (validateFields()) {
             mModel.addMeal(mView.getMealName(), mView.getPriceVal(), mView.getCalVal(),
                     mView.getCarbsVal(), mView.getTotalFatVal(), mView.getSatFatVal(), mView.getProteinVal(),
                     mView.getSodiumVal(), mView.getCholesterolVal(), mView.getDietaryFiberVal(),
@@ -74,23 +71,11 @@ public class AddCustomMealFragment extends Fragment implements CustomMealInterfa
      * Purpose - Validate the user input for adding custom meals
      * @return true if entries are valid, false otherwise
      */
-    public boolean validateFeilds(){
+    public boolean validateFields(){
         //make sure there is some name
         if(mView.getMealName().length() == 0){
             return false;
         }
-        //make sure no entries are negative
-        else if(mView.getPriceVal() < 0){return false;}
-        else if(mView.getCalVal() < 0){ return false;}
-        else if(mView.getCarbsVal() < 0){ return false;}
-        else if(mView.getTotalFatVal() < 0){ return false;}
-        else if(mView.getSatFatVal()< 0){ return false;}
-        else if(mView.getProteinVal() < 0){ return false;}
-        else if(mView.getSodiumVal() < 0){ return false;}
-        else if(mView.getSugarVal() < 0){ return false;}
-        else if(mView.getCholesterolVal() < 0){ return false;}
-        else if(mView.getDietaryFiberVal() < 0){ return false;}
-
         return true;
     }
 
