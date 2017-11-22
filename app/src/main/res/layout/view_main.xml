@@ -32,16 +32,4 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0" />
 
-    <TextView
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Hi"
-        android:id="@+id/message"
-        android:layout_gravity="center_horizontal"
-        android:gravity="center"
-        android:textStyle="bold"
-        android:textSize="30sp"
-        android:paddingBottom="30dp"/>
-
 </android.support.constraint.ConstraintLayout>
