@@ -13,19 +13,8 @@ public class UserProfileEntity {
 
     private UserGoalEntity goals;
     private UserInfoEntity info;
-   /*private String name;
-   private String gender;
-   private String email;
-   private int age;
 
-   private float height;
-   private float weight;
 
-   //private float height;
-   private float feet;
-   private float inches;*/
-
-    private List<String> allergies;
 
 
     public UserProfileEntity(){}

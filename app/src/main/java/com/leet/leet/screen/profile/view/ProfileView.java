@@ -6,16 +6,13 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import android.widget.EditText;
-import android.widget.TextView;
 
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.ViewSwitcher;
 
 
 import com.leet.leet.R;
-import com.leet.leet.common.Enums;
 import com.leet.leet.utils.database.entities.user.UserGoalEntity;
 import com.leet.leet.utils.database.entities.user.UserInfoEntity;
 import com.leet.leet.utils.database.entities.user.UserProfileEntity;
@@ -82,6 +79,8 @@ public class ProfileView implements ProfileViewInterface, View.OnClickListener {
 
         // Set up profile page viewswitchers
         goals_to_acc_vs = (ViewSwitcher) this.getRootView().findViewById(R.id.goals_to_acc_vs);
+        setProfileEdit(false);
+        setGoalsEdit(false);
         setGoalsEdit(false);
         setProfileEdit(false);
     }
@@ -125,7 +124,6 @@ public class ProfileView implements ProfileViewInterface, View.OnClickListener {
         float fat = Float.valueOf(this.fat.getText().toString());
         return new UserGoalEntity(calorie, price, fat, carbs, protein);
     }
-
     private void setProfileEdit(boolean b){
         name.setEnabled(b);
         email.setEnabled(b);
@@ -153,6 +151,10 @@ public class ProfileView implements ProfileViewInterface, View.OnClickListener {
     public void setListener(ProfileViewListener listener) {
         mListner = listener;
     }
+    public void setInitialData(UserProfileEntity profileEntity){
+        setUserGoalDefaults(profileEntity.getUserGoals());
+        setUserInfoDefaults(profileEntity.getUserInfo());
+    }
 
     @Override
     public void onClick(View v) {
@@ -161,6 +163,7 @@ public class ProfileView implements ProfileViewInterface, View.OnClickListener {
             case R.id.Recommended:
                 break;
             case R.id.acc_save:
+                mListner.saveInfoEntity(createUserInfoEntity());
                 if(accEdit == false) {
                     acc_save.setText("Save");
                     setProfileEdit(true);
@@ -174,6 +177,7 @@ public class ProfileView implements ProfileViewInterface, View.OnClickListener {
                 }
                 break;
             case R.id.goals_save:
+                mListner.saveGoalEntity(createUserGoalEntity());
                 if(goalsEdit == false){
                     goals_save.setText("Save");
                     setGoalsEdit(true);

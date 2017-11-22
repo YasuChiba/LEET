@@ -7,6 +7,7 @@ import android.widget.Spinner;
 import com.google.firebase.auth.UserInfo;
 import com.leet.leet.R;
 import com.leet.leet.common.Enums;
+import com.leet.leet.screen.profile.controller.ProfileFragment;
 import com.leet.leet.screen.profile.view.ProfileView;
 import com.leet.leet.utils.database.FirebaseDBCallaback;
 import com.leet.leet.utils.database.FirebaseDBUserDataHelper;
@@ -47,8 +48,8 @@ public class ProfileModel {
         FirebaseDBUserDataHelper.setUserInfo(infoEntity);
     }
 
-    public UserProfileEntity getUserData()
-    {
+
+    public UserProfileEntity getUserData() {
         final UserProfileEntity acc_info = new UserProfileEntity();
         FirebaseDBUserDataHelper.getUserProfile(new FirebaseDBCallaback<UserProfileEntity>() {
             @Override
@@ -58,7 +59,8 @@ public class ProfileModel {
             }
         });
 
-        return acc_info; // null pointer?
+        return acc_info; // null reference?
+
     }
 
     public UserGoalEntity getUserGoalData() {

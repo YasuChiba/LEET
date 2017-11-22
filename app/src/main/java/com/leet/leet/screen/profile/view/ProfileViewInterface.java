@@ -12,6 +12,7 @@ import com.leet.leet.utils.database.entities.user.UserProfileEntity;
 public interface ProfileViewInterface extends ViewBaseInterface {
     public void setUserGoalDefaults(UserGoalEntity goals);
     public void setUserInfoDefaults(UserInfoEntity acc_info);
+    public void setInitialData(UserProfileEntity profileEntity);
     public void swithcViews();
 
 
