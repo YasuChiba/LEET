@@ -3,11 +3,11 @@
 
     <!-- Used in view_sort_options.xml -->
     <string name="sorting_title">Sorting Options</string>
-    <string name="minimum_title">Minimum:</string>
+    <string name="minimum_title">Minimum</string>
     <string name="min">Min</string>
-    <string name="maximum_title">Maximum:</string>
+    <string name="maximum_title">Maximum</string>
     <string name="max">Max</string>
-    <string name="criteria_title">Criteria:</string>
+    <string name="criteria_title">Criteria</string>
     <string name="price_title">Price:</string>
     <string name="calories_title">Calories:</string>
     <string name="carb_title">Carb:</string>
