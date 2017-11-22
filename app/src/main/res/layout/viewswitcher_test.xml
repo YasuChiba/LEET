@@ -29,7 +29,16 @@
                     android:id="@+id/goals_save"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Save" />
+                    android:text="Edit" />
+
+                <Button
+                    android:id="@+id/Recommended"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Use Recommended"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentEnd="true" />
+
             </RelativeLayout>
 
 
@@ -43,7 +52,7 @@
                     android:id="@+id/textView3"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_weight="1"
+                    android:layout_weight="1.15"
                     android:gravity="center"
                     android:text="@string/Price"
                     android:textColor="@color/colorPrimaryDark"
@@ -167,8 +176,9 @@
                     android:inputType="number"
                     android:text="0" />
 
-            </LinearLayout>
 
+
+            </LinearLayout>
 
         </LinearLayout>
 
@@ -185,7 +195,7 @@
                     android:id="@+id/acc_save"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Save" />
+                    android:text="Edit" />
             </RelativeLayout>
 
             <LinearLayout
