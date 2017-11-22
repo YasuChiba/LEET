@@ -22,23 +22,31 @@ public class MealMainFragment extends Fragment implements MealMainViewInterface.
     MealMainView mView;
     MealMainListner mainListner; //once button is clicked, move to another fragment
 
+
     //Since Fragment cannot implement constructor with our original arguments, we should create this kind of method
     public void setupFragment(MealMainListner listner) {
         this.mainListner = listner;
     }
+
+    //public void setupFragment2(MealMainListner listner) { this.mainListner2 = listner;}
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
 
-        mView = new MealMainView(inflater, container,this);
+        mView = new MealMainView(inflater, container, this);
         return mView.getRootView();
     }
 
     //Method of MealMainViewListner
     @Override
-    public void buttonTap() {
+    public void mealToResult() {
         mainListner.moveToOtherFragment();
     }
+
+    @Override
+    public void mealToCustom() { mainListner.moveToOtherFragment2();}
+
+
 }

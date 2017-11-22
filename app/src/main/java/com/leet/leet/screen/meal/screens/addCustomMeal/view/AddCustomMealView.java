@@ -76,6 +76,7 @@ public class AddCustomMealView implements CustomMealInterface, View.OnClickListe
                 && dietaryFiber.getText().length() > 0) {
             mListener.addMealClick();
         }
+
     } //end of onClick
 
     //Getter methods for all private member variables of this class

@@ -51,4 +51,5 @@ public class AddCustomMealFragment extends Fragment implements CustomMealInterfa
                 mView.getSodiumVal(), mView.getCholesterolVal(), mView.getDietaryFiberVal(),
                 mView.getSugarVal());
     }
+
 } //end of class

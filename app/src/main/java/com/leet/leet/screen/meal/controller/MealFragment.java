@@ -50,8 +50,13 @@ public class MealFragment extends Fragment implements MealMainListner {
         DetailedMealFragment fragmentDetailedMeal = new DetailedMealFragment();
         mView.changeContent(getFragmentManager(),fragmentDetailedMeal, true);
 
-       // AddCustomMealFragment fragmentAddCustomeMeal = new AddCustomMealFragment();
+        //AddCustomMealFragment fragmentAddCustomeMeal = new AddCustomMealFragment();
         //mView.changeContent(getFragmentManager(), fragmentAddCustomeMeal, true );
 
+    }
+    @Override
+    public void moveToOtherFragment2(){
+        AddCustomMealFragment fragmentAddCustomMeal = new AddCustomMealFragment();
+        mView.changeContent(getFragmentManager(), fragmentAddCustomMeal, true);
     }
 }

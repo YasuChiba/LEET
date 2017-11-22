@@ -8,4 +8,6 @@ package com.leet.leet.screen.meal.screens.mealMain;
 public interface MealMainListner {
 
     void moveToOtherFragment();
+
+    void moveToOtherFragment2();
 }
