@@ -41,32 +41,27 @@ public class ProfileModel {
         });
     }*/
 
-    public void saveGoals(UserGoalEntity goalEntity){
+    public void saveGoals(UserGoalEntity goalEntity) {
         FirebaseDBUserDataHelper.setUserGoals(goalEntity);
     }
-    public void saveInfo(UserInfoEntity infoEntity){
+
+    public void saveInfo(UserInfoEntity infoEntity) {
         FirebaseDBUserDataHelper.setUserInfo(infoEntity);
     }
 
+//can you help me pass in the call back function here and then calling it to the firebase?
 
-    public UserProfileEntity getUserData() {
-        final UserProfileEntity acc_info = new UserProfileEntity();
+    public void getUserData(final FirebaseDBCallaback<UserProfileEntity> callaback) {
+        //final UserProfileEntity acc_info = new UserProfileEntity();
         FirebaseDBUserDataHelper.getUserProfile(new FirebaseDBCallaback<UserProfileEntity>() {
             @Override
             public void getData(UserProfileEntity data) {
-                acc_info.setUserInfo(data.getUserInfo());
-                acc_info.setUserGoals(data.getUserGoals());
+                callaback.getData(data);
             }
         });
-
-        return acc_info; // null reference?
-
-    }
-
-    public UserGoalEntity getUserGoalData() {
-        return new UserGoalEntity();
     }
 }
+
 
 
 
