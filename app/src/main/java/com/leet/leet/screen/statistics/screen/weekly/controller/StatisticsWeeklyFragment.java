@@ -46,6 +46,7 @@ public class StatisticsWeeklyFragment extends Fragment implements StatisticsWeek
                 new FirebaseDBCallaback<Boolean>() {
                     @Override
                     public void getData(Boolean success) {
+                        mView.setupListView(getContext(),mModel.getWeekList(),mModel.getPriceList());
                         mView.setDataToGraph(mModel.getWeekList(),mModel.getPriceList());
                     }
         });
