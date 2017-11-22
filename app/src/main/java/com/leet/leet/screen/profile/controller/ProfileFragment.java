@@ -42,6 +42,7 @@ public class ProfileFragment extends Fragment implements ProfileViewInterface.Pr
         mView = new ProfileView(inflater, container);
         mView.setListener(this);
         setHasOptionsMenu(true);
+        mView.setUserGoalDefaults(mModel.getUserData().getUserGoals());
         return mView.getRootView();
 
 

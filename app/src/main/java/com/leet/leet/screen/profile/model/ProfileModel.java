@@ -47,7 +47,7 @@ public class ProfileModel {
         FirebaseDBUserDataHelper.setUserInfo(infoEntity);
     }
 
-    public UserProfileEntity getUserInfoData()
+    public UserProfileEntity getUserData()
     {
         final UserProfileEntity acc_info = new UserProfileEntity();
         FirebaseDBUserDataHelper.getUserProfile(new FirebaseDBCallaback<UserProfileEntity>() {
@@ -58,7 +58,7 @@ public class ProfileModel {
             }
         });
 
-        return acc_info;
+        return acc_info; // null pointer?
     }
 
     public UserGoalEntity getUserGoalData() {
