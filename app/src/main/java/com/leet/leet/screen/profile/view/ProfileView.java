@@ -15,6 +15,7 @@ import android.widget.ViewSwitcher;
 import com.leet.leet.R;
 import com.leet.leet.utils.database.entities.user.UserGoalEntity;
 import com.leet.leet.utils.database.entities.user.UserInfoEntity;
+import com.leet.leet.utils.database.entities.user.UserProfileEntity;
 
 import org.w3c.dom.Text;
 
@@ -38,6 +39,9 @@ public class ProfileView implements ProfileViewInterface, View.OnClickListener {
 
     Spinner feet;
     Spinner inch;
+
+    boolean goalsEdit = false;
+    boolean accEdit = false;
 
     Button goals_edit, goals_save, acc_edit, acc_save, goals_to_acc;
     ViewSwitcher goals_to_acc_vs, acc_vs, goals_vs;
@@ -77,6 +81,8 @@ public class ProfileView implements ProfileViewInterface, View.OnClickListener {
         goals_to_acc_vs = (ViewSwitcher) this.getRootView().findViewById(R.id.goals_to_acc_vs);
         setProfileEdit(false);
         setGoalsEdit(false);
+        setGoalsEdit(false);
+        setProfileEdit(false);
     }
     @Override
     public View getRootView() {
@@ -145,6 +151,10 @@ public class ProfileView implements ProfileViewInterface, View.OnClickListener {
     public void setListener(ProfileViewListener listener) {
         mListner = listener;
     }
+    public void setInitialData(UserProfileEntity profileEntity){
+        setUserGoalDefaults(profileEntity.getUserGoals());
+        setUserInfoDefaults(profileEntity.getUserInfo());
+    }
 
     @Override
     public void onClick(View v) {
@@ -154,26 +164,30 @@ public class ProfileView implements ProfileViewInterface, View.OnClickListener {
                 break;
             case R.id.acc_save:
                 mListner.saveInfoEntity(createUserInfoEntity());
-                if(acc_save.getText() == "Edit") {
+                if(accEdit == false) {
                     acc_save.setText("Save");
                     setProfileEdit(true);
+                    accEdit = true;
                 }
                 else {
                     acc_save.setText("Edit");
                     mListner.saveInfoEntity(createUserInfoEntity());
                     setProfileEdit(false);
+                    accEdit = false;
                 }
                 break;
             case R.id.goals_save:
                 mListner.saveGoalEntity(createUserGoalEntity());
-                if(goals_save.getText() == "Edit"){
+                if(goalsEdit == false){
                     goals_save.setText("Save");
                     setGoalsEdit(true);
+                    goalsEdit = true;
                 }
                 else {
                     goals_save.setText("Edit");
                     mListner.saveGoalEntity(createUserGoalEntity());
                     setGoalsEdit(false);
+                    goalsEdit = false;
                 }
                 break;
 

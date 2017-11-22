@@ -17,6 +17,7 @@ import com.leet.leet.screen.profile.view.ProfileView;
 import com.leet.leet.screen.profile.view.ProfileViewInterface;
 import com.leet.leet.utils.database.entities.user.UserGoalEntity;
 import com.leet.leet.utils.database.entities.user.UserInfoEntity;
+import com.leet.leet.utils.database.entities.user.UserProfileEntity;
 
 /**
  * Created by YasuhiraChiba on 2017/11/05.
@@ -29,9 +30,6 @@ public class ProfileFragment extends Fragment implements ProfileViewInterface.Pr
     private Menu menu;
     private boolean inProfile = false;
 
-    Button goals_edit, goals_save, acc_edit, acc_save, goals_to_acc;
-    ViewSwitcher goals_to_acc_vs, acc_vs, goals_vs;
-
 
 
     @Override
@@ -42,12 +40,16 @@ public class ProfileFragment extends Fragment implements ProfileViewInterface.Pr
         mView = new ProfileView(inflater, container);
         mView.setListener(this);
         setHasOptionsMenu(true);
+        mModel.getUserData();
         return mView.getRootView();
 
 
 
-    }
 
+    }
+    public void initialData(UserProfileEntity profileEntity){
+        mView.setInitialData(profileEntity);
+    }
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         inflater.inflate(R.menu.menu, menu);
