@@ -7,7 +7,7 @@
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@mipmap/ic_launcher"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".screen.start.controller.StartActivity">
@@ -17,7 +17,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".screen.main.controller.MainActivity"></activity>
+        <activity android:name=".screen.main.controller.MainActivity" />
+        <activity android:name=".screen.login.controller.LoginActivity" />
+        <activity android:name=".screen.signup.controller.SignupActivity" />
     </application>
 
 </manifest>
