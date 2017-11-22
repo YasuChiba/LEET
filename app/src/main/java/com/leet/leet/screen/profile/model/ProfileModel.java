@@ -57,6 +57,7 @@ public class ProfileModel {
                 //acc_info.setUserInfo(data.getUserInfo());
                 //acc_info.setUserGoals(data.getUserGoals());
                 callaback.getData(data);
+
             }
         });
 

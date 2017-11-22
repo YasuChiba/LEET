@@ -17,8 +17,6 @@ import com.leet.leet.utils.database.entities.user.UserGoalEntity;
 import com.leet.leet.utils.database.entities.user.UserInfoEntity;
 import com.leet.leet.utils.database.entities.user.UserProfileEntity;
 
-import org.w3c.dom.Text;
-
 /**
  * Created by YasuhiraChiba on 2017/11/05.
  */
