@@ -56,8 +56,8 @@ public class ProfileModel {
             public void getData(UserProfileEntity data) {
                 ProfileFragment fragment = new ProfileFragment();
                 fragment.initialData(data);
-                //acc_info.setUserInfo(data.getUserInfo());
-                //acc_info.setUserGoals(data.getUserGoals());
+                //acc_info.setInfo(data.getInfo());
+                //acc_info.setGoals(data.getUserGoals());
             }
         });
 

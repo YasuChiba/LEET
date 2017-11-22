@@ -23,20 +23,20 @@ public class UserProfileEntity {
         this.goals = goals;
         this.info = info;
     }
-    public UserGoalEntity getUserGoals() {
+    public UserGoalEntity getGoals() {
         return goals;
     }
 
-    public void setUserGoals(UserGoalEntity goals) {
+    public void setGoals(UserGoalEntity goals) {
         this.goals = goals;
     }
 
-    public void setUserInfo(UserInfoEntity info) {
+    public void setInfo(UserInfoEntity info) {
         this.info = info;
 
     }
 
-    public UserInfoEntity getUserInfo()
+    public UserInfoEntity getInfo()
     {
         return this.info;
     }
