@@ -6,17 +6,20 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.leet.leet.R;
+import com.leet.leet.screen.login.controller.LoginActivity;
 import com.leet.leet.screen.main.controller.MainActivity;
 import com.leet.leet.screen.start.model.StartModel;
 import com.leet.leet.screen.start.view.StartView;
 import com.leet.leet.utils.DateHelper;
 import com.leet.leet.utils.authentication.FirebaseAuthCallback;
 import com.leet.leet.utils.authentication.FirebaseAuthHelper;
+import com.leet.leet.utils.authentication.FirebaseAuthManager;
 
 import org.joda.time.LocalDate;
 
@@ -34,33 +37,25 @@ public class StartActivity extends AppCompatActivity {
 
         //create model
         mModel = new StartModel();
+    }
 
+    // From LEET-sample
+    @Override
+    protected void onStart() {
+        super.onStart();
 
+        // log out
+        //FirebaseAuthManager.logout();
 
-        if(mModel.isLoggedIn()) {
+        if (mModel.isLoggedIn()) {
+            Toast.makeText(this, FirebaseAuthManager.getEmail(), Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, FirebaseAuthManager.getUserId(), Toast.LENGTH_SHORT).show();
+
             Intent intent = new Intent(this, MainActivity.class);
-            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
             startActivity(intent);
         } else {
-            FirebaseAuthHelper.signIn("test@gmail.com", "testtest", new FirebaseAuthCallback() {
-                @Override
-                public void onComplete(boolean isSuccess, String message) {
-                /*
-                if(isSuccess) {
-                    mModel.getMenu();
-                    mModel.setUserProfile();
-                    mModel.addCustomMenu();
-                } else {
-                    Log.d("",message);
-                }
-                */
-
-                    LocalDate date = DateHelper.getPastDate(3);
-
-                }
-            });
-
+            Intent intent = new Intent(this, LoginActivity.class);
+            startActivity(intent);
         }
-
     }
 }
