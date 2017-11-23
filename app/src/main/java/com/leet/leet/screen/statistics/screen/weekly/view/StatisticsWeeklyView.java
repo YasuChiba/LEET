@@ -30,68 +30,29 @@ import java.util.ArrayList;
  * Created by YasuhiraChiba on 2017/11/07.
  */
 
-public class StatisticsWeeklyView implements StatisticsWeeklyViewInterface, View.OnClickListener {
+public class StatisticsWeeklyView implements StatisticsWeeklyViewInterface, StatisticsWeeklyViewInterface.StatisticsWeeklyListViewHeaderListener {
 
     private View mRootView;
     private StatisticsWeeklyViewInterface.StatisticsWeeklyViewListner mListner;
 
-    private LineChart graphView;
-    private ConstraintLayout constraintLayout;
-    private LinearLayout graphButtonContainer;
-    private Button btGraphCalorie;
-    private Button btGraphPrice;
-    private Button btGraphProtein;
-    private Button btGraphFat;
-    private Button btGraphCarb;
-    private NestedListView listView;
+    private ListView listView;
+    private StatisticsWeeklyListViewHeader header;
 
 
     public StatisticsWeeklyView(LayoutInflater inflater, ViewGroup container,StatisticsWeeklyViewListner mListner) {
 
+        header = new StatisticsWeeklyListViewHeader(inflater.getContext());
         mRootView = inflater.inflate(R.layout.view_statistics_weekly, container, false);
         this.mListner = mListner;
         initialize();
     }
 
     private void initialize() {
-        constraintLayout = (ConstraintLayout)mRootView.findViewById(R.id.statistics_weekly_constraintlayout);
-        listView = (NestedListView) mRootView.findViewById(R.id.statistics_weekly_list_view);
-        graphButtonContainer = (LinearLayout)mRootView.findViewById(R.id.statistics_weekly_graph_button_container);
-        btGraphCalorie = (Button)mRootView.findViewById(R.id.statistics_weekly_calorie_bt);
-        btGraphPrice = (Button)mRootView.findViewById(R.id.statistics_weekly_price_bt);
-        btGraphProtein = (Button)mRootView.findViewById(R.id.statistics_weekly_protein_bt);
-        btGraphFat = (Button)mRootView.findViewById(R.id.statistics_weekly_fats_bt);
-        btGraphCarb = (Button)mRootView.findViewById(R.id.statistics_weekly_carbs_bt);
-        graphView = (LineChart)mRootView.findViewById(R.id.stats_weekly_graph);
+        listView = (ListView)mRootView.findViewById(R.id.statistics_weekly_list_view);
+        listView.addHeaderView(header);
+        listView.setDividerHeight(3);
 
-        btGraphCalorie.setOnClickListener(this);
-        btGraphPrice.setOnClickListener(this);
-        btGraphProtein.setOnClickListener(this);
-        btGraphFat.setOnClickListener(this);
-        btGraphCarb.setOnClickListener(this);
-
-        ConstraintSet set = new ConstraintSet();
-        set.clone(constraintLayout);
-        set.constrainHeight(R.id.statistics_weekly_graph_button_container, SharedPrefManager.loadRealDisplaySizeX()/6);
-        set.applyTo(constraintLayout);
-
-
-        //------------SETUP GRAPH----------------------
-       // graphView.setOnChartGestureListener(this);
-        //graphView.setOnChartValueSelectedListener(this);
-        graphView.setDrawGridBackground(false);
-
-        graphView.getDescription().setEnabled(false);
-        graphView.setTouchEnabled(true);
-        // enable scaling and dragging
-        graphView.setDragEnabled(false);
-        graphView.setScaleEnabled(false);
-        // mChart.setScaleXEnabled(true);
-        // mChart.setScaleYEnabled(true);
-        // if disabled, scaling can be done on x- and y-axis separately
-        graphView.setPinchZoom(true);
-        graphView.getLegend().setEnabled(false);
-
+        header.setListner(this);
     }
 
     @Override
@@ -107,66 +68,11 @@ public class StatisticsWeeklyView implements StatisticsWeeklyViewInterface, View
     }
 
     public void setDataToGraph(final ArrayList<String> labelList , final ArrayList<Float> val) {
-        ArrayList<Float> tmp = new ArrayList<>();
-
-        if(val == null) {
-            tmp.add(((float)10));
-            tmp.add((float)20);
-            tmp.add((float)90);
-            tmp.add((float)10);
-            tmp.add((float)10);
-            tmp.add((float)66);
-            tmp.add((float)30);
-        } else {
-            tmp = val;
-        }
-
-
-        ArrayList<Entry> entries = new ArrayList<Entry>();
-        for(int i=0; i<tmp.size();i++){
-            entries.add(new Entry(i, tmp.get(i)));
-        }
-
-        LineDataSet dataSet = new LineDataSet(entries,null);
-        dataSet.setColor(Color.BLACK);
-
-        LineData data = new LineData(dataSet);
-        graphView.setData(data);
-
-        XAxis xAxis = graphView.getXAxis();
-        xAxis.setGranularity(1f);
-        xAxis.setValueFormatter(new IAxisValueFormatter() {
-            @Override
-            public String getFormattedValue(float value, AxisBase axis) {
-                return labelList.get((int)value);
-            }
-        });
-
-        graphView.invalidate();
-
+       header.setDataToGraph(labelList,val);
     }
 
     @Override
-    public void onClick(View view) {
-
-        Enums.GraphElements elem = Enums.GraphElements.Calorie;
-        switch (view.getId()) {
-            case R.id.statistics_weekly_calorie_bt:
-                elem = Enums.GraphElements.Calorie;
-                break;
-            case R.id.statistics_weekly_price_bt:
-                elem = Enums.GraphElements.Price;
-                break;
-            case R.id.statistics_weekly_protein_bt:
-                elem = Enums.GraphElements.Protein;
-                break;
-            case R.id.statistics_weekly_fats_bt:
-                elem = Enums.GraphElements.Fat;
-                break;
-            case R.id.statistics_weekly_carbs_bt:
-                elem = Enums.GraphElements.Carb;
-                break;
-        }
+    public void buttonTap(Enums.GraphElements elem) {
         mListner.graphUpdateButtonTap(elem);
     }
 }

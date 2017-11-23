@@ -12,4 +12,8 @@ public interface StatisticsWeeklyViewInterface extends ViewBaseInterface {
     interface StatisticsWeeklyViewListner {
         void graphUpdateButtonTap(Enums.GraphElements type);
     }
+
+    interface StatisticsWeeklyListViewHeaderListener {
+        void buttonTap(Enums.GraphElements elem);
+    }
 }
