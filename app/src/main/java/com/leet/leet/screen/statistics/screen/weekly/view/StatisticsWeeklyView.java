@@ -36,21 +36,26 @@ public class StatisticsWeeklyView implements StatisticsWeeklyViewInterface, Stat
     private StatisticsWeeklyViewInterface.StatisticsWeeklyViewListner mListner;
 
     private ListView listView;
+    StatisticsWeeklyListViewAdapter adapter;
     private StatisticsWeeklyListViewHeader header;
 
 
     public StatisticsWeeklyView(LayoutInflater inflater, ViewGroup container,StatisticsWeeklyViewListner mListner) {
 
-        header = new StatisticsWeeklyListViewHeader(inflater.getContext());
-        mRootView = inflater.inflate(R.layout.view_statistics_weekly, container, false);
         this.mListner = mListner;
-        initialize();
+        mRootView = inflater.inflate(R.layout.view_statistics_weekly, container, false);
+
+        initialize(inflater.getContext());
     }
 
-    private void initialize() {
+    private void initialize(Context context) {
+        header = new StatisticsWeeklyListViewHeader(context);
+        adapter = new StatisticsWeeklyListViewAdapter(context);
+
         listView = (ListView)mRootView.findViewById(R.id.statistics_weekly_list_view);
         listView.addHeaderView(header);
         listView.setDividerHeight(3);
+        listView.setAdapter(adapter);
 
         header.setListner(this);
     }
@@ -61,10 +66,8 @@ public class StatisticsWeeklyView implements StatisticsWeeklyViewInterface, Stat
     }
 
     public void setupListView(Context context,ArrayList<String> week,ArrayList<Float> data) {
-        StatisticsWeeklyListViewAdapter adapter = new StatisticsWeeklyListViewAdapter(context);
         adapter.setData(week,data);
         adapter.notifyDataSetChanged();
-        listView.setAdapter(adapter);
     }
 
     public void setDataToGraph(final ArrayList<String> labelList , final ArrayList<Float> val) {

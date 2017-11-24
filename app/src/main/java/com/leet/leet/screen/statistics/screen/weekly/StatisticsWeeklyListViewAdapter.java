@@ -22,11 +22,15 @@ public class StatisticsWeeklyListViewAdapter extends BaseAdapter {
 
     public StatisticsWeeklyListViewAdapter(Context context) {
         this.context = context;
+
+        week = new ArrayList<>();
+        data = new ArrayList<>();
     }
 
     public void setData(ArrayList<String> week,ArrayList<Float> data) {
         this.week = week;
         this.data = data;
+        this.notifyDataSetChanged();
     }
 
     @Override
