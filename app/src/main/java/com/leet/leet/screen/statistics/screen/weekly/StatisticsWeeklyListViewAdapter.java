@@ -7,6 +7,9 @@ import android.widget.BaseAdapter;
 
 import com.leet.leet.screen.statistics.screen.weekly.view.StatisticsWeeklyListViewRow;
 
+import org.joda.time.LocalDate;
+
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 /**
@@ -16,6 +19,7 @@ import java.util.ArrayList;
 public class StatisticsWeeklyListViewAdapter extends BaseAdapter {
 
     private Context context;
+    private ArrayList<LocalDate> date;
     private ArrayList<String> week;
     private ArrayList<Float> data;
 
@@ -27,7 +31,8 @@ public class StatisticsWeeklyListViewAdapter extends BaseAdapter {
         data = new ArrayList<>();
     }
 
-    public void setData(ArrayList<String> week,ArrayList<Float> data) {
+    public void setData(ArrayList<String> week,ArrayList<LocalDate> date,ArrayList<Float> data) {
+        this.date = date;
         this.week = week;
         this.data = data;
         this.notifyDataSetChanged();
