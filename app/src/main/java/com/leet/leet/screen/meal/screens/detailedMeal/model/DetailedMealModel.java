@@ -4,6 +4,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.widget.Toast;
 
+import com.leet.leet.common.Enums;
 import com.leet.leet.utils.database.FirebaseDBUserDataHelper;
 import com.leet.leet.utils.database.entities.menu.MenuEntity;
 
@@ -24,10 +25,10 @@ public class DetailedMealModel {
 
     //Purpose - Once the user has decided to eat a meal, they will add it to their history.
     //          This method will add the MenuEntity to the profile's history.
-    public void addMeal(MenuEntity meal){
+    public void addMeal(MenuEntity meal, Enums.MealTime time){
 
         //add the meal to the database
-        FirebaseDBUserDataHelper.setStatisticsData(new LocalDate() ,meal);
+        FirebaseDBUserDataHelper.setStatisticsData(new LocalDate() , time,meal);
         //Toast.makeText(this, "Added Meal To History", Toast.LENGTH_SHORT).show();
 
     } //end of addMeal

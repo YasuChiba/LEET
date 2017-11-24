@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
+import com.leet.leet.common.Enums;
 import com.leet.leet.screen.meal.screens.detailedMeal.model.DetailedMealModel;
 import com.leet.leet.screen.meal.screens.detailedMeal.view.DetailedMealInterface;
 import com.leet.leet.screen.meal.screens.detailedMeal.view.DetailedMealView;
@@ -96,7 +97,9 @@ public class DetailedMealFragment extends Fragment implements DetailedMealInterf
     //Delegate adding meal to the model using parameters retreived from the view
     public void addMealClick() {
         //add the meal to the user's history when the add button is pressed.
-        mModel.addMeal(meal);
+
+        //TODO: need to set MealTime   ---11/24  Yasuhira Chiba
+        mModel.addMeal(meal, Enums.MealTime.Breakfast);
 
         Toast.makeText(getContext(), "Added Meal To History", Toast.LENGTH_SHORT).show();
     }

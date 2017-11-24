@@ -1,5 +1,6 @@
 package com.leet.leet.screen.statistics.screen.weekly.view;
 
+import com.leet.leet.common.Enums;
 import com.leet.leet.common.ViewBaseInterface;
 
 /**
@@ -7,4 +8,12 @@ import com.leet.leet.common.ViewBaseInterface;
  */
 
 public interface StatisticsWeeklyViewInterface extends ViewBaseInterface {
+
+    interface StatisticsWeeklyViewListner {
+        void graphUpdateButtonTap(Enums.GraphElements type);
+    }
+
+    interface StatisticsWeeklyListViewHeaderListener {
+        void buttonTap(Enums.GraphElements elem);
+    }
 }

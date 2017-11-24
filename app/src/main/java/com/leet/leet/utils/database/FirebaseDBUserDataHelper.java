@@ -1,5 +1,7 @@
 package com.leet.leet.utils.database;
 
+import android.view.Menu;
+
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -10,6 +12,9 @@ import com.leet.leet.utils.DateHelper;
 import com.leet.leet.utils.authentication.FirebaseAuthHelper;
 import com.leet.leet.utils.database.entities.menu.MenuEntity;
 import com.leet.leet.utils.database.entities.user.UserProfileEntity;
+import com.leet.leet.utils.database.entities.user.UserStatisticsEntity;
+
+import org.joda.time.LocalDate;
 
 import org.joda.time.LocalDate;
 
@@ -85,12 +90,12 @@ public class FirebaseDBUserDataHelper {
                 .setValue(menuEntity);
     }
 
-    //hash map's key is string of date.
+    //return value is sorted by date
     public static void getStatisticsData(LocalDate startDate,
                                          LocalDate endDate,
-                                         final FirebaseDBCallaback<HashMap<String,ArrayList>> callback) {
+                                         final FirebaseDBCallaback< ArrayList<UserStatisticsEntity>> callback) {
         String start = DateHelper.getStringByDate(startDate);
-        String end = DateHelper.getStringByDate(endDate);
+        final String end = DateHelper.getStringByDate(endDate);
 
         mDatabaseRef.child(FirebaseAuthHelper.getUserId())
                 .child(Enums.UserDataItem.Statistics.getString())
@@ -101,17 +106,34 @@ public class FirebaseDBUserDataHelper {
                 .addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(DataSnapshot dataSnapshot) {
-                        HashMap<String,ArrayList> byDate = new HashMap<String,ArrayList>();
 
-                        for(DataSnapshot dateSnap :dataSnapshot.getChildren()){
-                            ArrayList<MenuEntity> menus = new ArrayList<>();
-                            for(DataSnapshot snap: dateSnap.getChildren()){
-                                MenuEntity ent = snap.getValue(MenuEntity.class);
-                                menus.add(ent);
+                        ArrayList<UserStatisticsEntity> returnVal = new ArrayList<UserStatisticsEntity>();
+                        for(DataSnapshot dateSnap : dataSnapshot.getChildren()) {
+                            ArrayList<MenuEntity> breakfast = new ArrayList<>();
+                            ArrayList<MenuEntity> lunch = new ArrayList<>();
+                            ArrayList<MenuEntity> dinner = new ArrayList<>();
+
+                            for(DataSnapshot menuTimeSnap : dateSnap.child(Enums.MealTime.Breakfast.getString()).getChildren()){
+                                MenuEntity ent = menuTimeSnap.getValue(MenuEntity.class);
+                                breakfast.add(ent);
                             }
-                            byDate.put(dateSnap.getKey(),menus);
+                            for(DataSnapshot menuTimeSnap : dateSnap.child(Enums.MealTime.Lunch.getString()).getChildren()){
+                                MenuEntity ent = menuTimeSnap.getValue(MenuEntity.class);
+                                lunch.add(ent);
+                            }
+                            for(DataSnapshot menuTimeSnap : dateSnap.child(Enums.MealTime.Dinner.getString()).getChildren()){
+                                MenuEntity ent = menuTimeSnap.getValue(MenuEntity.class);
+                                dinner.add(ent);
+                            }
+
+                            UserStatisticsEntity ent = new UserStatisticsEntity();
+                            ent.setDate(dateSnap.getKey());
+                            ent.setBreakfastMenu(breakfast);
+                            ent.setLunchMenu(lunch);
+                            ent.setDinnerMenu(dinner);
+                            returnVal.add(ent);
                         }
-                        callback.getData(byDate);
+                        callback.getData(returnVal);
                     }
 
                     @Override
@@ -121,12 +143,13 @@ public class FirebaseDBUserDataHelper {
                 });
     }
 
-    public static void setStatisticsData(LocalDate date, MenuEntity menuEntity) {
+    public static void setStatisticsData(LocalDate date, Enums.MealTime mealTime, MenuEntity menuEntity) {
 
         mDatabaseRef.child(FirebaseAuthHelper.getUserId())
                 .child(Enums.UserDataItem.Statistics.getString())
                 .child("record")
                 .child(DateHelper.getStringByDate(date))
+                .child(mealTime.getString())
                 .push()
                 .setValue(menuEntity);
     }
