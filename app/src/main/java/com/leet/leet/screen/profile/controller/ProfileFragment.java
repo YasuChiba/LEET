@@ -101,6 +101,8 @@ public class ProfileFragment extends Fragment implements ProfileViewInterface.Pr
     @Override
     public void deleteAcc() {
         mModel.deleteAccount();
+        Intent logInIntent = new Intent(getActivity(), LoginActivity.class);
+        startActivity(logInIntent);
     }
 }
 

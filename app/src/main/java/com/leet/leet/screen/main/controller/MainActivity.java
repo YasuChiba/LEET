@@ -19,6 +19,7 @@ import com.leet.leet.screen.statistics.screen.daily.controller.StatisticsDailyFr
 import com.leet.leet.screen.signup.controller.SignupActivity;
 import com.leet.leet.screen.start.controller.StartActivity;
 import com.leet.leet.utils.authentication.FirebaseAuthManager;
+import com.leet.leet.utils.database.FirebaseDBUserDataHelper;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -41,6 +42,7 @@ public class MainActivity extends AppCompatActivity {
      //   accountFragment.setupFragment(this);
        // MenuSearchFragment menuSearchFragment = new MenuSearchFragment();
         Fragment[] fragments = new Fragment[2];
+        //FirebaseDBUserDataHelper.setDefaultProfileEntity();
        // fragments[0] = menuSearchFragment;
         fragments[0] = profileFragment;
       //  fragments[0] = accountFragment;

@@ -11,17 +11,17 @@ public class UserInfoEntity {
     private String gender;
     private String email;
     private int age;
-    private float weight;
+    private int weight;
 
     //private float height;
-    private float feet;
-    private float inches;
+    private int feet;
+    private int inches;
 
     private List<String> allergies;
 
     public UserInfoEntity() {}
 
-    public UserInfoEntity(String name, String gender, String email, int age, float weight, float feet, float inches, List<String> allergies)
+    public UserInfoEntity(String name, String gender, String email, int age, int weight, int feet, int inches, List<String> allergies)
     {
         this.name = name;
         this.gender = gender;
@@ -37,18 +37,18 @@ public class UserInfoEntity {
     public void setGender(String gender) { this.gender = gender; }
     public void setEmail(String email) { this.email = email; }
     public void setAge(int age) { this.age = age; }
-    public void setWeight(float weight) {this.weight = weight; }
-    public void setFeet(float feet) {this.feet = feet; }
-    public void setInches(float inches) {this.inches = inches; }
+    public void setWeight(int weight) {this.weight = weight; }
+    public void setFeet(int feet) {this.feet = feet; }
+    public void setInches(int inches) {this.inches = inches; }
     public void setAllergies(List<String> allergies) {this.allergies = allergies; }
 
     public String getName(){ return this.name; }
     public String getGender() {return this.gender; }
     public String getEmail() { return this.email; }
     public int getAge() { return this.age; }
-    public float getWeight() {return this.weight; }
-    public float getFeet() {return this.feet; }
-    public float getInches() {return this.inches; }
+    public int getWeight() {return this.weight; }
+    public int getFeet() {return this.feet; }
+    public int getInches() {return this.inches; }
     public List<String> getAllergies() {return this.allergies; }
 }
 
