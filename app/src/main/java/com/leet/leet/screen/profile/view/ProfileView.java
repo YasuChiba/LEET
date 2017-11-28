@@ -59,27 +59,20 @@ public class ProfileView implements ProfileViewInterface, View.OnClickListener {
 
     private void initialize() {
         price = ((EditText)this.getRootView().findViewById(R.id.Price));
-      //  price.setFilters(new InputFilter[]{new InputFilterMinMax("1", "50")});
 
         calorie = ((EditText)this.getRootView().findViewById(R.id.Calorie));
-        calorie.setFilters(new InputFilter[]{new InputFilterMinMax("1", "1000")});
 
         carbs = ((EditText)this.getRootView().findViewById(R.id.Carbs));
-        carbs.setFilters(new InputFilter[]{new InputFilterMinMax("1", "100")});
 
         protein = ((EditText)this.getRootView().findViewById(R.id.Protein));
-        protein.setFilters(new InputFilter[]{new InputFilterMinMax("1", "70")});
 
         fat = ((EditText)this.getRootView().findViewById(R.id.Fat));
-        fat.setFilters(new InputFilter[]{new InputFilterMinMax("1", "40")});
 
         weight = ((EditText)this.getRootView().findViewById(R.id.Weight));
-        weight.setFilters(new InputFilter[]{new InputFilterMinMax("1", "300")});
 
         email = ((EditText)this.getRootView().findViewById(R.id.Email));
         name = ((EditText)this.getRootView().findViewById(R.id.Name));
         age = ((EditText)this.getRootView().findViewById(R.id.Age));
-        age.setFilters(new InputFilter[]{new InputFilterMinMax("1", "50")});
 
 
         feet = ((Spinner)this.getRootView().findViewById(R.id.Feet));
