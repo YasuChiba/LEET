@@ -72,8 +72,8 @@ public class FirebaseDBUserDataHelper {
 
     }
     public static void setDefaultProfileEntity(){
-        UserInfoEntity infoEntity = new UserInfoEntity("", "", "", 0, 0, 0, 0, null);
-        UserGoalEntity goalEntity = new UserGoalEntity(0, 0, 0, 0, 0);
+        UserInfoEntity infoEntity = new UserInfoEntity("", "", "", 1, 1, 1, 1, null);
+        UserGoalEntity goalEntity = new UserGoalEntity(1, 1, 1, 1, 1);
         UserProfileEntity profileEntity = new UserProfileEntity(goalEntity, infoEntity);
         setUserProfile(profileEntity);
     }

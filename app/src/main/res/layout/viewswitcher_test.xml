@@ -230,6 +230,7 @@
                     android:layout_gravity="center"
                     android:ems="10"
                     android:gravity="center_horizontal"
+                    android:maxLength="30"
                     android:text="" />
 
             </LinearLayout>
@@ -259,6 +260,7 @@
                     android:ems="10"
                     android:gravity="center_horizontal"
                     android:inputType="text"
+                    android:maxLength="15"
                     android:text="" />
 
             </LinearLayout>
