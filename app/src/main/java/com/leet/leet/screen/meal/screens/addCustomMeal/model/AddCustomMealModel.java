@@ -19,9 +19,9 @@ public class AddCustomMealModel {
 
     //Purpose - With the parameters provided by the controller, the model now creates a MenuEntity
     //          and adds it to firebase through the use of DBUserDataHelper.
-    public void addMeal(String name, int price, int calories, int carbs,
-                        int totalFat, int satFat, int protein, int sodium,
-                        int cholesterol, int fiber, int sugar){
+    public void addMeal(String name, String price, String calories, String carbs,
+                        String totalFat, String satFat, String protein, String sodium,
+                        String cholesterol, String fiber, String sugar){
         //object to add to firebase
         MenuEntity meal;
 
@@ -31,12 +31,13 @@ public class AddCustomMealModel {
         List<String> allergens = null; //might have to be something else
 
         //initialize MenuNutritionsEntity to be used for MenuEntity constructor
-        nutrition = new MenuNutritionsEntity((float)cholesterol, (float)fiber, (float)protein,
-                (float)satFat, (float)sodium, (float)sugar, (float)carbs, (float)totalFat, (float) calories,
-                 "",allergens);
+        nutrition = new MenuNutritionsEntity(Float.parseFloat(cholesterol), Float.parseFloat(fiber),
+                Float.parseFloat(protein), Float.parseFloat(satFat), Float.parseFloat(sodium),
+                Float.parseFloat(sugar), Float.parseFloat(carbs), Float.parseFloat(totalFat),
+                Float.parseFloat(calories), "", allergens);
 
         //initialize the MenuEntity
-        meal = new MenuEntity(name, nutrition, (float)price, tags);
+        meal = new MenuEntity(name, nutrition, Float.parseFloat(price), tags);
 
         //add custom meal to firebase
         FirebaseDBUserDataHelper.addCustomMenu(name,meal);

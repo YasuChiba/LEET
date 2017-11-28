@@ -59,4 +59,5 @@ public class ResultViewRow extends LinearLayout {
         name.setText(data.getName());
         name2.setText((int) data.getNutritions().getProtein());
     }
+
 }

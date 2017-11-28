@@ -11,6 +11,7 @@ public interface MealMainViewInterface extends ViewBaseInterface {
 
     //For communnicate MealmainView and MealMainFragment
     interface MealMainViewListner {
-        void buttonTap();
+        void mealToResult();
+        void mealToCustom();
     }
 }

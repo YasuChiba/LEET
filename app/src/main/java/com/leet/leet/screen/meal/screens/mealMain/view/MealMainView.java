@@ -61,7 +61,11 @@ public class MealMainView implements MealMainViewInterface, View.OnClickListener
     @Override
     public void onClick(View view) {
 
-        //pass the button click event to MealMainFragment.
-        mListner.buttonTap();
+        //pass the button click event to MealMainFragment.\
+            if(view.getId() == R.id.customMeal) {
+                mListner.mealToCustom();
+            } else {
+                mListner.mealToResult();
+            }
     }
 }

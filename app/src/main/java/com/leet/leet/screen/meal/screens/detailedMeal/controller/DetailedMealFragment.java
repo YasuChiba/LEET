@@ -5,7 +5,9 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
+import com.leet.leet.common.Enums;
 import com.leet.leet.screen.meal.screens.detailedMeal.model.DetailedMealModel;
 import com.leet.leet.screen.meal.screens.detailedMeal.view.DetailedMealInterface;
 import com.leet.leet.screen.meal.screens.detailedMeal.view.DetailedMealView;
@@ -38,6 +40,10 @@ public class DetailedMealFragment extends Fragment implements DetailedMealInterf
     private MenuEntity meal;
     private MenuNutritionsEntity nutritions;
 
+    /**
+     *
+     * @param listener
+     */
     public void setupFragment(DetailedMealInterface listener){
         this.mListener = listener;
     }
@@ -54,17 +60,14 @@ public class DetailedMealFragment extends Fragment implements DetailedMealInterf
         List<String> listStrings = new LinkedList<String>();
         MenuTagsEntity tags = new MenuTagsEntity(false,false,false);
         listStrings.add("list");
-        nutritions = new MenuNutritionsEntity(1,1,1,1,1,1,1,1,1,"string", listStrings );
+        nutritions = new MenuNutritionsEntity(1,2,3,4,5,6,7,8,9,"One", listStrings );
 
-        meal = new MenuEntity("test meal", nutritions, 4, tags); //parameters are currently null, but this won't be a problem when
+        meal = new MenuEntity("Cheese Burger", nutritions, 7, tags); //parameters are currently null, but this won't be a problem when
                                  //getting the meal from the previos page.
 
         //display the MenuEntity's parameters on the screen
-<<<<<<< HEAD
-        displayNutrition();   //<---I comment this out so that it could run
-=======
-       displayNutrition();   //<---I comment this out so that it could run
->>>>>>> 5312985e104901ff744b46f54ec72b961861b162
+
+        displayNutrition();
 
         //get root view - not sure what this does exactly though
         return mView.getRootView();
@@ -72,11 +75,8 @@ public class DetailedMealFragment extends Fragment implements DetailedMealInterf
 
     //Purpose - Using the View's setters will set the TextView to display the MenuEntity's nutritional
     //          contents.
-<<<<<<< HEAD
-    public void displayNutrition(){         //  <---I comment this out so that it could run
-=======
-   public void displayNutrition(){           //<---I comment this out so that it could run
->>>>>>> 5312985e104901ff744b46f54ec72b961861b162
+    public void displayNutrition(){
+
         mView.setMealName(meal.getName());
         mView.setPrice(meal.getPrice());
         mView.setCalories(meal.getNutritions().getCalories());
@@ -95,10 +95,13 @@ public class DetailedMealFragment extends Fragment implements DetailedMealInterf
 
     @Override
     //Delegate adding meal to the model using parameters retreived from the view
-    public void addMealClick(){
+    public void addMealClick() {
         //add the meal to the user's history when the add button is pressed.
-        mModel.addMeal(meal);
 
+        //TODO: need to set MealTime   ---11/24  Yasuhira Chiba
+        mModel.addMeal(meal, Enums.MealTime.Breakfast);
+
+        Toast.makeText(getContext(), "Added Meal To History", Toast.LENGTH_SHORT).show();
     }
 
 

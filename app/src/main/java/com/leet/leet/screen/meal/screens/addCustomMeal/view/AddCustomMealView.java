@@ -5,8 +5,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.leet.leet.R;
+
+import static java.security.AccessController.getContext;
 
 /**
  * Created by k3vn19 on 11/15/2017.
@@ -68,60 +71,82 @@ public class AddCustomMealView implements CustomMealInterface, View.OnClickListe
 
     @Override
     public void onClick(View view) {
-        if (name.getText().length() > 0 && price.getText().length() > 0
-                && calories.getText().length() > 0 && carbs.getText().length() > 0
-                && totalFat.getText().length() > 0 && saturatedFat.getText().length() > 0
-                && protein.getText().length() > 0 && sodium.getText().length() > 0
-                && sugar.getText().length() > 0 && cholesterol.getText().length() > 0
-                && dietaryFiber.getText().length() > 0) {
-            mListener.addMealClick();
-        }
-    } //end of onClick
+
+        mListener.addMealClick();
+    }
 
     //Getter methods for all private member variables of this class
     //These getters are used by the controller in getting paramaters to pass into the model
-    public int getPriceVal() {
-        return Integer.parseInt(price.getText().toString());
+    public String getPriceVal() {
+        return price.getText().toString().length() == 0 ? "0" : price.getText().toString();
+    }
+    public String getCalVal() {
+        return calories.getText().toString().length() == 0 ? "0" : calories.getText().toString();
+    }
+    public String getCarbsVal() {
+        return carbs.getText().toString().length() == 0 ? "0" : calories.getText().toString();
+    }
+    public String getTotalFatVal() {
+        return totalFat.getText().toString().length() == 0 ? "0" : totalFat.getText().toString();
+    }
+    public String getSatFatVal() {
+        return saturatedFat.getText().toString().length() == 0 ? "0" : saturatedFat.getText().toString();
+    }
+    public String getProteinVal() {
+        return protein.getText().toString().length() == 0 ? "0" : protein.getText().toString();
+    }
+    public String getSodiumVal() {
+        return sodium.getText().toString().length() == 0 ? "0" : sodium.getText().toString();
+    }
+    public String getCholesterolVal() {
+        return cholesterol.getText().toString().length() == 0 ? "0" : cholesterol.getText().toString();
+    }
+    public String getDietaryFiberVal() {
+        return dietaryFiber.getText().toString().length() == 0 ? "0" : dietaryFiber.getText().toString();
+    }
+    public String getSugarVal() {
+        return sugar.getText().toString().length() == 0 ? "0" : sugar.getText().toString();
     }
 
-    public int getCalVal() {
-        return Integer.parseInt(calories.getText().toString());
-    }
-
-    public int getCarbsVal() {
-        return Integer.parseInt(carbs.getText().toString());
-    }
-
-    public int getTotalFatVal() {
-        return Integer.parseInt(totalFat.getText().toString());
-    }
-
-    public int getSatFatVal() {
-        return Integer.parseInt(saturatedFat.getText().toString());
-    }
-
-    public int getProteinVal() {
-        return Integer.parseInt(protein.getText().toString());
-    }
-
-    public int getSodiumVal() {
-        return Integer.parseInt(sodium.getText().toString());
-    }
-
-    public int getCholesterolVal() {
-        return Integer.parseInt(cholesterol.getText().toString());
-    }
-
-    public int getDietaryFiberVal() {
-        return Integer.parseInt(dietaryFiber.getText().toString());
-    }
-
-    public int getSugarVal() {
-        return Integer.parseInt(sugar.getText().toString());
-    }
-
+    // do not have default value
     public String getMealName() {
         return name.getText().toString();
     }
+
+    //setter methods
+    public void setNameVal(String input){
+        name.setText(input);
+    }
+    public void setPriceVal(String input){
+        price.setText(input);
+    }
+    public void setCalVal(String input){
+        calories.setText(input);
+    }
+    public void setCarbsVal(String input){
+        carbs.setText(input);
+    }
+    public void setTotalFatVal(String input){
+        totalFat.setText(input);
+    }
+    public void setSatFatVal(String input){
+        saturatedFat.setText(input);
+    }
+    public void setProteinVal(String input){
+        protein.setText(input);
+    }
+    public void setSodiumVal(String input){
+        sodium.setText(input);
+    }
+    public void setSugarVal(String input){
+        sugar.setText(input);
+    }
+    public void setCholesterolVal(String input){
+        cholesterol.setText(input);
+    }
+    public void setFiberVal(String input){
+        dietaryFiber.setText(input);
+    }
+
 
 }//end of class
