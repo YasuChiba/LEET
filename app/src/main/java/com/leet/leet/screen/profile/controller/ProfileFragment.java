@@ -18,6 +18,7 @@ import com.leet.leet.screen.profile.model.ProfileModel;
 import com.leet.leet.screen.profile.view.ProfileView;
 import com.leet.leet.screen.profile.view.ProfileViewInterface;
 import com.leet.leet.utils.database.FirebaseDBCallaback;
+import com.leet.leet.utils.database.FirebaseDBUserDataHelper;
 import com.leet.leet.utils.database.entities.user.UserGoalEntity;
 import com.leet.leet.utils.database.entities.user.UserInfoEntity;
 import com.leet.leet.utils.database.entities.user.UserProfileEntity;
@@ -38,7 +39,6 @@ public class ProfileFragment extends Fragment implements ProfileViewInterface.Pr
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-
         mView = new ProfileView(inflater, container);
         mView.setListener(this);
         mModel = new ProfileModel();
