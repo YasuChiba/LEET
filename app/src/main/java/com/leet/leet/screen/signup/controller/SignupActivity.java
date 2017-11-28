@@ -19,6 +19,7 @@ import com.leet.leet.screen.signup.view.SignupViewInterface;
 import com.leet.leet.utils.DialogManager;
 import com.leet.leet.utils.ProgressDialogManager;
 import com.leet.leet.utils.authentication.FirebaseAuthManager;
+import com.leet.leet.utils.database.FirebaseDBUserDataHelper;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -223,6 +224,7 @@ public class SignupActivity extends AppCompatActivity implements SignupViewInter
                 }
             });
         } else {
+            FirebaseDBUserDataHelper.setDefaultProfileEntity();
             Intent intent = new Intent(this, MainActivity.class);
             intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
             startActivity(intent);

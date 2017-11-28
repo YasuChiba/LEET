@@ -7,6 +7,9 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.widget.TextView;
 
+import com.leet.leet.screen.main.model.MainModel;
+import com.leet.leet.screen.main.view.MainView;
+import com.leet.leet.screen.profile.controller.ProfileFragment;
 import com.leet.leet.screen.login.LoginInterface;
 import com.leet.leet.screen.login.controller.LoginActivity;
 import com.leet.leet.screen.main.model.MainModel;
@@ -16,6 +19,7 @@ import com.leet.leet.screen.statistics.screen.daily.controller.StatisticsDailyFr
 import com.leet.leet.screen.signup.controller.SignupActivity;
 import com.leet.leet.screen.start.controller.StartActivity;
 import com.leet.leet.utils.authentication.FirebaseAuthManager;
+import com.leet.leet.utils.database.FirebaseDBUserDataHelper;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -33,19 +37,23 @@ public class MainActivity extends AppCompatActivity {
         mView = new MainView(LayoutInflater.from(this), null);
 
 
+        ProfileFragment profileFragment = new ProfileFragment();
        // AccountFragment accountFragment = new AccountFragment();
      //   accountFragment.setupFragment(this);
        // MenuSearchFragment menuSearchFragment = new MenuSearchFragment();
-        Fragment[] fragments = new Fragment[1];
-        fragments = new Fragment[1];
+        Fragment[] fragments = new Fragment[2];
+        //FirebaseDBUserDataHelper.setDefaultProfileEntity();
        // fragments[0] = menuSearchFragment;
+        fragments[0] = profileFragment;
       //  fragments[0] = accountFragment;
-        fragments[0] = new StatisticsFragment();
+        fragments[1] = new StatisticsFragment();
 
         mView.setupTabs(fragments,mModel.tabTitles,getSupportFragmentManager());
         //mView.setupTabs(fragments,mModel.tabTitles,getSupportFragmentManager());
 
         setContentView(mView.getRootView());
+
+
 
         /*
         // go to login page
