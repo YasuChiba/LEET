@@ -17,27 +17,28 @@ import java.util.ArrayList;
 
 
 
-public class ResultView extends Fragment implements ResultViewInterface {
+public class ResultView  implements ResultViewInterface {
 
     private View mRootView;
 
     private ListView listView;
 
+    private ResultViewAdapter listViewAdapter;
+
     public ResultView(LayoutInflater inflater, ViewGroup container, ResultControllerFragment resultControllerFragment) {
         mRootView = inflater.inflate(R.layout.view_menu_search, container, false);
-
+        listViewAdapter = new ResultViewAdapter(inflater.getContext());
         initialize();
     }
 
     private void initialize() {
         listView = (ListView)mRootView.findViewById(R.id.menu_search_list_view);
+        listView.setAdapter(listViewAdapter);
     }
 
-    public void setupListView(Context context, ArrayList<MenuEntity> data) {
-        ResultViewAdapter adapter = new ResultViewAdapter(context);
-        adapter.setData(data);
-        adapter.notifyDataSetChanged();
-        listView.setAdapter(adapter);
+    public void setupListView(ArrayList<MenuEntity> data) {
+        listViewAdapter.setData(data);
+        listViewAdapter.notifyDataSetChanged();
     }
 
     @Override

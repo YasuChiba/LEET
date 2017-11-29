@@ -15,7 +15,7 @@ import java.util.ArrayList;
 public class ResultViewAdapter extends BaseAdapter {
 
     private Context context;
-    private ArrayList<MenuEntity> data;
+    private ArrayList<MenuEntity> data = new ArrayList<>();
 
     public ResultViewAdapter(Context context) {
         this.context = context;

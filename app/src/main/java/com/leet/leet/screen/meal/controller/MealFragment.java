@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.leet.leet.screen.meal.screens.ResultView.controller.ResultControllerFragment;
 import com.leet.leet.screen.meal.screens.addCustomMeal.controller.AddCustomMealFragment;
 import com.leet.leet.screen.meal.screens.detailedMeal.controller.DetailedMealFragment;
 import com.leet.leet.screen.meal.screens.mealMain.MealMainListner;
@@ -37,7 +38,7 @@ public class MealFragment extends Fragment implements MealMainListner {
     }
 
     @Override
-    public void moveToOtherFragment() {
+    public void moveToDetaileFragment() {
 
         //change fragment
         //ExampleFragment fragment = new ExampleFragment();
@@ -51,8 +52,14 @@ public class MealFragment extends Fragment implements MealMainListner {
 
     }
     @Override
-    public void moveToOtherFragment2(){
+    public void moveToAddCustomFragment(){
         AddCustomMealFragment fragmentAddCustomMeal = new AddCustomMealFragment();
         mView.changeContent(getFragmentManager(), fragmentAddCustomMeal, true);
+    }
+
+    @Override
+    public void moveToResultFragment() {
+        ResultControllerFragment resultFragment = new ResultControllerFragment();
+        mView.changeContent(getFragmentManager(),resultFragment,true);
     }
 }

@@ -7,14 +7,18 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.leet.leet.screen.meal.screens.ResultView.ResultListener;
+import com.leet.leet.screen.meal.screens.ResultView.model.MealResultModel;
 import com.leet.leet.screen.meal.screens.ResultView.view.ResultViewInterface;
 import com.leet.leet.screen.meal.screens.ResultView.view.ResultView;
+import com.leet.leet.utils.database.FirebaseDBCallaback;
 
 /**
  * Created by Sam on 11/19/2017.
  */
 
 public class ResultControllerFragment extends Fragment implements ResultViewInterface.ResultListener {
+
+    MealResultModel model;
     ResultView resultView;
     ResultListener resultListener; //once button is clicked, move to another fragment
 
@@ -29,6 +33,13 @@ public class ResultControllerFragment extends Fragment implements ResultViewInte
 
 
         resultView = new ResultView(inflater, container,this);
+        model = new MealResultModel();
+        model.getMenu(new FirebaseDBCallaback<Boolean>() {
+            @Override
+            public void getData(Boolean data) {
+                resultView.setupListView(model.getMenuEntityList());
+            }
+        });
         return resultView.getRootView();
     }
 

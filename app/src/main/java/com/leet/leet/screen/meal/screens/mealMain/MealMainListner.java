@@ -7,7 +7,9 @@ package com.leet.leet.screen.meal.screens.mealMain;
 //This interface is for communicate MealFragment with MealMainFragment
 public interface MealMainListner {
 
-    void moveToOtherFragment();
+    void moveToDetaileFragment();
 
-    void moveToOtherFragment2();
+    void moveToAddCustomFragment();
+
+    void moveToResultFragment();
 }

@@ -2,13 +2,10 @@ package com.leet.leet.screen.meal.screens.mealMain.controller;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.leet.leet.R;
-import com.leet.leet.screen.meal.screens.examplescreen.controller.ExampleFragment;
 import com.leet.leet.screen.meal.screens.mealMain.MealMainListner;
 import com.leet.leet.screen.meal.screens.mealMain.view.MealMainView;
 import com.leet.leet.screen.meal.screens.mealMain.view.MealMainViewInterface;
@@ -42,11 +39,12 @@ public class MealMainFragment extends Fragment implements MealMainViewInterface.
     //Method of MealMainViewListner
     @Override
     public void mealToResult() {
-        mainListner.moveToOtherFragment();
+       // mainListner.moveToDetaileFragment();
+        mainListner.moveToResultFragment();
     }
 
     @Override
-    public void mealToCustom() { mainListner.moveToOtherFragment2();}
+    public void mealToCustom() { mainListner.moveToAddCustomFragment();}
 
 
 }
