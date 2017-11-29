@@ -31,12 +31,17 @@ public class MealView implements MealViewInterface  {
     //this method goot to be put in controller. but this method use "R.id.~" which is unique in view, so i put this here.
     public void changeContent(FragmentManager fragmentManager, Fragment fragment, boolean isAddToStack) { // ini di ganti
 
-        FragmentTransaction transaction = fragmentManager.beginTransaction().replace(R.id.meal_base_container, fragment);
+        FragmentTransaction ft = fragmentManager.beginTransaction();
+        ft.setCustomAnimations(
+                R.anim.slide_in_right, R.anim.slide_out_left,
+                R.anim.slide_in_left, R.anim.slide_out_right
+        );
+        ft.replace(R.id.meal_base_container, fragment);
 
         //if add to stack, back button works.
         if(isAddToStack) {
-            transaction = transaction.addToBackStack(null);
+            ft = ft.addToBackStack(null);
         }
-        transaction.commit();
+        ft.commit();
     }
 }
