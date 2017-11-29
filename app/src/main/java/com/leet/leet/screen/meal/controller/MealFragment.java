@@ -2,16 +2,12 @@ package com.leet.leet.screen.meal.controller;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.leet.leet.R;
-import com.leet.leet.screen.meal.screens.ResultView.ResultView;
 import com.leet.leet.screen.meal.screens.addCustomMeal.controller.AddCustomMealFragment;
 import com.leet.leet.screen.meal.screens.detailedMeal.controller.DetailedMealFragment;
-import com.leet.leet.screen.meal.screens.examplescreen.controller.ExampleFragment;
 import com.leet.leet.screen.meal.screens.mealMain.MealMainListner;
 import com.leet.leet.screen.meal.screens.mealMain.controller.MealMainFragment;
 import com.leet.leet.screen.meal.view.MealView;

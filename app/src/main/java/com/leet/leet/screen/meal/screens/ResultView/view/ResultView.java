@@ -1,4 +1,4 @@
- package com.leet.leet.screen.meal.screens.ResultView;
+ package com.leet.leet.screen.meal.screens.ResultView.view;
 
 
 import android.content.Context;
@@ -9,6 +9,7 @@ import android.widget.ListView;
 
 import android.support.v4.app.Fragment;
 import com.leet.leet.R;
+import com.leet.leet.screen.meal.screens.ResultView.controller.ResultControllerFragment;
 import com.leet.leet.screen.meal.screens.ResultView.ResultViewAdapter;
 import com.leet.leet.utils.database.entities.menu.MenuEntity;
 

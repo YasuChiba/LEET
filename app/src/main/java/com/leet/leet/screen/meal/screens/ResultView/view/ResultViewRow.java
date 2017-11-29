@@ -1,4 +1,4 @@
-package com.leet.leet.screen.meal.screens.ResultView;
+package com.leet.leet.screen.meal.screens.ResultView.view;
 
 import android.content.Context;
 import android.content.res.TypedArray;
@@ -24,7 +24,10 @@ import com.leet.leet.utils.database.entities.menu.MenuEntity;
 public class ResultViewRow extends LinearLayout {
 
     private TextView name;
-    private TextView name2;
+    private TextView price;
+    private TextView calory;
+    private TextView fat;
+
 
     public ResultViewRow(Context context) {
         super(context);
@@ -44,8 +47,10 @@ public class ResultViewRow extends LinearLayout {
     private void initialiseView(Context context) {
         View.inflate(context, R.layout.customview_menu_search_list_view_row, this);
 
-        name = (TextView)this.findViewById(R.id.name);
-        name2 = (TextView)this.findViewById(R.id.name2);
+        name = (TextView)this.findViewById(R.id.menu_search_row_foodname);
+        price = (TextView)this.findViewById(R.id.menu_search_row_price);
+        calory = (TextView)this.findViewById(R.id.menu_search_row_calory);
+        fat = (TextView)this.findViewById(R.id.menu_search_row_fat);
     }
 
     @Override
@@ -54,10 +59,11 @@ public class ResultViewRow extends LinearLayout {
 
     }
 
-
     public void setData(MenuEntity data) {
         name.setText(data.getName());
-        name2.setText((int) data.getNutritions().getProtein());
+        price.setText(""+data.getPrice());
+        calory.setText(""+data.getNutritions().getCalories());
+        fat.setText(""+data.getNutritions().getTotalFat());
     }
 
 }

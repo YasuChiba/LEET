@@ -1,17 +1,14 @@
-package com.leet.leet.screen.meal.screens.ResultView;
+package com.leet.leet.screen.meal.screens.ResultView.controller;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.leet.leet.R;
-import com.leet.leet.screen.meal.screens.examplescreen.controller.ExampleFragment;
 import com.leet.leet.screen.meal.screens.ResultView.ResultListener;
-import com.leet.leet.screen.meal.screens.ResultView.ResultView;
-import com.leet.leet.screen.meal.screens.ResultView.ResultViewInterface;
+import com.leet.leet.screen.meal.screens.ResultView.view.ResultViewInterface;
+import com.leet.leet.screen.meal.screens.ResultView.view.ResultView;
 
 /**
  * Created by Sam on 11/19/2017.

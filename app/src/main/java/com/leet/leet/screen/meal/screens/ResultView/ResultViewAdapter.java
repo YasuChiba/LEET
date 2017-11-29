@@ -6,7 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 
-import com.leet.leet.screen.meal.screens.ResultView.ResultViewRow;
+import com.leet.leet.screen.meal.screens.ResultView.view.ResultViewRow;
 import com.leet.leet.utils.database.entities.menu.MenuEntity;
 
 import java.util.ArrayList;

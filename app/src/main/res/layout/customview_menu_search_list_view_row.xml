@@ -8,7 +8,7 @@
         android:orientation="horizontal">
 
         <TextView
-            android:id="@+id/food_name"
+            android:id="@+id/menu_search_row_foodname"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
@@ -18,7 +18,7 @@
             android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/food_price"
+            android:id="@+id/menu_search_row_price"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
@@ -34,7 +34,7 @@
         android:orientation="horizontal">
 
         <TextView
-            android:id="@+id/food_calories"
+            android:id="@+id/menu_search_row_calory"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -43,7 +43,7 @@
             android:textSize="20sp" />
 
         <TextView
-            android:id="@+id/food_fat"
+            android:id="@+id/menu_search_row_fat"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
