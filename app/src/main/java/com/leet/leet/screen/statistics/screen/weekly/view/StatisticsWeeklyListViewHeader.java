@@ -98,6 +98,7 @@ public class StatisticsWeeklyListViewHeader extends LinearLayout implements View
         // if disabled, scaling can be done on x- and y-axis separately
         graphView.setPinchZoom(true);
         graphView.getLegend().setEnabled(false);
+        graphView.getXAxis().setPosition(XAxis.XAxisPosition.BOTTOM);
 
     }
 
