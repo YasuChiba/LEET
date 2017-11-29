@@ -1,16 +1,16 @@
 package com.leet.leet.screen.profile.controller;
 
 import android.content.Intent;
+import android.graphics.Rect;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.ViewSwitcher;
 
 import com.leet.leet.R;
 import com.leet.leet.screen.login.controller.LoginActivity;
@@ -18,7 +18,6 @@ import com.leet.leet.screen.profile.model.ProfileModel;
 import com.leet.leet.screen.profile.view.ProfileView;
 import com.leet.leet.screen.profile.view.ProfileViewInterface;
 import com.leet.leet.utils.database.FirebaseDBCallaback;
-import com.leet.leet.utils.database.FirebaseDBUserDataHelper;
 import com.leet.leet.utils.database.entities.user.UserGoalEntity;
 import com.leet.leet.utils.database.entities.user.UserInfoEntity;
 import com.leet.leet.utils.database.entities.user.UserProfileEntity;
@@ -31,10 +30,7 @@ public class ProfileFragment extends Fragment implements ProfileViewInterface.Pr
 
     private ProfileViewInterface mView;
     private ProfileModel mModel;
-    private Menu menu;
     private boolean inProfile = false;
-
-
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -43,7 +39,6 @@ public class ProfileFragment extends Fragment implements ProfileViewInterface.Pr
         mView.setListener(this);
         mModel = new ProfileModel();
         setHasOptionsMenu(true);
-
         mModel.getUserData(new FirebaseDBCallaback<UserProfileEntity>() {
             @Override
             public void getData(UserProfileEntity data) {
@@ -55,8 +50,10 @@ public class ProfileFragment extends Fragment implements ProfileViewInterface.Pr
 
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
-        inflater.inflate(R.menu.menu, menu);
-        this.menu = menu;
+        if(mView.getRootView().getGlobalVisibleRect(new Rect())) {
+            inflater.inflate(R.menu.profile_view_menu, menu);
+        }
+
         super.onCreateOptionsMenu(menu,inflater);
     }
 
@@ -71,14 +68,13 @@ public class ProfileFragment extends Fragment implements ProfileViewInterface.Pr
                 return true;
             case R.id.edit:
                 mView.switchViews();
-                updateMenuTitles();
+                updateMenuTitles(item);
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
         }
     }
-    private void updateMenuTitles() {
-        MenuItem edit = menu.findItem(R.id.edit);
+    private void updateMenuTitles(MenuItem edit) {
         if (inProfile) {
             edit.setTitle(R.string.editProfile);
             inProfile = false;

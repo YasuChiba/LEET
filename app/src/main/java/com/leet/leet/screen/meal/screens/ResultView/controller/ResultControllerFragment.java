@@ -1,11 +1,16 @@
 package com.leet.leet.screen.meal.screens.ResultView.controller;
 
+import android.graphics.Rect;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.leet.leet.R;
 import com.leet.leet.common.Enums;
 import com.leet.leet.screen.meal.screens.ResultView.MealResultListener;
 import com.leet.leet.screen.meal.screens.ResultView.model.MealResultModel;
@@ -22,6 +27,8 @@ public class ResultControllerFragment extends Fragment implements ResultViewInte
     MealResultModel model;
     ResultView resultView;
     private MealResultListener mListner;
+    boolean isVisible = false;
+
 
     //Since Fragment cannot implement constructor with our original arguments, we should create this kind of method
     public void setupFragment(Enums.RestaurantName restaurantName,MealResultListener listener) {
@@ -37,7 +44,26 @@ public class ResultControllerFragment extends Fragment implements ResultViewInte
         resultView = new ResultView(inflater, container,this);
         this.setMenuToListView();
         resultView.setupMealTimeSpinner(model.getMealTimeList(),model.getCurrentMealTime().getIndex());
+        setHasOptionsMenu(true);
         return resultView.getRootView();
+    }
+
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        if(resultView.getRootView().getGlobalVisibleRect(new Rect()) || !menu.hasVisibleItems()) {
+            inflater.inflate(R.menu.meal_search_result_view_menu, menu);
+        }
+        super.onCreateOptionsMenu(menu,inflater);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle item selection
+        switch (item.getItemId()) {
+
+        }
+
+        return true;
     }
 
     private void setMenuToListView() {
