@@ -3,9 +3,11 @@ package com.leet.leet.screen.main.controller;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.widget.TextView;
 
+import com.leet.leet.R;
 import com.leet.leet.screen.account.controller.AccountFragment;
 import com.leet.leet.screen.main.model.MainModel;
 import com.leet.leet.screen.main.view.MainView;
@@ -32,6 +34,7 @@ public class MainActivity extends AppCompatActivity {
     private MainModel mModel;
 
     private TextView message;
+    protected Toolbar mToolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,7 +54,8 @@ public class MainActivity extends AppCompatActivity {
         //mView.setupTabs(fragments,mModel.tabTitles,getSupportFragmentManager());
 
         setContentView(mView.getRootView());
-
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
     }
 
 /*
