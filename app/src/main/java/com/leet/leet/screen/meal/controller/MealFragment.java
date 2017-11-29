@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.leet.leet.common.Enums;
 import com.leet.leet.screen.meal.screens.ResultView.MealResultListener;
 import com.leet.leet.screen.meal.screens.ResultView.controller.ResultControllerFragment;
 import com.leet.leet.screen.meal.screens.addCustomMeal.controller.AddCustomMealFragment;
@@ -47,9 +48,9 @@ public class MealFragment extends Fragment implements MealMainListner,MealResult
     }
 
     @Override
-    public void moveToResultFragment() {
+    public void moveToResultFragment(Enums.RestaurantName restaurantName) {
         ResultControllerFragment resultFragment = new ResultControllerFragment();
-        resultFragment.setupFragment(this);
+        resultFragment.setupFragment(restaurantName,this);
         mView.changeContent(getFragmentManager(),resultFragment,true);
     }
 

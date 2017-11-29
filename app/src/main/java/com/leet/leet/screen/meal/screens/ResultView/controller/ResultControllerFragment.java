@@ -24,7 +24,9 @@ public class ResultControllerFragment extends Fragment implements ResultViewInte
     private MealResultListener mListner;
 
     //Since Fragment cannot implement constructor with our original arguments, we should create this kind of method
-    public void setupFragment(MealResultListener listener) {
+    public void setupFragment(Enums.RestaurantName restaurantName,MealResultListener listener) {
+        model = new MealResultModel();
+        model.setCurrentRestaurantName(restaurantName);
         this.mListner = listener;
     }
 
@@ -33,7 +35,6 @@ public class ResultControllerFragment extends Fragment implements ResultViewInte
                              Bundle savedInstanceState) {
 
         resultView = new ResultView(inflater, container,this);
-        model = new MealResultModel();
         this.setMenuToListView();
         resultView.setupMealTimeSpinner(model.getMealTimeList(),model.getCurrentMealTime().getIndex());
         return resultView.getRootView();
@@ -50,7 +51,7 @@ public class ResultControllerFragment extends Fragment implements ResultViewInte
 
     @Override
     public void listTap(int i) {
-        mListner.moveToDetailFragment(model.getMenuEntityList().get(i));
+        mListner.moveToDetailFragment(model.getMenuEntityList().get(i-1));
     }
 
     @Override

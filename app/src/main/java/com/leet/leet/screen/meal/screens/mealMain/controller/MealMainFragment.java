@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.leet.leet.common.Enums;
 import com.leet.leet.screen.meal.screens.mealMain.MealMainListner;
 import com.leet.leet.screen.meal.screens.mealMain.view.MealMainView;
 import com.leet.leet.screen.meal.screens.mealMain.view.MealMainViewInterface;
@@ -38,9 +39,9 @@ public class MealMainFragment extends Fragment implements MealMainViewInterface.
 
     //Method of MealMainViewListner
     @Override
-    public void mealToResult() {
+    public void mealToResult(Enums.RestaurantName restaurantName) {
        // mainListner.moveToDetaileFragment();
-        mainListner.moveToResultFragment();
+        mainListner.moveToResultFragment(restaurantName);
     }
 
     @Override

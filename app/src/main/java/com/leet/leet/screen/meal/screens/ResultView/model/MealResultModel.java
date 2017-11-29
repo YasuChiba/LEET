@@ -17,13 +17,17 @@ public class MealResultModel {
 
     private ArrayList<MenuEntity> menuEntityList;
     private Enums.MealTime currentMealTime;
+    private Enums.RestaurantName currentRestaurantName;
 
     public MealResultModel() {
+
+        //TODO:Consider about default value
         currentMealTime = Enums.MealTime.Lunch;
+        currentRestaurantName = Enums.RestaurantName.CafeVentanas;
     }
 
     public void getMenu(final FirebaseDBCallaback<Boolean> callback) {
-        FirebaseDBMenuDataHelper.getMenuData(Enums.RestaurantName.CafeVentanas,
+        FirebaseDBMenuDataHelper.getMenuData(currentRestaurantName,
                 DateHelper.getCurrentDate(),
                 currentMealTime,
                 new FirebaseDBCallaback<ArrayList<MenuEntity>>() {
@@ -45,6 +49,10 @@ public class MealResultModel {
 
     public Enums.MealTime getCurrentMealTime() {
         return currentMealTime;
+    }
+
+    public void setCurrentRestaurantName(Enums.RestaurantName name) {
+        this.currentRestaurantName = name;
     }
 
     public ArrayList<String> getMealTimeList() {

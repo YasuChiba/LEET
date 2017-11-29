@@ -1,5 +1,7 @@
 package com.leet.leet.screen.meal.screens.mealMain;
 
+import com.leet.leet.common.Enums;
+
 /**
  * Created by YasuhiraChiba on 2017/11/16.
  */
@@ -9,5 +11,5 @@ public interface MealMainListner {
 
     void moveToAddCustomFragment();
 
-    void moveToResultFragment();
+    void moveToResultFragment(Enums.RestaurantName restaurantName);
 }

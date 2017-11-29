@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 
 import com.leet.leet.R;
+import com.leet.leet.common.Enums;
 
 /**
  * Created by YasuhiraChiba on 2017/11/16.
@@ -65,7 +66,28 @@ public class MealMainView implements MealMainViewInterface, View.OnClickListener
             if(view.getId() == R.id.customMeal) {
                 mListner.mealToCustom();
             } else {
-                mListner.mealToResult();
+                Enums.RestaurantName name = Enums.RestaurantName.CafeVentanas;
+                switch(view.getId()){
+                    case R.id.sixtyFour:
+                        name = Enums.RestaurantName.Degrees;
+                        break;
+                    case R.id.cafeVentanas:
+                        name = Enums.RestaurantName.CafeVentanas;
+                        break;
+                    case R.id.canyonVista:
+                        name = Enums.RestaurantName.Canyon;
+                        break;
+                    case R.id.foodworx:
+                        name = Enums.RestaurantName.Foodworx;
+                        break;
+                    case R.id.oceanView:
+                        name = Enums.RestaurantName.OceanView;
+                        break;
+                    case R.id.pines:
+                        name = Enums.RestaurantName.Pines;
+                        break;
+                }
+                mListner.mealToResult(name);
             }
     }
 }
