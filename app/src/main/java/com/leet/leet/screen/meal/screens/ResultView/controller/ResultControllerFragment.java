@@ -45,6 +45,6 @@ public class ResultControllerFragment extends Fragment implements ResultViewInte
 
     @Override
     public void listTap(int i) {
-        mListner.moveToDetailFragment();
+        mListner.moveToDetailFragment(model.getMenuEntityList().get(i));
     }
 }

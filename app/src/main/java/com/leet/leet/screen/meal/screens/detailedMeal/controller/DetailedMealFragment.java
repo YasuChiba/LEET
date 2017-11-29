@@ -3,6 +3,7 @@ package com.leet.leet.screen.meal.screens.detailedMeal.controller;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.view.LayoutInflater;
+import android.view.Menu;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
@@ -31,21 +32,15 @@ public class DetailedMealFragment extends Fragment implements DetailedMealInterf
     private DetailedMealView mView;
     private DetailedMealModel mModel;
 
-    private DetailedMealInterface mListener;
-
-    public DetailedMealFragment(){} //default constructor
+   // public DetailedMealFragment(){} //default constructor
 
     //TODO - Need to get the Menu Entity from the previous page to pass as the parameter for the model.
     //For now using this new MenuEntity object as a place holder.
     private MenuEntity meal;
-    private MenuNutritionsEntity nutritions;
+   // private MenuNutritionsEntity nutritions;
 
-    /**
-     *
-     * @param listener
-     */
-    public void setupFragment(DetailedMealInterface listener){
-        this.mListener = listener;
+    public void setupFragment(MenuEntity data){
+        this.meal = data;
     }
 
     @Override
@@ -57,6 +52,7 @@ public class DetailedMealFragment extends Fragment implements DetailedMealInterf
         mView.setListener(this); //not sure if needed
 
         //TODO - Need to get the MenuEntity from the previous page rather than initiate a new meal.
+        /*
         List<String> listStrings = new LinkedList<String>();
         MenuTagsEntity tags = new MenuTagsEntity(false,false,false);
         listStrings.add("list");
@@ -64,7 +60,7 @@ public class DetailedMealFragment extends Fragment implements DetailedMealInterf
 
         meal = new MenuEntity("Cheese Burger", nutritions, 7, tags); //parameters are currently null, but this won't be a problem when
                                  //getting the meal from the previos page.
-
+        */
         //display the MenuEntity's parameters on the screen
 
         displayNutrition();

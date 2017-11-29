@@ -10,16 +10,18 @@ import com.leet.leet.screen.meal.screens.ResultView.MealResultListener;
 import com.leet.leet.screen.meal.screens.ResultView.controller.ResultControllerFragment;
 import com.leet.leet.screen.meal.screens.addCustomMeal.controller.AddCustomMealFragment;
 import com.leet.leet.screen.meal.screens.detailedMeal.controller.DetailedMealFragment;
+import com.leet.leet.screen.meal.screens.detailedMeal.view.DetailedMealInterface;
 import com.leet.leet.screen.meal.screens.mealMain.MealMainListner;
 import com.leet.leet.screen.meal.screens.mealMain.controller.MealMainFragment;
 import com.leet.leet.screen.meal.view.MealView;
+import com.leet.leet.utils.database.entities.menu.MenuEntity;
 
 /**
  * Created by YasuhiraChiba on 2017/11/16.
  */
 
 //This is base fragment for Meal
-public class MealFragment extends Fragment implements MealMainListner,MealResultListener {
+public class MealFragment extends Fragment implements MealMainListner,MealResultListener{
 
     MealView mView;
 
@@ -52,8 +54,9 @@ public class MealFragment extends Fragment implements MealMainListner,MealResult
     }
 
     @Override
-    public void moveToDetailFragment() {
+    public void moveToDetailFragment(MenuEntity data) {
         DetailedMealFragment fragmentDetailedMeal = new DetailedMealFragment();
+        fragmentDetailedMeal.setupFragment(data);
         mView.changeContent(getFragmentManager(),fragmentDetailedMeal, true);
     }
 }
