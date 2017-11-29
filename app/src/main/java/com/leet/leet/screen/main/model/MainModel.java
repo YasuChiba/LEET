@@ -8,7 +8,8 @@ import com.leet.leet.utils.authentication.FirebaseAuthHelper;
 
 public class MainModel {
 
-    public String[] tabTitles = {"meal","statistics"};
+    public String[] tabTitles = {"profile","meal","statistics"};
+
     public boolean isLoggedIn() {
         return FirebaseAuthHelper.isLoggedIn();
     }

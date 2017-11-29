@@ -11,6 +11,9 @@ import com.leet.leet.screen.main.model.MainModel;
 import com.leet.leet.screen.main.view.MainView;
 import com.leet.leet.screen.meal.controller.MealFragment;
 import com.leet.leet.screen.statistics.controller.StatisticsFragment;
+import com.leet.leet.screen.main.model.MainModel;
+import com.leet.leet.screen.main.view.MainView;
+import com.leet.leet.screen.profile.controller.ProfileFragment;
 import com.leet.leet.screen.login.LoginInterface;
 import com.leet.leet.screen.login.controller.LoginActivity;
 import com.leet.leet.screen.main.model.MainModel;
@@ -20,6 +23,7 @@ import com.leet.leet.screen.statistics.screen.daily.controller.StatisticsDailyFr
 import com.leet.leet.screen.signup.controller.SignupActivity;
 import com.leet.leet.screen.start.controller.StartActivity;
 import com.leet.leet.utils.authentication.FirebaseAuthManager;
+import com.leet.leet.utils.database.FirebaseDBUserDataHelper;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -36,12 +40,12 @@ public class MainActivity extends AppCompatActivity {
         mModel = new MainModel();
         mView = new MainView(LayoutInflater.from(this), null);
 
-
+        Fragment[] fragments = new Fragment[3];
         MealFragment mealFragment = new MealFragment();
-
-        Fragment[] fragments = new Fragment[2];
-        fragments[0] = mealFragment;
-        fragments[1] = new StatisticsFragment();
+        ProfileFragment profileFragment = new ProfileFragment();
+        fragments[0] = profileFragment;
+        fragments[1] = mealFragment;
+        fragments[2] = new StatisticsFragment();
 
         mView.setupTabs(fragments,mModel.tabTitles,getSupportFragmentManager());
         //mView.setupTabs(fragments,mModel.tabTitles,getSupportFragmentManager());

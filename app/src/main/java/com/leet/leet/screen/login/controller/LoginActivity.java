@@ -97,10 +97,10 @@ public class LoginActivity extends AppCompatActivity implements LoginViewInterfa
         Log.d("LOGIN", "login===============================================================");
         if (checkEmail(email) && checkPassword(password)) {
             Toast.makeText(this, "200", Toast.LENGTH_SHORT).show();
-
             // connect to firebase, from LEET-sample
             ProgressDialogManager.showProgressDialog(this);
             FirebaseAuthManager.signIn(email, password, this);
+
         } else {
             Toast.makeText(this, "404", Toast.LENGTH_SHORT).show();
         }

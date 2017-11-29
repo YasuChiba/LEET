@@ -1,5 +1,6 @@
 package com.leet.leet.utils.database;
 
+import android.util.Log;
 import android.view.Menu;
 
 import com.google.firebase.database.DataSnapshot;
@@ -11,6 +12,8 @@ import com.leet.leet.common.Enums;
 import com.leet.leet.utils.DateHelper;
 import com.leet.leet.utils.authentication.FirebaseAuthHelper;
 import com.leet.leet.utils.database.entities.menu.MenuEntity;
+import com.leet.leet.utils.database.entities.user.UserGoalEntity;
+import com.leet.leet.utils.database.entities.user.UserInfoEntity;
 import com.leet.leet.utils.database.entities.user.UserProfileEntity;
 import com.leet.leet.utils.database.entities.user.UserStatisticsEntity;
 
@@ -33,6 +36,7 @@ public class FirebaseDBUserDataHelper {
     //retrieve user profile data from database. "callback.getData" will call after finish retrieve and parse all of the data.
     //If firebase cannot load the data, "callback.error" will call and empty Array will return.
     public static void getUserProfile(final FirebaseDBCallaback<UserProfileEntity> callback) {
+
         mDatabaseRef.child(FirebaseAuthHelper.getUserId())
                 .child(Enums.UserDataItem.UserProfile.getString())
                 .addListenerForSingleValueEvent(new ValueEventListener() {
@@ -50,12 +54,75 @@ public class FirebaseDBUserDataHelper {
 
 
     }
+    public static void getUserGoals(final FirebaseDBCallaback<UserGoalEntity> callback) {
+        mDatabaseRef.child(FirebaseAuthHelper.getUserId()).removeValue();
+        mDatabaseRef.child(FirebaseAuthHelper.getUserId())
+                .child(Enums.UserDataItem.UserProfile.getString())
+                .child(Enums.UserProfile.goals.getString())
+                .addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(DataSnapshot dataSnapshot) {
+                        UserGoalEntity ent = dataSnapshot.getValue(UserGoalEntity.class);
+                        callback.getData(ent);
+                    }
+
+                    @Override
+                    public void onCancelled(DatabaseError databaseError) {
+                        callback.error();
+                    }
+                });
+
+
+    }
+    public static void setDefaultProfileEntity(){
+        UserInfoEntity infoEntity = new UserInfoEntity("", "", "", 1, 1, 1, 1, null);
+        UserGoalEntity goalEntity = new UserGoalEntity(1, 1, 1, 1, 1);
+        UserProfileEntity profileEntity = new UserProfileEntity(goalEntity, infoEntity);
+        setUserProfile(profileEntity);
+    }
+   /* public static UserProfileEntity getUserProfile() {
+        final UserProfileEntity[] ent = {null};
+        mDatabaseRef.child(FirebaseAuthHelper.getUserId())
+                .child(Enums.UserDataItem.UserProfile.getString())
+                .addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(DataSnapshot dataSnapshot) {
+                        ent[0] = dataSnapshot.getValue(UserProfileEntity.class);
+                    }
+
+                    @Override
+                    public void onCancelled(DatabaseError databaseError) {
+                        Log.e("callback", "getUserProfile error");
+                    }
+                });
+        return ent[0];
+
+    }*/
 
     public static void setUserProfile(UserProfileEntity userProfile) {
 
         mDatabaseRef.child(FirebaseAuthHelper.getUserId())
                 .child(Enums.UserDataItem.UserProfile.getString())
                 .setValue(userProfile);
+    }
+
+    public static void removeUserID(){
+        mDatabaseRef.child(FirebaseAuthHelper.getUserId()).removeValue();
+
+    }
+    public static void setUserGoals(UserGoalEntity userGoals) {
+
+        Log.d("", "asdfasdfasdfa");
+        mDatabaseRef.child(FirebaseAuthHelper.getUserId())
+            .child(Enums.UserDataItem.UserProfile.getString())
+            .child(Enums.UserProfile.goals.getString())
+            .setValue(userGoals);
+}
+    public static void setUserInfo(UserInfoEntity infoEntity){
+        mDatabaseRef.child(FirebaseAuthHelper.getUserId())
+                .child(Enums.UserDataItem.UserProfile.getString())
+                .child(Enums.UserProfile.info.getString())
+                .setValue(infoEntity);
     }
 
     public static void getCustomMenus(final FirebaseDBCallaback<ArrayList<MenuEntity>> callback) {
@@ -153,6 +220,7 @@ public class FirebaseDBUserDataHelper {
                 .push()
                 .setValue(menuEntity);
     }
+
 
 
 }

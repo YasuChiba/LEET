@@ -11,72 +11,37 @@ import java.util.List;
 
 public class UserProfileEntity {
 
-    private String name;
-    private String gender;
-    private int age;
-    private float weight;
-    private float height;
-    private List<String> allergies;
-
     private UserGoalEntity goals;
+    private UserInfoEntity info;
 
 
-    public UserProfileEntity(){
+
+
+    public UserProfileEntity(){}
+    public UserProfileEntity(UserGoalEntity goals, UserInfoEntity info)
+    {
+        this.goals = goals;
+        this.info = info;
+    }
+    public UserGoalEntity getGoals() {
+        return this.goals;
+    }
+
+    public void setGoals(UserGoalEntity goals) {
+        this.goals = goals;
+    }
+
+    public void setInfo(UserInfoEntity info) {
+        this.info = info;
 
     }
 
-    public UserProfileEntity(String name, String gender, int age, float weight, float height, List<String> allergies) {
-        this.name = name;
-        this.gender = gender;
-        this.age = age;
-        this.weight = weight;
-        this.height = height;
-        this.allergies = allergies;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getGender() {
-        return gender;
-    }
-
-    public void setGender(String gender) {
-        this.gender = gender;
-    }
-
-    public int getAge() {
-        return age;
-    }
-
-    public void setAge(int age) {
-        this.age = age;
-    }
-
-    public float getWeight() {
-        return weight;
-    }
-    public void setWeight(float weight) {
-        this.weight = weight;
-    }
-
-    public float getHeight() {
-        return height;
-    }
-    public void setHeight(float height) {
-        this.height = height;
+    public UserInfoEntity getInfo()
+    {
+        return this.info;
     }
 
 
-    public List<String> getAllergies() {
-        return allergies;
-    }
-    public void setAllergies(List<String> allergies) {
-        this.allergies = allergies;
-    }
+
 }
+

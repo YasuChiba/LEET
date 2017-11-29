@@ -32,13 +32,7 @@ import java.util.Random;
 public class StatisticsWeeklyModel {
 
 
-    private ArrayList<LocalDate> dayList = new ArrayList<>();
-    private ArrayList<Float> priceList = new ArrayList<Float>();
-    private ArrayList<Float> calorieList = new ArrayList<Float>();
-    private ArrayList<Float> proteinList = new ArrayList<Float>();
-    private ArrayList<Float> fatList = new ArrayList<Float>();
-    private ArrayList<Float> carbsList = new ArrayList<Float>();
-
+    private ArrayList<SumModel> dataList = new ArrayList<>();
 
     public void setDataTest() {
 
@@ -81,14 +75,7 @@ public class StatisticsWeeklyModel {
         FirebaseDBUserDataHelper.getStatisticsData(startDate, endDate, new FirebaseDBCallaback<ArrayList<UserStatisticsEntity>>() {
             @Override
             public void getData(ArrayList<UserStatisticsEntity> data) {
-
-                ArrayList<LocalDate> dayL = new ArrayList<>();
-                ArrayList<Float> priceL = new ArrayList<Float>();
-                ArrayList<Float> calorieL = new ArrayList<Float>();
-                ArrayList<Float> proteinL = new ArrayList<Float>();
-                ArrayList<Float> fatL = new ArrayList<Float>();
-                ArrayList<Float> carbsL = new ArrayList<Float>();
-
+                ArrayList<SumModel> dataL = new ArrayList<SumModel>();
 
                 for(UserStatisticsEntity entity : data) {
                     float price = 0;
@@ -120,110 +107,115 @@ public class StatisticsWeeklyModel {
                         fat += menu.getNutritions().getTotalFat();
                         carbs += menu.getNutritions().getCarb();
                     }
-                    priceL.add(price);
-                    calorieL.add(calorie);
-                    proteinL.add(protein);
-                    fatL.add(fat);
-                    carbsL.add(carbs);
-                    dayL.add(DateHelper.getDateByString(entity.getDate()));
+
+                    SumModel model = new SumModel(
+                            DateHelper.getDateByString(entity.getDate()),
+                            price,
+                            calorie,
+                            protein,
+                            fat,
+                            carbs);
+
+                    dataL.add(model);
                 }
 
-                priceList = priceL;
-                calorieList = calorieL;
-                proteinList = proteinL;
-                fatList = fatL;
-                carbsList = carbsL;
-                dayList = dayL;
-
-                callback.getData(true);
-            }
-        });
-/*
-        FirebaseDBUserDataHelper.getStatisticsData(startDate, endDate, new FirebaseDBCallaback<HashMap<String, ArrayList<MenuEntity>>>() {
-            @Override
-            public void getData(HashMap<String, ArrayList<MenuEntity>> data) {
-
-                ArrayList<LocalDate> dayL = new ArrayList<>();
-                ArrayList<Float> priceL = new ArrayList<Float>();
-                ArrayList<Float> calorieL = new ArrayList<Float>();
-                ArrayList<Float> proteinL = new ArrayList<Float>();
-                ArrayList<Float> fatL = new ArrayList<Float>();
-                ArrayList<Float> carbsL = new ArrayList<Float>();
-
-                LocalDate date = startDate;
-                LocalDate end = DateHelper.getFutureDateOfTheDate(endDate,1);
-
-                while(date.compareTo(end) != 0) {
-                    float price = 0;
-                    float calorie = 0;
-                    float protein = 0;
-                    float fat = 0;
-                    float carbs = 0;
-
-                    if(data.get(DateHelper.getStringByDate(date)) != null) {
-                        for(MenuEntity tmp : data.get(DateHelper.getStringByDate(date))) {
-                            price += tmp.getPrice();
-                            if(tmp.getNutritions() != null) {
-                                calorie += tmp.getNutritions().getCalories();
-                                protein += tmp.getNutritions().getProtein();
-                                fat += tmp.getNutritions().getTotalFat();
-                                carbs = tmp.getNutritions().getCarb();
-                            }
+                LocalDate d = startDate;
+                for(int i=0; ; i++) {
+                    if(dataL.size() <= i) {
+                        float tmp = 0;
+                        SumModel m = new SumModel(d,tmp,tmp,tmp,tmp,tmp);
+                        dataL.add(m);
+                    } else {
+                        if(dataL.get(i).day.compareTo(d) != 0) {
+                            float tmp = 0;
+                            SumModel m = new SumModel(d,tmp,tmp,tmp,tmp,tmp);
+                            dataL.add(i,m);
                         }
                     }
-                    priceL.add(price);
-                    calorieL.add(calorie);
-                    proteinL.add(protein);
-                    fatL.add(fat);
-                    carbsL.add(carbs);
-
-                    dayL.add(date);
-                    date = DateHelper.getFutureDateOfTheDate(date,1);
+                    d = DateHelper.getFutureDateOfTheDate(d,1);
+                    if(d.compareTo(endDate) > 0) {
+                        break;
+                    }
                 }
 
-                priceList = priceL;
-                calorieList = calorieL;
-                proteinList = proteinL;
-                fatList = fatL;
-                carbsList = carbsL;
-                dayList = dayL;
-
+                dataList = dataL;
                 callback.getData(true);
             }
         });
-        */
     }
 
     public ArrayList<LocalDate> getDayList() {
-        return dayList;
+        ArrayList<LocalDate> list = new ArrayList<>();
+        for(SumModel m : dataList) {
+            list.add(m.day);
+        }
+        return list;
     }
 
     public ArrayList<String> getWeekList() {
         ArrayList<String> returnVal = new ArrayList<>();
-        for(LocalDate tmp:dayList) {
-            returnVal.add(DateHelper.getWeekByString(DateHelper.getStringByDate(tmp)).getString());
+        for(SumModel m : dataList) {
+            returnVal.add(DateHelper.getWeekByString(DateHelper.getStringByDate(m.day)).getString());
         }
         return returnVal;
     }
 
     public ArrayList<Float> getPriceList() {
-        return priceList;
+        ArrayList<Float> list = new ArrayList<>();
+        for(SumModel m : dataList) {
+            list.add(m.price);
+        }
+        return list;
     }
 
     public ArrayList<Float> getCalorieList() {
-        return calorieList;
+        ArrayList<Float> list = new ArrayList<>();
+        for(SumModel m : dataList) {
+            list.add(m.calorie);
+        }
+        return list;
     }
 
     public ArrayList<Float> getProteinList() {
-        return proteinList;
+        ArrayList<Float> list = new ArrayList<>();
+        for(SumModel m : dataList) {
+            list.add(m.protein);
+        }
+        return list;
     }
 
     public ArrayList<Float> getFatList() {
-        return fatList;
+        ArrayList<Float> list = new ArrayList<>();
+        for(SumModel m : dataList) {
+            list.add(m.fat);
+        }
+        return list;
     }
 
     public ArrayList<Float> getCarbsList() {
-        return carbsList;
+        ArrayList<Float> list = new ArrayList<>();
+        for(SumModel m : dataList) {
+            list.add(m.carbs);
+        }
+        return list;
+    }
+
+
+    class SumModel {
+        SumModel(LocalDate day,float price,float calorie,float protein,float fat,float carbs) {
+            this.day = day;
+            this.price = price;
+            this.calorie = calorie;
+            this.protein = protein;
+            this.fat = fat;
+            this.carbs = carbs;
+        }
+        LocalDate day;
+        float price;
+        float calorie;
+        float protein;
+        float fat;
+        float carbs;
     }
 
 }

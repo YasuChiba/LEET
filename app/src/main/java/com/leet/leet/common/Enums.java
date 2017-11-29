@@ -73,6 +73,19 @@ public class Enums {
         }
 
     }
+    public enum UserProfile{
+        goals("goals"),
+        info("info");
+
+        private final String text;
+        private UserProfile(final String text) {
+            this.text = text;
+        }
+
+        public String getString() {
+            return this.text;
+        }
+    }
 
     public enum Week {
         Monday(1),

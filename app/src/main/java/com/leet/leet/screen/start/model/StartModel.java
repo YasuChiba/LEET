@@ -46,17 +46,16 @@ public class StartModel {
                  });
     }
 
-    public void setUserProfile() {
+   /* public void setUserProfile() {
         UserProfileEntity ent = new UserProfileEntity();
-
         ent.setGender(Enums.Gender.Male.getString());
         ent.setName("tes");
         ent.setAge(20);
-        ent.setHeight(10);
         ent.setWeight(10);
+        ent.setGoals(null);
 
         FirebaseDBUserDataHelper.setUserProfile(ent);
-    }
+    }*/
 
     public void addCustomMenu() {
         MenuEntity menu = new MenuEntity();
@@ -66,5 +65,4 @@ public class StartModel {
 
         FirebaseDBUserDataHelper.addCustomMenu("te",menu);
     }
-    */
 }

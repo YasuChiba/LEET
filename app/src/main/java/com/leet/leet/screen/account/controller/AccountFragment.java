@@ -51,6 +51,6 @@ public class AccountFragment extends Fragment implements AccountViewInterface.Ac
 
         mListner.backToLogin();
     }
-
-
 }
+
+
