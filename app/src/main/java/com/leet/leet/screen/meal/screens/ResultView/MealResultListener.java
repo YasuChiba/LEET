@@ -5,6 +5,6 @@ package com.leet.leet.screen.meal.screens.ResultView;
  */
 
 // This interface is so MealFragment can communicate with ResultControllerFragment
-public interface ResultListener {
-    void moveToOtherFragment();
+public interface MealResultListener {
+    void moveToDetailFragment();
 }

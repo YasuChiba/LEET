@@ -46,5 +46,4 @@ public class MealMainFragment extends Fragment implements MealMainViewInterface.
     @Override
     public void mealToCustom() { mainListner.moveToAddCustomFragment();}
 
-
 }

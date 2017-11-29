@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.leet.leet.screen.meal.screens.ResultView.MealResultListener;
 import com.leet.leet.screen.meal.screens.ResultView.controller.ResultControllerFragment;
 import com.leet.leet.screen.meal.screens.addCustomMeal.controller.AddCustomMealFragment;
 import com.leet.leet.screen.meal.screens.detailedMeal.controller.DetailedMealFragment;
@@ -18,7 +19,7 @@ import com.leet.leet.screen.meal.view.MealView;
  */
 
 //This is base fragment for Meal
-public class MealFragment extends Fragment implements MealMainListner {
+public class MealFragment extends Fragment implements MealMainListner,MealResultListener {
 
     MealView mView;
 
@@ -38,20 +39,6 @@ public class MealFragment extends Fragment implements MealMainListner {
     }
 
     @Override
-    public void moveToDetaileFragment() {
-
-        //change fragment
-        //ExampleFragment fragment = new ExampleFragment();
-        //mView.changeContent(getFragmentManager(),fragment, true);
-
-        DetailedMealFragment fragmentDetailedMeal = new DetailedMealFragment();
-        mView.changeContent(getFragmentManager(),fragmentDetailedMeal, true);
-
-        //AddCustomMealFragment fragmentAddCustomeMeal = new AddCustomMealFragment();
-        //mView.changeContent(getFragmentManager(), fragmentAddCustomeMeal, true );
-
-    }
-    @Override
     public void moveToAddCustomFragment(){
         AddCustomMealFragment fragmentAddCustomMeal = new AddCustomMealFragment();
         mView.changeContent(getFragmentManager(), fragmentAddCustomMeal, true);
@@ -60,6 +47,13 @@ public class MealFragment extends Fragment implements MealMainListner {
     @Override
     public void moveToResultFragment() {
         ResultControllerFragment resultFragment = new ResultControllerFragment();
+        resultFragment.setupFragment(this);
         mView.changeContent(getFragmentManager(),resultFragment,true);
+    }
+
+    @Override
+    public void moveToDetailFragment() {
+        DetailedMealFragment fragmentDetailedMeal = new DetailedMealFragment();
+        mView.changeContent(getFragmentManager(),fragmentDetailedMeal, true);
     }
 }
