@@ -50,7 +50,7 @@ public class MainActivity extends AppCompatActivity {
         fragments[1] = mealFragment;
         fragments[2] = new StatisticsFragment();
 
-        mView.setupTabs(fragments,mModel.tabTitles,getSupportFragmentManager());
+        mView.setupTabs(fragments,mModel.tabTitles,1,getSupportFragmentManager());
         //mView.setupTabs(fragments,mModel.tabTitles,getSupportFragmentManager());
 
         setContentView(mView.getRootView());

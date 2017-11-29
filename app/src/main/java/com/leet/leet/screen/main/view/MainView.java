@@ -33,10 +33,11 @@ public class MainView implements MainViewInterface {
         viewPager = (ViewPager)mRootView.findViewById(R.id.view_pager);
     }
 
-    public void setupTabs(Fragment[] fragments, String[] tabTitles, FragmentManager fm) {
+    public void setupTabs(Fragment[] fragments, String[] tabTitles,int defaultIndex, FragmentManager fm) {
         MainViewViewPagerAdapter viewPagerAdapter = new MainViewViewPagerAdapter(fm, fragments, tabTitles);
         viewPager.setAdapter(viewPagerAdapter);
         tabLayout.setupWithViewPager(viewPager);
+        tabLayout.getTabAt(defaultIndex).select();
     }
 
     @Override
