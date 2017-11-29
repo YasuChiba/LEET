@@ -41,6 +41,19 @@ public class Enums {
         public String getString() {
             return this.text;
         }
+
+        public int getIndex() {
+            if(this.text == "breakfastMenu") {
+                return 0;
+            } else if(this.text == "lunchMenu") {
+                return 1;
+            } else if(this.text == "dinnerMenu") {
+                return 2;
+            } else {
+                return -1;
+            }
+
+        }
     }
 
     public enum UserDataItem {

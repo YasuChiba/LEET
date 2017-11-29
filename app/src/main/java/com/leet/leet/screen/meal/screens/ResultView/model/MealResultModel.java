@@ -16,11 +16,16 @@ import java.util.ArrayList;
 public class MealResultModel {
 
     private ArrayList<MenuEntity> menuEntityList;
+    private Enums.MealTime currentMealTime;
+
+    public MealResultModel() {
+        currentMealTime = Enums.MealTime.Lunch;
+    }
 
     public void getMenu(final FirebaseDBCallaback<Boolean> callback) {
         FirebaseDBMenuDataHelper.getMenuData(Enums.RestaurantName.CafeVentanas,
                 DateHelper.getCurrentDate(),
-                Enums.MealTime.Breakfast,
+                currentMealTime,
                 new FirebaseDBCallaback<ArrayList<MenuEntity>>() {
                     @Override
                     public void getData(ArrayList<MenuEntity> data) {
@@ -32,5 +37,21 @@ public class MealResultModel {
 
     public ArrayList<MenuEntity> getMenuEntityList() {
         return menuEntityList;
+    }
+
+    public void setCurrentMealTime(Enums.MealTime time) {
+        this.currentMealTime = time;
+    }
+
+    public Enums.MealTime getCurrentMealTime() {
+        return currentMealTime;
+    }
+
+    public ArrayList<String> getMealTimeList() {
+        ArrayList<String> val = new ArrayList<>();
+        val.add("Breakfast");
+        val.add("Lunch");
+        val.add("Dinner");
+        return val;
     }
 }

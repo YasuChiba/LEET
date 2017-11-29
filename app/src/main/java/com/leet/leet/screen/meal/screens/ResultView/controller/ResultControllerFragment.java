@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.leet.leet.common.Enums;
 import com.leet.leet.screen.meal.screens.ResultView.MealResultListener;
 import com.leet.leet.screen.meal.screens.ResultView.model.MealResultModel;
 import com.leet.leet.screen.meal.screens.ResultView.view.ResultViewInterface;
@@ -31,20 +32,30 @@ public class ResultControllerFragment extends Fragment implements ResultViewInte
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-
         resultView = new ResultView(inflater, container,this);
         model = new MealResultModel();
+        this.setMenuToListView();
+        resultView.setupMealTimeSpinner(model.getMealTimeList(),model.getCurrentMealTime().getIndex());
+        return resultView.getRootView();
+    }
+
+    private void setMenuToListView() {
         model.getMenu(new FirebaseDBCallaback<Boolean>() {
             @Override
             public void getData(Boolean data) {
                 resultView.setupListView(model.getMenuEntityList());
             }
         });
-        return resultView.getRootView();
     }
 
     @Override
     public void listTap(int i) {
         mListner.moveToDetailFragment(model.getMenuEntityList().get(i));
+    }
+
+    @Override
+    public void mealTimeSelected(Enums.MealTime time) {
+        model.setCurrentMealTime(time);
+        setMenuToListView();
     }
 }
