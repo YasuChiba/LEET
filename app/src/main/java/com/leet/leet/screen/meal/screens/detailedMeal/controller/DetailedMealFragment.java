@@ -32,22 +32,16 @@ public class DetailedMealFragment extends Fragment implements DetailedMealInterf
     private DetailedMealView mView;
     private DetailedMealModel mModel;
 
-   // public DetailedMealFragment(){} //default constructor
-
-    //TODO - Need to get the Menu Entity from the previous page to pass as the parameter for the model.
-    //For now using this new MenuEntity object as a place holder.
-    private MenuEntity meal;
-   // private MenuNutritionsEntity nutritions;
 
     public void setupFragment(MenuEntity data){
-        this.meal = data;
+        mModel = new DetailedMealModel();
+        mModel.setMenuEntity(data);
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState){
         //initiate the model and view on create
-        mModel = new DetailedMealModel();
         mView = new DetailedMealView(inflater, container);
         mView.setListener(this); //not sure if needed
 
@@ -72,7 +66,7 @@ public class DetailedMealFragment extends Fragment implements DetailedMealInterf
     //Purpose - Using the View's setters will set the TextView to display the MenuEntity's nutritional
     //          contents.
     public void displayNutrition(){
-
+        MenuEntity meal = mModel.getMenuEntity();
         mView.setMealName(meal.getName());
         mView.setPrice(meal.getPrice());
         mView.setCalories(meal.getNutritions().getCalories());
@@ -95,7 +89,7 @@ public class DetailedMealFragment extends Fragment implements DetailedMealInterf
         //add the meal to the user's history when the add button is pressed.
 
         //TODO: need to set MealTime   ---11/24  Yasuhira Chiba
-        mModel.addMeal(meal, Enums.MealTime.Breakfast);
+        mModel.addMeal(mModel.getMenuEntity(), Enums.MealTime.Breakfast);
 
         Toast.makeText(getContext(), "Added Meal To History", Toast.LENGTH_SHORT).show();
     }

@@ -21,6 +21,7 @@ import android.widget.Toast;
 
 public class DetailedMealModel {
 
+    private MenuEntity menu;
     public DetailedMealModel(){} //default constructor
 
     //Purpose - Once the user has decided to eat a meal, they will add it to their history.
@@ -32,4 +33,12 @@ public class DetailedMealModel {
         //Toast.makeText(this, "Added Meal To History", Toast.LENGTH_SHORT).show();
 
     } //end of addMeal
+
+    public void setMenuEntity(MenuEntity menu) {
+        this.menu = menu;
+    }
+
+    public MenuEntity getMenuEntity() {
+        return menu;
+    }
 } //end of class
