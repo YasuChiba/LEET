@@ -1,5 +1,6 @@
 package com.leet.leet.screen.profile.controller;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -12,10 +13,12 @@ import android.widget.Button;
 import android.widget.ViewSwitcher;
 
 import com.leet.leet.R;
+import com.leet.leet.screen.login.controller.LoginActivity;
 import com.leet.leet.screen.profile.model.ProfileModel;
 import com.leet.leet.screen.profile.view.ProfileView;
 import com.leet.leet.screen.profile.view.ProfileViewInterface;
 import com.leet.leet.utils.database.FirebaseDBCallaback;
+import com.leet.leet.utils.database.FirebaseDBUserDataHelper;
 import com.leet.leet.utils.database.entities.user.UserGoalEntity;
 import com.leet.leet.utils.database.entities.user.UserInfoEntity;
 import com.leet.leet.utils.database.entities.user.UserProfileEntity;
@@ -36,7 +39,6 @@ public class ProfileFragment extends Fragment implements ProfileViewInterface.Pr
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-
         mView = new ProfileView(inflater, container);
         mView.setListener(this);
         mModel = new ProfileModel();
@@ -64,6 +66,8 @@ public class ProfileFragment extends Fragment implements ProfileViewInterface.Pr
         switch (item.getItemId()) {
             case R.id.logout:
                 mModel.logout();
+                Intent logInIntent = new Intent(getActivity(), LoginActivity.class);
+                startActivity(logInIntent);
                 return true;
             case R.id.edit:
                 mView.switchViews();
@@ -97,6 +101,8 @@ public class ProfileFragment extends Fragment implements ProfileViewInterface.Pr
     @Override
     public void deleteAcc() {
         mModel.deleteAccount();
+        Intent logInIntent = new Intent(getActivity(), LoginActivity.class);
+        startActivity(logInIntent);
     }
 }
 

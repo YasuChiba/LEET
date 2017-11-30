@@ -1,8 +1,6 @@
 package com.leet.leet.utils.database;
 
-
 import android.util.Log;
-
 import android.view.Menu;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -71,6 +69,12 @@ public class FirebaseDBUserDataHelper {
                 });
 
 
+    }
+    public static void setDefaultProfileEntity(){
+        UserInfoEntity infoEntity = new UserInfoEntity("", "", "", 1, 1, 1, 1, null);
+        UserGoalEntity goalEntity = new UserGoalEntity(1, 1, 1, 1, 1);
+        UserProfileEntity profileEntity = new UserProfileEntity(goalEntity, infoEntity);
+        setUserProfile(profileEntity);
     }
    /* public static UserProfileEntity getUserProfile() {
         final UserProfileEntity[] ent = {null};

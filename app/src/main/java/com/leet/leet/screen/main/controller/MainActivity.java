@@ -19,6 +19,10 @@ import com.leet.leet.screen.statistics.screen.daily.controller.StatisticsDailyFr
 import com.leet.leet.screen.signup.controller.SignupActivity;
 import com.leet.leet.screen.start.controller.StartActivity;
 import com.leet.leet.utils.authentication.FirebaseAuthManager;
+<<<<<<< HEAD
+=======
+import com.leet.leet.utils.database.FirebaseDBUserDataHelper;
+>>>>>>> 60dafc0113775718dd102cf4a88014f4d47d62a1
 
 
 public class MainActivity extends AppCompatActivity {
@@ -40,8 +44,13 @@ public class MainActivity extends AppCompatActivity {
        // AccountFragment accountFragment = new AccountFragment();
      //   accountFragment.setupFragment(this);
        // MenuSearchFragment menuSearchFragment = new MenuSearchFragment();
+<<<<<<< HEAD
         Fragment[] fragments = new Fragment[1];
         fragments = new Fragment[2];
+=======
+        Fragment[] fragments = new Fragment[2];
+        //FirebaseDBUserDataHelper.setDefaultProfileEntity();
+>>>>>>> 60dafc0113775718dd102cf4a88014f4d47d62a1
        // fragments[0] = menuSearchFragment;
         fragments[0] = profileFragment;
       //  fragments[0] = accountFragment;
@@ -53,6 +62,10 @@ public class MainActivity extends AppCompatActivity {
         setContentView(mView.getRootView());
 
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 60dafc0113775718dd102cf4a88014f4d47d62a1
         /*
         // go to login page
         Intent intent = new Intent(this, LoginActivity.class);

@@ -62,7 +62,6 @@ public class ProfileModel {
         FirebaseDBUserDataHelper.setUserInfo(infoEntity);
     }
 
-//can you help me pass in the call back function here and then calling it to the firebase?
 
     public void getUserData(final FirebaseDBCallaback<UserProfileEntity> callaback) {
         //final UserProfileEntity acc_info = new UserProfileEntity();

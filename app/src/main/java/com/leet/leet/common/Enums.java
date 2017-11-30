@@ -88,7 +88,6 @@ public class Enums {
         }
     }
 
-
     public enum Week {
         Monday(1),
         Tuesday(2),

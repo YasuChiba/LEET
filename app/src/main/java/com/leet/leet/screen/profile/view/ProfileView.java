@@ -1,10 +1,13 @@
 package com.leet.leet.screen.profile.view;
 
+import android.app.Activity;
+import android.text.InputFilter;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import android.widget.ArrayAdapter;
 import android.widget.EditText;
 
 import android.widget.Button;
@@ -13,6 +16,7 @@ import android.widget.ViewSwitcher;
 
 
 import com.leet.leet.R;
+import com.leet.leet.common.InputFilterMinMax;
 import com.leet.leet.utils.database.entities.user.UserGoalEntity;
 import com.leet.leet.utils.database.entities.user.UserInfoEntity;
 import com.leet.leet.utils.database.entities.user.UserProfileEntity;
@@ -41,7 +45,7 @@ public class ProfileView implements ProfileViewInterface, View.OnClickListener {
     boolean goalsEdit = false;
     boolean accEdit = false;
 
-    Button goals_edit, goals_save, acc_edit, acc_save, Recommended;
+    Button goals_save, acc_save, Recommended, delete;
     ViewSwitcher goals_to_acc_vs, acc_vs, goals_vs;
 
 
@@ -55,14 +59,21 @@ public class ProfileView implements ProfileViewInterface, View.OnClickListener {
 
     private void initialize() {
         price = ((EditText)this.getRootView().findViewById(R.id.Price));
+
         calorie = ((EditText)this.getRootView().findViewById(R.id.Calorie));
+
         carbs = ((EditText)this.getRootView().findViewById(R.id.Carbs));
+
         protein = ((EditText)this.getRootView().findViewById(R.id.Protein));
+
         fat = ((EditText)this.getRootView().findViewById(R.id.Fat));
+
         weight = ((EditText)this.getRootView().findViewById(R.id.Weight));
+
         email = ((EditText)this.getRootView().findViewById(R.id.Email));
         name = ((EditText)this.getRootView().findViewById(R.id.Name));
         age = ((EditText)this.getRootView().findViewById(R.id.Age));
+
 
         feet = ((Spinner)this.getRootView().findViewById(R.id.Feet));
         inch = ((Spinner)this.getRootView().findViewById(R.id.Inch));
@@ -73,6 +84,8 @@ public class ProfileView implements ProfileViewInterface, View.OnClickListener {
         acc_save = (Button) this.getRootView().findViewById(R.id.acc_save);
         Recommended = (Button) this.getRootView().findViewById(R.id.Recommended);
         acc_save.setOnClickListener(this);
+        delete = (Button)this.getRootView().findViewById(R.id.Delete);
+        delete.setOnClickListener(this);
 
         // Set up profile page viewswitchers
         goals_to_acc_vs = (ViewSwitcher) this.getRootView().findViewById(R.id.goals_to_acc_vs);
@@ -98,20 +111,44 @@ public class ProfileView implements ProfileViewInterface, View.OnClickListener {
     public void setUserInfoDefaults(UserInfoEntity acc_info) {
         email.setText((acc_info.getEmail()));
         name.setText((acc_info.getName()));
-        gender.setSelection(0);
+        String compareValue = acc_info.getGender();
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this.getRootView().getContext(), R.array.whatGender, android.R.layout.simple_spinner_item);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        gender.setAdapter(adapter);
+        if (!compareValue.equals(null)) {
+            int spinnerPosition = adapter.getPosition(compareValue);
+            gender.setSelection(spinnerPosition);
+        }
         age.setText((String.valueOf(acc_info.getAge())));
         weight.setText((String.valueOf(acc_info.getWeight())));
-        feet.setSelection(0);
-        inch.setSelection(0);
+
+        compareValue = Integer.toString(acc_info.getFeet());
+        Log.d("compare value", "fasdkfjasldfjaldfjalksdjfaklsdfjaksdfadsf  " + compareValue);
+        ArrayAdapter<CharSequence> adapter2 = ArrayAdapter.createFromResource(this.getRootView().getContext(), R.array.feet_array, android.R.layout.simple_spinner_item);
+        adapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        if (!compareValue.equals(null)) {
+            int spinnerPosition = adapter2.getPosition(compareValue);
+            Log.d("sdfasfsafjd", "" + spinnerPosition);
+            feet.setSelection(spinnerPosition);
+        }
+
+
+        compareValue = Integer.toString(acc_info.getInches());
+        ArrayAdapter<CharSequence> adapter3 = ArrayAdapter.createFromResource(this.getRootView().getContext(), R.array.inches_array, android.R.layout.simple_spinner_item);
+        adapter3.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        if (!compareValue.equals(null)) {
+            int spinnerPosition = adapter3.getPosition(compareValue);
+            inch.setSelection(spinnerPosition);
+        }
     }
 
     private UserInfoEntity createUserInfoEntity(){
         String name = this.name.getText().toString();
         String email = this.email.getText().toString();
         String gender = this.gender.getSelectedItem().toString();
-        float weight = Float.valueOf(this.weight.getText().toString());
-        float feet = Float.valueOf(this.feet.getSelectedItem().toString());
-        float inch = Float.valueOf(this.inch.getSelectedItem().toString());
+        int weight = Integer.valueOf(this.weight.getText().toString());
+        int feet = Integer.valueOf(this.feet.getSelectedItem().toString());
+        int inch = Integer.valueOf(this.inch.getSelectedItem().toString());
         int age = Integer.valueOf(this.age.getText().toString());
         return new UserInfoEntity(name, gender, email, age, weight, feet, inch, null);
     }
@@ -181,7 +218,6 @@ public class ProfileView implements ProfileViewInterface, View.OnClickListener {
                 }
                 break;
             case R.id.goals_save:
-                mListner.saveGoalEntity(createUserGoalEntity());
                 if(goalsEdit == false){
                     goals_save.setText("Save");
                     Recommended.setVisibility(View.VISIBLE);
@@ -197,6 +233,7 @@ public class ProfileView implements ProfileViewInterface, View.OnClickListener {
                 }
                 break;
             case R.id.Delete:
+                Log.d("delete", "===============================");
                 mListner.deleteAcc();
                 break;
 

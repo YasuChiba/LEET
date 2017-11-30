@@ -65,5 +65,8 @@ public class StartModel {
 
         FirebaseDBUserDataHelper.addCustomMenu("te",menu);
     }
+<<<<<<< HEAD
 
+=======
+>>>>>>> 60dafc0113775718dd102cf4a88014f4d47d62a1
 }
