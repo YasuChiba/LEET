@@ -80,7 +80,7 @@ public class StatisticsWeeklyListViewHeader extends LinearLayout implements View
 
         graphButtonContainer.setLayoutParams(new LinearLayout.LayoutParams(
                 SharedPrefManager.loadRealDisplaySizeX(),
-                SharedPrefManager.loadRealDisplaySizeX()/6));
+                SharedPrefManager.loadRealDisplaySizeX()/10));
 
 
         //------------SETUP GRAPH----------------------
