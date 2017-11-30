@@ -19,7 +19,7 @@ import com.leet.leet.R;
 import com.leet.leet.utils.database.entities.menu.MenuEntity;
 
 /**
- * On the menu screen, this class represents the "card" for each meal item that appears on the menu.
+ * On the profile_view_menu screen, this class represents the "card" for each meal item that appears on the profile_view_menu.
  */
 public class ResultViewRow extends LinearLayout {
 

@@ -1,5 +1,7 @@
 package com.leet.leet.screen.meal.screens.ResultView.model;
 
+import android.view.Menu;
+
 import com.leet.leet.common.Enums;
 import com.leet.leet.utils.DateHelper;
 import com.leet.leet.utils.database.FirebaseDBCallaback;
@@ -16,12 +18,13 @@ import java.util.ArrayList;
 public class MealResultModel {
 
     private ArrayList<MenuEntity> menuEntityList;
+    private ArrayList<MenuEntity> searchedMenuEntityList;
     private Enums.MealTime currentMealTime;
     private Enums.RestaurantName currentRestaurantName;
 
     public MealResultModel() {
 
-        //TODO:Consider about default value
+        //TODO:need to consider about default value
         currentMealTime = Enums.MealTime.Lunch;
         currentRestaurantName = Enums.RestaurantName.CafeVentanas;
     }
@@ -34,13 +37,14 @@ public class MealResultModel {
                     @Override
                     public void getData(ArrayList<MenuEntity> data) {
                         menuEntityList = data;
+                        searchedMenuEntityList = data;
                         callback.getData(true);
                     }
                 });
     }
 
     public ArrayList<MenuEntity> getMenuEntityList() {
-        return menuEntityList;
+        return searchedMenuEntityList;
     }
 
     public void setCurrentMealTime(Enums.MealTime time) {
@@ -61,5 +65,34 @@ public class MealResultModel {
         val.add("Lunch");
         val.add("Dinner");
         return val;
+    }
+
+    public void sort(int priceRange) {
+        searchedMenuEntityList = searchByPrice(priceRange);
+    }
+
+    private ArrayList<MenuEntity> searchByPrice(int priceRange) {
+        ArrayList<MenuEntity> result = new ArrayList<>();
+        float priceMax=0;
+        float priceMin=0;
+        if(priceRange == 0){
+            priceMax = 5;
+            priceMin = 0;
+        }
+        if(priceRange == 1){
+            priceMax = 10;
+            priceMin = 5;
+        }
+        if(priceRange == 2){
+            priceMax = 15;
+            priceMin = 10;
+        }
+
+        for(MenuEntity tmp : menuEntityList) {
+            if(tmp.getPrice() > priceMin && tmp.getPrice()< priceMax){
+                result.add(tmp);
+            }
+        }
+        return result;
     }
 }
