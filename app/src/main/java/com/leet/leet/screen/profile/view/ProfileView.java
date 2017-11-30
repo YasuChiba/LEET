@@ -190,6 +190,9 @@ public class ProfileView implements ProfileViewInterface, View.OnClickListener {
     }
 
     public void setInitialData(UserProfileEntity profileEntity){
+        if(profileEntity == null || profileEntity.getInfo() == null || profileEntity.getGoals() == null) {
+            return;
+        }
         setUserGoalDefaults(profileEntity.getGoals());
         setUserInfoDefaults(profileEntity.getInfo());
     }

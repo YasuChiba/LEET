@@ -15,6 +15,7 @@ import com.leet.leet.utils.database.FirebaseDBCallaback;
 import com.leet.leet.utils.database.FirebaseDBMenuDataHelper;
 import com.leet.leet.utils.database.FirebaseDBUserDataHelper;
 import com.leet.leet.utils.database.entities.menu.MenuEntity;
+import com.leet.leet.utils.database.entities.user.UserGoalEntity;
 import com.leet.leet.utils.database.entities.user.UserStatisticsEntity;
 
 import org.joda.time.LocalDate;
@@ -33,6 +34,7 @@ public class StatisticsWeeklyModel {
 
 
     private ArrayList<SumModel> dataList = new ArrayList<>();
+    private UserGoalEntity userGoalEntity = new UserGoalEntity();
 
     public void setDataTest() {
 
@@ -144,6 +146,18 @@ public class StatisticsWeeklyModel {
         });
     }
 
+    public void getUserGoal( final FirebaseDBCallaback<Boolean> callback) {
+        FirebaseDBUserDataHelper.getUserGoals(new FirebaseDBCallaback<UserGoalEntity>() {
+            @Override
+            public void getData(UserGoalEntity data) {
+                if(data != null) {
+                    userGoalEntity = data;
+                }
+                callback.getData(true);
+            }
+        });
+    }
+
     public ArrayList<LocalDate> getDayList() {
         ArrayList<LocalDate> list = new ArrayList<>();
         for(SumModel m : dataList) {
@@ -200,22 +214,12 @@ public class StatisticsWeeklyModel {
         return list;
     }
 
+    public ArrayList<SumModel> getAllList() {
+        return dataList;
+    }
 
-    class SumModel {
-        SumModel(LocalDate day,float price,float calorie,float protein,float fat,float carbs) {
-            this.day = day;
-            this.price = price;
-            this.calorie = calorie;
-            this.protein = protein;
-            this.fat = fat;
-            this.carbs = carbs;
-        }
-        LocalDate day;
-        float price;
-        float calorie;
-        float protein;
-        float fat;
-        float carbs;
+    public UserGoalEntity getUserGoalEntity(){
+        return userGoalEntity;
     }
 
 }

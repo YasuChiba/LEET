@@ -42,15 +42,21 @@ public class StatisticsWeeklyFragment extends Fragment implements StatisticsWeek
         mModel = new StatisticsWeeklyModel();
         mView = new StatisticsWeeklyView(inflater,container,this);
 
+        mModel.getUserGoal(new FirebaseDBCallaback<Boolean>() {
+            @Override
+            public void getData(Boolean data) {
+
+            }
+        });
+
         mModel.getStatisticsData(DateHelper.getPastDate(5),
                 DateHelper.getCurrentDate(),
                 new FirebaseDBCallaback<Boolean>() {
                     @Override
                     public void getData(Boolean success) {
                         mView.setupListView(getContext(),
-                                mModel.getWeekList(),
-                                mModel.getDayList(),
-                                mModel.getPriceList());
+                                mModel.getAllList(),
+                                mModel.getUserGoalEntity());
                         mView.setDataToGraph(mModel.getWeekList(),mModel.getPriceList());
                     }
         });
