@@ -2,15 +2,11 @@ package com.leet.leet.screen.statistics.screen.weekly.view;
 
 import android.content.Context;
 import android.graphics.Color;
-import android.support.constraint.ConstraintLayout;
-import android.support.constraint.ConstraintSet;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
-import android.widget.ListView;
-import android.widget.TextView;
 
 import com.github.mikephil.charting.charts.LineChart;
 import com.github.mikephil.charting.components.AxisBase;
@@ -35,7 +31,6 @@ public class StatisticsWeeklyListViewHeader extends LinearLayout implements View
     private LineChart graphView;
  //   private ConstraintLayout constraintLayout;
     private LinearLayout graphButtonContainer;
-    private TextView title;
     private Button btGraphCalorie;
     private Button btGraphPrice;
     private Button btGraphProtein;
@@ -63,7 +58,6 @@ public class StatisticsWeeklyListViewHeader extends LinearLayout implements View
     private void initialiseView(Context context) {
         View.inflate(context, R.layout.customview_statistics_weekly_list_view_header, this);
 
-        title = (TextView)this.findViewById(R.id.statistcs_weekly_title);
         graphButtonContainer = (LinearLayout)this.findViewById(R.id.statistics_weekly_graph_button_container);
         btGraphCalorie = (Button)this.findViewById(R.id.statistics_weekly_calorie_bt);
         btGraphPrice = (Button)this.findViewById(R.id.statistics_weekly_price_bt);

@@ -37,7 +37,7 @@ public class StatisticsWeeklyListViewRow extends LinearLayout {
     private void initialiseView(Context context) {
         View.inflate(context, R.layout.customview_statistics_weekly_list_view_row, this);
         tvWeek = (TextView)this.findViewById(R.id.statistics_weekly_row_week_tv);
-        tvData = (TextView)this.findViewById(R.id.statistics_weekly_row_data);
+    //    tvData = (TextView)this.findViewById(R.id.statistics_weekly_row_data);
     }
 
     @Override
@@ -47,6 +47,6 @@ public class StatisticsWeeklyListViewRow extends LinearLayout {
 
     public void setData(String week, String data) {
         tvWeek.setText(week);
-        tvData.setText(data);
+     //   tvData.setText(data);
     }
 }

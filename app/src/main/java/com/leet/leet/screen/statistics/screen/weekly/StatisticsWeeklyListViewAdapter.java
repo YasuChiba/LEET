@@ -11,6 +11,7 @@ import org.joda.time.LocalDate;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.Collections;
 
 /**
  * Created by YasuhiraChiba on 2017/11/22.
@@ -32,6 +33,10 @@ public class StatisticsWeeklyListViewAdapter extends BaseAdapter {
     }
 
     public void setData(ArrayList<String> week,ArrayList<LocalDate> date,ArrayList<Float> data) {
+        Collections.reverse(data);
+        Collections.reverse(date);
+        Collections.reverse(week);
+
         this.date = date;
         this.week = week;
         this.data = data;

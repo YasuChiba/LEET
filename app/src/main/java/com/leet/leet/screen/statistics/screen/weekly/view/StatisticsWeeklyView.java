@@ -74,7 +74,7 @@ public class StatisticsWeeklyView implements StatisticsWeeklyViewInterface,
 
         listView = (ListView)mRootView.findViewById(R.id.statistics_weekly_list_view);
         listView.addHeaderView(header);
-        listView.setDividerHeight(3);
+        listView.setHeaderDividersEnabled(true);
         listView.setAdapter(adapter);
         listView.setOnItemClickListener(this);
 
