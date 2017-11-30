@@ -9,6 +9,15 @@ import java.util.ArrayList;
 
 public class MealSortDialogModel {
 
+    private int priceRange;
+
+    public void setPriceRange(int i){
+        priceRange = i;
+    }
+    public int getPriceRange(){
+        return priceRange;
+    }
+
     public ArrayList<String> getPriceArray() {
         ArrayList<String> val = new ArrayList<>();
         val.add("0~5");

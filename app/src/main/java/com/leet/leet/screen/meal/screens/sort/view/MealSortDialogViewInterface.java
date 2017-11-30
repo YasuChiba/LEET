@@ -7,4 +7,8 @@ import com.leet.leet.common.ViewBaseInterface;
  */
 
 public interface MealSortDialogViewInterface extends ViewBaseInterface {
+
+    interface MealSortDialogViewListener{
+        void priceSelected(int index);
+    }
 }

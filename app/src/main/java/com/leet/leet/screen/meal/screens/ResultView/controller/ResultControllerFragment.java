@@ -3,6 +3,7 @@ package com.leet.leet.screen.meal.screens.ResultView.controller;
 import android.graphics.Rect;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -16,6 +17,7 @@ import com.leet.leet.screen.meal.screens.ResultView.MealResultListener;
 import com.leet.leet.screen.meal.screens.ResultView.model.MealResultModel;
 import com.leet.leet.screen.meal.screens.ResultView.view.ResultViewInterface;
 import com.leet.leet.screen.meal.screens.ResultView.view.ResultView;
+import com.leet.leet.screen.meal.screens.sort.MealSortDialogInterface;
 import com.leet.leet.screen.meal.screens.sort.controller.MealSortDialogFragment;
 import com.leet.leet.utils.DialogManager;
 import com.leet.leet.utils.database.FirebaseDBCallaback;
@@ -24,7 +26,7 @@ import com.leet.leet.utils.database.FirebaseDBCallaback;
  * Created by Sam on 11/19/2017.
  */
 
-public class ResultControllerFragment extends Fragment implements ResultViewInterface.MealResultViewListener {
+public class ResultControllerFragment extends Fragment implements ResultViewInterface.MealResultViewListener,MealSortDialogInterface {
 
     MealResultModel model;
     ResultView resultView;
@@ -64,6 +66,7 @@ public class ResultControllerFragment extends Fragment implements ResultViewInte
         switch (item.getItemId()) {
             case R.id.menu_search:
                 MealSortDialogFragment dialogFragment = new MealSortDialogFragment();
+                dialogFragment.setupFragment(this);
                 dialogFragment.show(getFragmentManager(), "fragment_dialog");
                 break;
         }
@@ -89,5 +92,11 @@ public class ResultControllerFragment extends Fragment implements ResultViewInte
     public void mealTimeSelected(Enums.MealTime time) {
         model.setCurrentMealTime(time);
         setMenuToListView();
+    }
+
+    @Override
+    public void dialogOkButtonTap(int priceRange) {
+        model.sort(priceRange);
+        resultView.setupListView(model.getMenuEntityList());
     }
 }
