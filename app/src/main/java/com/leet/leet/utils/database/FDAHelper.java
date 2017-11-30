@@ -37,9 +37,28 @@ public class FDAHelper {
         return 1800;
     }
 
-    public int getMaleMacros(int age)
-    {
-        return 0;
+    public void getMaleMacros(int age, int carb, int fat, int protein) {
+        if (age <= 3) {
+            fat = 0;
+            carb = 130;
+            protein = 13;
+        }
+        if (age <= 8) {
+            fat = 0;
+            carb = 130;
+            protein = 19;
+        }
+        if (age <= 13) {
+            fat = 0;
+            carb = 130;
+            protein = 34;
+        }
+        if (age <= 18) {
+            fat = 0;
+            carb = 130;
+            protein = 52;
+        }
+        else { fat = 0; carb = 130; protein = 56; }
     }
 
     public int getFemaleMacros(int age)

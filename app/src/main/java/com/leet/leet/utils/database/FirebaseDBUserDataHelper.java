@@ -1,11 +1,9 @@
 package com.leet.leet.utils.database;
 
-<<<<<<< HEAD
-import android.util.Log;
-=======
-import android.view.Menu;
->>>>>>> master
 
+import android.util.Log;
+
+import android.view.Menu;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;

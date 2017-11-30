@@ -53,6 +53,7 @@ public class ProfileModel {
     public void logout(){
         FirebaseAuthHelper.logout();
     }
+
     public void saveGoals(UserGoalEntity goalEntity) {
         FirebaseDBUserDataHelper.setUserGoals(goalEntity);
     }
@@ -73,6 +74,7 @@ public class ProfileModel {
         });
 
     }
+
     public void deleteAccount(){
         FirebaseDBUserDataHelper.removeUserID();
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();

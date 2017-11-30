@@ -7,11 +7,9 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.widget.TextView;
 
-<<<<<<< HEAD
 import com.leet.leet.screen.main.model.MainModel;
 import com.leet.leet.screen.main.view.MainView;
 import com.leet.leet.screen.profile.controller.ProfileFragment;
-=======
 import com.leet.leet.screen.login.LoginInterface;
 import com.leet.leet.screen.login.controller.LoginActivity;
 import com.leet.leet.screen.main.model.MainModel;
@@ -21,7 +19,6 @@ import com.leet.leet.screen.statistics.screen.daily.controller.StatisticsDailyFr
 import com.leet.leet.screen.signup.controller.SignupActivity;
 import com.leet.leet.screen.start.controller.StartActivity;
 import com.leet.leet.utils.authentication.FirebaseAuthManager;
->>>>>>> master
 
 
 public class MainActivity extends AppCompatActivity {
@@ -39,32 +36,23 @@ public class MainActivity extends AppCompatActivity {
         mView = new MainView(LayoutInflater.from(this), null);
 
 
-<<<<<<< HEAD
         ProfileFragment profileFragment = new ProfileFragment();
-=======
        // AccountFragment accountFragment = new AccountFragment();
      //   accountFragment.setupFragment(this);
->>>>>>> master
        // MenuSearchFragment menuSearchFragment = new MenuSearchFragment();
         Fragment[] fragments = new Fragment[1];
-        fragments = new Fragment[1];
+        fragments = new Fragment[2];
        // fragments[0] = menuSearchFragment;
-<<<<<<< HEAD
         fragments[0] = profileFragment;
-=======
       //  fragments[0] = accountFragment;
-        fragments[0] = new StatisticsFragment();
->>>>>>> master
+        fragments[1] = new StatisticsFragment();
 
         mView.setupTabs(fragments,mModel.tabTitles,getSupportFragmentManager());
         //mView.setupTabs(fragments,mModel.tabTitles,getSupportFragmentManager());
 
         setContentView(mView.getRootView());
 
-<<<<<<< HEAD
 
-
-=======
         /*
         // go to login page
         Intent intent = new Intent(this, LoginActivity.class);
@@ -72,5 +60,4 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
         */
     }
->>>>>>> master
 }

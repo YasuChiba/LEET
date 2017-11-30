@@ -1,8 +1,10 @@
 package com.leet.leet.screen.signup.controller;
 
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.annotation.RequiresApi;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -112,6 +114,7 @@ public class SignupActivity extends AppCompatActivity implements SignupViewInter
      * @param email user input email
      * @return true/false
      */
+    @RequiresApi(api = Build.VERSION_CODES.FROYO)
     private boolean checkEmail(final String email) {
         // corner cases
         if (email == null || email.length() == 0) {
