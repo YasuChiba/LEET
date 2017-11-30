@@ -13,5 +13,8 @@
         <item name="android:background">@color/floating_popup_divider_light</item>
         <item name="android:elevation">5dp</item>
     </style>
-
+    <style name="SimpleDialogLight" parent="Material.App.Dialog.Simple.Light">
+        <item name="di_inAnimation">@anim/scale_in</item>
+        <item name="di_outAnimation">@anim/scale_out</item>
+    </style>
 </resources>

@@ -16,6 +16,8 @@ import com.leet.leet.screen.meal.screens.ResultView.MealResultListener;
 import com.leet.leet.screen.meal.screens.ResultView.model.MealResultModel;
 import com.leet.leet.screen.meal.screens.ResultView.view.ResultViewInterface;
 import com.leet.leet.screen.meal.screens.ResultView.view.ResultView;
+import com.leet.leet.screen.meal.screens.sort.controller.MealSortDialogFragment;
+import com.leet.leet.utils.DialogManager;
 import com.leet.leet.utils.database.FirebaseDBCallaback;
 
 /**
@@ -60,7 +62,10 @@ public class ResultControllerFragment extends Fragment implements ResultViewInte
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle item selection
         switch (item.getItemId()) {
-
+            case R.id.menu_search:
+                MealSortDialogFragment dialogFragment = new MealSortDialogFragment();
+                dialogFragment.show(getFragmentManager(), "fragment_dialog");
+                break;
         }
 
         return true;
