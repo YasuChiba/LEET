@@ -37,7 +37,6 @@ public class MainView implements MainViewInterface {
         MainViewViewPagerAdapter viewPagerAdapter = new MainViewViewPagerAdapter(fm, fragments, tabTitles);
         viewPager.setAdapter(viewPagerAdapter);
         tabLayout.setupWithViewPager(viewPager);
-        tabLayout.setBackgroundColor(Color.parseColor("#FFA500"));
         tabLayout.getTabAt(defaultIndex).select();
     }
 
