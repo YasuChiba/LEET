@@ -59,7 +59,6 @@ public class MainView implements MainViewInterface, ViewPager.OnPageChangeListen
         tabLayout.getTabAt(1).setCustomView(tab2);
         tabLayout.getTabAt(2).setCustomView(tab3);
 
-
         ((ImageView)tab1.findViewById(R.id.tab_icon)).setImageResource(R.drawable.tab_profile_icon);
         ((ImageView)tab2.findViewById(R.id.tab_icon)).setImageResource(R.drawable.tab_meal_icon);
         ((ImageView)tab3.findViewById(R.id.tab_icon)).setImageResource(R.drawable.tab_stat_icon);
@@ -69,12 +68,6 @@ public class MainView implements MainViewInterface, ViewPager.OnPageChangeListen
         ((TextView)tab3.findViewById(R.id.tab_textview)).setText("Stats");
 
         tabLayout.getTabAt(defaultIndex).select();
-/*
-        tabLayout.getTabAt(0).setIcon(R.drawable.tab_meal_icon);
-        tabLayout.getTabAt(1).setIcon(R.drawable.tab_meal_icon);
-        tabLayout.getTabAt(2).setIcon(R.drawable.tab_meal_icon);
-
-*/
     }
 
     @Override
@@ -92,17 +85,17 @@ public class MainView implements MainViewInterface, ViewPager.OnPageChangeListen
     public void onPageSelected(int position) {
 
         if(position == 0) {
-            ((TextView)tabLayout.getTabAt(0).getCustomView().findViewById(R.id.tab_textview)).setVisibility(View.VISIBLE);
-            ((TextView)tabLayout.getTabAt(1).getCustomView().findViewById(R.id.tab_textview)).setVisibility(View.GONE);
-            ((TextView)tabLayout.getTabAt(2).getCustomView().findViewById(R.id.tab_textview)).setVisibility(View.GONE);
+            ((TextView)tab1.findViewById(R.id.tab_textview)).setVisibility(View.VISIBLE);
+            ((TextView)tab2.findViewById(R.id.tab_textview)).setVisibility(View.GONE);
+            ((TextView)tab3.findViewById(R.id.tab_textview)).setVisibility(View.GONE);
         } else if(position == 1) {
-            ((TextView)tabLayout.getTabAt(0).getCustomView().findViewById(R.id.tab_textview)).setVisibility(View.GONE);
-            ((TextView)tabLayout.getTabAt(1).getCustomView().findViewById(R.id.tab_textview)).setVisibility(View.VISIBLE);
-            ((TextView)tabLayout.getTabAt(2).getCustomView().findViewById(R.id.tab_textview)).setVisibility(View.GONE);
+            ((TextView)tab1.findViewById(R.id.tab_textview)).setVisibility(View.GONE);
+            ((TextView)tab2.findViewById(R.id.tab_textview)).setVisibility(View.VISIBLE);
+            ((TextView)tab3.findViewById(R.id.tab_textview)).setVisibility(View.GONE);
         } else if(position == 2) {
-            ((TextView)tabLayout.getTabAt(0).getCustomView().findViewById(R.id.tab_textview)).setVisibility(View.GONE);
-            ((TextView)tabLayout.getTabAt(1).getCustomView().findViewById(R.id.tab_textview)).setVisibility(View.GONE);
-            ((TextView)tabLayout.getTabAt(2).getCustomView().findViewById(R.id.tab_textview)).setVisibility(View.VISIBLE);
+            ((TextView)tab1.findViewById(R.id.tab_textview)).setVisibility(View.GONE);
+            ((TextView)tab2.findViewById(R.id.tab_textview)).setVisibility(View.GONE);
+            ((TextView)tab3.findViewById(R.id.tab_textview)).setVisibility(View.VISIBLE);
         }
 
 
