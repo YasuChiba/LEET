@@ -1,5 +1,6 @@
 package com.leet.leet.screen.main.view;
 
+import android.graphics.Color;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -7,6 +8,8 @@ import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.leet.leet.R;
 import com.leet.leet.screen.main.MainViewViewPagerAdapter;
@@ -16,32 +19,96 @@ import com.leet.leet.screen.main.MainViewViewPagerAdapter;
  * Created by YasuhiraChiba on 2017/10/31.
  */
 
-public class MainView implements MainViewInterface {
+public class MainView implements MainViewInterface, ViewPager.OnPageChangeListener {
 
     private View mRootView;
-
+    private MainViewListener mListener;
     private TabLayout tabLayout;
     private ViewPager viewPager;
 
-    public MainView(LayoutInflater inflater, ViewGroup container) {
+    View tab1;
+    View tab2;
+    View tab3;
+
+    public MainView(LayoutInflater inflater, ViewGroup container, MainViewListener listener) {
         mRootView = inflater.inflate(R.layout.view_main, container, false);
-        initialize();
+        this.mListener = listener;
+        initialize(inflater);
     }
 
-    private void initialize() {
+    private void initialize(LayoutInflater inflater) {
         tabLayout = (TabLayout)mRootView.findViewById(R.id.tab_layout);
         viewPager = (ViewPager)mRootView.findViewById(R.id.view_pager);
+
+        tab1 = inflater.inflate(R.layout.tab, null);
+        tab2 = inflater.inflate(R.layout.tab, null);
+        tab3 = inflater.inflate(R.layout.tab, null);
+
+
     }
 
     public void setupTabs(Fragment[] fragments, String[] tabTitles,int defaultIndex, FragmentManager fm) {
         MainViewViewPagerAdapter viewPagerAdapter = new MainViewViewPagerAdapter(fm, fragments, tabTitles);
         viewPager.setAdapter(viewPagerAdapter);
+        viewPager.addOnPageChangeListener(this);
         tabLayout.setupWithViewPager(viewPager);
+        tabLayout.setBackgroundColor(Color.parseColor("#e00e0e"));
+
+        tabLayout.getTabAt(0).setCustomView(tab1);
+        tabLayout.getTabAt(1).setCustomView(tab2);
+        tabLayout.getTabAt(2).setCustomView(tab3);
+
+        ((ImageView)tab1.findViewById(R.id.tab_icon)).setImageResource(R.drawable.tab_meal_icon);
+        ((ImageView)tab2.findViewById(R.id.tab_icon)).setImageResource(R.drawable.tab_meal_icon);
+        ((ImageView)tab3.findViewById(R.id.tab_icon)).setImageResource(R.drawable.tab_meal_icon);
+
+        ((TextView)tab1.findViewById(R.id.tab_textview)).setText("profile");
+        ((TextView)tab2.findViewById(R.id.tab_textview)).setText("meal");
+        ((TextView)tab3.findViewById(R.id.tab_textview)).setText("stats");
+
         tabLayout.getTabAt(defaultIndex).select();
+/*
+        tabLayout.getTabAt(0).setIcon(R.drawable.tab_meal_icon);
+        tabLayout.getTabAt(1).setIcon(R.drawable.tab_meal_icon);
+        tabLayout.getTabAt(2).setIcon(R.drawable.tab_meal_icon);
+
+*/
     }
 
     @Override
     public View getRootView() {
         return mRootView;
+    }
+
+
+    @Override
+    public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+
+    }
+
+    @Override
+    public void onPageSelected(int position) {
+
+        if(position == 0) {
+            ((TextView)tabLayout.getTabAt(0).getCustomView().findViewById(R.id.tab_textview)).setVisibility(View.VISIBLE);
+            ((TextView)tabLayout.getTabAt(1).getCustomView().findViewById(R.id.tab_textview)).setVisibility(View.GONE);
+            ((TextView)tabLayout.getTabAt(2).getCustomView().findViewById(R.id.tab_textview)).setVisibility(View.GONE);
+        } else if(position == 1) {
+            ((TextView)tabLayout.getTabAt(0).getCustomView().findViewById(R.id.tab_textview)).setVisibility(View.GONE);
+            ((TextView)tabLayout.getTabAt(1).getCustomView().findViewById(R.id.tab_textview)).setVisibility(View.VISIBLE);
+            ((TextView)tabLayout.getTabAt(2).getCustomView().findViewById(R.id.tab_textview)).setVisibility(View.GONE);
+        } else if(position == 2) {
+            ((TextView)tabLayout.getTabAt(0).getCustomView().findViewById(R.id.tab_textview)).setVisibility(View.GONE);
+            ((TextView)tabLayout.getTabAt(1).getCustomView().findViewById(R.id.tab_textview)).setVisibility(View.GONE);
+            ((TextView)tabLayout.getTabAt(2).getCustomView().findViewById(R.id.tab_textview)).setVisibility(View.VISIBLE);
+        }
+
+
+        mListener.tabChanged(position);
+    }
+
+    @Override
+    public void onPageScrollStateChanged(int state) {
+
     }
 }

@@ -8,5 +8,8 @@ import com.leet.leet.common.ViewBaseInterface;
 
 public interface MainViewInterface extends ViewBaseInterface {
 
+    interface MainViewListener {
+        void tabChanged(int position);
+    }
 
 }

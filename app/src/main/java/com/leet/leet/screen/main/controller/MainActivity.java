@@ -11,6 +11,7 @@ import com.leet.leet.R;
 import com.leet.leet.screen.account.controller.AccountFragment;
 import com.leet.leet.screen.main.model.MainModel;
 import com.leet.leet.screen.main.view.MainView;
+import com.leet.leet.screen.main.view.MainViewInterface;
 import com.leet.leet.screen.meal.controller.MealFragment;
 import com.leet.leet.screen.statistics.controller.StatisticsFragment;
 import com.leet.leet.screen.main.model.MainModel;
@@ -28,31 +29,32 @@ import com.leet.leet.utils.authentication.FirebaseAuthManager;
 import com.leet.leet.utils.database.FirebaseDBUserDataHelper;
 
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements MainViewInterface.MainViewListener {
 
     private MainView mView;
     private MainModel mModel;
 
-    private TextView message;
-    protected Toolbar mToolbar;
+    Fragment[] fragments;
+    ProfileFragment profileFragment;
+    MealFragment mealFragment;
+    StatisticsFragment statisticsFragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         mModel = new MainModel();
-        mView = new MainView(LayoutInflater.from(this), null);
+        mView = new MainView(LayoutInflater.from(this), null,this);
 
-        Fragment[] fragments = new Fragment[3];
-        MealFragment mealFragment = new MealFragment();
-        ProfileFragment profileFragment = new ProfileFragment();
+        fragments = new Fragment[3];
+        mealFragment = new MealFragment();
+        profileFragment = new ProfileFragment();
+        statisticsFragment = new StatisticsFragment();
         fragments[0] = profileFragment;
         fragments[1] = mealFragment;
-        fragments[2] = new StatisticsFragment();
+        fragments[2] = statisticsFragment;
 
         mView.setupTabs(fragments,mModel.tabTitles,1,getSupportFragmentManager());
-        //mView.setupTabs(fragments,mModel.tabTitles,getSupportFragmentManager());
-
         setContentView(mView.getRootView());
 
         invalidateOptionsMenu();
@@ -60,14 +62,8 @@ public class MainActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
     }
 
-/*
     @Override
-    public void backToLogin() {
-        Intent intent = new Intent(this, LoginActivity.class);
-        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-        startActivity(intent);
+    public void tabChanged(int position) {
 
     }
-    */
-
 }
