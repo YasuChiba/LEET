@@ -22,6 +22,13 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Goals"
+                android:layout_gravity="center"
+                android:textSize="50dp"
+                />
 
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -44,148 +51,182 @@
 
             </RelativeLayout>
 
-
-            <LinearLayout
-                android:layout_width="match_parent"
+            <RelativeLayout
+                android:layout_width="300dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:orientation="vertical">
-
-                <TextView
-                    android:id="@+id/textView3"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1.15"
-                    android:gravity="center"
-                    android:text="@string/Price"
-                    android:textColor="@color/colorPrimaryDark"
-                    android:textSize="25dp" />
+                android:layout_gravity="center"
+                >
 
                 <EditText
                     android:id="@+id/Price"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:gravity="right"
+                    android:layout_marginTop="20dp"
                     android:ems="10"
-                    android:gravity="center_horizontal"
+                    android:hint="Price Here"
+                    android:maxLength="5"
                     android:inputType="number"
-                    android:maxLength="2"
-                    android:text="0" />
-            </LinearLayout>
+                    android:backgroundTint="@android:color/holo_orange_dark">
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:orientation="vertical">
+                    <requestFocus />
+                </EditText>
 
                 <TextView
-                    android:id="@+id/textView4"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:text="@string/Calorie"
-                    android:textColor="@color/colorPrimaryDark"
-                    android:textSize="25dp" />
+                    android:textSize="20dp"
+                    android:id="@+id/price"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBaseline="@+id/Price"
+                    android:layout_alignBottom="@+id/Price"
+                    android:layout_alignParentLeft="true"
+                    android:text="@string/Price" />
+
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                >
 
                 <EditText
                     android:id="@+id/Calorie"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:gravity="right"
+                    android:layout_marginTop="20dp"
                     android:ems="10"
-                    android:gravity="center_horizontal"
+                    android:hint="Calorie Here"
                     android:inputType="number"
-                    android:maxLength="3"
-                    android:text="0" />
-            </LinearLayout>
+                    android:maxLength="5"
+                    android:backgroundTint="@android:color/holo_orange_dark">>
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:orientation="vertical">
+                    <requestFocus />
+                </EditText>
 
                 <TextView
-                    android:id="@+id/textView5"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:text="@string/Carbs"
-                    android:textColor="@color/colorPrimaryDark"
-                    android:textSize="25dp" />
+                    android:textSize="20dp"
+                    android:id="@+id/calorie"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBaseline="@+id/Calorie"
+                    android:layout_alignBottom="@+id/Calorie"
+                    android:layout_alignParentLeft="true"
+                    android:text="@string/Calorie" />
+
+
+            </RelativeLayout>
+            <RelativeLayout
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                >
 
                 <EditText
                     android:id="@+id/Carbs"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:gravity="right"
+                    android:layout_marginTop="20dp"
                     android:ems="10"
-                    android:gravity="center_horizontal"
+                    android:hint="Carbs Here"
+                    android:maxLength="5"
                     android:inputType="number"
-                    android:maxLength="2"
-                    android:text="0" />
-            </LinearLayout>
+                    android:backgroundTint="@android:color/holo_orange_dark">>
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:orientation="vertical">
+                    <requestFocus />
+                </EditText>
 
                 <TextView
-                    android:id="@+id/textView6"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:text="@string/Protein"
-                    android:textColor="@color/colorPrimaryDark"
-                    android:textSize="25dp" />
+                    android:textSize="20dp"
+                    android:id="@+id/carbs"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBaseline="@+id/Carbs"
+                    android:layout_alignBottom="@+id/Carbs"
+                    android:layout_alignParentLeft="true"
+                    android:text="@string/Carbs" />
+
+
+            </RelativeLayout>
+            <RelativeLayout
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                >
 
                 <EditText
                     android:id="@+id/Protein"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:gravity="right"
+                    android:layout_marginTop="20dp"
                     android:ems="10"
-                    android:gravity="center_horizontal"
                     android:inputType="number"
-                    android:maxLength="2"
-                    android:text="0" />
-            </LinearLayout>
+                    android:maxLength="5"
+                    android:hint="Protein Here"
+                    android:backgroundTint="@android:color/holo_orange_dark">>
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:orientation="vertical">
+                    <requestFocus />
+                </EditText>
 
                 <TextView
-                    android:id="@+id/textView7"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:text="@string/Fat"
-                    android:textColor="@color/colorPrimaryDark"
-                    android:textSize="25dp" />
+                    android:textSize="20dp"
+                    android:id="@+id/protein"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBaseline="@+id/Protein"
+                    android:layout_alignBottom="@+id/Protein"
+                    android:layout_alignParentLeft="true"
+                    android:text="@string/Protein" />
+
+
+            </RelativeLayout>
+            <RelativeLayout
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                >
 
                 <EditText
                     android:id="@+id/Fat"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:gravity="right"
+                    android:layout_marginTop="20dp"
+                    android:ems="10"
+                    android:hint="Fat Here"
+                    android:inputType="number"
+                    android:maxLength="5"
+                    android:backgroundTint="@android:color/holo_orange_dark">>
+
+                    <requestFocus />
+                </EditText>
+
+                <TextView
+                    android:textSize="20dp"
+                    android:id="@+id/fat"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:ems="10"
-                    android:gravity="center_horizontal"
-                    android:inputType="number"
-                    android:maxLength="2"
-                    android:text="0" />
+                    android:layout_alignBaseline="@+id/Fat"
+                    android:layout_alignBottom="@+id/Fat"
+                    android:layout_alignParentLeft="true"
+                    android:text="@string/Fat" />
 
 
-            </LinearLayout>
+            </RelativeLayout>
 
         </LinearLayout>
 

@@ -153,11 +153,16 @@ public class ProfileView implements ProfileViewInterface, View.OnClickListener {
     }
 
     private UserGoalEntity createUserGoalEntity(){
-        float price = Float.valueOf(this.price.getText().toString());
-        float calorie = Float.valueOf(this.calorie.getText().toString());
-        float carbs = Float.valueOf(this.carbs.getText().toString());
-        float protein = Float.valueOf(this.protein.getText().toString());
-        float fat = Float.valueOf(this.fat.getText().toString());
+        float price = 0;
+        float calorie = 0;
+        float carbs = 0;
+        float protein = 0;
+        float fat = 0;
+        if(!this.price.getText().toString().isEmpty()){price = Float.valueOf(this.price.getText().toString());}
+        if(!this.calorie.getText().toString().isEmpty()){calorie = Float.valueOf(this.calorie.getText().toString());}
+        if(!this.carbs.getText().toString().isEmpty()){ carbs = Float.valueOf(this.carbs.getText().toString());}
+        if(!this.protein.getText().toString().isEmpty()){ protein = Float.valueOf(this.protein.getText().toString());}
+        if(!this.fat.getText().toString().isEmpty()){fat = Float.valueOf(this.fat.getText().toString());}
         return new UserGoalEntity(calorie, price, fat, carbs, protein);
     }
 
