@@ -54,6 +54,8 @@ public class MainActivity extends AppCompatActivity {
         //mView.setupTabs(fragments,mModel.tabTitles,getSupportFragmentManager());
 
         setContentView(mView.getRootView());
+
+        invalidateOptionsMenu();
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
     }

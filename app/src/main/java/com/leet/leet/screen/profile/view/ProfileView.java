@@ -1,6 +1,7 @@
 package com.leet.leet.screen.profile.view;
 
 import android.app.Activity;
+import android.support.v7.widget.Toolbar;
 import android.text.InputFilter;
 import android.util.Log;
 import android.view.LayoutInflater;
