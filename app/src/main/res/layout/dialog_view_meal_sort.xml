@@ -18,7 +18,7 @@
             android:layout_marginStart="10dp"
             android:layout_weight="1"
             android:gravity="left|center"
-            android:text="Price"
+            android:text="Price ($)"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -34,7 +34,8 @@
             android:gravity="right"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            android:entries = "@array/priceArray"/>
 
     </android.support.constraint.ConstraintLayout>
 
@@ -43,7 +44,7 @@
         android:layout_height="40dp">
 
         <TextView
-            android:id="@+id/textView16"
+            android:id="@+id/textView17"
             android:layout_width="wrap_content"
             android:layout_height="0dp"
             android:layout_marginLeft="10dp"
@@ -66,7 +67,8 @@
             android:gravity="right"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            android:entries = "@array/calorieArray"/>
 
     </android.support.constraint.ConstraintLayout>
 
@@ -83,11 +85,12 @@
             android:layout_marginStart="10dp"
             android:layout_weight="1"
             android:gravity="left|center"
-            android:text="Protein"
+            android:text="Protein (g)"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.0" />
+            app:layout_constraintVertical_bias="0.0"
+            android:entries = "@array/proteinArray"/>
 
         <Spinner
             android:id="@+id/meal_sort_protein_spinner"
@@ -99,7 +102,8 @@
             android:gravity="right"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            android:entries = "@array/proteinArray"/>
 
     </android.support.constraint.ConstraintLayout>
 
@@ -115,7 +119,7 @@
             android:layout_marginStart="10dp"
             android:layout_weight="1"
             android:gravity="left|center"
-            android:text="Carbs"
+            android:text="Carbs (g)"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -131,7 +135,8 @@
             android:gravity="right"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            android:entries = "@array/carbsArray"/>
 
     </android.support.constraint.ConstraintLayout>
 
@@ -147,7 +152,7 @@
             android:layout_marginStart="10dp"
             android:layout_weight="1"
             android:gravity="left|center"
-            android:text="Total Fat"
+            android:text="Total Fat (g)"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -163,7 +168,8 @@
             android:gravity="right"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            android:entries = "@array/totFatArray"/>
 
     </android.support.constraint.ConstraintLayout>
 
@@ -179,7 +185,7 @@
             android:layout_marginStart="10dp"
             android:layout_weight="1"
             android:gravity="left|center"
-            android:text="Saturated Fat"
+            android:text="Saturated Fat (g)"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -195,7 +201,8 @@
             android:gravity="right"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            android:entries = "@array/satFatArray"/>
 
     </android.support.constraint.ConstraintLayout>
 
@@ -211,7 +218,7 @@
             android:layout_marginStart="10dp"
             android:layout_weight="1"
             android:gravity="left|center"
-            android:text="Sodium"
+            android:text="Sodium (mg)"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -227,7 +234,8 @@
             android:gravity="right"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            android:entries = "@array/sodiumArray"/>
 
     </android.support.constraint.ConstraintLayout>
 
@@ -243,7 +251,7 @@
             android:layout_marginStart="10dp"
             android:layout_weight="1"
             android:gravity="left|center"
-            android:text="Cholesterol"
+            android:text="Cholesterol (mg)"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -259,7 +267,8 @@
             android:gravity="right"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            android:entries = "@array/cholesterolArray"/>
 
     </android.support.constraint.ConstraintLayout>
 
@@ -275,7 +284,7 @@
             android:layout_marginStart="10dp"
             android:layout_weight="1"
             android:gravity="left|center"
-            android:text="Dietary Fiber"
+            android:text="Dietary Fiber (g)"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -291,7 +300,8 @@
             android:gravity="right"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            android:entries = "@array/fiberArray"/>
 
     </android.support.constraint.ConstraintLayout>
 
@@ -307,7 +317,7 @@
             android:layout_marginStart="10dp"
             android:layout_weight="1"
             android:gravity="left|center"
-            android:text="Sugar"
+            android:text="Sugar (g)"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -323,7 +333,8 @@
             android:gravity="right"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            android:entries = "@array/sugarArray"/>
 
     </android.support.constraint.ConstraintLayout>
 </LinearLayout>

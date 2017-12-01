@@ -19,28 +19,82 @@ public class MealSortView implements MealSortDialogViewInterface,AdapterView.OnI
     private MealSortDialogViewListener mListener;
 
     private Spinner priceSpinner;
-    private ArrayAdapter<String> priceSpinnerAdapter;
+    private Spinner calorieSpinner;
+    private Spinner proteinSpinner;
+    private Spinner carbsSpinner;
+    private Spinner totFatSpinner;
+    private Spinner satFatSpinner;
+    private Spinner sodiumSpinner;
+    private Spinner cholesterolSpinner;
+    private Spinner fiberSpinner;
+    private Spinner sugarSpinner;
 
+    private int price_Range;
+    private int calorie_Range;
+    private int carbs_Range;
+    private int totalFat_Range;
+    private int satFat_Range;
+    private int protein_Range;
+    private int sodium_Range;
+    private int cholesterol_Range;
+    private int fiber_Range;
+    private int sugar_Range;
 
-
-    public MealSortView(LayoutInflater inflater,MealSortDialogViewListener listener) {
+    public MealSortView(LayoutInflater inflater,MealSortDialogViewListener listener, int priceRange,
+                        int calorieRange, int carbsRange, int totalFatRange, int satFatRange,
+                        int proteinRange, int sodiumRange, int cholRange, int fiberRange,
+                        int sugarRange) {
         mRootView = inflater.inflate(R.layout.dialog_view_meal_sort, null);
-        priceSpinnerAdapter= new ArrayAdapter<String>(inflater.getContext(),R.layout.row_spn);
         this.mListener = listener;
+
+        price_Range = priceRange;
+        calorie_Range = calorieRange;
+        protein_Range = proteinRange;
+        carbs_Range = carbsRange;
+        totalFat_Range = totalFatRange;
+        satFat_Range = satFatRange;
+        sodium_Range = sodiumRange;
+        cholesterol_Range = cholRange;
+        fiber_Range = fiberRange;
+        sugar_Range = sugarRange;
+
         initialize();
+
     }
 
     private void initialize() {
         priceSpinner = mRootView.findViewById(R.id.meal_sort_price_spinner);
-        priceSpinnerAdapter.setDropDownViewResource(R.layout.row_spn_dropdown);
-        priceSpinner.setAdapter(priceSpinnerAdapter);
+        priceSpinner.setSelection(price_Range);
+        priceSpinner.setOnItemSelectedListener(this);
+        calorieSpinner = mRootView.findViewById(R.id.meal_sort_calories_spinner);
+        calorieSpinner.setSelection(calorie_Range);
+        calorieSpinner.setOnItemSelectedListener(this);
+        proteinSpinner = mRootView.findViewById(R.id.meal_sort_protein_spinner);
+        proteinSpinner.setSelection(protein_Range);
+        proteinSpinner.setOnItemSelectedListener(this);
+        carbsSpinner = mRootView.findViewById(R.id.meal_sort_carbs_spinner);
+        carbsSpinner.setSelection(carbs_Range);
+        carbsSpinner.setOnItemSelectedListener(this);
+        totFatSpinner = mRootView.findViewById(R.id.meal_sort_total_fat_spinner);
+        totFatSpinner.setSelection(totalFat_Range);
+        totFatSpinner.setOnItemSelectedListener(this);
+        satFatSpinner = mRootView.findViewById(R.id.meal_sort_sat_fat_spinner);
+        satFatSpinner.setSelection(satFat_Range);
+        satFatSpinner.setOnItemSelectedListener(this);
+        sodiumSpinner = mRootView.findViewById(R.id.meal_sort_sodium_spinner);
+        sodiumSpinner.setSelection(sodium_Range);
+        sodiumSpinner.setOnItemSelectedListener(this);
+        cholesterolSpinner = mRootView.findViewById(R.id.meal_sort_cholesterol_spinner);
+        cholesterolSpinner.setSelection(cholesterol_Range);
+        cholesterolSpinner.setOnItemSelectedListener(this);
+        fiberSpinner = mRootView.findViewById(R.id.meal_sort_fiber_spinner);
+        fiberSpinner.setSelection(fiber_Range);
+        fiberSpinner.setOnItemSelectedListener(this);
+        sugarSpinner = mRootView.findViewById(R.id.meal_sort_sugar_spinner);
+        sugarSpinner.setSelection(sugar_Range);
+        sugarSpinner.setOnItemSelectedListener(this);
     }
 
-    public void setupSpinners(ArrayList<String> priceValues) {
-        priceSpinnerAdapter.addAll(priceValues);
-        priceSpinnerAdapter.notifyDataSetChanged();
-        priceSpinner.setOnItemSelectedListener(this);
-    }
 
     @Override
     public View getRootView() {
@@ -52,6 +106,33 @@ public class MealSortView implements MealSortDialogViewInterface,AdapterView.OnI
         switch(adapterView.getId()) {
             case R.id.meal_sort_price_spinner:
                 mListener.priceSelected(i);
+                break;
+            case R.id.meal_sort_calories_spinner:
+                mListener.calorieSelected(i);
+                break;
+            case R.id.meal_sort_carbs_spinner:
+                mListener.carbsSelected(i);
+                break;
+            case R.id.meal_sort_cholesterol_spinner:
+                mListener.cholesterolSelected(i);
+                break;
+            case R.id.meal_sort_fiber_spinner:
+                mListener.fiberSelected(i);
+                break;
+            case R.id.meal_sort_total_fat_spinner:
+                mListener.totalFatSelected(i);
+                break;
+            case R.id.meal_sort_sat_fat_spinner:
+                mListener.satFatSelected(i);
+                break;
+            case R.id.meal_sort_protein_spinner:
+                mListener.proteinSelected(i);
+                break;
+            case R.id.meal_sort_sodium_spinner:
+                mListener.sodiumSelected(i);
+                break;
+            case R.id.meal_sort_sugar_spinner:
+                mListener.sugarSelected(i);
                 break;
         }
     }
