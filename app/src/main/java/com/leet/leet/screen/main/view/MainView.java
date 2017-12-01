@@ -9,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.leet.leet.R;
@@ -58,13 +59,14 @@ public class MainView implements MainViewInterface, ViewPager.OnPageChangeListen
         tabLayout.getTabAt(1).setCustomView(tab2);
         tabLayout.getTabAt(2).setCustomView(tab3);
 
-        ((ImageView)tab1.findViewById(R.id.tab_icon)).setImageResource(R.drawable.tab_meal_icon);
-        ((ImageView)tab2.findViewById(R.id.tab_icon)).setImageResource(R.drawable.tab_meal_icon);
-        ((ImageView)tab3.findViewById(R.id.tab_icon)).setImageResource(R.drawable.tab_meal_icon);
 
-        ((TextView)tab1.findViewById(R.id.tab_textview)).setText("profile");
-        ((TextView)tab2.findViewById(R.id.tab_textview)).setText("meal");
-        ((TextView)tab3.findViewById(R.id.tab_textview)).setText("stats");
+        ((ImageView)tab1.findViewById(R.id.tab_icon)).setImageResource(R.drawable.tab_profile_icon);
+        ((ImageView)tab2.findViewById(R.id.tab_icon)).setImageResource(R.drawable.tab_meal_icon);
+        ((ImageView)tab3.findViewById(R.id.tab_icon)).setImageResource(R.drawable.tab_stat_icon);
+
+        ((TextView)tab1.findViewById(R.id.tab_textview)).setText("Profile");
+        ((TextView)tab2.findViewById(R.id.tab_textview)).setText("Meal");
+        ((TextView)tab3.findViewById(R.id.tab_textview)).setText("Stats");
 
         tabLayout.getTabAt(defaultIndex).select();
 /*
