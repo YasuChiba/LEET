@@ -35,7 +35,6 @@ public class AccountView implements AccountViewInterface, View.OnClickListener  
 
         initialize();
     }
-
     private void initialize() {
         /*
         tvEmail = (TextView)mRootView.findViewById(R.id.account_tv_email);

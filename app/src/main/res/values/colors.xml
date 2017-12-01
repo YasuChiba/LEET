@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#3F51B5</color>
-    <color name="colorPrimaryDark">#303F9F</color>
-    <color name="colorAccent">#FF4081</color>
+    <color name="floating_popup_divider_dark">#2F2F2F</color>
+    <color name="floating_popup_divider_light">#E9E9E9</color>
+    <color name="white">#ffffffff</color>
+    <color name="colorPrimary">#c4c6d2</color>
+    <color name="colorPrimaryDark">#c60821</color>
+    <color name="colorAccent">#ff4081</color>
 </resources>

@@ -5,6 +5,7 @@ import android.graphics.Point;
 import android.view.Display;
 import android.view.WindowManager;
 
+import com.google.firebase.database.FirebaseDatabase;
 import com.leet.leet.utils.SharedPrefManager;
 
 import net.danlew.android.joda.JodaTimeAndroid;
@@ -23,7 +24,7 @@ public class UtilCommon extends Application {
         ContextManager.onCreateApplication(getApplicationContext());
         JodaTimeAndroid.init(this);
         getDisplaySize();
-
+        FirebaseDatabase.getInstance().setPersistenceEnabled(true);
     }
 
 

@@ -11,19 +11,19 @@ import android.view.View;
 
 public class DialogManager {
 
-    public interface DialogTappListner {
+    public interface DialogTappListener {
         void okButtonTapped();
     }
 
-    public static void simpleDialog(Context context, String title, String message, final DialogTappListner listner) {
+    public static void simpleDialog(Context context, String title, String message, final DialogTappListener listener) {
         new AlertDialog.Builder(context)
                 .setTitle(title)
                 .setMessage(message)
                 .setPositiveButton("OK", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        if(listner != null) {
-                            listner.okButtonTapped();
+                        if(listener != null) {
+                            listener.okButtonTapped();
                         }
                     }
                 })

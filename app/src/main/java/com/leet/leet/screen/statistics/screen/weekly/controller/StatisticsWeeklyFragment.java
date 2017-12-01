@@ -11,6 +11,7 @@ import com.leet.leet.screen.statistics.model.StatisticsModel;
 import com.leet.leet.screen.statistics.screen.daily.controller.StatisticsDailyFragment;
 import com.leet.leet.screen.statistics.screen.weekly.model.StatisticsWeeklyModel;
 import com.leet.leet.screen.statistics.screen.weekly.view.StatisticsWeeklyView;
+import com.leet.leet.screen.statistics.view.StatisticsView;
 import com.leet.leet.screen.statistics.screen.weekly.view.StatisticsWeeklyViewInterface;
 import com.leet.leet.screen.statistics.view.StatisticsView;
 import com.leet.leet.utils.DateHelper;
@@ -40,11 +41,22 @@ public class StatisticsWeeklyFragment extends Fragment implements StatisticsWeek
 
         mModel = new StatisticsWeeklyModel();
         mView = new StatisticsWeeklyView(inflater,container,this);
+
+        mModel.getUserGoal(new FirebaseDBCallaback<Boolean>() {
+            @Override
+            public void getData(Boolean data) {
+
+            }
+        });
+
         mModel.getStatisticsData(DateHelper.getPastDate(5),
                 DateHelper.getCurrentDate(),
                 new FirebaseDBCallaback<Boolean>() {
                     @Override
                     public void getData(Boolean success) {
+                        mView.setupListView(getContext(),
+                                mModel.getAllList(),
+                                mModel.getUserGoalEntity());
                         mView.setDataToGraph(mModel.getWeekList(),mModel.getPriceList());
                     }
         });
@@ -72,5 +84,10 @@ public class StatisticsWeeklyFragment extends Fragment implements StatisticsWeek
                 mView.setDataToGraph(mModel.getWeekList(),mModel.getCarbsList());
                 break;
         }
+    }
+
+    @Override
+    public void listElementTap(int index) {
+        //do something to move to daily view
     }
 }

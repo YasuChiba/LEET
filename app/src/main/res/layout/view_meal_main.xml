@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/meal_main_container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/darker_gray"
+    android:orientation="vertical">
+
+    <ScrollView
+        android:layout_width="0dp"
+        android:layout_height="506dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:weightSum="1">
+
+            <Button
+                android:id="@+id/sixtyFour"
+                android:layout_width="match_parent"
+                android:layout_height="112dp"
+                android:layout_marginLeft="3dp"
+                android:layout_marginRight="3dp"
+                android:layout_marginTop="5dp"
+                android:layout_weight="1.61"
+                android:alpha="0.8"
+                android:background="@drawable/menupic_64degrees_edited35"
+                android:text="64 Degrees (Revelle College)"
+                android:textColor="@android:color/black"
+                android:textSize="20dp" />
+
+            <Button
+                android:id="@+id/cafeVentanas"
+                android:layout_width="match_parent"
+                android:layout_height="112dp"
+                android:layout_marginLeft="3dp"
+                android:layout_marginRight="3dp"
+                android:layout_marginTop="10dp"
+                android:alpha="0.8"
+                android:background="@drawable/menupic_cafeventanas43"
+                android:text="Cafe Ventanas (Roosevelt College)"
+                android:textColor="@android:color/black"
+                android:textSize="20dp" />
+
+            <Button
+                android:id="@+id/canyonVista"
+                android:layout_width="match_parent"
+                android:layout_height="112dp"
+                android:layout_marginLeft="3dp"
+                android:layout_marginRight="3dp"
+                android:layout_marginTop="10dp"
+                android:alpha="0.8"
+                android:background="@drawable/menupic_canyonvista43"
+                android:text="Canyon Vista (Warren College)"
+                android:textColor="@android:color/black"
+                android:textSize="20dp"
+                tools:layout_editor_absoluteX="8dp"
+                tools:layout_editor_absoluteY="445dp" />
+
+            <Button
+                android:id="@+id/foodworx"
+                android:layout_width="match_parent"
+                android:layout_height="112dp"
+                android:layout_marginLeft="3dp"
+                android:layout_marginRight="3dp"
+                android:layout_marginTop="10dp"
+                android:alpha="0.8"
+                android:background="@drawable/menupic_foodworx43"
+                android:text="Foodworx (Sixth College)"
+                android:textColor="@android:color/black"
+                android:textSize="20dp" />
+
+            <Button
+                android:id="@+id/oceanView"
+                android:layout_width="match_parent"
+                android:layout_height="112dp"
+                android:layout_marginLeft="3dp"
+                android:layout_marginRight="3dp"
+                android:layout_marginTop="10dp"
+                android:alpha="0.8"
+                android:background="@drawable/menupic_ov43"
+                android:text="OceanView (Marshall College)"
+                android:textColor="@android:color/black"
+                android:textSize="20dp" />
+
+            <Button
+                android:id="@+id/pines"
+                android:layout_width="match_parent"
+                android:layout_height="112dp"
+                android:layout_marginLeft="3dp"
+                android:layout_marginRight="3dp"
+                android:layout_marginTop="10dp"
+                android:alpha="0.8"
+                android:background="@drawable/menupic_pines43"
+                android:text="Pines (Muir College)"
+                android:textAlignment="center"
+                android:textAllCaps="true"
+                android:textColor="@android:color/black"
+                android:textSize="20dp" />
+
+            <Button
+                android:id="@+id/customMeal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.61"
+                android:layout_marginBottom="70dp"
+                android:text="Custom Meal" />
+
+        </LinearLayout>
+    </ScrollView>
+
+</android.support.constraint.ConstraintLayout>

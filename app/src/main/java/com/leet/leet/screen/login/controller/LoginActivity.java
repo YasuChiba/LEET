@@ -97,10 +97,10 @@ public class LoginActivity extends AppCompatActivity implements LoginViewInterfa
         Log.d("LOGIN", "login===============================================================");
         if (checkEmail(email) && checkPassword(password)) {
             Toast.makeText(this, "200", Toast.LENGTH_SHORT).show();
-
             // connect to firebase, from LEET-sample
             ProgressDialogManager.showProgressDialog(this);
             FirebaseAuthManager.signIn(email, password, this);
+
         } else {
             Toast.makeText(this, "404", Toast.LENGTH_SHORT).show();
         }
@@ -137,10 +137,10 @@ public class LoginActivity extends AppCompatActivity implements LoginViewInterfa
     public void onComplete(@NonNull Task task) {
         ProgressDialogManager.hideProgressDialog();
         if (!task.isSuccessful()){
-            DialogManager.simpleDialog(this, "FAIL", task.getException().getMessage(), new DialogManager.DialogTappListner() {
+            DialogManager.simpleDialog(this, "FAIL", task.getException().getMessage(), new DialogManager.DialogTappListener() {
                 @Override
                 public void okButtonTapped() {
-                    // dismiss
+
                 }
             });
         } else {

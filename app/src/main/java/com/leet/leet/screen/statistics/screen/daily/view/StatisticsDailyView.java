@@ -6,6 +6,20 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.github.mikephil.charting.charts.BarChart;
+import com.github.mikephil.charting.components.XAxis;
+import com.github.mikephil.charting.data.BarData;
+import com.github.mikephil.charting.data.BarDataSet;
+import com.github.mikephil.charting.data.BarEntry;
+import com.github.mikephil.charting.formatter.IndexAxisValueFormatter;
+import com.github.mikephil.charting.utils.ColorTemplate;
+import com.leet.leet.R;
+
+import java.util.ArrayList;
+import java.util.List;
+
+/**
+ * Created by YasuhiraChiba on 2017/11/05.
+import com.github.mikephil.charting.charts.BarChart;
 
 import com.github.mikephil.charting.components.XAxis;
 import com.github.mikephil.charting.data.BarEntry;

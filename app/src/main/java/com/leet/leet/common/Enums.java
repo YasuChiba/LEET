@@ -41,6 +41,19 @@ public class Enums {
         public String getString() {
             return this.text;
         }
+
+        public int getIndex() {
+            if(this.text == "breakfastMenu") {
+                return 0;
+            } else if(this.text == "lunchMenu") {
+                return 1;
+            } else if(this.text == "dinnerMenu") {
+                return 2;
+            } else {
+                return -1;
+            }
+
+        }
     }
 
     public enum UserDataItem {
@@ -72,6 +85,19 @@ public class Enums {
             return this.text;
         }
 
+    }
+    public enum UserProfile{
+        goals("goals"),
+        info("info");
+
+        private final String text;
+        private UserProfile(final String text) {
+            this.text = text;
+        }
+
+        public String getString() {
+            return this.text;
+        }
     }
 
     public enum Week {

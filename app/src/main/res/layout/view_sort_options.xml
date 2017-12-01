@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/filter_sorting_image"
+    android:orientation="vertical">
+
+
+    <TextView
+        android:id="@+id/title_sort_options"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:text="@string/sorting_title"
+        android:textSize="36sp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:id="@+id/first_column"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight=".33"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/criteria_label"
+                android:layout_width="match_parent"
+                android:layout_height="62dp"
+                android:layout_weight="0.14"
+                android:gravity="center_horizontal"
+                android:text="@string/criteria_title"
+                android:textSize="24sp" />
+
+            <TextView
+                android:id="@+id/price_label"
+                android:layout_width="match_parent"
+                android:layout_height="69dp"
+                android:layout_weight=".14"
+                android:gravity="center_horizontal"
+                android:text="@string/price_title"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/calorie_label"
+                android:layout_width="match_parent"
+                android:layout_height="67dp"
+                android:layout_weight=".14"
+                android:gravity="center_horizontal"
+                android:text="@string/calories_title"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/carbs_label"
+                android:layout_width="match_parent"
+                android:layout_height="72dp"
+                android:layout_weight=".14"
+                android:gravity="center_horizontal"
+                android:text="@string/carb_title"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/fat_label"
+                android:layout_width="match_parent"
+                android:layout_height="63dp"
+                android:layout_weight=".14"
+                android:gravity="center_horizontal"
+                android:text="@string/fat_title"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/protein_label"
+                android:layout_width="match_parent"
+                android:layout_height="63dp"
+                android:layout_weight="0.42"
+                android:gravity="center_horizontal"
+                android:text="@string/protein_title"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/sugar_label"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="4.22"
+                android:gravity="center_horizontal"
+                android:text="Sugar:"
+                android:textSize="20sp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/second_column"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight=".33"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/min_label"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight=".16"
+                android:gravity="center_horizontal"
+                android:text="@string/minimum_title"
+                android:textSize="24sp" />
+
+            <EditText
+                android:id="@+id/price_min"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight=".16"
+                android:ems="10"
+                android:gravity="center_horizontal"
+                android:inputType="numberDecimal"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/calories_min"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight=".16"
+                android:ems="10"
+                android:gravity="center_horizontal"
+                android:inputType="numberDecimal"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/carbs_min"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight=".16"
+                android:ems="10"
+                android:gravity="center_horizontal"
+                android:inputType="numberDecimal"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/fat_min"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight=".16"
+                android:ems="10"
+                android:gravity="center_horizontal"
+                android:inputType="numberDecimal"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/protein_min"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight=".16"
+                android:ems="10"
+                android:gravity="center_horizontal"
+                android:inputType="numberDecimal"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/sugar_min"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight=".16"
+                android:ems="10"
+                android:gravity="center_horizontal"
+                android:inputType="numberDecimal"
+                android:textSize="20sp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/third_column"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight=".33"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/maximum_label"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight=".16"
+                android:gravity="center_horizontal"
+                android:text="@string/maximum_title"
+                android:textSize="24sp" />
+
+            <EditText
+                android:id="@+id/price_max"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight=".16"
+                android:ems="10"
+                android:gravity="center_horizontal"
+                android:inputType="numberDecimal"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/calories_max"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight=".16"
+                android:ems="10"
+                android:gravity="center_horizontal"
+                android:inputType="numberDecimal"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/carbs_max"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight=".16"
+                android:ems="10"
+                android:gravity="center_horizontal"
+                android:inputType="numberDecimal"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/fat_max"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight=".16"
+                android:ems="10"
+                android:gravity="center_horizontal"
+                android:inputType="numberDecimal"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/protein_max"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight=".16"
+                android:ems="10"
+                android:gravity="center_horizontal"
+                android:inputType="numberDecimal"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/sugar_max"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight=".16"
+                android:ems="10"
+                android:gravity="center_horizontal"
+                android:inputType="numberDecimal"
+                android:textSize="20sp" />
+
+        </LinearLayout>
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/sortButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:text="Sort" />
+
+
+</LinearLayout>

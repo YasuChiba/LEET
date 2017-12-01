@@ -6,8 +6,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.View;
 import android.widget.Toast;
-
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -16,11 +16,16 @@ import com.leet.leet.screen.login.controller.LoginActivity;
 import com.leet.leet.screen.main.controller.MainActivity;
 import com.leet.leet.screen.start.model.StartModel;
 import com.leet.leet.screen.start.view.StartView;
+import com.leet.leet.utils.DateHelper;
 import com.leet.leet.utils.authentication.FirebaseAuthCallback;
 import com.leet.leet.utils.authentication.FirebaseAuthHelper;
 import com.leet.leet.utils.authentication.FirebaseAuthManager;
 
-public class StartActivity extends AppCompatActivity {
+import org.joda.time.LocalDate;
+
+public class
+
+StartActivity extends AppCompatActivity {
 
     private StartView mView;
     private StartModel mModel;
@@ -55,4 +60,5 @@ public class StartActivity extends AppCompatActivity {
             startActivity(intent);
         }
     }
+
 }

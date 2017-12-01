@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@android:color/white">
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="20dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="8dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/statistics_weekly_row_week_tv">
+
+            <LinearLayout
+                android:id="@+id/statistics_weekly_row_price_ll"
+                android:layout_width="wrap_content"
+                android:layout_height="20dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginStart="20dp"
+                android:layout_weight="1"
+                android:orientation="horizontal"
+                app:layout_constraintLeft_toLeftOf="parent"
+                tools:layout_editor_absoluteY="81dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="left|center"
+                    android:gravity="left|center"
+                    android:text="price" />
+
+                <Space
+                    android:layout_width="3dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1" />
+
+                <ImageView
+                    android:id="@+id/statistics_weekly_list_row_price_icon"
+                    android:layout_width="10dp"
+                    android:layout_height="10dp"
+                    android:layout_gravity="center_vertical"
+                    app:srcCompat="@mipmap/down_arrow_green" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/statistics_weekly_row_cal_ll"
+                android:layout_toRightOf="@id/statistics_weekly_row_price_ll"
+                android:layout_width="wrap_content"
+                android:layout_height="20dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginStart="20dp"
+                android:layout_weight="1"
+                android:orientation="horizontal"
+                app:layout_constraintLeft_toLeftOf="parent"
+                tools:layout_editor_absoluteY="81dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="left|center"
+                    android:gravity="left|center"
+                    android:text="cal" />
+
+                <Space
+                    android:layout_width="3dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1" />
+
+                <ImageView
+                    android:id="@+id/statistics_weekly_list_row_cal_icon"
+                    android:layout_width="10dp"
+                    android:layout_height="10dp"
+                    android:layout_gravity="center_vertical"
+                    app:srcCompat="@mipmap/down_arrow_green" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/statistics_weekly_row_prot_ll"
+                android:layout_toRightOf="@id/statistics_weekly_row_cal_ll"
+                android:layout_width="wrap_content"
+                android:layout_height="20dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginStart="20dp"
+                android:layout_weight="1"
+                android:orientation="horizontal"
+                app:layout_constraintLeft_toLeftOf="parent"
+                tools:layout_editor_absoluteY="81dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="left|center"
+                    android:gravity="left|center"
+                    android:text="prot" />
+
+                <Space
+                    android:layout_width="3dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1" />
+
+                <ImageView
+                    android:id="@+id/statistics_weekly_list_row_prot_icon"
+                    android:layout_width="10dp"
+                    android:layout_height="10dp"
+                    android:layout_gravity="center_vertical"
+                    app:srcCompat="@mipmap/down_arrow_green" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/statistics_weekly_row_fat_ll"
+                android:layout_toRightOf="@id/statistics_weekly_row_prot_ll"
+                android:layout_width="wrap_content"
+                android:layout_height="20dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginStart="20dp"
+                android:layout_weight="1"
+                android:orientation="horizontal"
+                app:layout_constraintLeft_toLeftOf="parent"
+                tools:layout_editor_absoluteY="81dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="left|center"
+                    android:gravity="left|center"
+                    android:text="fat" />
+
+                <Space
+                    android:layout_width="3dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1" />
+
+                <ImageView
+                    android:id="@+id/statistics_weekly_list_row_fat_icon"
+                    android:layout_width="10dp"
+                    android:layout_height="10dp"
+                    android:layout_gravity="center_vertical"
+                    app:srcCompat="@mipmap/down_arrow_green" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/statistics_weekly_row_carbs_ll"
+                android:layout_toRightOf="@id/statistics_weekly_row_fat_ll"
+                android:layout_width="wrap_content"
+                android:layout_height="20dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginStart="20dp"
+                android:layout_weight="1"
+                android:orientation="horizontal"
+                app:layout_constraintLeft_toLeftOf="parent"
+                tools:layout_editor_absoluteY="81dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="left|center"
+                    android:gravity="left|center"
+                    android:text="carbs" />
+
+                <Space
+                    android:layout_width="3dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1" />
+
+                <ImageView
+                    android:id="@+id/statistics_weekly_list_row_carbs_icon"
+                    android:layout_width="10dp"
+                    android:layout_height="10dp"
+                    android:layout_gravity="center_vertical"
+                    app:srcCompat="@mipmap/down_arrow_green" />
+
+            </LinearLayout>
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/statistics_weekly_row_week_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_weight="1"
+            android:autoText="false"
+            android:text="TextView"
+            android:textColor="@color/common_google_signin_btn_text_dark_focused"
+            android:textSize="18sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </android.support.constraint.ConstraintLayout>
+
+
+</LinearLayout>
+
