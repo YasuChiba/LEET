@@ -18,6 +18,8 @@ import com.leet.leet.screen.statistics.screen.daily.view.StatisticsDailyView;
 import com.leet.leet.screen.statistics.screen.daily.view.StatisticsDailyViewInterface;
 import com.leet.leet.screen.statistics.view.StatisticsView;
 
+import org.joda.time.LocalDate;
+
 import java.util.ArrayList;
 
 /**
@@ -29,11 +31,15 @@ public class StatisticsDailyFragment extends Fragment {
     StatisticsDailyView mView;
     StatisticsDailyModel mModel;
 
+    public void setupFragment(LocalDate date) {
+        mModel = new StatisticsDailyModel();
+        mModel.setDate(date);
+    }
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        mModel = new StatisticsDailyModel();
         mView = new StatisticsDailyView(inflater,container);
 
         return mView.getRootView();

@@ -13,16 +13,19 @@ import com.leet.leet.screen.account.model.AccountModel;
 import com.leet.leet.screen.account.view.AccountView;
 import com.leet.leet.screen.statistics.model.StatisticsModel;
 import com.leet.leet.screen.statistics.screen.daily.controller.StatisticsDailyFragment;
+import com.leet.leet.screen.statistics.screen.weekly.StatisticsWeeklyInterface;
 import com.leet.leet.screen.statistics.screen.weekly.controller.StatisticsWeeklyFragment;
 import com.leet.leet.screen.statistics.view.StatisticsView;
 import com.leet.leet.screen.statistics.view.StatisticsViewInterface;
+
+import org.joda.time.LocalDate;
 
 /**
  * Created by YasuhiraChiba on 2017/11/05.
  */
 
 
-public class StatisticsFragment extends Fragment implements StatisticsViewInterface.StatisticsViewListener {
+public class StatisticsFragment extends Fragment implements StatisticsViewInterface.StatisticsViewListener,StatisticsWeeklyInterface {
 
     public enum StatisticsContent {
         Daily,
@@ -44,6 +47,7 @@ public class StatisticsFragment extends Fragment implements StatisticsViewInterf
 
         dailyFragment = new StatisticsDailyFragment();
         weeklyFragment = new StatisticsWeeklyFragment();
+        weeklyFragment.setupFragment(this);
         mView.setContent(getChildFragmentManager(),weeklyFragment);
 
         return mView.getRootView();
@@ -61,5 +65,12 @@ public class StatisticsFragment extends Fragment implements StatisticsViewInterf
                 mView.setContent(getChildFragmentManager(),weeklyFragment);
                 break;
         }
+    }
+
+    @Override
+    public void changeToDaily(LocalDate date) {
+        dailyFragment = new StatisticsDailyFragment();
+        dailyFragment.setupFragment(date);
+        mView.setContent(getChildFragmentManager(),dailyFragment);
     }
 }

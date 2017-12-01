@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import com.leet.leet.common.Enums;
 import com.leet.leet.screen.statistics.model.StatisticsModel;
 import com.leet.leet.screen.statistics.screen.daily.controller.StatisticsDailyFragment;
+import com.leet.leet.screen.statistics.screen.weekly.StatisticsWeeklyInterface;
 import com.leet.leet.screen.statistics.screen.weekly.model.StatisticsWeeklyModel;
 import com.leet.leet.screen.statistics.screen.weekly.view.StatisticsWeeklyView;
 import com.leet.leet.screen.statistics.view.StatisticsView;
@@ -28,6 +29,12 @@ public class StatisticsWeeklyFragment extends Fragment implements StatisticsWeek
 
     StatisticsWeeklyView mView;
     StatisticsWeeklyModel mModel;
+
+    StatisticsWeeklyInterface mListener;
+
+    public void setupFragment(StatisticsWeeklyInterface listner) {
+        this.mListener = listner;
+    }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -88,6 +95,7 @@ public class StatisticsWeeklyFragment extends Fragment implements StatisticsWeek
 
     @Override
     public void listElementTap(int index) {
+        mListener.changeToDaily(mModel.getDayList().get(index));
         //do something to move to daily view
     }
 }

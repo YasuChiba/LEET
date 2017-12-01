@@ -181,14 +181,17 @@ public class FirebaseDBUserDataHelper {
 
                             for(DataSnapshot menuTimeSnap : dateSnap.child(Enums.MealTime.Breakfast.getString()).getChildren()){
                                 MenuEntity ent = menuTimeSnap.getValue(MenuEntity.class);
+                                ent.setKey(menuTimeSnap.getKey());
                                 breakfast.add(ent);
                             }
                             for(DataSnapshot menuTimeSnap : dateSnap.child(Enums.MealTime.Lunch.getString()).getChildren()){
                                 MenuEntity ent = menuTimeSnap.getValue(MenuEntity.class);
+                                ent.setKey(menuTimeSnap.getKey());
                                 lunch.add(ent);
                             }
                             for(DataSnapshot menuTimeSnap : dateSnap.child(Enums.MealTime.Dinner.getString()).getChildren()){
                                 MenuEntity ent = menuTimeSnap.getValue(MenuEntity.class);
+                                ent.setKey(menuTimeSnap.getKey());
                                 dinner.add(ent);
                             }
 
@@ -220,6 +223,15 @@ public class FirebaseDBUserDataHelper {
                 .setValue(menuEntity);
     }
 
+    public static void deleteStatisticsMenuData(LocalDate date, Enums.MealTime mealTime,String menuKey) {
+        mDatabaseRef.child(FirebaseAuthHelper.getUserId())
+                .child(Enums.UserDataItem.Statistics.getString())
+                .child("record")
+                .child(DateHelper.getStringByDate(date))
+                .child(mealTime.getString())
+                .child(menuKey)
+                .removeValue();
+    }
 
 
 }
