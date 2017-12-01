@@ -45,7 +45,6 @@ public class StatisticsFragment extends Fragment implements StatisticsViewInterf
         mModel = new StatisticsModel();
         mView = new StatisticsView(inflater,container,this);
 
-        dailyFragment = new StatisticsDailyFragment();
         weeklyFragment = new StatisticsWeeklyFragment();
         weeklyFragment.setupFragment(this);
         mView.setContent(getChildFragmentManager(),weeklyFragment);
@@ -53,24 +52,10 @@ public class StatisticsFragment extends Fragment implements StatisticsViewInterf
         return mView.getRootView();
     }
 
-
-    @Override
-    public void contentChange(StatisticsContent content) {
-        Log.d("","content changing     " + content.name());
-        switch(content) {
-            case Daily:
-                mView.setContent(getChildFragmentManager(),dailyFragment);
-                break;
-            case Weekly:
-                mView.setContent(getChildFragmentManager(),weeklyFragment);
-                break;
-        }
-    }
-
     @Override
     public void changeToDaily(LocalDate date) {
         dailyFragment = new StatisticsDailyFragment();
         dailyFragment.setupFragment(date);
-        mView.setContent(getChildFragmentManager(),dailyFragment);
+        mView.setContent(getFragmentManager(),dailyFragment);
     }
 }

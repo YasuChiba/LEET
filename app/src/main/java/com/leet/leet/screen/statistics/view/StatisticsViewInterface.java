@@ -10,6 +10,5 @@ import com.leet.leet.screen.statistics.controller.StatisticsFragment;
 public interface StatisticsViewInterface extends ViewBaseInterface {
 
     interface StatisticsViewListener {
-        void contentChange(StatisticsFragment.StatisticsContent content);
     }
 }

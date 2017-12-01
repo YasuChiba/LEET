@@ -44,6 +44,4 @@ public class StatisticsDailyFragment extends Fragment {
 
         return mView.getRootView();
     }
-
-
 }
