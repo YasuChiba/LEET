@@ -3,6 +3,7 @@ package com.leet.leet.utils.authentication;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 /**
  * Created by YasuhiraChiba on 2017/10/31.
@@ -42,6 +43,14 @@ public class FirebaseAuthManager {
         } else {
             FirebaseAuth.getInstance().signInAnonymously();
         }
+    }
+
+    /**
+     * check if current user is guest or not
+     */
+    public static boolean isGuest() {
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        return (user == null || user.isAnonymous());
     }
 
     public static void logout() {

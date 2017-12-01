@@ -11,16 +11,20 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.leet.leet.R;
 import com.leet.leet.screen.login.controller.LoginActivity;
 import com.leet.leet.screen.profile.model.ProfileModel;
 import com.leet.leet.screen.profile.view.ProfileView;
 import com.leet.leet.screen.profile.view.ProfileViewInterface;
+import com.leet.leet.screen.signup.controller.SignupActivity;
 import com.leet.leet.utils.database.FirebaseDBCallaback;
 import com.leet.leet.utils.database.entities.user.UserGoalEntity;
 import com.leet.leet.utils.database.entities.user.UserInfoEntity;
 import com.leet.leet.utils.database.entities.user.UserProfileEntity;
+
+import static com.leet.leet.utils.authentication.FirebaseAuthManager.isGuest;
 
 /**
  * Created by YasuhiraChiba on 2017/11/05.
@@ -45,14 +49,15 @@ public class ProfileFragment extends Fragment implements ProfileViewInterface.Pr
                 mView.setInitialData(data);
             }
         });
+
         return mView.getRootView();
     }
 
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
-        if(mView.getRootView().getGlobalVisibleRect(new Rect())) {
+        //if(mView.getRootView().getGlobalVisibleRect(new Rect())) {
             inflater.inflate(R.menu.profile_view_menu, menu);
-        }
+        //}
 
         super.onCreateOptionsMenu(menu,inflater);
     }

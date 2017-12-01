@@ -1,11 +1,19 @@
 package com.leet.leet.screen.main.controller;
 
+import android.content.Intent;
+import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
+import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
+import android.view.View;
+import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.leet.leet.R;
 import com.leet.leet.screen.account.controller.AccountFragment;
@@ -27,6 +35,9 @@ import com.leet.leet.screen.start.controller.StartActivity;
 import com.leet.leet.utils.authentication.FirebaseAuthManager;
 import com.leet.leet.utils.database.FirebaseDBUserDataHelper;
 
+import static com.leet.leet.utils.authentication.FirebaseAuthManager.isGuest;
+import static java.security.AccessController.getContext;
+
 
 public class MainActivity extends AppCompatActivity {
 
@@ -46,6 +57,7 @@ public class MainActivity extends AppCompatActivity {
         Fragment[] fragments = new Fragment[3];
         MealFragment mealFragment = new MealFragment();
         ProfileFragment profileFragment = new ProfileFragment();
+
         fragments[0] = profileFragment;
         fragments[1] = mealFragment;
         fragments[2] = new StatisticsFragment();
@@ -55,10 +67,47 @@ public class MainActivity extends AppCompatActivity {
 
         setContentView(mView.getRootView());
 
-        invalidateOptionsMenu();
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        invalidateOptionsMenu();
         setSupportActionBar(toolbar);
+
+        if (isGuest()) {
+            TabLayout tabLayout = (TabLayout) findViewById(R.id.tab_layout);
+            LinearLayout tab = (LinearLayout) tabLayout.getChildAt(0);
+            for (int i = 0; i < tab.getChildCount(); i++) {
+                // disable the tabs
+                //tab.getChildAt(i).setClickable(false);
+                //tab.getChildAt(i).setEnabled(false);
+            }
+            tabLayout.setOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
+                @Override
+                public void onTabSelected(TabLayout.Tab tab) {
+                    // when user click on "profile" or "statistics" tab
+                    // it will go to a new page ask user to login or signup
+                    if (tab.getPosition() == 0 || tab.getPosition() == 2) {
+                        Toast.makeText(getApplicationContext(), "Please login first", Toast.LENGTH_SHORT).show();
+                        gotoSignup();
+                    }
+                }
+
+                @Override
+                public void onTabUnselected(TabLayout.Tab tab) {
+
+                }
+
+                @Override
+                public void onTabReselected(TabLayout.Tab tab) {
+
+                }
+            });
+            //Toast.makeText(this, "Please login first", Toast.LENGTH_SHORT).show();
+        }
     }
+
+    private void gotoSignup() {
+        startActivity(new Intent(this, SignupActivity.class));
+    }
+
 
 /*
     @Override
