@@ -71,55 +71,19 @@ public class MainActivity extends AppCompatActivity implements MainViewInterface
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         invalidateOptionsMenu();
         setSupportActionBar(toolbar);
-
-        //TODO do user status check in stats page -Yasu
-        /*
-        if (isGuest()) {
-            TabLayout tabLayout = (TabLayout) findViewById(R.id.tab_layout);
-            LinearLayout tab = (LinearLayout) tabLayout.getChildAt(0);
-            for (int i = 0; i < tab.getChildCount(); i++) {
-                // disable the tabs
-                //tab.getChildAt(i).setClickable(false);
-                //tab.getChildAt(i).setEnabled(false);
-            }
-            tabLayout.setOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
-                @Override
-                public void onTabSelected(TabLayout.Tab tab) {
-                    // when user click on "profile" or "statistics" tab
-                    // it will go to a new page ask user to login or signup
-                    if (tab.getPosition() == 0 || tab.getPosition() == 2) {
-                        Toast.makeText(getApplicationContext(), "Please login first", Toast.LENGTH_SHORT).show();
-                        gotoSignup();
-                    }
-                }
-
-                @Override
-                public void onTabUnselected(TabLayout.Tab tab) {
-
-                }
-
-                @Override
-                public void onTabReselected(TabLayout.Tab tab) {
-
-                }
-            });
-            //Toast.makeText(this, "Please login first", Toast.LENGTH_SHORT).show();
-        }
-        */
     }
 
-
-    /*
     private void gotoSignup() {
         startActivity(new Intent(this, SignupActivity.class));
     }
-    */
-
 
 
     @Override
     public void tabChanged(int position) {
-
+        if (FirebaseAuthManager.isGuest() && (position == 0 ||position == 2)) {
+            Toast.makeText(getApplicationContext(), "Please login first", Toast.LENGTH_SHORT).show();
+            gotoSignup();
+        }
     }
 
 }
