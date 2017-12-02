@@ -5,6 +5,7 @@ import android.graphics.Rect;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -31,7 +32,7 @@ public class ProfileFragment extends Fragment implements ProfileViewInterface.Pr
     private ProfileViewInterface mView;
     private ProfileModel mModel;
     private boolean inProfile = false;
-
+    private Menu menu;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -50,9 +51,11 @@ public class ProfileFragment extends Fragment implements ProfileViewInterface.Pr
 
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
-        if(mView.getRootView().getGlobalVisibleRect(new Rect())) {
+        //if(mView.getRootView().getGlobalVisibleRect(new Rect())) {
+            Log.d("asd", "TEST LOG");
             inflater.inflate(R.menu.profile_view_menu, menu);
-        }
+            this.menu = menu;
+        //}
 
         super.onCreateOptionsMenu(menu,inflater);
     }
