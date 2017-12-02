@@ -95,7 +95,7 @@ public class StatisticsWeeklyFragment extends Fragment implements StatisticsWeek
 
     @Override
     public void listElementTap(int index) {
-        mListener.changeToDaily(mModel.getDayList().get(index));
+        mListener.changeToDaily(mModel.getDayList().get(mModel.getDayList().size() - index));
         //do something to move to daily view
     }
 }
