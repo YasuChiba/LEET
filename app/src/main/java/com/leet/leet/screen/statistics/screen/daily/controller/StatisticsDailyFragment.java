@@ -17,6 +17,7 @@ import com.leet.leet.screen.statistics.screen.daily.model.StatisticsDailyModel;
 import com.leet.leet.screen.statistics.screen.daily.view.StatisticsDailyView;
 import com.leet.leet.screen.statistics.screen.daily.view.StatisticsDailyViewInterface;
 import com.leet.leet.screen.statistics.view.StatisticsView;
+import com.leet.leet.utils.database.FirebaseDBCallaback;
 
 import org.joda.time.LocalDate;
 
@@ -39,9 +40,32 @@ public class StatisticsDailyFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-
         mView = new StatisticsDailyView(inflater,container);
 
+        mModel.getUserGoal(new FirebaseDBCallaback<Boolean>() {
+            @Override
+            public void getData(Boolean data) {
+                mModel.getStatisticsData(new FirebaseDBCallaback<Boolean>() {
+                    @Override
+                    public void getData(Boolean success) {
+                        mView.setDataToGraph(StatisticsDailyModel.getPrice_B(),
+                                StatisticsDailyModel.getPrice_L(),
+                                StatisticsDailyModel.getPrice_D(),
+                                             StatisticsDailyModel.getCalorie(),
+                                             StatisticsDailyModel.getCarbs(),
+                                             StatisticsDailyModel.getFat(),
+                                             StatisticsDailyModel.getProtein()
+                                             );
+                    }
+                });
+            }
+
+
+        });
+
+
         return mView.getRootView();
+
     }
 }
+

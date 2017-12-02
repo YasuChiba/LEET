@@ -1,6 +1,7 @@
 package com.leet.leet.screen.statistics.screen.daily.view;
 
 //import android.support.v4.content.ContextCompat;
+import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,8 +12,10 @@ import com.github.mikephil.charting.data.BarData;
 import com.github.mikephil.charting.data.BarDataSet;
 import com.github.mikephil.charting.data.BarEntry;
 import com.github.mikephil.charting.formatter.IndexAxisValueFormatter;
+import com.github.mikephil.charting.interfaces.datasets.IBarDataSet;
 import com.github.mikephil.charting.utils.ColorTemplate;
 import com.leet.leet.R;
+import com.leet.leet.screen.statistics.screen.daily.model.StatisticsDailyModel;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -65,60 +68,121 @@ public class StatisticsDailyView implements StatisticsDailyViewInterface {
         //remove bottomright corner description text
         graphView.getDescription().setEnabled(false);
 
+
         //X-Axis labels
         ArrayList<String> labels = new ArrayList<>();
         labels.add("Cal");
         labels.add("Carb");
         labels.add("Fat");
         labels.add("Protein");
-        labels.add("Sugar");
         labels.add("Price");
 
+        //center the bars at each labels
+        XAxis xAxis = graphView.getXAxis();
+        xAxis.setCenterAxisLabels(true);
         graphView.getXAxis().setValueFormatter(new IndexAxisValueFormatter(labels));
         graphView.getXAxis().setPosition(XAxis.XAxisPosition.BOTTOM_INSIDE );
 
+    }
+
+    public void setDataToGraph(float price_B, float price_L, float price_D,
+                               float[] calories,
+                               float[] carbs,
+                               float[] fat,
+                               float[] protein
+                               ) {
+
+
         //data input
-        List<BarEntry> entries_intakes = new ArrayList<>();
+        ArrayList<BarEntry> entries_intakes = new ArrayList<BarEntry>();
         List<BarEntry> entries_goals = new ArrayList<>();
 
-        entries_intakes.add(new BarEntry(0f, getCal()));
+        float breakfast = 5;
+        float lunch;
+        lunch = price_L;
+        float dinner = 4;
+        float[] price_value = new float[]{breakfast, lunch, dinner};
+
+        entries_intakes.add(new BarEntry(0f, calories));
         entries_intakes.add(new BarEntry(1f, getCarb()));
-        entries_intakes.add(new BarEntry(2f, getFat()));
-        entries_intakes.add(new BarEntry(3f, getProtein()));
-        entries_intakes.add(new BarEntry(4f, getSugar()));
-        entries_intakes.add(new BarEntry(5f, getPrice()));
+        entries_intakes.add(new BarEntry(2f, fat));
+        entries_intakes.add(new BarEntry(3f, protein));
+        entries_intakes.add(new BarEntry(4f, price_value));
 
         entries_goals.add(new BarEntry(0f, getCalGoal()));
         entries_goals.add(new BarEntry(1f, getCarbGoal()));
         entries_goals.add(new BarEntry(2f, getFatGoal()));
         entries_goals.add(new BarEntry(3f, getProteinGoal()));
-        entries_goals.add(new BarEntry(4f, getSugarGoal()));
-        entries_goals.add(new BarEntry(5f, getPriceGoal()));
+        entries_goals.add(new BarEntry(4f, getPriceGoal()));
 
-        BarDataSet set1 = new BarDataSet(entries_intakes, "");
-        BarDataSet set2 = new BarDataSet(entries_goals, "Daily Goal");
+
+        //BarDataSet set1 = new BarDataSet(entries_intakes, "");
+        //BarDataSet set2 = new BarDataSet(entries_goals, "Daily Goal");
+
+        BarDataSet set1;
+        BarDataSet set2 = null;
+
+        if (graphView.getData() != null &&
+                graphView.getData().getDataSetCount() > 0) {
+            set1 = (BarDataSet) graphView.getData().getDataSetByIndex(0);
+            set1.setValues(entries_intakes);
+            graphView.getData().notifyDataChanged();
+            graphView.notifyDataSetChanged();
+        } else {
+            set1 = new BarDataSet(entries_intakes, "");
+            set1.setDrawIcons(false);
+            set1.setColors(getColors());
+            set1.setStackLabels(new String[]{"Breakfast", "Lunch", "Dinner"});
+            set2 = new BarDataSet(entries_goals, "Daily Goal");
+
+            ArrayList<IBarDataSet> dataSets = new ArrayList<IBarDataSet>();
+            dataSets.add(set1);
+
+            BarData data = new BarData(dataSets);
+            data.setValueTextColor(Color.BLACK);
+
+            graphView.setData(data);
+        }
 
         //bar size, colors, space between two bars and two variables
         set1.setColors(getColors());
-        set1.setStackLabels(new String[]{"Breakfast", "Lunch", "Dinner"});
+        //set1.setStackLabels(new String[]{"Breakfast", "Lunch", "Dinner"});
         set2.setColors(R.color.colorPrimary);
         float groupSpace = 0.08f;
         float barSpace = 0.02f;
         float barWidth = 0.40f;
 
+        //set1 = (BarDataSet) graphView.getData().getDataSetByIndex(0);
+        set1.setValues(entries_intakes);
         //setting the data into the graph
         BarData data = new BarData(set1, set2);
         data.setBarWidth(barWidth);
 
-        //center the bars at each labels
-        XAxis xAxis = graphView.getXAxis();
-        xAxis.setCenterAxisLabels(true);
         graphView.setData(data);
 
         //grouped bar
         graphView.groupBars(0f, groupSpace, barSpace);
+
+        graphView.setFitBars(true);
         graphView.invalidate(); // refresh
     }
+
+    //Color setting for stacked bars
+    private int[] getColors() {
+        int stacksize = 3;
+
+        int[] colors = new int[stacksize];
+
+        for (int i = 0; i < colors.length; i++) {
+            colors[i] = ColorTemplate.MATERIAL_COLORS[i];
+        }
+
+        return colors;
+    }
+
+
+
+
 
     //Setting intake values of graph
     //Hard Coded numbers will be replaced by received values from database
@@ -197,24 +261,6 @@ public class StatisticsDailyView implements StatisticsDailyViewInterface {
         }
     }
 
-    //Sugar intake & goals
-    private float[] getSugar() {
-        //need to divide by 10
-        float breakfast = 1;
-        float lunch = 2;
-        float dinner = 2;
-        float[] total = new float[] {breakfast, lunch, dinner};
-        return total;
-    }
-    private float getSugarGoal() {
-        float goal = 0;
-        if(goal == 0) {
-            return 9f;
-        }
-        else {
-            return goal / 10;
-        }
-    }
     //Price spent & goals
     float breakfast = 2;
     private float[] getPrice() {
@@ -227,20 +273,6 @@ public class StatisticsDailyView implements StatisticsDailyViewInterface {
         float goal = 0;
         return goal;
     }
-
-    //Color setting for stacked bars
-    private int[] getColors() {
-        int stacksize = 3;
-
-        int[] colors = new int[stacksize];
-
-        for (int i = 0; i < colors.length; i++) {
-            colors[i] = ColorTemplate.MATERIAL_COLORS[i];
-        }
-
-        return colors;
-    }
-
 
 
     @Override
