@@ -73,8 +73,8 @@ public class MealSortDialogFragment extends DialogFragment implements DialogInte
                 cholesterol_Range, fiber_Range, sugar_Range);
 
         builder.setView(mView.getRootView())
-                .setTitle("Fragment Dialog")
-                .setPositiveButton("OK", this)
+                .setTitle("Filter")
+                .setPositiveButton("Apply", this)
                 .setNegativeButton("Cancel",this);
 
 

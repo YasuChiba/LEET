@@ -12,7 +12,7 @@
         android:layout_weight="0.05"
         android:gravity="center_horizontal"
         android:text="Text"
-        android:textColor="@color/LEET_RED"
+        android:textColor="@color/LEET_LABEL"
         android:textSize="36sp" />
 
     <LinearLayout
@@ -27,6 +27,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight=".66"
+            android:fontFamily="segoe"
             android:gravity="center_vertical|center_horizontal"
             android:text="Price"
             android:textColor="@color/LEET_RED"
@@ -345,8 +346,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="0.05"
-        android:background="@color/LEET_UNDERLINES"
+        android:background="@color/LEET_BACKGROUND"
+        android:fontFamily="Segoe "
         android:text="Add Meal"
-        android:textColor="@color/LEET_RED" />
+        android:textColor="@color/LEET_BUTTON_TEXT"
+        android:textSize="20sp"
+        android:textStyle="bold" />
 
 </LinearLayout>
