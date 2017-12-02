@@ -36,7 +36,7 @@ public class StatisticsView implements StatisticsViewInterface {
         container = (FrameLayout)mRootView.findViewById(R.id.statistics_container);
     }
 
-    public void setContent(FragmentManager fragmentManager, Fragment fragment) {
+    public void setContent(FragmentManager fragmentManager, Fragment fragment, boolean isAddToStack) {
 
         FragmentTransaction ft = fragmentManager.beginTransaction();
         ft.setCustomAnimations(
@@ -44,7 +44,9 @@ public class StatisticsView implements StatisticsViewInterface {
                 R.anim.slide_in_left, R.anim.slide_out_right
         );
         ft.replace(R.id.statistics_container, fragment);
-        ft = ft.addToBackStack(null);
+        if(isAddToStack) {
+            ft = ft.addToBackStack(null);
+        }
         ft.commit();
     }
 

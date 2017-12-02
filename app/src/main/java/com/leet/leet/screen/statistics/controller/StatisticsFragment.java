@@ -47,7 +47,7 @@ public class StatisticsFragment extends Fragment implements StatisticsViewInterf
 
         weeklyFragment = new StatisticsWeeklyFragment();
         weeklyFragment.setupFragment(this);
-        mView.setContent(getChildFragmentManager(),weeklyFragment);
+        mView.setContent(getFragmentManager(),weeklyFragment,false);
 
         return mView.getRootView();
     }
@@ -56,6 +56,6 @@ public class StatisticsFragment extends Fragment implements StatisticsViewInterf
     public void changeToDaily(LocalDate date) {
         dailyFragment = new StatisticsDailyFragment();
         dailyFragment.setupFragment(date);
-        mView.setContent(getFragmentManager(),dailyFragment);
+        mView.setContent(getFragmentManager(),dailyFragment,true);
     }
 }
