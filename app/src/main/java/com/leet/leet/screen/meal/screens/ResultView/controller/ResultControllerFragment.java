@@ -35,6 +35,18 @@ public class ResultControllerFragment extends Fragment implements ResultViewInte
     boolean isVisible = false;
 
 
+    private int price_Range;
+    private int calorie_Range;
+    private int carbs_Range;
+    private int totalFat_Range;
+    private int satFat_Range;
+    private int protein_Range;
+    private int sodium_Range;
+    private int cholesterol_Range;
+    private int fiber_Range;
+    private int sugar_Range;
+
+
     //Since Fragment cannot implement constructor with our original arguments, we should create this kind of method
     public void setupFragment(Enums.RestaurantName restaurantName,MealResultListener listener) {
         model = new MealResultModel();
@@ -74,7 +86,9 @@ public class ResultControllerFragment extends Fragment implements ResultViewInte
         switch (item.getItemId()) {
             case R.id.menu_search:
                 MealSortDialogFragment dialogFragment = new MealSortDialogFragment();
-                dialogFragment.setupFragment(this);
+                //pass parameters for spinners here
+                dialogFragment.setupFragment(this, price_Range, calorie_Range,carbs_Range, totalFat_Range,
+                        satFat_Range, protein_Range, sodium_Range, cholesterol_Range, fiber_Range, sugar_Range);
                 dialogFragment.show(getFragmentManager(), "fragment_dialog");
                 break;
             case R.id.create_custom_meal:
@@ -107,8 +121,23 @@ public class ResultControllerFragment extends Fragment implements ResultViewInte
     }
 
     @Override
-    public void dialogOkButtonTap(int priceRange) {
-        model.sort(priceRange);
+    public void dialogOkButtonTap(int priceRange, int calorieRange, int proteinRange, int carbsRange,
+                                  int totFatRange, int satFatRange, int sodiumRange, int cholRange,
+                                  int fiberRange, int sugarRange) {
+        //record range values to eventually pass back
+        price_Range = priceRange;
+        calorie_Range = calorieRange;
+        protein_Range = proteinRange;
+        carbs_Range = carbsRange;
+        totalFat_Range = totFatRange;
+        satFat_Range = satFatRange;
+        sodium_Range = sodiumRange;
+        cholesterol_Range = cholRange;
+        fiber_Range = fiberRange;
+        sugar_Range = sugarRange;
+
+        model.sort(priceRange, calorieRange, proteinRange, carbsRange, totFatRange, satFatRange,
+                sodiumRange, cholRange, fiberRange, sugarRange);
         resultView.setupListView(model.getMenuEntityList());
     }
 }

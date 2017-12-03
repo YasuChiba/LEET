@@ -5,20 +5,6 @@
     android:layout_height="wrap_content"
     android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/statistcs_weekly_title"
-        android:layout_width="match_parent"
-        android:layout_height="32dp"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:text="WEEKLY GOAL"
-        android:textSize="25sp" />
-
     <com.github.mikephil.charting.charts.LineChart
         android:id="@+id/stats_weekly_graph"
         android:layout_width="match_parent"
@@ -38,18 +24,21 @@
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginStart="8dp"
-        android:orientation="horizontal"
-      >
+        android:orientation="horizontal">
 
         <Button
             android:id="@+id/statistics_weekly_calorie_bt"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:text="Cal" />
+            android:autoSizeMinTextSize="1dp"
+            android:elevation="24dp"
+            android:text="Cal"
+            android:theme="@style/ButtonDesign" />
 
         <Button
             android:id="@+id/statistics_weekly_price_bt"
+            android:theme="@style/ButtonDesign"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="1"
@@ -60,10 +49,12 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:text="Protein" />
+            android:text="Prot"
+            android:theme="@style/ButtonDesign" />
 
         <Button
             android:id="@+id/statistics_weekly_fats_bt"
+            android:theme="@style/ButtonDesign"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="1"
@@ -71,6 +62,7 @@
 
         <Button
             android:id="@+id/statistics_weekly_carbs_bt"
+            android:theme="@style/ButtonDesign"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="1"

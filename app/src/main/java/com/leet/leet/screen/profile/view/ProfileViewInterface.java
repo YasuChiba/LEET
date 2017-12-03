@@ -20,6 +20,7 @@ public interface ProfileViewInterface extends ViewBaseInterface {
         void saveInfoEntity(UserInfoEntity info);
         void saveGoalEntity(UserGoalEntity goal);
         void deleteAcc();
+        void setRecommended();
     }
     void setListener(ProfileViewListener listener);
 

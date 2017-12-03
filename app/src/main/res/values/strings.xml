@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">LEET</string>
+    <string name="app_name">Triton Meal Planner</string>
 
     <!-- Used in view_sort_options.xml -->
     <string name="sorting_title">Sorting Options</string>
@@ -28,13 +28,83 @@
     <string name="Inches">Inches</string>
     <string name="Recommended">Recommended</string>
     <string name="Save">Save</string>
+    <string name="Edit">Edit</string>
     <string name="editProfile">Profile</string>
     <string name="editGoals">Goals</string>
     <string name="logout">logout</string>
     <string name="Age">Age</string>
     <string name="Gender">Gender</string>
 
+    <!-- Used in dialog_view_meal_sort.xml -->
+    <string-array name = "priceArray">
+        <item>None</item>
+        <item>0-5</item>
+        <item>5-10</item>
+        <item>10-15</item>
+    </string-array>
 
+    <string-array name = "calorieArray">
+        <item>None</item>
+        <item>0-600</item>
+        <item>600-1200</item>
+        <item>1200-2000</item>
+    </string-array>
+
+    <string-array name = "proteinArray">
+        <item>None</item>
+        <item>0-5</item>
+        <item>5-15</item>
+        <item>15-20</item>
+    </string-array>
+
+    <string-array name = "carbsArray">
+        <item>None</item>
+        <item>0-15</item>
+        <item>15-25</item>
+        <item>25-40</item>
+    </string-array>
+
+    <string-array name = "totFatArray">
+        <item>None</item>
+        <item>0-15</item>
+        <item>15-30</item>
+        <item>30-50</item>
+    </string-array>
+
+    <string-array name = "satFatArray">
+        <item>None</item>
+        <item>0-10</item>
+        <item>10-20</item>
+        <item>20-30</item>
+    </string-array>
+
+    <string-array name = "sodiumArray">
+        <item>None</item>
+        <item>0-600</item>
+        <item>600-1200</item>
+        <item>1200-2000</item>
+    </string-array>
+
+    <string-array name = "cholesterolArray">
+        <item>None</item>
+        <item>0-50</item>
+        <item>50-100</item>
+        <item>100-150</item>
+    </string-array>
+
+    <string-array name = "fiberArray">
+        <item>None</item>
+        <item>0-5</item>
+        <item>5-15</item>
+        <item>15-30</item>
+    </string-array>
+
+    <string-array name = "sugarArray">
+        <item>None</item>
+        <item>0-15</item>
+        <item>15-25</item>
+        <item>25-40</item>
+    </string-array>
 
 
     <string-array name="feet_array">
