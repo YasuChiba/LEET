@@ -87,5 +87,4 @@ public class AddCustomMealFragment extends Fragment implements CustomMealInterfa
         mView.setCholesterolVal("");
         mView.setFiberVal("");
     }
-
 } //end of class

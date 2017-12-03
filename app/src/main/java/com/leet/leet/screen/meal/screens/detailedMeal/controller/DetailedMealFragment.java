@@ -32,7 +32,6 @@ public class DetailedMealFragment extends Fragment implements DetailedMealInterf
     private DetailedMealView mView;
     private DetailedMealModel mModel;
 
-
     public void setupFragment(MenuEntity data){
         mModel = new DetailedMealModel();
         mModel.setMenuEntity(data);
@@ -93,6 +92,4 @@ public class DetailedMealFragment extends Fragment implements DetailedMealInterf
 
         Toast.makeText(getContext(), "Added Meal To History", Toast.LENGTH_SHORT).show();
     }
-
-
 }

@@ -57,6 +57,7 @@ public class ProfileFragment extends Fragment implements ProfileViewInterface.Pr
 
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        menu.clear();
         if(isScreenShow) {
             Log.d("asd", "TEST LOG");
             inflater.inflate(R.menu.profile_view_menu, menu);
@@ -64,7 +65,7 @@ public class ProfileFragment extends Fragment implements ProfileViewInterface.Pr
 
         }
 
-        super.onCreateOptionsMenu(menu,inflater);
+       // super.onCreateOptionsMenu(menu,inflater);
     }
 
     @Override
