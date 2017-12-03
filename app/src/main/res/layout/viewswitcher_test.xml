@@ -24,32 +24,21 @@
                 <RelativeLayout
                     android:id="@+id/relativeLayout"
                     android:layout_width="300dp"
-                    android:layout_height="75dp"
-                    android:layout_marginTop="14dp"
+                    android:layout_height="50dp"
                     android:layout_alignParentTop="true"
-                    android:layout_alignParentEnd="true">
-
-                    <Button
-                        android:id="@+id/goals_save"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentEnd="true"
-                        android:layout_centerVertical="true"
-                        android:layout_marginEnd="22dp"
-                        android:text="Edit" />
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="21dp">
 
                     <TextView
                         android:id="@+id/textView3"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_alignTop="@+id/goals_save"
-                        android:layout_centerInParent="true"
+                        android:layout_centerHorizontal="true"
+                        android:layout_centerVertical="true"
                         android:layout_gravity="center"
-                        android:layout_marginEnd="34dp"
-                        android:layout_toStartOf="@+id/goals_save"
-                        android:gravity="center_horizontal"
-                        android:text="My Goals"
-                        android:textSize="32dp"
+                        android:text="MY GOALS"
+                        android:textSize="24dp"
+                        android:textColor="#630E0E"
                         android:textStyle="bold"
                         tools:typeface="sans" />
                 </RelativeLayout>
@@ -57,7 +46,7 @@
                 <LinearLayout
                     android:id="@+id/linearLayout"
                     android:layout_width="345dp"
-                    android:layout_height="375dp"
+                    android:layout_height="450dp"
                     android:layout_below="@+id/relativeLayout"
                     android:layout_centerHorizontal="true"
                     android:background="@drawable/profile_border"
@@ -70,23 +59,26 @@
                     </RelativeLayout>
 
                     <RelativeLayout
-                        android:layout_width="300dp"
+                        android:layout_width="250dp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center">
 
                         <EditText
                             android:id="@+id/Price"
-                            android:layout_width="match_parent"
+                            android:layout_width="100dp"
                             android:layout_height="wrap_content"
-                            android:layout_alignParentStart="true"
+                            android:layout_alignParentRight="true"
                             android:layout_alignParentTop="true"
                             android:layout_marginTop="20dp"
-                            android:backgroundTint="@android:color/holo_orange_dark"
+                            android:backgroundTint="#cfcfcf"
                             android:ems="10"
                             android:gravity="right"
                             android:hint="Price Here"
                             android:inputType="number"
-                            android:maxLength="5">
+                            android:maxLength="4"
+                            android:textColor="#333333"
+                            android:textColorHint="#cfcfcf"
+                            android:textSize="18dp">
 
                             <requestFocus />
                         </EditText>
@@ -98,30 +90,35 @@
                             android:layout_alignBaseline="@+id/Price"
                             android:layout_alignBottom="@+id/Price"
                             android:layout_alignParentLeft="true"
+                            android:layout_alignParentStart="true"
                             android:text="@string/Price"
-                            android:textSize="20dp" />
+                            android:textColor="#FE4B4B"
+                            android:textSize="18dp" />
 
 
                     </RelativeLayout>
 
                     <RelativeLayout
-                        android:layout_width="300dp"
+                        android:layout_width="250dp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center">
 
                         <EditText
                             android:id="@+id/Calorie"
-                            android:layout_width="match_parent"
+                            android:layout_width="110dp"
                             android:layout_height="wrap_content"
-                            android:layout_alignParentStart="true"
+                            android:layout_alignParentRight="true"
                             android:layout_alignParentTop="true"
                             android:layout_marginTop="20dp"
-                            android:backgroundTint="@android:color/holo_orange_dark"
+                            android:backgroundTint="#cfcfcf"
                             android:ems="10"
                             android:gravity="right"
                             android:hint="Calorie Here"
                             android:inputType="number"
-                            android:maxLength="5">>
+                            android:maxLength="6"
+                            android:textColor="#333333"
+                            android:textColorHint="#cfcfcf"
+                            android:textSize="18dp">>
 
                             <requestFocus />
                         </EditText>
@@ -133,30 +130,35 @@
                             android:layout_alignBaseline="@+id/Calorie"
                             android:layout_alignBottom="@+id/Calorie"
                             android:layout_alignParentLeft="true"
+                            android:layout_alignParentStart="true"
                             android:text="@string/Calorie"
-                            android:textSize="20dp" />
+                            android:textColor="#FE4B4B"
+                            android:textSize="18dp" />
 
 
                     </RelativeLayout>
 
                     <RelativeLayout
-                        android:layout_width="300dp"
+                        android:layout_width="250dp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center">
 
                         <EditText
                             android:id="@+id/Carbs"
-                            android:layout_width="match_parent"
+                            android:layout_width="100dp"
                             android:layout_height="wrap_content"
-                            android:layout_alignParentStart="true"
+                            android:layout_alignParentRight="true"
                             android:layout_alignParentTop="true"
                             android:layout_marginTop="20dp"
-                            android:backgroundTint="@android:color/holo_orange_dark"
+                            android:backgroundTint="#cfcfcf"
                             android:ems="10"
                             android:gravity="right"
                             android:hint="Carbs Here"
                             android:inputType="number"
-                            android:maxLength="5">>
+                            android:maxLength="5"
+                            android:textColor="#333333"
+                            android:textColorHint="#cfcfcf"
+                            android:textSize="18dp">>
 
                             <requestFocus />
                         </EditText>
@@ -168,30 +170,35 @@
                             android:layout_alignBaseline="@+id/Carbs"
                             android:layout_alignBottom="@+id/Carbs"
                             android:layout_alignParentLeft="true"
+                            android:layout_alignParentStart="true"
                             android:text="@string/Carbs"
-                            android:textSize="20dp" />
+                            android:textColor="#FE4B4B"
+                            android:textSize="18dp" />
 
 
                     </RelativeLayout>
 
                     <RelativeLayout
-                        android:layout_width="300dp"
+                        android:layout_width="250dp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center">
 
                         <EditText
                             android:id="@+id/Protein"
-                            android:layout_width="match_parent"
+                            android:layout_width="110dp"
                             android:layout_height="wrap_content"
-                            android:layout_alignParentStart="true"
+                            android:layout_alignParentRight="true"
                             android:layout_alignParentTop="true"
                             android:layout_marginTop="20dp"
-                            android:backgroundTint="@android:color/holo_orange_dark"
+                            android:backgroundTint="#cfcfcf"
                             android:ems="10"
                             android:gravity="right"
                             android:hint="Protein Here"
                             android:inputType="number"
-                            android:maxLength="5">>
+                            android:maxLength="5"
+                            android:textColor="#333333"
+                            android:textColorHint="#cfcfcf"
+                            android:textSize="18dp">>
 
                             <requestFocus />
                         </EditText>
@@ -203,30 +210,35 @@
                             android:layout_alignBaseline="@+id/Protein"
                             android:layout_alignBottom="@+id/Protein"
                             android:layout_alignParentLeft="true"
+                            android:layout_alignParentStart="true"
                             android:text="@string/Protein"
-                            android:textSize="20dp" />
+                            android:textColor="#FE4B4B"
+                            android:textSize="18dp" />
 
 
                     </RelativeLayout>
 
                     <RelativeLayout
-                        android:layout_width="300dp"
+                        android:layout_width="250dp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center">
 
                         <EditText
                             android:id="@+id/Fat"
-                            android:layout_width="match_parent"
+                            android:layout_width="80dp"
                             android:layout_height="wrap_content"
-                            android:layout_alignParentStart="true"
+                            android:layout_alignParentRight="true"
                             android:layout_alignParentTop="true"
                             android:layout_marginTop="10dp"
-                            android:backgroundTint="@android:color/holo_orange_dark"
+                            android:backgroundTint="#cfcfcf"
                             android:ems="10"
                             android:gravity="right"
                             android:hint="Fat Here"
                             android:inputType="number"
-                            android:maxLength="5">>
+                            android:maxLength="5"
+                            android:textColor="#333333"
+                            android:textColorHint="#cfcfcf"
+                            android:textSize="18dp">>
 
                             <requestFocus />
                         </EditText>
@@ -238,21 +250,36 @@
                             android:layout_alignBaseline="@+id/Fat"
                             android:layout_alignBottom="@+id/Fat"
                             android:layout_alignParentLeft="true"
+                            android:layout_alignParentStart="true"
                             android:text="@string/Fat"
-                            android:textSize="20dp" />
+                            android:textColor="#FE4B4B"
+                            android:textSize="18dp" />
 
 
                     </RelativeLayout>
 
                     <Button
+                        android:id="@+id/goals_save"
+                        android:layout_width="180dp"
+                        android:layout_height="wrap_content"
+                        android:layout_alignTop="@+id/fat"
+                        android:layout_alignWithParentIfMissing="false"
+                        android:layout_gravity="center_horizontal"
+                        android:backgroundTint="#e00e0e"
+                        android:textColor="#ffffff"
+                        android:text="@string/Save" />
+
+                    <Button
                         android:id="@+id/Recommended"
-                        android:layout_width="wrap_content"
+                        android:layout_width="180dp"
                         android:layout_height="wrap_content"
                         android:layout_alignTop="@+id/fat"
                         android:layout_alignWithParentIfMissing="false"
                         android:layout_gravity="center_horizontal"
                         android:text="Use Recommended"
-                        android:visibility="gone" />
+                        android:backgroundTint="#e00e0e"
+                        android:textColor="#ffffff"
+                        android:visibility="gone"/>
                 </LinearLayout>
 
             </RelativeLayout>
@@ -485,13 +512,5 @@
 
 
     </ViewSwitcher>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:orientation="horizontal">
-
-    </LinearLayout>
 
 </LinearLayout>
