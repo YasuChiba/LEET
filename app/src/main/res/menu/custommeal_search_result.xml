@@ -4,6 +4,8 @@
 
     <item
         android:id="@+id/create_custom_meal"
-        android:title=""
+        android:enabled="true"
+        android:title="Create Custom Meal"
+        android:visible="true"
         app:actionLayout="@layout/switch_item" />
 </menu>
