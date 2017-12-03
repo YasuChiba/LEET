@@ -97,11 +97,16 @@ public class MainActivity extends AppCompatActivity implements MainViewInterface
 
         if(position == Enums.TabPosition.Profile) {
             profileFragment.isScreenShow(true);
+            mealFragment.isScreenShow(false);
+
         } else if(position == Enums.TabPosition.Meal) {
             profileFragment.isScreenShow(false);
+            mealFragment.isScreenShow(true);
+
 
         } else if(position == Enums.TabPosition.Statistics) {
             profileFragment.isScreenShow(false);
+            mealFragment.isScreenShow(false);
 
         }
 
