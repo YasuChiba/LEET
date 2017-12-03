@@ -17,6 +17,7 @@ import com.leet.leet.common.Enums;
 import com.leet.leet.screen.profile.controller.ProfileFragment;
 import com.leet.leet.screen.profile.view.ProfileView;
 import com.leet.leet.utils.authentication.FirebaseAuthHelper;
+import com.leet.leet.utils.database.FDAHelper;
 import com.leet.leet.utils.database.FirebaseDBCallaback;
 import com.leet.leet.utils.database.FirebaseDBUserDataHelper;
 import com.leet.leet.utils.database.entities.user.UserGoalEntity;
@@ -72,6 +73,36 @@ public class ProfileModel {
         });
 
     }
+    public void getUserRecommended(final FirebaseDBCallaback<UserProfileEntity> callaback) {
+        //final UserProfileEntity acc_info = new UserProfileEntity();
+        FirebaseDBUserDataHelper.getUserProfile(new FirebaseDBCallaback<UserProfileEntity>() {
+            @Override
+            public void getData(UserProfileEntity data) {
+                int recCal = 0;
+                int recProtein = 0;
+                int recCarbs = 130;
+                int recFat = 0;
+                if(data.getInfo().getGender() == "male")
+                {
+                    recCal = FDAHelper.getMaleCalories(data.getInfo().getAge());
+                    recProtein = FDAHelper.getMaleProtein(data.getInfo().getAge());
+                }
+                else {
+                    recCal = FDAHelper.getFemaleCalories(data.getInfo().getAge());
+                    recProtein = FDAHelper.getFemaleProtein(data.getInfo().getAge());
+                }
+                recFat = (recCal/36);
+                data.getGoals().setCalorie(recCal);
+                data.getGoals().setProtein(recProtein);
+                data.getGoals().setFat(recFat);
+                data.getGoals().setCarbs(recCarbs);
+
+                callaback.getData(data);
+            }
+        });
+
+    }
+
     public void deleteAccount(){
         FirebaseDBUserDataHelper.removeUserID();
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();

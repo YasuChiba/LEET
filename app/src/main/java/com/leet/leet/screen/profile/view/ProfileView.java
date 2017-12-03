@@ -83,6 +83,7 @@ public class ProfileView implements ProfileViewInterface, View.OnClickListener {
         goals_save.setOnClickListener(this);
         acc_save = (Button) this.getRootView().findViewById(R.id.acc_save);
         Recommended = (Button) this.getRootView().findViewById(R.id.Recommended);
+        Recommended.setOnClickListener(this);
         acc_save.setOnClickListener(this);
         delete = (Button)this.getRootView().findViewById(R.id.Delete);
         delete.setOnClickListener(this);
@@ -146,19 +147,30 @@ public class ProfileView implements ProfileViewInterface, View.OnClickListener {
         String name = this.name.getText().toString();
         String email = this.email.getText().toString();
         String gender = this.gender.getSelectedItem().toString();
-        int weight = Integer.valueOf(this.weight.getText().toString());
+        Log.d("testing", this.weight.getText().toString());
+        Log.d("testing", String.valueOf(this.age.getText().toString() == ""));
+        int weight = 0;
+        try { weight = Integer.valueOf(this.weight.getText().toString()); }
+        catch (Exception e) { this.weight.setText("0"); }
         int feet = Integer.valueOf(this.feet.getSelectedItem().toString());
         int inch = Integer.valueOf(this.inch.getSelectedItem().toString());
-        int age = Integer.valueOf(this.age.getText().toString());
+        int age = 0;
+        try {age = Integer.valueOf(this.age.getText().toString()); }
+        catch (Exception e) { this.age.setText("0"); }
         return new UserInfoEntity(name, gender, email, age, weight, feet, inch, null);
     }
 
     private UserGoalEntity createUserGoalEntity(){
-        float price = Float.valueOf(this.price.getText().toString());
-        float calorie = Float.valueOf(this.calorie.getText().toString());
-        float carbs = Float.valueOf(this.carbs.getText().toString());
-        float protein = Float.valueOf(this.protein.getText().toString());
-        float fat = Float.valueOf(this.fat.getText().toString());
+        float price = 0;
+        float calorie = 0;
+        float carbs = 0;
+        float protein = 0;
+        float fat = 0;
+        if(!this.price.getText().toString().isEmpty()){price = Float.valueOf(this.price.getText().toString());}
+        if(!this.calorie.getText().toString().isEmpty()){calorie = Float.valueOf(this.calorie.getText().toString());}
+        if(!this.carbs.getText().toString().isEmpty()){ carbs = Float.valueOf(this.carbs.getText().toString());}
+        if(!this.protein.getText().toString().isEmpty()){ protein = Float.valueOf(this.protein.getText().toString());}
+        if(!this.fat.getText().toString().isEmpty()){fat = Float.valueOf(this.fat.getText().toString());}
         return new UserGoalEntity(calorie, price, fat, carbs, protein);
     }
 
@@ -203,8 +215,7 @@ public class ProfileView implements ProfileViewInterface, View.OnClickListener {
         Log.i("hello", "onclick");
         switch (v.getId()){
             case R.id.Recommended:
-                //UserGoalEntity rec = mListner.getRecommended();
-
+                mListner.setRecommended();
                 break;
             case R.id.acc_save:
                 mListner.saveInfoEntity(createUserInfoEntity());
