@@ -18,253 +18,6 @@
 
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
-
-
-                <RelativeLayout
-                    android:id="@+id/relativeLayout"
-                    android:layout_width="300dp"
-                    android:layout_height="75dp"
-                    android:layout_alignParentEnd="true"
-                    android:layout_alignParentTop="true"
-                    android:layout_marginTop="14dp">
-
-                    <Button
-                        android:id="@+id/goals_save"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentEnd="true"
-                        android:layout_centerVertical="true"
-                        android:layout_marginEnd="22dp"
-                        android:text="Edit" />
-
-                    <TextView
-                        android:id="@+id/textView3"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignTop="@+id/goals_save"
-                        android:layout_centerInParent="true"
-                        android:layout_gravity="center"
-                        android:layout_marginEnd="34dp"
-                        android:layout_toStartOf="@+id/goals_save"
-                        android:gravity="center_horizontal"
-                        android:text="My Goals"
-                        android:textSize="32dp"
-                        android:textStyle="bold"
-                        tools:typeface="sans" />
-                </RelativeLayout>
-
-                <LinearLayout
-                    android:id="@+id/linearLayout"
-                    android:layout_width="345dp"
-                    android:layout_height="375dp"
-                    android:layout_below="@+id/relativeLayout"
-                    android:layout_centerHorizontal="true"
-                    android:background="@drawable/profile_border"
-                    android:orientation="vertical">
-
-                    <RelativeLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
-
-                    </RelativeLayout>
-
-                    <RelativeLayout
-                        android:layout_width="300dp"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center">
-
-                        <EditText
-                            android:id="@+id/Price"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_alignParentStart="true"
-                            android:layout_alignParentTop="true"
-                            android:layout_marginTop="20dp"
-                            android:backgroundTint="@android:color/holo_orange_dark"
-                            android:ems="10"
-                            android:gravity="right"
-                            android:hint="Price Here"
-                            android:inputType="number"
-                            android:maxLength="5">
-
-                            <requestFocus />
-                        </EditText>
-
-                        <TextView
-                            android:id="@+id/price"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_alignBaseline="@+id/Price"
-                            android:layout_alignBottom="@+id/Price"
-                            android:layout_alignParentLeft="true"
-                            android:text="@string/Price"
-                            android:textSize="20dp" />
-
-
-                    </RelativeLayout>
-
-                    <RelativeLayout
-                        android:layout_width="300dp"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center">
-
-                        <EditText
-                            android:id="@+id/Calorie"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_alignParentStart="true"
-                            android:layout_alignParentTop="true"
-                            android:layout_marginTop="20dp"
-                            android:backgroundTint="@android:color/holo_orange_dark"
-                            android:ems="10"
-                            android:gravity="right"
-                            android:hint="Calorie Here"
-                            android:inputType="number"
-                            android:maxLength="5">>
-
-                            <requestFocus />
-                        </EditText>
-
-                        <TextView
-                            android:id="@+id/calorie"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_alignBaseline="@+id/Calorie"
-                            android:layout_alignBottom="@+id/Calorie"
-                            android:layout_alignParentLeft="true"
-                            android:text="@string/Calorie"
-                            android:textSize="20dp" />
-
-
-                    </RelativeLayout>
-
-                    <RelativeLayout
-                        android:layout_width="300dp"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center">
-
-                        <EditText
-                            android:id="@+id/Carbs"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_alignParentStart="true"
-                            android:layout_alignParentTop="true"
-                            android:layout_marginTop="20dp"
-                            android:backgroundTint="@android:color/holo_orange_dark"
-                            android:ems="10"
-                            android:gravity="right"
-                            android:hint="Carbs Here"
-                            android:inputType="number"
-                            android:maxLength="5">>
-
-                            <requestFocus />
-                        </EditText>
-
-                        <TextView
-                            android:id="@+id/carbs"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_alignBaseline="@+id/Carbs"
-                            android:layout_alignBottom="@+id/Carbs"
-                            android:layout_alignParentLeft="true"
-                            android:text="@string/Carbs"
-                            android:textSize="20dp" />
-
-
-                    </RelativeLayout>
-
-                    <RelativeLayout
-                        android:layout_width="300dp"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center">
-
-                        <EditText
-                            android:id="@+id/Protein"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_alignParentStart="true"
-                            android:layout_alignParentTop="true"
-                            android:layout_marginTop="20dp"
-                            android:backgroundTint="@android:color/holo_orange_dark"
-                            android:ems="10"
-                            android:gravity="right"
-                            android:hint="Protein Here"
-                            android:inputType="number"
-                            android:maxLength="5">>
-
-                            <requestFocus />
-                        </EditText>
-
-                        <TextView
-                            android:id="@+id/protein"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_alignBaseline="@+id/Protein"
-                            android:layout_alignBottom="@+id/Protein"
-                            android:layout_alignParentLeft="true"
-                            android:text="@string/Protein"
-                            android:textSize="20dp" />
-
-
-                    </RelativeLayout>
-
-                    <RelativeLayout
-                        android:layout_width="300dp"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center">
-
-                        <EditText
-                            android:id="@+id/Fat"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_alignParentStart="true"
-                            android:layout_alignParentTop="true"
-                            android:layout_marginTop="10dp"
-                            android:backgroundTint="@android:color/holo_orange_dark"
-                            android:ems="10"
-                            android:gravity="right"
-                            android:hint="Fat Here"
-                            android:inputType="number"
-                            android:maxLength="5">>
-
-                            <requestFocus />
-                        </EditText>
-
-                        <TextView
-                            android:id="@+id/fat"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_alignBaseline="@+id/Fat"
-                            android:layout_alignBottom="@+id/Fat"
-                            android:layout_alignParentLeft="true"
-                            android:text="@string/Fat"
-                            android:textSize="20dp" />
-
-
-                    </RelativeLayout>
-
-                    <Button
-                        android:id="@+id/Recommended"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignTop="@+id/fat"
-                        android:layout_alignWithParentIfMissing="false"
-                        android:layout_gravity="center_horizontal"
-                        android:text="Use Recommended"
-                        android:visibility="gone" />
-                </LinearLayout>
-
-            </RelativeLayout>
-        </ScrollView>
-
-        <ScrollView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-
-            <RelativeLayout
-                android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
 
@@ -272,15 +25,6 @@
                     android:id="@+id/relativeLayout2"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
-
-                    <Button
-                        android:id="@+id/acc_save"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentEnd="true"
-                        android:layout_centerVertical="true"
-                        android:layout_marginEnd="17dp"
-                        android:text="Edit" />
 
                     <TextView
                         android:id="@+id/textView17"
@@ -291,49 +35,43 @@
                         android:layout_marginEnd="34dp"
                         android:gravity="center_horizontal"
                         android:text="My Profile"
+                        android:textColor="#630E0E"
                         android:textSize="32dp"
                         android:textStyle="bold"
                         tools:typeface="sans" />
-
-                    <Button
-                        android:id="@+id/Delete"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignTop="@+id/textView17"
-                        android:layout_marginEnd="17dp"
-                        android:layout_toStartOf="@+id/textView17"
-                        android:text="Delete" />
                 </RelativeLayout>
 
                 <LinearLayout
                     android:id="@+id/linearLayout1"
                     android:layout_width="345dp"
-                    android:layout_height="375dp"
+                    android:layout_height="500dp"
+                    android:layout_alignParentBottom="true"
+                    android:layout_below="@+id/relativeLayout2"
+                    android:layout_centerHorizontal="true"
                     android:background="@drawable/profile_border"
                     android:orientation="vertical"
-                    android:layout_below="@+id/relativeLayout2"
-                    android:layout_alignParentBottom="true"
-                    android:layout_centerHorizontal="true"
                     android:weightSum="1">
 
                     <RelativeLayout
-                        android:layout_width="300dp"
-                        android:layout_height="wrap_content"
+                        android:layout_width="250dp"
+                        android:layout_height="70dp"
                         android:layout_gravity="center">
 
                         <EditText
                             android:id="@+id/Name"
-                            android:layout_width="match_parent"
+                            android:layout_width="110dp"
                             android:layout_height="wrap_content"
-                            android:layout_alignParentStart="true"
+                            android:layout_alignParentRight="true"
                             android:layout_alignParentTop="true"
-                            android:layout_marginTop="20dp"
-                            android:backgroundTint="@android:color/holo_orange_dark"
+                            android:backgroundTint="#cfcfcf"
                             android:ems="10"
                             android:gravity="right"
                             android:hint="Name Here"
                             android:inputType="textPersonName"
-                            android:maxLength="5">
+                            android:maxLength="12"
+                            android:textColor="#333333"
+                            android:textColorHint="#cfcfcf"
+                            android:textSize="18dp">
 
                             <requestFocus />
                         </EditText>
@@ -345,29 +83,34 @@
                             android:layout_alignBaseline="@+id/Name"
                             android:layout_alignBottom="@+id/Name"
                             android:layout_alignParentLeft="true"
-                            android:text="@string/Price"
-                            android:textSize="20dp" />
+                            android:layout_alignParentStart="true"
+                            android:text="@string/Name"
+                            android:textColor="#FE4B4B"
+                            android:textSize="18dp" />
 
 
                     </RelativeLayout>
 
                     <RelativeLayout
-                        android:layout_width="300dp"
-                        android:layout_height="wrap_content"
+                        android:layout_width="250dp"
+                        android:layout_height="70dp"
                         android:layout_gravity="center">
 
                         <EditText
                             android:id="@+id/Email"
-                            android:layout_width="match_parent"
+                            android:layout_width="110dp"
                             android:layout_height="wrap_content"
-                            android:backgroundTint="@android:color/holo_orange_dark"
+                            android:layout_alignParentRight="true"
+                            android:layout_alignParentTop="true"
+                            android:backgroundTint="#cfcfcf"
                             android:ems="10"
                             android:gravity="right"
                             android:hint="Email Here"
                             android:inputType="textEmailAddress"
-                            android:maxLength="5"
-                            android:layout_alignParentTop="true"
-                            android:layout_alignParentStart="true">>
+                            android:maxLength="12"
+                            android:textColor="#333333"
+                            android:textColorHint="#cfcfcf"
+                            android:textSize="18dp">>
 
                             <requestFocus />
                         </EditText>
@@ -379,29 +122,34 @@
                             android:layout_alignBaseline="@+id/Email"
                             android:layout_alignBottom="@+id/Email"
                             android:layout_alignParentLeft="true"
+                            android:layout_alignParentStart="true"
                             android:text="@string/Email"
-                            android:textSize="20dp" />
+                            android:textColor="#FE4B4B"
+                            android:textSize="18dp" />
 
 
                     </RelativeLayout>
 
                     <RelativeLayout
-                        android:layout_width="300dp"
-                        android:layout_height="wrap_content"
+                        android:layout_width="250dp"
+                        android:layout_height="40dp"
                         android:layout_gravity="center">
 
                         <EditText
                             android:id="@+id/Age"
-                            android:layout_width="match_parent"
+                            android:layout_width="110dp"
                             android:layout_height="wrap_content"
-                            android:backgroundTint="@android:color/holo_orange_dark"
+                            android:layout_alignParentRight="true"
+                            android:layout_centerVertical="true"
+                            android:backgroundTint="#cfcfcf"
                             android:ems="10"
                             android:gravity="right"
                             android:hint="Age Here"
                             android:inputType="number"
                             android:maxLength="3"
-                            android:layout_centerVertical="true"
-                            android:layout_alignParentStart="true">>
+                            android:textColor="#333333"
+                            android:textColorHint="#cfcfcf"
+                            android:textSize="18dp">>
 
                             <requestFocus />
                         </EditText>
@@ -413,8 +161,10 @@
                             android:layout_alignBaseline="@+id/Age"
                             android:layout_alignBottom="@+id/Age"
                             android:layout_alignParentLeft="true"
+                            android:layout_alignParentStart="true"
                             android:text="@string/Age"
-                            android:textSize="20dp" />
+                            android:textColor="#FE4B4B"
+                            android:textSize="18dp" />
 
 
                     </RelativeLayout>
@@ -422,7 +172,7 @@
                     <RelativeLayout
                         android:id="@+id/relativeLayout3"
                         android:layout_width="300dp"
-                        android:layout_height="wrap_content"
+                        android:layout_height="80dp"
                         android:layout_gravity="center"
                         android:layout_weight="0.11">
 
@@ -430,17 +180,19 @@
                             android:id="@+id/textView13"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:layout_alignParentStart="true"
+                            android:layout_centerVertical="true"
+                            android:layout_marginStart="20dp"
                             android:layout_weight="1"
                             android:backgroundTint="@android:color/holo_orange_dark"
                             android:gravity="left"
                             android:text="@string/Gender"
-                            android:textSize="20dp"
-                            android:layout_centerVertical="true"
-                            android:layout_alignParentStart="true" />
+                            android:textColor="#FE4B4B"
+                            android:textSize="18dp" />
 
                         <Spinner
                             android:id="@+id/Gender"
-                            android:layout_width="wrap_content"
+                            android:layout_width="120dp"
                             android:layout_height="wrap_content"
                             android:layout_alignBaseline="@+id/textView13"
                             android:layout_alignBottom="@+id/textView13"
@@ -453,15 +205,307 @@
 
                     </RelativeLayout>
 
-
                     <Button
-                        android:id="@+id/delete_acc"
-                        android:layout_width="wrap_content"
+                        android:id="@+id/acc_save"
+                        android:layout_width="200dp"
                         android:layout_height="wrap_content"
                         android:layout_alignTop="@+id/fat"
                         android:layout_alignWithParentIfMissing="false"
                         android:layout_gravity="center_horizontal"
+                        android:layout_marginTop="20dp"
+                        android:backgroundTint="#e00e0e"
+                        android:text="@string/Edit"
+                        android:textColor="#ffffff"
+                        android:textSize="20dp" />
+
+                    <Button
+                        android:id="@+id/Delete"
+                        android:layout_width="200dp"
+                        android:layout_height="wrap_content"
+                        android:layout_alignTop="@+id/fat"
+                        android:layout_alignWithParentIfMissing="false"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginTop="70dp"
+                        android:backgroundTint="#e00e0e"
+                        android:text="Delete Account"
+                        android:textColor="#ffffff"
+                        android:textSize="20dp" />
+                </LinearLayout>
+
+            </RelativeLayout>
+        </ScrollView>
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+
+                <RelativeLayout
+                    android:id="@+id/relativeLayout"
+                    android:layout_width="300dp"
+                    android:layout_height="50dp"
+                    android:layout_alignParentTop="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="21dp">
+
+
+                    <TextView
+                        android:id="@+id/textView3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:layout_centerVertical="true"
+                        android:layout_gravity="center"
+                        android:text="MY GOALS"
+                        android:textColor="#630E0E"
+                        android:textSize="24dp"
+                        android:textStyle="bold"
+                        tools:typeface="sans" />
+                </RelativeLayout>
+
+                <LinearLayout
+                    android:id="@+id/linearLayout"
+                    android:layout_width="345dp"
+                    android:layout_height="450dp"
+                    android:layout_below="@+id/relativeLayout"
+                    android:layout_centerHorizontal="true"
+                    android:background="@drawable/profile_border"
+                    android:orientation="vertical">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="250dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center">
+
+                        <EditText
+                            android:id="@+id/Price"
+                            android:layout_width="110dp"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:layout_alignParentTop="true"
+                            android:layout_marginTop="20dp"
+                            android:backgroundTint="#cfcfcf"
+                            android:ems="10"
+                            android:gravity="right"
+                            android:hint="Price Here"
+                            android:inputType="number"
+                            android:maxLength="4"
+                            android:textColor="#333333"
+                            android:textColorHint="#cfcfcf"
+                            android:textSize="18dp">
+
+                            <requestFocus />
+                        </EditText>
+
+                        <TextView
+                            android:id="@+id/price"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignBaseline="@+id/Price"
+                            android:layout_alignBottom="@+id/Price"
+                            android:layout_alignParentLeft="true"
+                            android:layout_alignParentStart="true"
+                            android:text="@string/Price"
+                            android:textColor="#FE4B4B"
+                            android:textSize="18dp" />
+
+
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="250dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center">
+
+                        <EditText
+                            android:id="@+id/Calorie"
+                            android:layout_width="110dp"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:layout_alignParentTop="true"
+                            android:layout_marginTop="20dp"
+                            android:backgroundTint="#cfcfcf"
+                            android:ems="10"
+                            android:gravity="right"
+                            android:hint="Calorie Here"
+                            android:inputType="number"
+                            android:maxLength="6"
+                            android:textColor="#333333"
+                            android:textColorHint="#cfcfcf"
+                            android:textSize="18dp">>
+
+                            <requestFocus />
+                        </EditText>
+
+                        <TextView
+                            android:id="@+id/calorie"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignBaseline="@+id/Calorie"
+                            android:layout_alignBottom="@+id/Calorie"
+                            android:layout_alignParentLeft="true"
+                            android:layout_alignParentStart="true"
+                            android:text="@string/Calorie"
+                            android:textColor="#FE4B4B"
+                            android:textSize="18dp" />
+
+
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="250dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center">
+
+                        <EditText
+                            android:id="@+id/Carbs"
+                            android:layout_width="110dp"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:layout_alignParentTop="true"
+                            android:layout_marginTop="20dp"
+                            android:backgroundTint="#cfcfcf"
+                            android:ems="10"
+                            android:gravity="right"
+                            android:hint="Carbs Here"
+                            android:inputType="number"
+                            android:maxLength="5"
+                            android:textColor="#333333"
+                            android:textColorHint="#cfcfcf"
+                            android:textSize="18dp">>
+
+                            <requestFocus />
+                        </EditText>
+
+                        <TextView
+                            android:id="@+id/carbs"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignBaseline="@+id/Carbs"
+                            android:layout_alignBottom="@+id/Carbs"
+                            android:layout_alignParentLeft="true"
+                            android:layout_alignParentStart="true"
+                            android:text="@string/Carbs"
+                            android:textColor="#FE4B4B"
+                            android:textSize="18dp" />
+
+
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="250dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center">
+
+                        <EditText
+                            android:id="@+id/Protein"
+                            android:layout_width="110dp"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:layout_alignParentTop="true"
+                            android:layout_marginTop="20dp"
+                            android:backgroundTint="#cfcfcf"
+                            android:ems="10"
+                            android:gravity="right"
+                            android:hint="Protein Here"
+                            android:inputType="number"
+                            android:maxLength="5"
+                            android:textColor="#333333"
+                            android:textColorHint="#cfcfcf"
+                            android:textSize="18dp">>
+
+                            <requestFocus />
+                        </EditText>
+
+                        <TextView
+                            android:id="@+id/protein"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignBaseline="@+id/Protein"
+                            android:layout_alignBottom="@+id/Protein"
+                            android:layout_alignParentLeft="true"
+                            android:layout_alignParentStart="true"
+                            android:text="@string/Protein"
+                            android:textColor="#FE4B4B"
+                            android:textSize="18dp" />
+
+
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="250dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center">
+
+                        <EditText
+                            android:id="@+id/Fat"
+                            android:layout_width="110dp"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:layout_alignParentTop="true"
+                            android:layout_marginTop="10dp"
+                            android:backgroundTint="#cfcfcf"
+                            android:ems="10"
+                            android:gravity="right"
+                            android:hint="Fat Here"
+                            android:inputType="number"
+                            android:maxLength="5"
+                            android:textColor="#333333"
+                            android:textColorHint="#cfcfcf"
+                            android:textSize="18dp">>
+
+                            <requestFocus />
+                        </EditText>
+
+                        <TextView
+                            android:id="@+id/fat"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignBaseline="@+id/Fat"
+                            android:layout_alignBottom="@+id/Fat"
+                            android:layout_alignParentLeft="true"
+                            android:layout_alignParentStart="true"
+                            android:text="@string/Fat"
+                            android:textColor="#FE4B4B"
+                            android:textSize="18dp" />
+
+
+                    </RelativeLayout>
+
+                    <Button
+                        android:id="@+id/goals_save"
+                        android:layout_width="200dp"
+                        android:layout_height="wrap_content"
+                        android:layout_alignTop="@+id/fat"
+                        android:layout_alignWithParentIfMissing="false"
+                        android:layout_gravity="center_horizontal"
+                        android:backgroundTint="#e00e0e"
+                        android:text="@string/Edit"
+                        android:textColor="#ffffff"
+                        android:textSize="20dp" />
+
+                    <Button
+                        android:id="@+id/Recommended"
+                        android:layout_width="200dp"
+                        android:layout_height="wrap_content"
+                        android:layout_alignTop="@+id/fat"
+                        android:layout_alignWithParentIfMissing="false"
+                        android:layout_gravity="center_horizontal"
+                        android:backgroundTint="#e00e0e"
                         android:text="Use Recommended"
+                        android:textColor="#ffffff"
+                        android:textSize="20dp"
                         android:visibility="gone" />
                 </LinearLayout>
 

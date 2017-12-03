@@ -3,7 +3,8 @@ package com.leet.leet.screen.profile.view;
 import android.app.Activity;
 import android.app.DialogFragment;
 import android.content.DialogInterface;
-import android.support.v7.app.AlertDialog;
+import android.app.AlertDialog;
+
 import android.support.v7.widget.Toolbar;
 import android.text.InputFilter;
 import android.util.Log;
@@ -35,7 +36,6 @@ public class ProfileView implements ProfileViewInterface, View.OnClickListener{
     EditText carbs;
     EditText protein;
     EditText fat;
-    EditText weight;
     EditText email;
     EditText name;
     EditText age;

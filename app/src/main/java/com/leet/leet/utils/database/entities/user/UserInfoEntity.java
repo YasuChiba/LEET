@@ -11,11 +11,7 @@ public class UserInfoEntity {
     private String gender;
     private String email;
     private int age;
-    private int weight;
 
-    //private float height;
-    private int feet;
-    private int inches;
 
     private List<String> allergies;
 

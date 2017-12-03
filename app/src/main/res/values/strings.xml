@@ -28,6 +28,7 @@
     <string name="Inches">Inches</string>
     <string name="Recommended">Recommended</string>
     <string name="Save">Save</string>
+    <string name="Edit">Edit</string>
     <string name="editProfile">Profile</string>
     <string name="editGoals">Goals</string>
     <string name="logout">logout</string>
