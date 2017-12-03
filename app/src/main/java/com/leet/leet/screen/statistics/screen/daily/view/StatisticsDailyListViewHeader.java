@@ -15,6 +15,7 @@ import com.github.mikephil.charting.formatter.IndexAxisValueFormatter;
 import com.github.mikephil.charting.interfaces.datasets.IBarDataSet;
 import com.github.mikephil.charting.utils.ColorTemplate;
 import com.leet.leet.R;
+import com.leet.leet.utils.database.entities.user.UserGoalEntity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -62,12 +63,13 @@ public class StatisticsDailyListViewHeader extends LinearLayout {
         labels.add("Cal");
         labels.add("Carb");
         labels.add("Fat");
-        labels.add("Protein");
+        labels.add("Prot");
         labels.add("Price");
 
         //center the bars at each labels
         XAxis xAxis = graphView.getXAxis();
-        xAxis.setCenterAxisLabels(true);
+        xAxis.setCenterAxisLabels(false);
+
         graphView.getXAxis().setValueFormatter(new IndexAxisValueFormatter(labels));
         graphView.getXAxis().setPosition(XAxis.XAxisPosition.BOTTOM_INSIDE );
 
@@ -77,7 +79,8 @@ public class StatisticsDailyListViewHeader extends LinearLayout {
                                float[] calories,
                                float[] carbs,
                                float[] fat,
-                               float[] protein
+                               float[] protein,
+                               UserGoalEntity goalEntity
     )
     {
         //data input
@@ -91,11 +94,11 @@ public class StatisticsDailyListViewHeader extends LinearLayout {
         entries_intakes.add(new BarEntry(3f, protein));
         entries_intakes.add(new BarEntry(4f, price));
 
-        entries_goals.add(new BarEntry(0f, getCalGoal()));
-        entries_goals.add(new BarEntry(1f, getCarbGoal()));
-        entries_goals.add(new BarEntry(2f, getFatGoal()));
-        entries_goals.add(new BarEntry(3f, getProteinGoal()));
-        entries_goals.add(new BarEntry(4f, getPriceGoal()));
+        entries_goals.add(new BarEntry(0f, goalEntity.getCalorie()/100));
+        entries_goals.add(new BarEntry(1f, goalEntity.getCarbs()/10));
+        entries_goals.add(new BarEntry(2f, goalEntity.getFat()/10));
+        entries_goals.add(new BarEntry(3f, goalEntity.getProtein()/10));
+        entries_goals.add(new BarEntry(4f, goalEntity.getPrice()));
 
 
         //BarDataSet set1 = new BarDataSet(entries_intakes, "");
@@ -145,7 +148,7 @@ public class StatisticsDailyListViewHeader extends LinearLayout {
         //grouped bar
         graphView.groupBars(0f, groupSpace, barSpace);
 
-        graphView.setFitBars(true);
+
         graphView.invalidate(); // refresh
     }
 
@@ -162,21 +165,6 @@ public class StatisticsDailyListViewHeader extends LinearLayout {
         return colors;
     }
 
-
-
-
-
-    //Setting intake values of graph
-    //Hard Coded numbers will be replaced by received values from database
-    //Calories intake & goals
-    private float[] getCal() {
-        //need to divide by 100
-        float breakfast = 4;
-        float lunch = 6;
-        float dinner = 8;
-        float[] total = new float[] {breakfast, lunch, dinner};
-        return total;
-    }
     private float getCalGoal() {
         float goal = 0;
         if(goal == 0) {
@@ -187,15 +175,6 @@ public class StatisticsDailyListViewHeader extends LinearLayout {
         }
     }
 
-    //Carb intake & goals
-    private float[] getCarb() {
-        //need to divide by 10
-        float breakfast = 2;
-        float lunch = 8;
-        float dinner = 10;
-        float[] total = new float[] {breakfast, lunch, dinner};
-        return total;
-    }
     private float getCarbGoal() {
         float goal = 0;
         if(goal == 0) {
@@ -206,15 +185,6 @@ public class StatisticsDailyListViewHeader extends LinearLayout {
         }
     }
 
-    //Fat intake & goals
-    private float[] getFat() {
-        //need to divide by 10
-        float breakfast = 0;
-        float lunch = 3;
-        float dinner = 5;
-        float[] total = new float[] {breakfast, lunch, dinner};
-        return total;
-    }
     private float getFatGoal() {
         float goal = 0;
         if(goal == 0) {
@@ -224,15 +194,7 @@ public class StatisticsDailyListViewHeader extends LinearLayout {
             return goal / 10;
         }
     }
-    //Protein intake & goals
-    private float[] getProtein() {
-        //need to divide by 10
-        float breakfast = 1;
-        float lunch = 4;
-        float dinner = 9;
-        float[] total = new float[] {breakfast, lunch, dinner};
-        return total;
-    }
+
     private float getProteinGoal() {
         float goal = 0;
         if(goal == 0) {
@@ -243,14 +205,6 @@ public class StatisticsDailyListViewHeader extends LinearLayout {
         }
     }
 
-    //Price spent & goals
-    float breakfast = 2;
-    private float[] getPrice() {
-        float lunch = 5;
-        float dinner = 9;
-        float[] total = new float[] {breakfast, lunch, dinner};
-        return total;
-    }
     private float getPriceGoal() {
         float goal = 0;
         return goal;

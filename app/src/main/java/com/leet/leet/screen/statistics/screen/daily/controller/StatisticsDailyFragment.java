@@ -52,7 +52,8 @@ public class StatisticsDailyFragment extends Fragment {
                                              StatisticsDailyModel.getCalorie(),
                                              StatisticsDailyModel.getCarbs(),
                                              StatisticsDailyModel.getFat(),
-                                             StatisticsDailyModel.getProtein()
+                                             StatisticsDailyModel.getProtein(),
+                                             StatisticsDailyModel.getUserGoalEntity()
                                              );
                     }
                 });

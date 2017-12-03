@@ -25,9 +25,7 @@ public class StatisticsDailyModel {
     LocalDate date;
     UserStatisticsEntity statisticsData;
     SumModel sumData;
-    private UserGoalEntity userGoalEntity = new UserGoalEntity();
-
-
+    public static UserGoalEntity userGoalEntity = new UserGoalEntity();
 
     public static float[] price;
     public static float[] calorie;
@@ -205,6 +203,11 @@ public class StatisticsDailyModel {
             }
         });
     }
+
+    public static UserGoalEntity getUserGoalEntity(){
+        return userGoalEntity;
+    }
+
     public void setDate(LocalDate date) {
         this.date = date;
     }

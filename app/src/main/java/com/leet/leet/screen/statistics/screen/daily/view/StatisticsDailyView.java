@@ -9,6 +9,7 @@ import android.widget.ListView;
 import com.leet.leet.R;
 import com.leet.leet.screen.statistics.screen.daily.StatisticsDailyListViewAdapter;
 import com.leet.leet.screen.statistics.screen.daily.model.StatisticsDailyModel;
+import com.leet.leet.utils.database.entities.user.UserGoalEntity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -52,8 +53,9 @@ public class StatisticsDailyView implements StatisticsDailyViewInterface {
                                float[] calories,
                                float[] carbs,
                                float[] fat,
-                               float[] protein) {
-        header.setDataToGraph(price, calories, carbs, fat, protein);
+                               float[] protein,
+                               UserGoalEntity goalEntity) {
+        header.setDataToGraph(price, calories, carbs, fat, protein, goalEntity);
     }
 
 }
