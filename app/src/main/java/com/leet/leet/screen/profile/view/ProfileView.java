@@ -1,6 +1,9 @@
 package com.leet.leet.screen.profile.view;
 
 import android.app.Activity;
+import android.app.DialogFragment;
+import android.content.DialogInterface;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.Toolbar;
 import android.text.InputFilter;
 import android.util.Log;
@@ -17,6 +20,7 @@ import android.widget.ViewSwitcher;
 
 
 import com.leet.leet.R;
+import com.leet.leet.common.ContextManager;
 import com.leet.leet.utils.database.entities.user.UserGoalEntity;
 import com.leet.leet.utils.database.entities.user.UserInfoEntity;
 import com.leet.leet.utils.database.entities.user.UserProfileEntity;
@@ -25,7 +29,7 @@ import com.leet.leet.utils.database.entities.user.UserProfileEntity;
  * Created by YasuhiraChiba on 2017/11/05.
  */
 
-public class ProfileView implements ProfileViewInterface, View.OnClickListener {
+public class ProfileView implements ProfileViewInterface, View.OnClickListener{
     EditText price;
     EditText calorie;
     EditText carbs;
@@ -51,7 +55,7 @@ public class ProfileView implements ProfileViewInterface, View.OnClickListener {
 
 
     private View mRootView;
-
+    public ProfileView() {}
     public ProfileView(LayoutInflater inflater, ViewGroup container) {
         mRootView = inflater.inflate(R.layout.viewswitcher_test, container, false);
         initialize();
@@ -159,7 +163,22 @@ public class ProfileView implements ProfileViewInterface, View.OnClickListener {
         protein.setEnabled(b);
     }
 
+    private void showDeleteDialog() {
+        AlertDialog deleteAlert = new AlertDialog.Builder(this.getRootView().getContext()).create();
+        deleteAlert.setTitle("Delete account");
+        deleteAlert.setMessage("Are you sure you want to delete your account?");
+        deleteAlert.setButton(DialogInterface.BUTTON_POSITIVE,"Confirm", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int which) {
+                mListner.deleteAcc();
+            }
+        });
+        deleteAlert.setButton(DialogInterface.BUTTON_NEGATIVE,"Cancel", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int which) {
 
+            }
+        });
+        deleteAlert.show();
+    }
     @Override
     public void switchViews() {
         goals_to_acc_vs.showNext();
@@ -215,7 +234,7 @@ public class ProfileView implements ProfileViewInterface, View.OnClickListener {
                 break;
             case R.id.Delete:
                 Log.d("delete", "===============================");
-                mListner.deleteAcc();
+                showDeleteDialog();
                 break;
 
 
