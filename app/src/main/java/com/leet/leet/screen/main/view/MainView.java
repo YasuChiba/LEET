@@ -9,13 +9,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.support.v7.widget.Toolbar;
 
 import com.leet.leet.R;
+import com.leet.leet.common.Enums;
 import com.leet.leet.screen.main.MainViewViewPagerAdapter;
-import android.graphics.Color;
 
 /**
  * Created by YasuhiraChiba on 2017/10/31.
@@ -28,9 +27,9 @@ public class MainView implements MainViewInterface, ViewPager.OnPageChangeListen
     private TabLayout tabLayout;
     private ViewPager viewPager;
     private Toolbar toolbar;
-    private View tab1;
-    private View tab2;
-    private View tab3;
+    private View tabProfile;
+    private View tabMeal;
+    private View tabStats;
 
     public MainView(LayoutInflater inflater, ViewGroup container, MainViewListener listener) {
         mRootView = inflater.inflate(R.layout.view_main, container, false);
@@ -43,9 +42,9 @@ public class MainView implements MainViewInterface, ViewPager.OnPageChangeListen
         viewPager = (ViewPager)mRootView.findViewById(R.id.view_pager);
         toolbar = (Toolbar)mRootView.findViewById(R.id.toolbar);
 
-        tab1 = inflater.inflate(R.layout.tab, null);
-        tab2 = inflater.inflate(R.layout.tab, null);
-        tab3 = inflater.inflate(R.layout.tab, null);
+        tabProfile = inflater.inflate(R.layout.tab, null);
+        tabMeal = inflater.inflate(R.layout.tab, null);
+        tabStats = inflater.inflate(R.layout.tab, null);
 
 
     }
@@ -57,17 +56,17 @@ public class MainView implements MainViewInterface, ViewPager.OnPageChangeListen
         tabLayout.setupWithViewPager(viewPager);
         tabLayout.setBackgroundColor(Color.parseColor("#e00e0e"));
 
-        tabLayout.getTabAt(0).setCustomView(tab1);
-        tabLayout.getTabAt(1).setCustomView(tab2);
-        tabLayout.getTabAt(2).setCustomView(tab3);
+        tabLayout.getTabAt(Enums.TabPosition.Profile.getVal()).setCustomView(tabProfile);
+        tabLayout.getTabAt(Enums.TabPosition.Meal.getVal()).setCustomView(tabMeal);
+        tabLayout.getTabAt(Enums.TabPosition.Statistics.getVal()).setCustomView(tabStats);
 
-        ((ImageView)tab1.findViewById(R.id.tab_icon)).setImageResource(R.drawable.tab_profile_icon);
-        ((ImageView)tab2.findViewById(R.id.tab_icon)).setImageResource(R.drawable.tab_meal_icon);
-        ((ImageView)tab3.findViewById(R.id.tab_icon)).setImageResource(R.drawable.tab_stat_icon);
+        ((ImageView) tabProfile.findViewById(R.id.tab_icon)).setImageResource(R.drawable.tab_profile_icon);
+        ((ImageView) tabMeal.findViewById(R.id.tab_icon)).setImageResource(R.drawable.tab_meal_icon);
+        ((ImageView) tabStats.findViewById(R.id.tab_icon)).setImageResource(R.drawable.tab_stat_icon);
 
-        ((TextView)tab1.findViewById(R.id.tab_textview)).setText("Profile");
-        ((TextView)tab2.findViewById(R.id.tab_textview)).setText("Meal");
-        ((TextView)tab3.findViewById(R.id.tab_textview)).setText("Stats");
+        ((TextView) tabProfile.findViewById(R.id.tab_textview)).setText("Profile");
+        ((TextView) tabMeal.findViewById(R.id.tab_textview)).setText("Meal");
+        ((TextView) tabStats.findViewById(R.id.tab_textview)).setText("Stats");
 
         tabLayout.getTabAt(defaultIndex).select();
     }
@@ -88,22 +87,30 @@ public class MainView implements MainViewInterface, ViewPager.OnPageChangeListen
     @Override
     public void onPageSelected(int position) {
 
-        if(position == 0) {
-            ((TextView)tab1.findViewById(R.id.tab_textview)).setVisibility(View.VISIBLE);
-            ((TextView)tab2.findViewById(R.id.tab_textview)).setVisibility(View.GONE);
-            ((TextView)tab3.findViewById(R.id.tab_textview)).setVisibility(View.GONE);
-        } else if(position == 1) {
-            ((TextView)tab1.findViewById(R.id.tab_textview)).setVisibility(View.GONE);
-            ((TextView)tab2.findViewById(R.id.tab_textview)).setVisibility(View.VISIBLE);
-            ((TextView)tab3.findViewById(R.id.tab_textview)).setVisibility(View.GONE);
-        } else if(position == 2) {
-            ((TextView)tab1.findViewById(R.id.tab_textview)).setVisibility(View.GONE);
-            ((TextView)tab2.findViewById(R.id.tab_textview)).setVisibility(View.GONE);
-            ((TextView)tab3.findViewById(R.id.tab_textview)).setVisibility(View.VISIBLE);
+        Enums.TabPosition positionEnum = Enums.TabPosition.Meal;
+
+        if(position == Enums.TabPosition.Profile.getVal()) {
+            ((TextView) tabProfile.findViewById(R.id.tab_textview)).setVisibility(View.VISIBLE);
+            ((TextView) tabMeal.findViewById(R.id.tab_textview)).setVisibility(View.GONE);
+            ((TextView) tabStats.findViewById(R.id.tab_textview)).setVisibility(View.GONE);
+            positionEnum = Enums.TabPosition.Profile;
+
+        } else if(position == Enums.TabPosition.Meal.getVal()) {
+            ((TextView) tabProfile.findViewById(R.id.tab_textview)).setVisibility(View.GONE);
+            ((TextView) tabMeal.findViewById(R.id.tab_textview)).setVisibility(View.VISIBLE);
+            ((TextView) tabStats.findViewById(R.id.tab_textview)).setVisibility(View.GONE);
+            positionEnum = Enums.TabPosition.Meal;
+
+        } else if(position == Enums.TabPosition.Statistics.getVal()) {
+            ((TextView) tabProfile.findViewById(R.id.tab_textview)).setVisibility(View.GONE);
+            ((TextView) tabMeal.findViewById(R.id.tab_textview)).setVisibility(View.GONE);
+            ((TextView) tabStats.findViewById(R.id.tab_textview)).setVisibility(View.VISIBLE);
+            positionEnum = Enums.TabPosition.Statistics;
+
         }
 
 
-        mListener.tabChanged(position);
+        mListener.tabChanged(positionEnum);
     }
 
     @Override
