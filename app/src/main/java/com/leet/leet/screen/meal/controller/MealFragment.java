@@ -27,7 +27,7 @@ public class MealFragment extends Fragment implements MealMainListner,MealResult
     MealView mView;
 
 
-    @Override //what is this?
+    @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 

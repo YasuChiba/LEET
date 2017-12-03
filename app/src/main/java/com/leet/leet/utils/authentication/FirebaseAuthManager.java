@@ -53,6 +53,27 @@ public class FirebaseAuthManager {
         return (user == null || user.isAnonymous());
     }
 
+    /**
+     * send user email verification
+     */
+    public static void sendEmail() {
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        if (user != null && !isGuest()) {
+            user.sendEmailVerification();
+        }
+    }
+    /**
+     * send reset password email
+     *
+     * @param email user email
+     */
+    public static void forgotPassword(String email) {
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        if (user != null && !isGuest()) {
+            mAuth.sendPasswordResetEmail(email);
+        }
+    }
+
     public static void logout() {
         FirebaseAuth.getInstance().signOut();
     }

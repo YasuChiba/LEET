@@ -50,8 +50,8 @@ StartActivity extends AppCompatActivity {
         //FirebaseAuthManager.logout();
 
         if (mModel.isLoggedIn()) {
-            Toast.makeText(this, FirebaseAuthManager.getEmail(), Toast.LENGTH_SHORT).show();
-            Toast.makeText(this, FirebaseAuthManager.getUserId(), Toast.LENGTH_SHORT).show();
+            //Toast.makeText(this, FirebaseAuthManager.getEmail(), Toast.LENGTH_SHORT).show();
+            //Toast.makeText(this, FirebaseAuthManager.getUserId(), Toast.LENGTH_SHORT).show();
 
             Intent intent = new Intent(this, MainActivity.class);
             startActivity(intent);
