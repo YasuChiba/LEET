@@ -2,359 +2,367 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
-
-    <TextView
-        android:id="@+id/title"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_weight="0.1"
-        android:gravity="center_horizontal"
-        android:text="Add Custom Meal"
-        android:textColor="@color/LEET_RED"
-        android:textSize="36sp" />
-
-    <LinearLayout
-        android:id="@+id/name_layout"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_weight=".1"
-        android:orientation="horizontal">
-
-        <TextView
-            android:id="@+id/name_label"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:gravity="center_horizontal"
-            android:text="Name:"
-            android:textColor="@color/LEET_RED"
-            android:textSize="20sp" />
+            android:layout_height="match_parent">
 
-        <EditText
-            android:id="@+id/name_value"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:backgroundTint="@color/LEET_UNDERLINES"
-            android:ems="10"
-            android:gravity="center_horizontal"
-            android:inputType="textPersonName"
-            android:textColor="@color/LEET_RED"
-            android:textSize="20sp" />
-    </LinearLayout>
+            <TextView
+                android:id="@+id/title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.1"
+                android:gravity="center_horizontal"
+                android:text="Add Custom Meal"
+                android:textColor="@color/LEET_RED"
+                android:textSize="36sp" />
 
-    <LinearLayout
-        android:id="@+id/price_layout"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_weight=".1"
-        android:orientation="horizontal">
+            <LinearLayout
+                android:id="@+id/name_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight=".1"
+                android:orientation="horizontal">
 
-        <TextView
-            android:id="@+id/price_label"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:gravity="center_horizontal"
-            android:text="Price:"
-            android:textColor="@color/LEET_RED"
-            android:textSize="20sp" />
+                <TextView
+                    android:id="@+id/name_label"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center_horizontal"
+                    android:text="Name:"
+                    android:textColor="@color/LEET_RED"
+                    android:textSize="20sp" />
 
-        <EditText
-            android:id="@+id/price_value"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:backgroundTint="@color/LEET_UNDERLINES"
-            android:ems="10"
-            android:gravity="center_horizontal"
-            android:inputType="numberDecimal"
-            android:textColor="@color/LEET_RED"
-            android:textSize="20sp" />
-    </LinearLayout>
+                <EditText
+                    android:id="@+id/name_value"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:backgroundTint="@color/LEET_UNDERLINES"
+                    android:ems="10"
+                    android:gravity="center_horizontal"
+                    android:inputType="textPersonName"
+                    android:textColor="@color/LEET_RED"
+                    android:textSize="20sp" />
+            </LinearLayout>
 
-    <LinearLayout
-        android:id="@+id/calories_layout"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_weight=".1"
-        android:orientation="horizontal">
+            <LinearLayout
+                android:id="@+id/price_layout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight=".1"
+                android:orientation="horizontal">
 
-        <TextView
-            android:id="@+id/calories_label"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:gravity="center_horizontal"
-            android:text="Calories:"
-            android:textColor="@color/LEET_RED"
-            android:textSize="20sp" />
+                <TextView
+                    android:id="@+id/price_label"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center_horizontal"
+                    android:text="Price:"
+                    android:textColor="@color/LEET_RED"
+                    android:textSize="20sp" />
 
-        <EditText
-            android:id="@+id/calories_value"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:backgroundTint="@color/LEET_UNDERLINES"
-            android:ems="10"
-            android:gravity="center_horizontal"
-            android:inputType="numberDecimal"
-            android:textColor="@color/LEET_RED"
-            android:textSize="20sp" />
-    </LinearLayout>
+                <EditText
+                    android:id="@+id/price_value"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:backgroundTint="@color/LEET_UNDERLINES"
+                    android:ems="10"
+                    android:gravity="center_horizontal"
+                    android:inputType="numberDecimal"
+                    android:textColor="@color/LEET_RED"
+                    android:textSize="20sp" />
+            </LinearLayout>
 
-    <LinearLayout
-        android:id="@+id/carbs_layout"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_weight=".1"
-        android:orientation="horizontal">
+            <LinearLayout
+                android:id="@+id/calories_layout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight=".1"
+                android:orientation="horizontal">
 
-        <TextView
-            android:id="@+id/carbs_label"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:gravity="center_horizontal"
-            android:text="Carbs:"
-            android:textColor="@color/LEET_RED"
-            android:textSize="20sp" />
+                <TextView
+                    android:id="@+id/calories_label"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center_horizontal"
+                    android:text="Calories:"
+                    android:textColor="@color/LEET_RED"
+                    android:textSize="20sp" />
 
-        <EditText
-            android:id="@+id/carbs_value"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:backgroundTint="@color/LEET_UNDERLINES"
-            android:ems="10"
-            android:gravity="center_horizontal"
-            android:inputType="numberDecimal"
-            android:textColor="@color/LEET_RED"
-            android:textSize="20sp" />
-    </LinearLayout>
+                <EditText
+                    android:id="@+id/calories_value"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:backgroundTint="@color/LEET_UNDERLINES"
+                    android:ems="10"
+                    android:gravity="center_horizontal"
+                    android:inputType="numberDecimal"
+                    android:textColor="@color/LEET_RED"
+                    android:textSize="20sp" />
+            </LinearLayout>
 
-    <LinearLayout
-        android:id="@+id/total_fat_layout"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_weight=".1"
-        android:orientation="horizontal">
+            <LinearLayout
+                android:id="@+id/carbs_layout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight=".1"
+                android:orientation="horizontal">
 
-        <TextView
-            android:id="@+id/total_fat_label"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:gravity="center_horizontal"
-            android:text="Total Fat:"
-            android:textColor="@color/LEET_RED"
-            android:textSize="20sp" />
+                <TextView
+                    android:id="@+id/carbs_label"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center_horizontal"
+                    android:text="Carbs:"
+                    android:textColor="@color/LEET_RED"
+                    android:textSize="20sp" />
 
-        <EditText
-            android:id="@+id/total_fat_value"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:backgroundTint="@color/LEET_UNDERLINES"
-            android:ems="10"
-            android:gravity="center_horizontal"
-            android:inputType="numberDecimal"
-            android:textColor="@color/LEET_RED"
-            android:textSize="20sp" />
-    </LinearLayout>
+                <EditText
+                    android:id="@+id/carbs_value"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:backgroundTint="@color/LEET_UNDERLINES"
+                    android:ems="10"
+                    android:gravity="center_horizontal"
+                    android:inputType="numberDecimal"
+                    android:textColor="@color/LEET_RED"
+                    android:textSize="20sp" />
+            </LinearLayout>
 
-    <LinearLayout
-        android:id="@+id/sat_fat_layout"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_weight=".1"
-        android:orientation="horizontal">
+            <LinearLayout
+                android:id="@+id/total_fat_layout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight=".1"
+                android:orientation="horizontal">
 
-        <TextView
-            android:id="@+id/sat_fat_label"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:gravity="center_horizontal"
-            android:text="Saturated Fat:"
-            android:textColor="@color/LEET_RED"
-            android:textSize="20sp" />
+                <TextView
+                    android:id="@+id/total_fat_label"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center_horizontal"
+                    android:text="Total Fat:"
+                    android:textColor="@color/LEET_RED"
+                    android:textSize="20sp" />
 
-        <EditText
-            android:id="@+id/sat_fat_value"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:backgroundTint="@color/LEET_UNDERLINES"
-            android:ems="10"
-            android:gravity="center_horizontal"
-            android:inputType="numberDecimal"
-            android:textColor="@color/LEET_RED"
-            android:textSize="20sp" />
-    </LinearLayout>
+                <EditText
+                    android:id="@+id/total_fat_value"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:backgroundTint="@color/LEET_UNDERLINES"
+                    android:ems="10"
+                    android:gravity="center_horizontal"
+                    android:inputType="numberDecimal"
+                    android:textColor="@color/LEET_RED"
+                    android:textSize="20sp" />
+            </LinearLayout>
 
-    <LinearLayout
-        android:id="@+id/protein_layout"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_weight=".1"
-        android:orientation="horizontal">
+            <LinearLayout
+                android:id="@+id/sat_fat_layout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight=".1"
+                android:orientation="horizontal">
 
-        <TextView
-            android:id="@+id/protein_label"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:gravity="center_horizontal"
-            android:text="Protein:"
-            android:textColor="@color/LEET_RED"
-            android:textSize="20sp" />
+                <TextView
+                    android:id="@+id/sat_fat_label"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center_horizontal"
+                    android:text="Saturated Fat:"
+                    android:textColor="@color/LEET_RED"
+                    android:textSize="20sp" />
 
-        <EditText
-            android:id="@+id/protein_value"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:backgroundTint="@color/LEET_UNDERLINES"
-            android:ems="10"
-            android:gravity="center_horizontal"
-            android:inputType="numberDecimal"
-            android:textColor="@color/LEET_RED"
-            android:textSize="20sp" />
-    </LinearLayout>
+                <EditText
+                    android:id="@+id/sat_fat_value"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:backgroundTint="@color/LEET_UNDERLINES"
+                    android:ems="10"
+                    android:gravity="center_horizontal"
+                    android:inputType="numberDecimal"
+                    android:textColor="@color/LEET_RED"
+                    android:textSize="20sp" />
+            </LinearLayout>
 
-    <LinearLayout
-        android:id="@+id/sodium_layout"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_weight=".1"
-        android:orientation="horizontal">
+            <LinearLayout
+                android:id="@+id/protein_layout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight=".1"
+                android:orientation="horizontal">
 
-        <TextView
-            android:id="@+id/sodium_label"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:gravity="center_horizontal"
-            android:text="Sodium:"
-            android:textColor="@color/LEET_RED"
-            android:textSize="20sp" />
+                <TextView
+                    android:id="@+id/protein_label"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center_horizontal"
+                    android:text="Protein:"
+                    android:textColor="@color/LEET_RED"
+                    android:textSize="20sp" />
 
-        <EditText
-            android:id="@+id/sodium_value"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:backgroundTint="@color/LEET_UNDERLINES"
-            android:ems="10"
-            android:gravity="center_horizontal"
-            android:inputType="numberDecimal"
-            android:textColor="@color/LEET_RED"
-            android:textSize="20sp" />
-    </LinearLayout>
+                <EditText
+                    android:id="@+id/protein_value"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:backgroundTint="@color/LEET_UNDERLINES"
+                    android:ems="10"
+                    android:gravity="center_horizontal"
+                    android:inputType="numberDecimal"
+                    android:textColor="@color/LEET_RED"
+                    android:textSize="20sp" />
+            </LinearLayout>
 
-    <LinearLayout
-        android:id="@+id/cholesterol_layout"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_weight=".1"
-        android:orientation="horizontal">
+            <LinearLayout
+                android:id="@+id/sodium_layout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight=".1"
+                android:orientation="horizontal">
 
-        <TextView
-            android:id="@+id/cholesterol_label"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:gravity="center_horizontal"
-            android:text="Cholesterol"
-            android:textColor="@color/LEET_RED"
-            android:textSize="20sp" />
+                <TextView
+                    android:id="@+id/sodium_label"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center_horizontal"
+                    android:text="Sodium:"
+                    android:textColor="@color/LEET_RED"
+                    android:textSize="20sp" />
 
-        <EditText
-            android:id="@+id/cholesterol_value"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:backgroundTint="@color/LEET_UNDERLINES"
-            android:ems="10"
-            android:gravity="center_horizontal"
-            android:inputType="numberDecimal"
-            android:textColor="@color/LEET_RED"
-            android:textSize="20sp" />
-    </LinearLayout>
+                <EditText
+                    android:id="@+id/sodium_value"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:backgroundTint="@color/LEET_UNDERLINES"
+                    android:ems="10"
+                    android:gravity="center_horizontal"
+                    android:inputType="numberDecimal"
+                    android:textColor="@color/LEET_RED"
+                    android:textSize="20sp" />
+            </LinearLayout>
 
-    <LinearLayout
-        android:id="@+id/dietary_fiber_layout"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_weight=".1"
-        android:orientation="horizontal">
+            <LinearLayout
+                android:id="@+id/cholesterol_layout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight=".1"
+                android:orientation="horizontal">
 
-        <TextView
-            android:id="@+id/fiber_label"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:gravity="center_horizontal"
-            android:text="Dietary Fiber:"
-            android:textColor="@color/LEET_RED"
-            android:textSize="20sp" />
+                <TextView
+                    android:id="@+id/cholesterol_label"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center_horizontal"
+                    android:text="Cholesterol"
+                    android:textColor="@color/LEET_RED"
+                    android:textSize="20sp" />
 
-        <EditText
-            android:id="@+id/fiber_value"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:backgroundTint="@color/LEET_UNDERLINES"
-            android:ems="10"
-            android:gravity="center_horizontal"
-            android:inputType="numberDecimal"
-            android:textColor="@color/LEET_RED"
-            android:textSize="20sp" />
+                <EditText
+                    android:id="@+id/cholesterol_value"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:backgroundTint="@color/LEET_UNDERLINES"
+                    android:ems="10"
+                    android:gravity="center_horizontal"
+                    android:inputType="numberDecimal"
+                    android:textColor="@color/LEET_RED"
+                    android:textSize="20sp" />
+            </LinearLayout>
 
+            <LinearLayout
+                android:id="@+id/dietary_fiber_layout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight=".1"
+                android:orientation="horizontal">
 
-    </LinearLayout>
+                <TextView
+                    android:id="@+id/fiber_label"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center_horizontal"
+                    android:text="Dietary Fiber:"
+                    android:textColor="@color/LEET_RED"
+                    android:textSize="20sp" />
 
-    <LinearLayout
-        android:id="@+id/sugar_layout"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_weight=".1"
-        android:orientation="horizontal">
-
-        <TextView
-            android:id="@+id/sugar_label"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:gravity="center_horizontal"
-            android:text="Sugar:"
-            android:textColor="@color/LEET_RED"
-            android:textSize="20sp" />
-
-        <EditText
-            android:id="@+id/sugar_value"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:backgroundTint="@color/LEET_UNDERLINES"
-            android:ems="10"
-            android:gravity="center_horizontal"
-            android:inputType="numberDecimal"
-            android:textColor="@color/LEET_RED"
-            android:textSize="20sp" />
+                <EditText
+                    android:id="@+id/fiber_value"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:backgroundTint="@color/LEET_UNDERLINES"
+                    android:ems="10"
+                    android:gravity="center_horizontal"
+                    android:inputType="numberDecimal"
+                    android:textColor="@color/LEET_RED"
+                    android:textSize="20sp" />
 
 
-    </LinearLayout>
+            </LinearLayout>
 
-    <Button
-        android:id="@+id/button_add_meal"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_weight=".1"
-        android:background="@color/LEET_BACKGROUND"
-        android:text="Create Meal"
-        android:textColor="@color/LEET_BUTTON_TEXT"
-        android:textSize="18sp" />
+            <LinearLayout
+                android:id="@+id/sugar_layout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight=".1"
+                android:orientation="horizontal">
 
+                <TextView
+                    android:id="@+id/sugar_label"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center_horizontal"
+                    android:text="Sugar:"
+                    android:textColor="@color/LEET_RED"
+                    android:textSize="20sp" />
+
+                <EditText
+                    android:id="@+id/sugar_value"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:backgroundTint="@color/LEET_UNDERLINES"
+                    android:ems="10"
+                    android:gravity="center_horizontal"
+                    android:inputType="numberDecimal"
+                    android:textColor="@color/LEET_RED"
+                    android:textSize="20sp" />
+
+
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/button_add_meal"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight=".1"
+                android:background="@color/LEET_BACKGROUND"
+                android:text="Create Meal"
+                android:textColor="@color/LEET_BUTTON_TEXT"
+                android:textSize="18sp" />
+        </LinearLayout>
+    </ScrollView>
 </LinearLayout>

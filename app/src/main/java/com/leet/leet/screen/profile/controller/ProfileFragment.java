@@ -85,6 +85,7 @@ public class ProfileFragment extends Fragment implements ProfileViewInterface.Pr
                 return super.onOptionsItemSelected(item);
         }
     }
+
     private void updateMenuTitles(MenuItem edit) {
         if (inProfile) {
             edit.setTitle(R.string.editProfile);
@@ -118,6 +119,25 @@ public class ProfileFragment extends Fragment implements ProfileViewInterface.Pr
             @Override
             public void getData(UserProfileEntity data) {
                 mView.setUserGoalDefaults(data.getGoals());
+            }
+        });
+    }
+    @Override
+    public void discardGoalChanges() {
+        mModel.getUserData(new FirebaseDBCallaback<UserProfileEntity>() {
+            @Override
+            public void getData(UserProfileEntity data) {
+                mView.setUserGoalDefaults(data.getGoals());
+            }
+        });
+    }
+
+    @Override
+    public void discardProfileChanges() {
+        mModel.getUserData(new FirebaseDBCallaback<UserProfileEntity>() {
+            @Override
+            public void getData(UserProfileEntity data) {
+                mView.setUserInfoDefaults(data.getInfo());
             }
         });
     }
