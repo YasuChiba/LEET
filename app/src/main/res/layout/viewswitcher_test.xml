@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -45,12 +46,50 @@
                     android:id="@+id/linearLayout1"
                     android:layout_width="345dp"
                     android:layout_height="500dp"
-                    android:layout_alignParentBottom="true"
                     android:layout_below="@+id/relativeLayout2"
                     android:layout_centerHorizontal="true"
-                    android:background="@drawable/profile_border"
+                    android:layout_marginTop="12dp"
                     android:orientation="vertical"
                     android:weightSum="1">
+
+                    <RelativeLayout
+                        android:layout_width="250dp"
+                        android:layout_height="52dp"
+                        android:layout_gravity="center">
+
+                        <TextView
+                            android:id="@+id/Email"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:layout_alignParentTop="true"
+                            android:backgroundTint="#cfcfcf"
+                            android:ellipsize="marquee"
+                            android:enabled="false"
+                            android:gravity="right"
+                            android:hint="Email Here"
+                            android:inputType="textEmailAddress"
+                            android:textColor="#333333"
+                            android:textColorHint="#cfcfcf"
+                            android:textSize="18dp">>
+
+                            <requestFocus />
+                        </TextView>
+
+                        <TextView
+                            android:id="@+id/email"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignBaseline="@+id/Email"
+                            android:layout_alignBottom="@+id/Email"
+                            android:layout_alignParentLeft="true"
+                            android:layout_alignParentStart="true"
+                            android:text="@string/Email"
+                            android:textColor="@color/colorBold"
+                            android:textSize="18dp" />
+
+
+                    </RelativeLayout>
 
                     <RelativeLayout
                         android:layout_width="250dp"
@@ -85,50 +124,12 @@
                             android:layout_alignParentLeft="true"
                             android:layout_alignParentStart="true"
                             android:text="@string/Name"
-                            android:textColor="#FE4B4B"
+                            android:textColor="@color/colorBold"
                             android:textSize="18dp" />
 
 
                     </RelativeLayout>
 
-                    <RelativeLayout
-                        android:layout_width="250dp"
-                        android:layout_height="70dp"
-                        android:layout_gravity="center">
-
-                        <EditText
-                            android:id="@+id/Email"
-                            android:layout_width="110dp"
-                            android:layout_height="wrap_content"
-                            android:layout_alignParentRight="true"
-                            android:layout_alignParentTop="true"
-                            android:backgroundTint="#cfcfcf"
-                            android:ems="10"
-                            android:gravity="right"
-                            android:hint="Email Here"
-                            android:inputType="textEmailAddress"
-                            android:maxLength="12"
-                            android:textColor="#333333"
-                            android:textColorHint="#cfcfcf"
-                            android:textSize="18dp">>
-
-                            <requestFocus />
-                        </EditText>
-
-                        <TextView
-                            android:id="@+id/email"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_alignBaseline="@+id/Email"
-                            android:layout_alignBottom="@+id/Email"
-                            android:layout_alignParentLeft="true"
-                            android:layout_alignParentStart="true"
-                            android:text="@string/Email"
-                            android:textColor="#FE4B4B"
-                            android:textSize="18dp" />
-
-
-                    </RelativeLayout>
 
                     <RelativeLayout
                         android:layout_width="250dp"
@@ -163,7 +164,7 @@
                             android:layout_alignParentLeft="true"
                             android:layout_alignParentStart="true"
                             android:text="@string/Age"
-                            android:textColor="#FE4B4B"
+                            android:textColor="@color/colorBold"
                             android:textSize="18dp" />
 
 
@@ -187,7 +188,7 @@
                             android:backgroundTint="@android:color/holo_orange_dark"
                             android:gravity="left"
                             android:text="@string/Gender"
-                            android:textColor="#FE4B4B"
+                            android:textColor="@color/colorBold"
                             android:textSize="18dp" />
 
                         <Spinner
@@ -205,31 +206,48 @@
 
                     </RelativeLayout>
 
-                    <Button
-                        android:id="@+id/acc_save"
-                        android:layout_width="200dp"
-                        android:layout_height="wrap_content"
-                        android:layout_alignTop="@+id/fat"
-                        android:layout_alignWithParentIfMissing="false"
-                        android:layout_gravity="center_horizontal"
-                        android:layout_marginTop="20dp"
-                        android:backgroundTint="#e00e0e"
-                        android:text="@string/Edit"
-                        android:textColor="#ffffff"
-                        android:textSize="20dp" />
+                    <RelativeLayout
+                        android:layout_width="322dp"
+                        android:layout_height="155dp">
 
-                    <Button
-                        android:id="@+id/Delete"
-                        android:layout_width="200dp"
-                        android:layout_height="wrap_content"
-                        android:layout_alignTop="@+id/fat"
-                        android:layout_alignWithParentIfMissing="false"
-                        android:layout_gravity="center_horizontal"
-                        android:layout_marginTop="70dp"
-                        android:backgroundTint="#e00e0e"
-                        android:text="Delete Account"
-                        android:textColor="#ffffff"
-                        android:textSize="20dp" />
+                        <Button
+                            android:id="@+id/acc_save"
+                            android:layout_width="200dp"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentTop="true"
+                            android:layout_alignWithParentIfMissing="false"
+                            android:layout_centerHorizontal="true"
+                            android:layout_gravity="center_horizontal"
+                            android:layout_marginTop="10dp"
+                            android:backgroundTint="#e00e0e"
+                            android:text="@string/Edit"
+                            android:textColor="#ffffff"
+                            android:textSize="20dp" />
+
+                        <ImageButton
+                            android:id="@+id/cancel_info"
+                            android:layout_width="46dp"
+                            android:layout_height="49dp"
+                            android:layout_alignBottom="@+id/acc_save"
+                            android:layout_alignParentEnd="true"
+                            android:visibility="gone"
+                            app:srcCompat="@mipmap/ic_launcher" />
+
+                        <Button
+                            android:id="@+id/Delete"
+                            android:layout_width="200dp"
+                            android:layout_height="wrap_content"
+                            android:layout_alignStart="@+id/acc_save"
+                            android:layout_alignWithParentIfMissing="false"
+                            android:layout_below="@+id/acc_save"
+                            android:layout_gravity="center_horizontal"
+                            android:layout_marginTop="21dp"
+                            android:backgroundTint="#e00e0e"
+                            android:text="Delete Account"
+                            android:textColor="#ffffff"
+                            android:textSize="20dp" />
+                    </RelativeLayout>
+
                 </LinearLayout>
 
             </RelativeLayout>
@@ -250,20 +268,19 @@
                     android:layout_width="300dp"
                     android:layout_height="50dp"
                     android:layout_alignParentTop="true"
-                    android:layout_centerHorizontal="true"
-                    android:layout_marginTop="21dp">
+                    android:layout_centerHorizontal="true">
 
 
                     <TextView
                         android:id="@+id/textView3"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_height="match_parent"
                         android:layout_centerHorizontal="true"
                         android:layout_centerVertical="true"
                         android:layout_gravity="center"
-                        android:text="MY GOALS"
+                        android:text="My Goals"
                         android:textColor="#630E0E"
-                        android:textSize="24dp"
+                        android:textSize="32dp"
                         android:textStyle="bold"
                         tools:typeface="sans" />
                 </RelativeLayout>
@@ -272,16 +289,10 @@
                     android:id="@+id/linearLayout"
                     android:layout_width="345dp"
                     android:layout_height="450dp"
-                    android:layout_below="@+id/relativeLayout"
+                    android:layout_alignParentBottom="true"
                     android:layout_centerHorizontal="true"
-                    android:background="@drawable/profile_border"
+                    android:layout_marginBottom="12dp"
                     android:orientation="vertical">
-
-                    <RelativeLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
-
-                    </RelativeLayout>
 
                     <RelativeLayout
                         android:layout_width="250dp"
@@ -317,7 +328,7 @@
                             android:layout_alignParentLeft="true"
                             android:layout_alignParentStart="true"
                             android:text="@string/Price"
-                            android:textColor="#FE4B4B"
+                            android:textColor="@color/colorBold"
                             android:textSize="18dp" />
 
 
@@ -357,7 +368,7 @@
                             android:layout_alignParentLeft="true"
                             android:layout_alignParentStart="true"
                             android:text="@string/Calorie"
-                            android:textColor="#FE4B4B"
+                            android:textColor="@color/colorBold"
                             android:textSize="18dp" />
 
 
@@ -397,7 +408,7 @@
                             android:layout_alignParentLeft="true"
                             android:layout_alignParentStart="true"
                             android:text="@string/Carbs"
-                            android:textColor="#FE4B4B"
+                            android:textColor="@color/colorBold"
                             android:textSize="18dp" />
 
 
@@ -437,7 +448,7 @@
                             android:layout_alignParentLeft="true"
                             android:layout_alignParentStart="true"
                             android:text="@string/Protein"
-                            android:textColor="#FE4B4B"
+                            android:textColor="@color/colorBold"
                             android:textSize="18dp" />
 
 
@@ -477,36 +488,56 @@
                             android:layout_alignParentLeft="true"
                             android:layout_alignParentStart="true"
                             android:text="@string/Fat"
-                            android:textColor="#FE4B4B"
+                            android:textColor="@color/colorBold"
                             android:textSize="18dp" />
 
 
                     </RelativeLayout>
 
-                    <Button
-                        android:id="@+id/goals_save"
-                        android:layout_width="200dp"
-                        android:layout_height="wrap_content"
-                        android:layout_alignTop="@+id/fat"
-                        android:layout_alignWithParentIfMissing="false"
-                        android:layout_gravity="center_horizontal"
-                        android:backgroundTint="#e00e0e"
-                        android:text="@string/Edit"
-                        android:textColor="#ffffff"
-                        android:textSize="20dp" />
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
 
-                    <Button
-                        android:id="@+id/Recommended"
-                        android:layout_width="200dp"
-                        android:layout_height="wrap_content"
-                        android:layout_alignTop="@+id/fat"
-                        android:layout_alignWithParentIfMissing="false"
-                        android:layout_gravity="center_horizontal"
-                        android:backgroundTint="#e00e0e"
-                        android:text="Use Recommended"
-                        android:textColor="#ffffff"
-                        android:textSize="20dp"
-                        android:visibility="gone" />
+                        <Button
+                            android:id="@+id/Recommended"
+                            android:layout_width="200dp"
+                            android:layout_height="wrap_content"
+                            android:layout_alignStart="@+id/goals_save"
+                            android:layout_alignWithParentIfMissing="false"
+                            android:layout_below="@+id/goals_save"
+                            android:layout_gravity="center_horizontal"
+                            android:layout_marginTop="10dp"
+                            android:backgroundTint="#e00e0e"
+                            android:text="Use Recommended"
+                            android:textColor="#ffffff"
+                            android:textSize="16dp"
+                            android:visibility="gone" />
+
+                        <Button
+                            android:id="@+id/goals_save"
+                            android:layout_width="200dp"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentTop="true"
+                            android:layout_alignWithParentIfMissing="false"
+                            android:layout_centerHorizontal="true"
+                            android:layout_gravity="center_horizontal"
+                            android:layout_marginTop="16dp"
+                            android:backgroundTint="#e00e0e"
+                            android:text="@string/Edit"
+                            android:textColor="#ffffff"
+                            android:textSize="20dp" />
+
+                        <ImageButton
+                            android:id="@+id/cancel_goals"
+                            android:layout_width="46dp"
+                            android:layout_height="49dp"
+                            android:layout_alignBottom="@+id/goals_save"
+                            android:layout_alignParentEnd="true"
+                            android:layout_marginEnd="6dp"
+                            android:visibility="gone"
+                            app:srcCompat="@mipmap/ic_launcher" />
+                    </RelativeLayout>
+
                 </LinearLayout>
 
             </RelativeLayout>
