@@ -45,17 +45,6 @@ public class DetailedMealFragment extends Fragment implements DetailedMealInterf
         mView = new DetailedMealView(inflater, container);
         mView.setListener(this); //not sure if needed
 
-        //TODO - Need to get the MenuEntity from the previous page rather than initiate a new meal.
-        /*
-        List<String> listStrings = new LinkedList<String>();
-        MenuTagsEntity tags = new MenuTagsEntity(false,false,false);
-        listStrings.add("list");
-        nutritions = new MenuNutritionsEntity(1,2,3,4,5,6,7,8,9,"One", listStrings );
-
-        meal = new MenuEntity("Cheese Burger", nutritions, 7, tags); //parameters are currently null, but this won't be a problem when
-                                 //getting the meal from the previos page.
-        */
-        //display the MenuEntity's parameters on the screen
 
         displayNutrition();
 
