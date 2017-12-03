@@ -11,6 +11,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.support.v7.widget.Toolbar;
 
 import com.leet.leet.R;
 import com.leet.leet.screen.main.MainViewViewPagerAdapter;
@@ -26,10 +27,10 @@ public class MainView implements MainViewInterface, ViewPager.OnPageChangeListen
     private MainViewListener mListener;
     private TabLayout tabLayout;
     private ViewPager viewPager;
-
-    View tab1;
-    View tab2;
-    View tab3;
+    private Toolbar toolbar;
+    private View tab1;
+    private View tab2;
+    private View tab3;
 
     public MainView(LayoutInflater inflater, ViewGroup container, MainViewListener listener) {
         mRootView = inflater.inflate(R.layout.view_main, container, false);
@@ -40,6 +41,7 @@ public class MainView implements MainViewInterface, ViewPager.OnPageChangeListen
     private void initialize(LayoutInflater inflater) {
         tabLayout = (TabLayout)mRootView.findViewById(R.id.tab_layout);
         viewPager = (ViewPager)mRootView.findViewById(R.id.view_pager);
+        toolbar = (Toolbar)mRootView.findViewById(R.id.toolbar);
 
         tab1 = inflater.inflate(R.layout.tab, null);
         tab2 = inflater.inflate(R.layout.tab, null);
@@ -75,6 +77,8 @@ public class MainView implements MainViewInterface, ViewPager.OnPageChangeListen
         return mRootView;
     }
 
+    public Toolbar getToolbar() {return toolbar;}
+
 
     @Override
     public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
@@ -105,5 +109,9 @@ public class MainView implements MainViewInterface, ViewPager.OnPageChangeListen
     @Override
     public void onPageScrollStateChanged(int state) {
 
+    }
+
+    public void setToolbarTitle(String title) {
+        ((TextView)toolbar.findViewById(R.id.toolbar_title_textview)).setText(title);
     }
 }

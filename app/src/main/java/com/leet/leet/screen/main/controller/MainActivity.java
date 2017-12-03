@@ -68,9 +68,10 @@ public class MainActivity extends AppCompatActivity implements MainViewInterface
         mView.setupTabs(fragments,mModel.tabTitles,1,getSupportFragmentManager());
         setContentView(mView.getRootView());
 
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         invalidateOptionsMenu();
-        setSupportActionBar(toolbar);
+        setSupportActionBar(mView.getToolbar());
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
+        mView.setToolbarTitle(getString(R.string.app_name));
     }
 
     private void gotoSignup() {
