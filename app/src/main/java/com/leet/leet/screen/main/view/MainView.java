@@ -4,6 +4,7 @@ import android.graphics.Color;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
+import android.support.v4.content.ContextCompat;
 import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,6 +14,7 @@ import android.widget.TextView;
 import android.support.v7.widget.Toolbar;
 
 import com.leet.leet.R;
+import com.leet.leet.common.ContextManager;
 import com.leet.leet.common.Enums;
 import com.leet.leet.screen.main.MainViewViewPagerAdapter;
 
@@ -54,7 +56,7 @@ public class MainView implements MainViewInterface, ViewPager.OnPageChangeListen
         viewPager.setAdapter(viewPagerAdapter);
         viewPager.addOnPageChangeListener(this);
         tabLayout.setupWithViewPager(viewPager);
-        tabLayout.setBackgroundColor(Color.parseColor("#e00e0e"));
+        tabLayout.setBackgroundColor(ContextCompat.getColor(ContextManager.getInstance().getApplicationContext(),R.color.LEET_LABEL));
 
         tabLayout.getTabAt(Enums.TabPosition.Profile.getVal()).setCustomView(tabProfile);
         tabLayout.getTabAt(Enums.TabPosition.Meal.getVal()).setCustomView(tabMeal);

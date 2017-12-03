@@ -10,8 +10,9 @@
 
     <style name="ToolbarDesign">
         <item name="theme">@style/ThemeOverlay.AppCompat.Light</item>
-        <item name="android:background">@color/bgColor</item>
+        <item name="android:background">@color/LEET_LABEL</item>
         <item name="android:elevation">5dp</item>
+        <item name="android:textColor">#ffffffff</item>
     </style>
 
     <style name="ButtonDesign" parent="Widget.AppCompat.Button.Colored">
