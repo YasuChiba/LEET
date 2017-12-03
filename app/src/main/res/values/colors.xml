@@ -13,4 +13,10 @@
     <color name="LEET_BUTTON_TEXT">#ffffff</color>
 
     <color name="bgColor">#e00e0e</color>
+    <color name="light_red">#592323</color>
+    <color name="Lable">#630e0e</color>
+    <color name="textColor">#333333</color>
+    <color name="textColorHint">#cfcfcf</color>
+    <color name="buttonColor">#e00e0e</color>
+    <color name="buttonTextColor">#ffffff</color>
 </resources>

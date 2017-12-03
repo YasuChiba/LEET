@@ -24,6 +24,7 @@ import com.leet.leet.utils.database.FirebaseDBUserDataHelper;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import static com.leet.leet.utils.authentication.FirebaseAuthManager.forgotPassword;
 import static com.leet.leet.utils.authentication.FirebaseAuthManager.sendEmail;
 
 /**
@@ -93,7 +94,7 @@ public class SignupActivity extends AppCompatActivity implements SignupViewInter
             FirebaseAuthManager.signUpNewUser(email, password, this);
 
             // send user email verification
-            sendEmail();
+            //sendEmail();
         } else {
             Log.d("SIGNUP", "signup failed");
             //Toast.makeText(this, "404", Toast.LENGTH_SHORT).show();
