@@ -87,11 +87,13 @@ public class ProfileModel {
                     recCal = FDAHelper.getMaleCalories(data.getInfo().getAge());
                     recProtein = FDAHelper.getMaleProtein(data.getInfo().getAge());
                 }
-                else {
+                else
+                {
                     recCal = FDAHelper.getFemaleCalories(data.getInfo().getAge());
                     recProtein = FDAHelper.getFemaleProtein(data.getInfo().getAge());
                 }
                 recFat = (recCal/36);
+                recCarbs = (6*recCal/40);
                 data.getGoals().setCalorie(recCal);
                 data.getGoals().setProtein(recProtein);
                 data.getGoals().setFat(recFat);

@@ -46,7 +46,7 @@ public class ProfileView implements ProfileViewInterface, View.OnClickListener {
     boolean accEdit = false;
 
     Button goals_save, acc_save, Recommended, delete;
-    ViewSwitcher goals_to_acc_vs, acc_vs, goals_vs;
+    ViewSwitcher goals_to_acc_vs;
 
 
 
@@ -68,15 +68,10 @@ public class ProfileView implements ProfileViewInterface, View.OnClickListener {
 
         fat = ((EditText)this.getRootView().findViewById(R.id.Fat));
 
-        weight = ((EditText)this.getRootView().findViewById(R.id.Weight));
-
         email = ((EditText)this.getRootView().findViewById(R.id.Email));
         name = ((EditText)this.getRootView().findViewById(R.id.Name));
         age = ((EditText)this.getRootView().findViewById(R.id.Age));
 
-
-        feet = ((Spinner)this.getRootView().findViewById(R.id.Feet));
-        inch = ((Spinner)this.getRootView().findViewById(R.id.Inch));
         gender = ((Spinner)this.getRootView().findViewById(R.id.Gender));
 
         goals_save = (Button) this.getRootView().findViewById(R.id.goals_save);
@@ -120,44 +115,19 @@ public class ProfileView implements ProfileViewInterface, View.OnClickListener {
             int spinnerPosition = adapter.getPosition(compareValue);
             gender.setSelection(spinnerPosition);
         }
+
         age.setText((String.valueOf(acc_info.getAge())));
-        weight.setText((String.valueOf(acc_info.getWeight())));
 
-        compareValue = Integer.toString(acc_info.getFeet());
-        Log.d("compare value", "fasdkfjasldfjaldfjalksdjfaklsdfjaksdfadsf  " + compareValue);
-        ArrayAdapter<CharSequence> adapter2 = ArrayAdapter.createFromResource(this.getRootView().getContext(), R.array.feet_array, android.R.layout.simple_spinner_item);
-        adapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        if (!compareValue.equals(null)) {
-            int spinnerPosition = adapter2.getPosition(compareValue);
-            Log.d("sdfasfsafjd", "" + spinnerPosition);
-            feet.setSelection(spinnerPosition);
-        }
-
-
-        compareValue = Integer.toString(acc_info.getInches());
-        ArrayAdapter<CharSequence> adapter3 = ArrayAdapter.createFromResource(this.getRootView().getContext(), R.array.inches_array, android.R.layout.simple_spinner_item);
-        adapter3.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        if (!compareValue.equals(null)) {
-            int spinnerPosition = adapter3.getPosition(compareValue);
-            inch.setSelection(spinnerPosition);
-        }
     }
 
     private UserInfoEntity createUserInfoEntity(){
         String name = this.name.getText().toString();
         String email = this.email.getText().toString();
         String gender = this.gender.getSelectedItem().toString();
-        Log.d("testing", this.weight.getText().toString());
-        Log.d("testing", String.valueOf(this.age.getText().toString() == ""));
-        int weight = 0;
-        try { weight = Integer.valueOf(this.weight.getText().toString()); }
-        catch (Exception e) { this.weight.setText("0"); }
-        int feet = Integer.valueOf(this.feet.getSelectedItem().toString());
-        int inch = Integer.valueOf(this.inch.getSelectedItem().toString());
         int age = 0;
         try {age = Integer.valueOf(this.age.getText().toString()); }
         catch (Exception e) { this.age.setText("0"); }
-        return new UserInfoEntity(name, gender, email, age, weight, feet, inch, null);
+        return new UserInfoEntity(name, gender, email, age, null);
     }
 
     private UserGoalEntity createUserGoalEntity(){
@@ -179,9 +149,6 @@ public class ProfileView implements ProfileViewInterface, View.OnClickListener {
         email.setEnabled(b);
         age.setEnabled(b);
         gender.setEnabled(b);
-        feet.setEnabled(b);
-        inch.setEnabled(b);
-        weight.setEnabled(b);
     }
 
     private void setGoalsEdit(boolean b){

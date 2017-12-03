@@ -25,9 +25,9 @@
                     android:id="@+id/relativeLayout"
                     android:layout_width="300dp"
                     android:layout_height="75dp"
-                    android:layout_marginTop="14dp"
+                    android:layout_alignParentEnd="true"
                     android:layout_alignParentTop="true"
-                    android:layout_alignParentEnd="true">
+                    android:layout_marginTop="14dp">
 
                     <Button
                         android:id="@+id/goals_save"
@@ -258,240 +258,217 @@
             </RelativeLayout>
         </ScrollView>
 
-        <LinearLayout
+        <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
+            android:layout_height="match_parent">
+
 
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
-                <Button
-                    android:id="@+id/Delete"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentEnd="true"
-                    android:layout_alignParentTop="true"
-                    android:background="@android:color/holo_red_light"
-                    android:text="Delete Account" />
 
-                <Button
-                    android:id="@+id/acc_save"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Edit" />
-            </RelativeLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:orientation="vertical">
-
-                <TextView
-                    android:id="@+id/texView8"
+                <RelativeLayout
+                    android:id="@+id/relativeLayout2"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:text="@string/Email"
-                    android:textColor="@color/colorPrimaryDark"
-                    android:textSize="20dp" />
+                    android:layout_height="match_parent">
 
-                <EditText
-                    android:id="@+id/Email"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:ems="10"
-                    android:gravity="center_horizontal"
-                    android:maxLength="30"
-                    android:text="" />
+                    <Button
+                        android:id="@+id/acc_save"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginEnd="17dp"
+                        android:text="Edit" />
 
-            </LinearLayout>
+                    <TextView
+                        android:id="@+id/textView17"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:layout_gravity="center"
+                        android:layout_marginEnd="34dp"
+                        android:gravity="center_horizontal"
+                        android:text="My Profile"
+                        android:textSize="32dp"
+                        android:textStyle="bold"
+                        tools:typeface="sans" />
 
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:orientation="vertical">
-
-                <TextView
-                    android:id="@+id/textView9"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:text="@string/Name"
-                    android:textColor="@color/colorPrimaryDark"
-                    android:textSize="20dp" />
-
-                <EditText
-                    android:id="@+id/Name"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:ems="10"
-                    android:gravity="center_horizontal"
-                    android:inputType="text"
-                    android:maxLength="15"
-                    android:text="" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:orientation="vertical">
-
-                <TextView
-                    android:id="@+id/textView10"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:text="@string/Height"
-                    android:textColor="@color/colorPrimaryDark"
-                    android:textSize="20dp" />
+                    <Button
+                        android:id="@+id/Delete"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignTop="@+id/textView17"
+                        android:layout_marginEnd="17dp"
+                        android:layout_toStartOf="@+id/textView17"
+                        android:text="Delete" />
+                </RelativeLayout>
 
                 <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_gravity="center"
-                    android:layout_weight="1"
-                    android:orientation="horizontal">
+                    android:id="@+id/linearLayout1"
+                    android:layout_width="345dp"
+                    android:layout_height="375dp"
+                    android:background="@drawable/profile_border"
+                    android:orientation="vertical"
+                    android:layout_below="@+id/relativeLayout2"
+                    android:layout_alignParentBottom="true"
+                    android:layout_centerHorizontal="true"
+                    android:weightSum="1">
 
-                    <Spinner
-                        android:id="@+id/Feet"
+                    <RelativeLayout
+                        android:layout_width="300dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center">
+
+                        <EditText
+                            android:id="@+id/Name"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentStart="true"
+                            android:layout_alignParentTop="true"
+                            android:layout_marginTop="20dp"
+                            android:backgroundTint="@android:color/holo_orange_dark"
+                            android:ems="10"
+                            android:gravity="right"
+                            android:hint="Name Here"
+                            android:inputType="textPersonName"
+                            android:maxLength="5">
+
+                            <requestFocus />
+                        </EditText>
+
+                        <TextView
+                            android:id="@+id/name"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignBaseline="@+id/Name"
+                            android:layout_alignBottom="@+id/Name"
+                            android:layout_alignParentLeft="true"
+                            android:text="@string/Price"
+                            android:textSize="20dp" />
+
+
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="300dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center">
+
+                        <EditText
+                            android:id="@+id/Email"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:backgroundTint="@android:color/holo_orange_dark"
+                            android:ems="10"
+                            android:gravity="right"
+                            android:hint="Email Here"
+                            android:inputType="textEmailAddress"
+                            android:maxLength="5"
+                            android:layout_alignParentTop="true"
+                            android:layout_alignParentStart="true">>
+
+                            <requestFocus />
+                        </EditText>
+
+                        <TextView
+                            android:id="@+id/email"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignBaseline="@+id/Email"
+                            android:layout_alignBottom="@+id/Email"
+                            android:layout_alignParentLeft="true"
+                            android:text="@string/Email"
+                            android:textSize="20dp" />
+
+
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="300dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center">
+
+                        <EditText
+                            android:id="@+id/Age"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:backgroundTint="@android:color/holo_orange_dark"
+                            android:ems="10"
+                            android:gravity="right"
+                            android:hint="Age Here"
+                            android:inputType="number"
+                            android:maxLength="3"
+                            android:layout_centerVertical="true"
+                            android:layout_alignParentStart="true">>
+
+                            <requestFocus />
+                        </EditText>
+
+                        <TextView
+                            android:id="@+id/age"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignBaseline="@+id/Age"
+                            android:layout_alignBottom="@+id/Age"
+                            android:layout_alignParentLeft="true"
+                            android:text="@string/Age"
+                            android:textSize="20dp" />
+
+
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:id="@+id/relativeLayout3"
+                        android:layout_width="300dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_weight="0.11">
+
+                        <TextView
+                            android:id="@+id/textView13"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:backgroundTint="@android:color/holo_orange_dark"
+                            android:gravity="left"
+                            android:text="@string/Gender"
+                            android:textSize="20dp"
+                            android:layout_centerVertical="true"
+                            android:layout_alignParentStart="true" />
+
+                        <Spinner
+                            android:id="@+id/Gender"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignBaseline="@+id/textView13"
+                            android:layout_alignBottom="@+id/textView13"
+                            android:layout_alignParentEnd="true"
+                            android:entries="@array/whatGender">
+
+                            <requestFocus />
+                        </Spinner>
+
+
+                    </RelativeLayout>
+
+
+                    <Button
+                        android:id="@+id/delete_acc"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:entries="@array/feet_array"></Spinner>
-
-
-                    <TextView
-                        android:id="@+id/textView8"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_weight=".25"
-                        android:text="@string/Feet"
-                        android:textSize="20dp" />
-
-                    <Spinner
-                        android:id="@+id/Inch"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:entries="@array/inches_array"></Spinner>
-
-                    <TextView
-                        android:id="@+id/textView12"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_weight=".25"
-                        android:text="@string/Inches"
-                        android:textSize="20dp" />
+                        android:layout_alignTop="@+id/fat"
+                        android:layout_alignWithParentIfMissing="false"
+                        android:layout_gravity="center_horizontal"
+                        android:text="Use Recommended"
+                        android:visibility="gone" />
                 </LinearLayout>
 
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:orientation="vertical">
-
-                <TextView
-                    android:id="@+id/textView11"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:text="@string/Weight"
-                    android:textColor="@color/colorPrimaryDark"
-                    android:textSize="20dp" />
-
-                <EditText
-                    android:id="@+id/Weight"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:ems="10"
-                    android:gravity="center_horizontal"
-                    android:inputType="number"
-                    android:maxLength="3"
-                    android:text="0" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:orientation="vertical">
-
-                <TextView
-                    android:id="@+id/textView13"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:text="@string/Gender"
-                    android:textColor="@color/colorPrimaryDark"
-                    android:textSize="20dp" />
-
-                <Spinner
-                    android:id="@+id/Gender"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:entries="@array/whatGender"></Spinner>
-
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:orientation="vertical">
-
-                <TextView
-                    android:id="@+id/textView14"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:text="@string/Age"
-                    android:textColor="@color/colorPrimaryDark"
-                    android:textSize="20dp" />
-
-                <EditText
-                    android:id="@+id/Age"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:ems="10"
-                    android:gravity="center_horizontal"
-                    android:inputType="number"
-                    android:maxLength="2"
-                    android:text="0" />
-
-            </LinearLayout>
-
-        </LinearLayout>
+            </RelativeLayout>
+        </ScrollView>
 
 
     </ViewSwitcher>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:orientation="horizontal">
-
-    </LinearLayout>
 
 </LinearLayout>
