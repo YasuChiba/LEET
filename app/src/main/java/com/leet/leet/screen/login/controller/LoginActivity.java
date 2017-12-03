@@ -114,8 +114,9 @@ public class LoginActivity extends AppCompatActivity implements LoginViewInterfa
     public void guestLogin() {
         Log.d("LOGIN", "guestLogin");
         // connect to firebase
-        ProgressDialogManager.showProgressDialog(this);
-        FirebaseAuthManager.signInAnonymously(this);
+        //ProgressDialogManager.showProgressDialog(this);
+        //FirebaseAuthManager.signInAnonymously(this);
+        startActivity(new Intent(this, MainActivity.class));
         //Toast.makeText(this, "200", Toast.LENGTH_SHORT).show();
     }
 
