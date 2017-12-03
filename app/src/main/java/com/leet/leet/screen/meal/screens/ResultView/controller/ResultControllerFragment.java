@@ -32,7 +32,9 @@ public class ResultControllerFragment extends Fragment implements ResultViewInte
     MealResultModel model;
     ResultView resultView;
     private MealResultListener mListner;
-    boolean isVisible = false;
+
+    //This flag is true when MealFragment screen is shown
+    private boolean isScreenShow = false;
 
 
     private int price_Range;
@@ -67,9 +69,7 @@ public class ResultControllerFragment extends Fragment implements ResultViewInte
 
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
-        if(resultView.getRootView().getGlobalVisibleRect(new Rect()) || !menu.hasVisibleItems()) {
-
-            // different header for custom meal menu
+        if(isScreenShow) {
             if(model.getRestaurantName() == Enums.RestaurantName.Custom) {
                 inflater.inflate(R.menu.custommeal_search_result, menu);
             }
@@ -77,7 +77,7 @@ public class ResultControllerFragment extends Fragment implements ResultViewInte
                 inflater.inflate(R.menu.meal_search_result_view_menu, menu);
             }
         }
-        super.onCreateOptionsMenu(menu,inflater);
+       // super.onCreateOptionsMenu(menu,inflater);
     }
 
     @Override
@@ -94,7 +94,6 @@ public class ResultControllerFragment extends Fragment implements ResultViewInte
             case R.id.create_custom_meal:
                 AddCustomMealFragment addCustomMealFragment = new AddCustomMealFragment();
                 mListner.moveToAddCustomFragment();
-
         }
 
         return true;
@@ -139,5 +138,9 @@ public class ResultControllerFragment extends Fragment implements ResultViewInte
         model.sort(priceRange, calorieRange, proteinRange, carbsRange, totFatRange, satFatRange,
                 sodiumRange, cholRange, fiberRange, sugarRange);
         resultView.setupListView(model.getMenuEntityList());
+    }
+
+    public void isScreenShow(boolean isScreenShow) {
+        this.isScreenShow = isScreenShow;
     }
 }

@@ -167,4 +167,19 @@ public class Enums {
 
     }
 
+    public enum TabPosition {
+        Profile(0),
+        Meal(1),
+        Statistics(2);
+
+        private final int val;
+        private TabPosition(final int val) {
+            this.val = val;
+        }
+
+        public int getVal() {
+            return this.val;
+        }
+    }
+
 }

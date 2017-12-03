@@ -25,7 +25,13 @@ import com.leet.leet.utils.database.entities.menu.MenuEntity;
 public class MealFragment extends Fragment implements MealMainListner,MealResultListener{
 
     MealView mView;
+    MealMainFragment mealMainFragment;
+    AddCustomMealFragment fragmentAddCustomMeal;
+    ResultControllerFragment resultFragment;
+    DetailedMealFragment fragmentDetailedMeal;
 
+    //This flag is true when this screen is shown
+    private boolean isScreenShow = false;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -34,30 +40,38 @@ public class MealFragment extends Fragment implements MealMainListner,MealResult
         mView = new MealView(inflater, container);
 
         //set initial fragment.
-        MealMainFragment fragment = new MealMainFragment();
-        fragment.setupFragment(this);
-        mView.changeContent(getFragmentManager(),fragment,false);
+        mealMainFragment = new MealMainFragment();
+        mealMainFragment.setupFragment(this);
+        mView.changeContent(getFragmentManager(),mealMainFragment,false);
 
         return mView.getRootView();
     }
 
     @Override
-    public void moveToAddCustomFragment() {
-        AddCustomMealFragment fragmentAddCustomMeal = new AddCustomMealFragment();
+    public void moveToAddCustomFragment(){
+        fragmentAddCustomMeal = new AddCustomMealFragment();
         mView.changeContent(getFragmentManager(), fragmentAddCustomMeal, true);
     }
 
     @Override
     public void moveToResultFragment(Enums.RestaurantName restaurantName) {
-        ResultControllerFragment resultFragment = new ResultControllerFragment();
+        resultFragment = new ResultControllerFragment();
         resultFragment.setupFragment(restaurantName,this);
+        resultFragment.isScreenShow(true);
         mView.changeContent(getFragmentManager(),resultFragment,true);
     }
 
     @Override
     public void moveToDetailFragment(MenuEntity data) {
-        DetailedMealFragment fragmentDetailedMeal = new DetailedMealFragment();
+        fragmentDetailedMeal = new DetailedMealFragment();
         fragmentDetailedMeal.setupFragment(data);
         mView.changeContent(getFragmentManager(),fragmentDetailedMeal, true);
+    }
+
+    public void isScreenShow(boolean isScreenShow) {
+        this.isScreenShow = isScreenShow;
+        if(resultFragment != null) {
+            resultFragment.isScreenShow(isScreenShow);
+        }
     }
 }
