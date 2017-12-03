@@ -90,6 +90,17 @@ public class MainActivity extends AppCompatActivity implements MainViewInterface
             //gotoSignup();
             gotoLogin();
         }
+
+        if(position == Enums.TabPosition.Profile) {
+            profileFragment.isScreenShow(true);
+        } else if(position == Enums.TabPosition.Meal) {
+            profileFragment.isScreenShow(false);
+
+        } else if(position == Enums.TabPosition.Statistics) {
+            profileFragment.isScreenShow(false);
+
+        }
+
     }
 
 }

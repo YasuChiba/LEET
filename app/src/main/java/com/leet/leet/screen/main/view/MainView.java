@@ -58,7 +58,7 @@ public class MainView implements MainViewInterface, ViewPager.OnPageChangeListen
 
         tabLayout.getTabAt(Enums.TabPosition.Profile.getVal()).setCustomView(tabProfile);
         tabLayout.getTabAt(Enums.TabPosition.Meal.getVal()).setCustomView(tabMeal);
-        tabLayout.getTabAt(Enums.TabPosition.Meal.getVal()).setCustomView(tabStats);
+        tabLayout.getTabAt(Enums.TabPosition.Statistics.getVal()).setCustomView(tabStats);
 
         ((ImageView) tabProfile.findViewById(R.id.tab_icon)).setImageResource(R.drawable.tab_profile_icon);
         ((ImageView) tabMeal.findViewById(R.id.tab_icon)).setImageResource(R.drawable.tab_meal_icon);
