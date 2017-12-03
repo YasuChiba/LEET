@@ -16,6 +16,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.leet.leet.R;
+import com.leet.leet.common.Enums;
 import com.leet.leet.screen.account.controller.AccountFragment;
 import com.leet.leet.screen.main.model.MainModel;
 import com.leet.leet.screen.main.view.MainView;
@@ -61,9 +62,9 @@ public class MainActivity extends AppCompatActivity implements MainViewInterface
         mealFragment = new MealFragment();
         profileFragment = new ProfileFragment();
         statisticsFragment = new StatisticsFragment();
-        fragments[0] = profileFragment;
-        fragments[1] = mealFragment;
-        fragments[2] = statisticsFragment;
+        fragments[Enums.TabPosition.Profile.getVal()] = profileFragment;
+        fragments[Enums.TabPosition.Meal.getVal()] = mealFragment;
+        fragments[Enums.TabPosition.Statistics.getVal()] = statisticsFragment;
 
         mView.setupTabs(fragments,mModel.tabTitles,1,getSupportFragmentManager());
         setContentView(mView.getRootView());
@@ -83,8 +84,8 @@ public class MainActivity extends AppCompatActivity implements MainViewInterface
     }
 
     @Override
-    public void tabChanged(int position) {
-        if (FirebaseAuthManager.isGuest() && (position == 0 ||position == 2)) {
+    public void tabChanged(Enums.TabPosition position) {
+        if (FirebaseAuthManager.isGuest() && (position == Enums.TabPosition.Profile ||position == Enums.TabPosition.Statistics)) {
             Toast.makeText(getApplicationContext(), "Please login first", Toast.LENGTH_SHORT).show();
             //gotoSignup();
             gotoLogin();
