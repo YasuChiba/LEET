@@ -5,6 +5,9 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ExpandableListAdapter;
+import android.widget.ExpandableListView;
 import android.widget.ListView;
 import com.leet.leet.R;
 import com.leet.leet.screen.statistics.screen.daily.StatisticsDailyListViewAdapter;
@@ -12,6 +15,7 @@ import com.leet.leet.screen.statistics.screen.daily.model.StatisticsDailyModel;
 import com.leet.leet.utils.database.entities.user.UserGoalEntity;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 /**
@@ -19,34 +23,45 @@ import java.util.List;
  *
  **/
 
-public class StatisticsDailyView implements StatisticsDailyViewInterface {
-    private View mRootView;
-
+public class StatisticsDailyView implements StatisticsDailyViewInterface
+, AdapterView.OnItemClickListener{
+    private View rootView;
     private ListView listView;
-    StatisticsDailyListViewAdapter adapter;
+    private ExpandableListView expListView;
+
+    private StatisticsDailyListViewAdapter adapter;
     private StatisticsDailyListViewHeader header;
+
 
     public StatisticsDailyView(LayoutInflater inflater, ViewGroup container) {
 
-        mRootView = inflater.inflate(R.layout.view_statistics_daily, container, false);
 
+        rootView = inflater.inflate(R.layout.view_statistics_daily, container, false);
         initialize(inflater.getContext());
     }
 
     private void initialize(Context context) {
+       /* header = new StatisticsDailyListViewHeader(context);
+        adapter = new StatisticsDailyListViewAdapter(context);
+
+        listView = (ListView) rootView.findViewById(R.id.statistics_daily_expandable_list_view);
+        listView.addHeaderView(header);
+        listView.setHeaderDividersEnabled(true);
+        listView.setAdapter(adapter);*/
         header = new StatisticsDailyListViewHeader(context);
         adapter = new StatisticsDailyListViewAdapter(context);
 
-        listView = (ListView)mRootView.findViewById(R.id.statistics_daily_list_view);
-        listView.addHeaderView(header);
-        listView.setHeaderDividersEnabled(true);
-        listView.setAdapter(adapter);
+        expListView = (ExpandableListView) rootView.findViewById(R.id.statistics_daily_expandable_list_view);
+        expListView.addHeaderView(header);
+        expListView.setHeaderDividersEnabled(true);
+        expListView.setAdapter(adapter);
+
 
     }
 
     @Override
     public View getRootView() {
-        return mRootView;
+        return rootView;
     }
 
     public void setDataToGraph(float[] price,
@@ -58,4 +73,8 @@ public class StatisticsDailyView implements StatisticsDailyViewInterface {
         header.setDataToGraph(price, calories, carbs, fat, protein, goalEntity);
     }
 
+    @Override
+    public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+       // mListner.listElementTap(i);
+    }
 }
