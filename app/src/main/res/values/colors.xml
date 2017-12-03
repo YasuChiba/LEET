@@ -6,6 +6,11 @@
     <color name="colorPrimary">#c4c6d2</color>
     <color name="colorPrimaryDark">#c60821</color>
     <color name="colorAccent">#ff4081</color>
-
     <color name="bgColor">#e00e0e</color>
+    <color name="light_red">#fe4b4b</color>
+    <color name="Lable">#630e0e</color>
+    <color name="textColor">#333333</color>
+    <color name="textColorHint">#cfcfcf</color>
+    <color name="buttonColor">#e00e0e</color>
+    <color name="buttonTextColor">#ffffff</color>
 </resources>
