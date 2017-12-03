@@ -24,6 +24,8 @@ import com.leet.leet.utils.database.FirebaseDBUserDataHelper;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import static com.leet.leet.utils.authentication.FirebaseAuthManager.sendEmail;
+
 /**
  * Created by xinhezhang on 11/11/17.
  */
@@ -89,6 +91,9 @@ public class SignupActivity extends AppCompatActivity implements SignupViewInter
             // connect to firebase, from LEET-sample
             ProgressDialogManager.showProgressDialog(this);
             FirebaseAuthManager.signUpNewUser(email, password, this);
+
+            // send user email verification
+            sendEmail();
         } else {
             Toast.makeText(this, "404", Toast.LENGTH_SHORT).show();
         }
@@ -171,23 +176,6 @@ public class SignupActivity extends AppCompatActivity implements SignupViewInter
             Toast.makeText(this, NEED_LETTER, Toast.LENGTH_SHORT).show();
             return false;
         }
-        /*
-        // check lowercase letter
-        if (!password.matches(".*[a-z].*")) {
-            Toast.makeText(this, NEED_LOWERCASE, Toast.LENGTH_SHORT).show();
-            return false;
-        }
-        // check uppercase letter
-        if (!password.matches(".*[A-Z].*")) {
-            Toast.makeText(this, NEED_UPPERCASE, Toast.LENGTH_SHORT).show();
-            return false;
-        }
-        // check special character
-        if (!password.matches(".*[!@#$%^&*+=?-].*")) {
-            Toast.makeText(this, NEED_SPECIAL, Toast.LENGTH_SHORT).show();
-            return false;
-        }
-        */
         return true;
     }
 
