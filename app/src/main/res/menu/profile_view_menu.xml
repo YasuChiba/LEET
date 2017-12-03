@@ -3,8 +3,11 @@
     <item
         android:id="@+id/logout"
         android:title="@string/logout"
+        android:background="#07000000"
         />
     <item
         android:id="@+id/edit"
-        android:title="@string/editProfile" />
+        android:title="@string/editProfile"
+        android:background="#07000000"
+        />
 </menu>

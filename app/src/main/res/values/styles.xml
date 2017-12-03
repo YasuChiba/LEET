@@ -6,11 +6,12 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimary</item>
         <item name="colorAccent">@color/cardview_dark_background</item>
+        <item name="actionOverflowButtonStyle">@style/ToolBarOverflow</item>
     </style>
 
     <style name="ToolbarDesign">
         <item name="theme">@style/ThemeOverlay.AppCompat.Light</item>
-        <item name="android:background">@color/LEET_LABEL</item>
+        <item name="android:background">@color/base_color</item>
         <item name="android:elevation">5dp</item>
         <item name="android:textColor">#ffffffff</item>
     </style>
@@ -24,5 +25,10 @@
     <style name="SimpleDialogLight" parent="Material.App.Dialog.Simple.Light">
         <item name="di_inAnimation">@anim/scale_in</item>
         <item name="di_outAnimation">@anim/scale_out</item>
+    </style>
+
+    <style name="ToolBarOverflow" parent="@style/Widget.AppCompat.ActionButton.Overflow" >
+        <item name="android:tint">@color/white</item>
+        <item name="android:colorBackground">@color/white</item>
     </style>
 </resources>

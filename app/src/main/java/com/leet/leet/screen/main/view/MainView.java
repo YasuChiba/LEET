@@ -56,7 +56,7 @@ public class MainView implements MainViewInterface, ViewPager.OnPageChangeListen
         viewPager.setAdapter(viewPagerAdapter);
         viewPager.addOnPageChangeListener(this);
         tabLayout.setupWithViewPager(viewPager);
-        tabLayout.setBackgroundColor(ContextCompat.getColor(ContextManager.getInstance().getApplicationContext(),R.color.LEET_LABEL));
+        tabLayout.setBackgroundColor(ContextCompat.getColor(ContextManager.getInstance().getApplicationContext(),R.color.base_color));
 
         tabLayout.getTabAt(Enums.TabPosition.Profile.getVal()).setCustomView(tabProfile);
         tabLayout.getTabAt(Enums.TabPosition.Meal.getVal()).setCustomView(tabMeal);
