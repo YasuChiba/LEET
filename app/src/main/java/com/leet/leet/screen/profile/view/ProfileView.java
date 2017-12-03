@@ -1,6 +1,10 @@
 package com.leet.leet.screen.profile.view;
 
 import android.app.Activity;
+import android.app.DialogFragment;
+import android.content.DialogInterface;
+import android.app.AlertDialog;
+
 import android.support.v7.widget.Toolbar;
 import android.text.InputFilter;
 import android.util.Log;
@@ -17,6 +21,7 @@ import android.widget.ViewSwitcher;
 
 
 import com.leet.leet.R;
+import com.leet.leet.common.ContextManager;
 import com.leet.leet.utils.database.entities.user.UserGoalEntity;
 import com.leet.leet.utils.database.entities.user.UserInfoEntity;
 import com.leet.leet.utils.database.entities.user.UserProfileEntity;
@@ -25,13 +30,12 @@ import com.leet.leet.utils.database.entities.user.UserProfileEntity;
  * Created by YasuhiraChiba on 2017/11/05.
  */
 
-public class ProfileView implements ProfileViewInterface, View.OnClickListener {
+public class ProfileView implements ProfileViewInterface, View.OnClickListener{
     EditText price;
     EditText calorie;
     EditText carbs;
     EditText protein;
     EditText fat;
-    EditText weight;
     EditText email;
     EditText name;
     EditText age;
@@ -46,12 +50,12 @@ public class ProfileView implements ProfileViewInterface, View.OnClickListener {
     boolean accEdit = false;
 
     Button goals_save, acc_save, Recommended, delete;
-    ViewSwitcher goals_to_acc_vs, acc_vs, goals_vs;
+    ViewSwitcher goals_to_acc_vs;
 
 
 
     private View mRootView;
-
+    public ProfileView() {}
     public ProfileView(LayoutInflater inflater, ViewGroup container) {
         mRootView = inflater.inflate(R.layout.viewswitcher_test, container, false);
         initialize();
@@ -68,21 +72,17 @@ public class ProfileView implements ProfileViewInterface, View.OnClickListener {
 
         fat = ((EditText)this.getRootView().findViewById(R.id.Fat));
 
-        weight = ((EditText)this.getRootView().findViewById(R.id.Weight));
-
         email = ((EditText)this.getRootView().findViewById(R.id.Email));
         name = ((EditText)this.getRootView().findViewById(R.id.Name));
         age = ((EditText)this.getRootView().findViewById(R.id.Age));
 
-
-        feet = ((Spinner)this.getRootView().findViewById(R.id.Feet));
-        inch = ((Spinner)this.getRootView().findViewById(R.id.Inch));
         gender = ((Spinner)this.getRootView().findViewById(R.id.Gender));
 
         goals_save = (Button) this.getRootView().findViewById(R.id.goals_save);
         goals_save.setOnClickListener(this);
         acc_save = (Button) this.getRootView().findViewById(R.id.acc_save);
         Recommended = (Button) this.getRootView().findViewById(R.id.Recommended);
+        Recommended.setOnClickListener(this);
         acc_save.setOnClickListener(this);
         delete = (Button)this.getRootView().findViewById(R.id.Delete);
         delete.setOnClickListener(this);
@@ -119,46 +119,32 @@ public class ProfileView implements ProfileViewInterface, View.OnClickListener {
             int spinnerPosition = adapter.getPosition(compareValue);
             gender.setSelection(spinnerPosition);
         }
+
         age.setText((String.valueOf(acc_info.getAge())));
-        weight.setText((String.valueOf(acc_info.getWeight())));
 
-        compareValue = Integer.toString(acc_info.getFeet());
-        Log.d("compare value", "fasdkfjasldfjaldfjalksdjfaklsdfjaksdfadsf  " + compareValue);
-        ArrayAdapter<CharSequence> adapter2 = ArrayAdapter.createFromResource(this.getRootView().getContext(), R.array.feet_array, android.R.layout.simple_spinner_item);
-        adapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        if (!compareValue.equals(null)) {
-            int spinnerPosition = adapter2.getPosition(compareValue);
-            Log.d("sdfasfsafjd", "" + spinnerPosition);
-            feet.setSelection(spinnerPosition);
-        }
-
-
-        compareValue = Integer.toString(acc_info.getInches());
-        ArrayAdapter<CharSequence> adapter3 = ArrayAdapter.createFromResource(this.getRootView().getContext(), R.array.inches_array, android.R.layout.simple_spinner_item);
-        adapter3.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        if (!compareValue.equals(null)) {
-            int spinnerPosition = adapter3.getPosition(compareValue);
-            inch.setSelection(spinnerPosition);
-        }
     }
 
     private UserInfoEntity createUserInfoEntity(){
         String name = this.name.getText().toString();
         String email = this.email.getText().toString();
         String gender = this.gender.getSelectedItem().toString();
-        int weight = Integer.valueOf(this.weight.getText().toString());
-        int feet = Integer.valueOf(this.feet.getSelectedItem().toString());
-        int inch = Integer.valueOf(this.inch.getSelectedItem().toString());
-        int age = Integer.valueOf(this.age.getText().toString());
-        return new UserInfoEntity(name, gender, email, age, weight, feet, inch, null);
+        int age = 0;
+        try {age = Integer.valueOf(this.age.getText().toString()); }
+        catch (Exception e) { this.age.setText("0"); }
+        return new UserInfoEntity(name, gender, email, age, null);
     }
 
     private UserGoalEntity createUserGoalEntity(){
-        float price = Float.valueOf(this.price.getText().toString());
-        float calorie = Float.valueOf(this.calorie.getText().toString());
-        float carbs = Float.valueOf(this.carbs.getText().toString());
-        float protein = Float.valueOf(this.protein.getText().toString());
-        float fat = Float.valueOf(this.fat.getText().toString());
+        float price = 0;
+        float calorie = 0;
+        float carbs = 0;
+        float protein = 0;
+        float fat = 0;
+        if(!this.price.getText().toString().isEmpty()){price = Float.valueOf(this.price.getText().toString());}
+        if(!this.calorie.getText().toString().isEmpty()){calorie = Float.valueOf(this.calorie.getText().toString());}
+        if(!this.carbs.getText().toString().isEmpty()){ carbs = Float.valueOf(this.carbs.getText().toString());}
+        if(!this.protein.getText().toString().isEmpty()){ protein = Float.valueOf(this.protein.getText().toString());}
+        if(!this.fat.getText().toString().isEmpty()){fat = Float.valueOf(this.fat.getText().toString());}
         return new UserGoalEntity(calorie, price, fat, carbs, protein);
     }
 
@@ -167,9 +153,6 @@ public class ProfileView implements ProfileViewInterface, View.OnClickListener {
         email.setEnabled(b);
         age.setEnabled(b);
         gender.setEnabled(b);
-        feet.setEnabled(b);
-        inch.setEnabled(b);
-        weight.setEnabled(b);
     }
 
     private void setGoalsEdit(boolean b){
@@ -180,7 +163,22 @@ public class ProfileView implements ProfileViewInterface, View.OnClickListener {
         protein.setEnabled(b);
     }
 
+    private void showDeleteDialog() {
+        AlertDialog deleteAlert = new AlertDialog.Builder(this.getRootView().getContext()).create();
+        deleteAlert.setTitle("Delete account");
+        deleteAlert.setMessage("Are you sure you want to delete your account?");
+        deleteAlert.setButton(DialogInterface.BUTTON_POSITIVE,"Confirm", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int which) {
+                mListner.deleteAcc();
+            }
+        });
+        deleteAlert.setButton(DialogInterface.BUTTON_NEGATIVE,"Cancel", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int which) {
 
+            }
+        });
+        deleteAlert.show();
+    }
     @Override
     public void switchViews() {
         goals_to_acc_vs.showNext();
@@ -203,8 +201,7 @@ public class ProfileView implements ProfileViewInterface, View.OnClickListener {
         Log.i("hello", "onclick");
         switch (v.getId()){
             case R.id.Recommended:
-                //UserGoalEntity rec = mListner.getRecommended();
-
+                mListner.setRecommended();
                 break;
             case R.id.acc_save:
                 mListner.saveInfoEntity(createUserInfoEntity());
@@ -237,7 +234,7 @@ public class ProfileView implements ProfileViewInterface, View.OnClickListener {
                 break;
             case R.id.Delete:
                 Log.d("delete", "===============================");
-                mListner.deleteAcc();
+                showDeleteDialog();
                 break;
 
 

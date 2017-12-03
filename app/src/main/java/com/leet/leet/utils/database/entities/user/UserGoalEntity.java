@@ -56,7 +56,7 @@ public class UserGoalEntity {
     public float getProtein() {
         return protein;
     }
-    public void setPritein(float protein) {
+    public void setProtein(float protein) {
         this.protein = protein;
     }
 

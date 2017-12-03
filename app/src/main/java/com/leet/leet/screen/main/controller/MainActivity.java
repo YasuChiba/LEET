@@ -19,6 +19,7 @@ import com.leet.leet.R;
 import com.leet.leet.screen.account.controller.AccountFragment;
 import com.leet.leet.screen.main.model.MainModel;
 import com.leet.leet.screen.main.view.MainView;
+import com.leet.leet.screen.main.view.MainViewInterface;
 import com.leet.leet.screen.meal.controller.MealFragment;
 import com.leet.leet.screen.statistics.controller.StatisticsFragment;
 import com.leet.leet.screen.main.model.MainModel;
@@ -39,69 +40,38 @@ import static com.leet.leet.utils.authentication.FirebaseAuthManager.isGuest;
 import static java.security.AccessController.getContext;
 
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements MainViewInterface.MainViewListener {
 
     private MainView mView;
     private MainModel mModel;
 
-    private TextView message;
-    protected Toolbar mToolbar;
+    Fragment[] fragments;
+    ProfileFragment profileFragment;
+    MealFragment mealFragment;
+    StatisticsFragment statisticsFragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         mModel = new MainModel();
-        mView = new MainView(LayoutInflater.from(this), null);
+        mView = new MainView(LayoutInflater.from(this), null,this);
 
-        Fragment[] fragments = new Fragment[3];
-        MealFragment mealFragment = new MealFragment();
-        ProfileFragment profileFragment = new ProfileFragment();
-
+        fragments = new Fragment[3];
+        mealFragment = new MealFragment();
+        profileFragment = new ProfileFragment();
+        statisticsFragment = new StatisticsFragment();
         fragments[0] = profileFragment;
         fragments[1] = mealFragment;
-        fragments[2] = new StatisticsFragment();
+        fragments[2] = statisticsFragment;
 
         mView.setupTabs(fragments,mModel.tabTitles,1,getSupportFragmentManager());
-        //mView.setupTabs(fragments,mModel.tabTitles,getSupportFragmentManager());
-
         setContentView(mView.getRootView());
 
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         invalidateOptionsMenu();
-        setSupportActionBar(toolbar);
-
-        if (isGuest()) {
-            TabLayout tabLayout = (TabLayout) findViewById(R.id.tab_layout);
-            LinearLayout tab = (LinearLayout) tabLayout.getChildAt(0);
-            for (int i = 0; i < tab.getChildCount(); i++) {
-                // disable the tabs
-                //tab.getChildAt(i).setClickable(false);
-                //tab.getChildAt(i).setEnabled(false);
-            }
-            tabLayout.setOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
-                @Override
-                public void onTabSelected(TabLayout.Tab tab) {
-                    // when user click on "profile" or "statistics" tab
-                    // it will go to a new page ask user to login or signup
-                    if (tab.getPosition() == 0 || tab.getPosition() == 2) {
-                        Toast.makeText(getApplicationContext(), "Please login first", Toast.LENGTH_SHORT).show();
-                        gotoSignup();
-                    }
-                }
-
-                @Override
-                public void onTabUnselected(TabLayout.Tab tab) {
-
-                }
-
-                @Override
-                public void onTabReselected(TabLayout.Tab tab) {
-
-                }
-            });
-            //Toast.makeText(this, "Please login first", Toast.LENGTH_SHORT).show();
-        }
+        setSupportActionBar(mView.getToolbar());
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
+        mView.setToolbarTitle(getString(R.string.app_name));
     }
 
     private void gotoSignup() {
@@ -109,14 +79,12 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-/*
     @Override
-    public void backToLogin() {
-        Intent intent = new Intent(this, LoginActivity.class);
-        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-        startActivity(intent);
-
+    public void tabChanged(int position) {
+        if (FirebaseAuthManager.isGuest() && (position == 0 ||position == 2)) {
+            Toast.makeText(getApplicationContext(), "Please login first", Toast.LENGTH_SHORT).show();
+            gotoSignup();
+        }
     }
-    */
 
 }
