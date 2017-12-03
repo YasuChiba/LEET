@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">LEET</string>
+    <string name="app_name">Triton Meal Planner</string>
 
     <!-- Used in view_sort_options.xml -->
     <string name="sorting_title">Sorting Options</string>
@@ -28,6 +28,7 @@
     <string name="Inches">Inches</string>
     <string name="Recommended">Recommended</string>
     <string name="Save">Save</string>
+    <string name="Edit">Edit</string>
     <string name="editProfile">Profile</string>
     <string name="editGoals">Goals</string>
     <string name="logout">logout</string>

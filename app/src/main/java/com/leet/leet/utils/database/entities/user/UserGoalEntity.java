@@ -6,11 +6,11 @@ package com.leet.leet.utils.database.entities.user;
 
 public class UserGoalEntity {
 
-    private float calorie;
-    private float price;
-    private float fat;
-    private float carbs;
-    private float protein;
+    private float calorie = 0;
+    private float price = 0;
+    private float fat = 0;
+    private float carbs = 0;
+    private float protein = 0;
 
     public UserGoalEntity(){}
 
@@ -56,7 +56,7 @@ public class UserGoalEntity {
     public float getProtein() {
         return protein;
     }
-    public void setPritein(float protein) {
+    public void setProtein(float protein) {
         this.protein = protein;
     }
 

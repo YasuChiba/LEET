@@ -55,7 +55,6 @@ public class FirebaseDBUserDataHelper {
 
     }
     public static void getUserGoals(final FirebaseDBCallaback<UserGoalEntity> callback) {
-        mDatabaseRef.child(FirebaseAuthHelper.getUserId()).removeValue();
         mDatabaseRef.child(FirebaseAuthHelper.getUserId())
                 .child(Enums.UserDataItem.UserProfile.getString())
                 .child(Enums.UserProfile.goals.getString())
@@ -75,7 +74,7 @@ public class FirebaseDBUserDataHelper {
 
     }
     public static void setDefaultProfileEntity(){
-        UserInfoEntity infoEntity = new UserInfoEntity("", "", "", 1, 1, 1, 1, null);
+        UserInfoEntity infoEntity = new UserInfoEntity("", "", "", 1, null);
         UserGoalEntity goalEntity = new UserGoalEntity(1, 1, 1, 1, 1);
         UserProfileEntity profileEntity = new UserProfileEntity(goalEntity, infoEntity);
         setUserProfile(profileEntity);

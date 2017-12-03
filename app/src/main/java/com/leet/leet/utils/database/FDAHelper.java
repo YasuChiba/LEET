@@ -6,7 +6,7 @@ package com.leet.leet.utils.database;
 
 public class FDAHelper {
 
-    public int getMaleCalories(int age)
+    public static int getMaleCalories(int age)
     {
         if(age <= 2) { return 1000; }
         if(age <= 5) { return 1400; }
@@ -23,7 +23,7 @@ public class FDAHelper {
         return 2200;
     }
 
-    public int getFemaleCalories(int age)
+    public static int getFemaleCalories(int age)
     {
         if(age <= 2) { return 1000; }
         if(age <= 3) { return 1200; }
@@ -37,13 +37,24 @@ public class FDAHelper {
         return 1800;
     }
 
-    public int getMaleMacros(int age)
+    public static int getMaleProtein(int age)
     {
-        return 0;
+        if (age <= 3) {  return 13; }
+        if (age <= 8) { return 19; }
+        if (age <= 13) { return 34; }
+        if (age <= 18) {  return 52; }
+        if (age <= 70) {  return 56; }
+
+        return 56;
     }
 
-    public int getFemaleMacros(int age)
+    public static int getFemaleProtein(int age)
     {
-        return 0;
+        if (age <= 3) {  return 13; }
+        if (age <= 8) { return 19; }
+        if (age <= 13) { return 34; }
+        if (age <= 70) {  return 46; }
+
+        return 46;
     }
 }

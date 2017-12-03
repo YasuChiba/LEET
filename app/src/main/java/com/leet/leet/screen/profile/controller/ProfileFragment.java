@@ -5,22 +5,27 @@ import android.graphics.Rect;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.leet.leet.R;
 import com.leet.leet.screen.login.controller.LoginActivity;
 import com.leet.leet.screen.profile.model.ProfileModel;
 import com.leet.leet.screen.profile.view.ProfileView;
 import com.leet.leet.screen.profile.view.ProfileViewInterface;
+import com.leet.leet.screen.signup.controller.SignupActivity;
 import com.leet.leet.utils.database.FirebaseDBCallaback;
 import com.leet.leet.utils.database.entities.user.UserGoalEntity;
 import com.leet.leet.utils.database.entities.user.UserInfoEntity;
 import com.leet.leet.utils.database.entities.user.UserProfileEntity;
+
+import static com.leet.leet.utils.authentication.FirebaseAuthManager.isGuest;
 
 /**
  * Created by YasuhiraChiba on 2017/11/05.
@@ -31,7 +36,7 @@ public class ProfileFragment extends Fragment implements ProfileViewInterface.Pr
     private ProfileViewInterface mView;
     private ProfileModel mModel;
     private boolean inProfile = false;
-
+    private Menu menu;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -45,14 +50,18 @@ public class ProfileFragment extends Fragment implements ProfileViewInterface.Pr
                 mView.setInitialData(data);
             }
         });
+
         return mView.getRootView();
     }
 
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
-        if(mView.getRootView().getGlobalVisibleRect(new Rect())) {
+        //if(mView.getRootView().getGlobalVisibleRect(new Rect())) {
+            Log.d("asd", "TEST LOG");
             inflater.inflate(R.menu.profile_view_menu, menu);
-        }
+            this.menu = menu;
+
+        //}
 
         super.onCreateOptionsMenu(menu,inflater);
     }
@@ -99,6 +108,16 @@ public class ProfileFragment extends Fragment implements ProfileViewInterface.Pr
         mModel.deleteAccount();
         Intent logInIntent = new Intent(getActivity(), LoginActivity.class);
         startActivity(logInIntent);
+    }
+    @Override
+    public void setRecommended() {
+        Log.d("recommended", "is it working");
+        mModel.getUserRecommended(new FirebaseDBCallaback<UserProfileEntity>() {
+            @Override
+            public void getData(UserProfileEntity data) {
+                mView.setUserGoalDefaults(data.getGoals());
+            }
+        });
     }
 }
 

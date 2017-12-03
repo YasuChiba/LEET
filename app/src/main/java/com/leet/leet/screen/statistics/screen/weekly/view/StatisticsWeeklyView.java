@@ -38,7 +38,9 @@ import com.leet.leet.R;
 import com.leet.leet.common.Enums;
 import com.leet.leet.common.customViews.NestedListView;
 import com.leet.leet.screen.statistics.screen.weekly.StatisticsWeeklyListViewAdapter;
+import com.leet.leet.screen.statistics.screen.weekly.model.SumModel;
 import com.leet.leet.utils.SharedPrefManager;
+import com.leet.leet.utils.database.entities.user.UserGoalEntity;
 
 import org.joda.time.LocalDate;
 
@@ -74,7 +76,7 @@ public class StatisticsWeeklyView implements StatisticsWeeklyViewInterface,
 
         listView = (ListView)mRootView.findViewById(R.id.statistics_weekly_list_view);
         listView.addHeaderView(header);
-        listView.setDividerHeight(3);
+        listView.setHeaderDividersEnabled(true);
         listView.setAdapter(adapter);
         listView.setOnItemClickListener(this);
 
@@ -86,8 +88,8 @@ public class StatisticsWeeklyView implements StatisticsWeeklyViewInterface,
         return mRootView;
     }
 
-    public void setupListView(Context context, ArrayList<String> week, ArrayList<LocalDate> date, ArrayList<Float> data) {
-        adapter.setData(week,date,data);
+    public void setupListView(Context context, ArrayList<SumModel> data, UserGoalEntity goal) {
+        adapter.setData(data,goal);
     }
 
     public void setDataToGraph(final ArrayList<String> labelList , final ArrayList<Float> val) {

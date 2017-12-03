@@ -5,12 +5,16 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 
+import com.leet.leet.screen.statistics.screen.weekly.model.SumModel;
 import com.leet.leet.screen.statistics.screen.weekly.view.StatisticsWeeklyListViewRow;
+import com.leet.leet.utils.DateHelper;
+import com.leet.leet.utils.database.entities.user.UserGoalEntity;
 
 import org.joda.time.LocalDate;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.Collections;
 
 /**
  * Created by YasuhiraChiba on 2017/11/22.
@@ -19,33 +23,36 @@ import java.util.ArrayList;
 public class StatisticsWeeklyListViewAdapter extends BaseAdapter {
 
     private Context context;
-    private ArrayList<LocalDate> date;
-    private ArrayList<String> week;
-    private ArrayList<Float> data;
+
+    private ArrayList<SumModel> data;
+    private UserGoalEntity goal;
 
 
     public StatisticsWeeklyListViewAdapter(Context context) {
         this.context = context;
 
-        week = new ArrayList<>();
         data = new ArrayList<>();
     }
 
-    public void setData(ArrayList<String> week,ArrayList<LocalDate> date,ArrayList<Float> data) {
-        this.date = date;
-        this.week = week;
-        this.data = data;
+
+    public void setData(ArrayList<SumModel> data,
+                        UserGoalEntity goal) {
+
+        this.data = (ArrayList<SumModel>) data.clone();
+        this.goal = goal;
+        Collections.reverse(this.data);
+
         this.notifyDataSetChanged();
     }
 
     @Override
     public int getCount() {
-        return week.size();
+        return data.size();
     }
 
     @Override
     public Object getItem(int i) {
-        return week.get(i);
+        return data.get(i);
     }
 
     @Override
@@ -55,12 +62,24 @@ public class StatisticsWeeklyListViewAdapter extends BaseAdapter {
 
     @Override
     public View getView(int i, View view, ViewGroup viewGroup) {
+        String week = DateHelper.getWeekByString(DateHelper.getStringByDate(data.get(i).day)).getString();
+
         if(view == null) {
             StatisticsWeeklyListViewRow row = new StatisticsWeeklyListViewRow(context);
-            row.setData(week.get(i),"Price : " + data.get(i));
+            row.setData(week,
+                    data.get(i).price,goal.getPrice(),
+                    data.get(i).calorie,goal.getCalorie(),
+                    data.get(i).protein,goal.getProtein(),
+                    data.get(i).fat,goal.getFat(),
+                    data.get(i).carbs,goal.getCarbs());
             return row;
         } else {
-            ((StatisticsWeeklyListViewRow)view).setData(week.get(i),"Price : "+data.get(i));
+            ((StatisticsWeeklyListViewRow)view).setData(week,
+                    data.get(i).price,goal.getPrice(),
+                    data.get(i).calorie,goal.getCalorie(),
+                    data.get(i).protein,goal.getProtein(),
+                    data.get(i).fat,goal.getFat(),
+                    data.get(i).carbs,goal.getCarbs());
             return view;
         }
     }
