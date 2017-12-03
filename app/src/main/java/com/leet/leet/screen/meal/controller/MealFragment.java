@@ -42,7 +42,7 @@ public class MealFragment extends Fragment implements MealMainListner,MealResult
     }
 
     @Override
-    public void moveToAddCustomFragment(){
+    public void moveToAddCustomFragment() {
         AddCustomMealFragment fragmentAddCustomMeal = new AddCustomMealFragment();
         mView.changeContent(getFragmentManager(), fragmentAddCustomMeal, true);
     }

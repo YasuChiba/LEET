@@ -14,6 +14,7 @@ public class Enums {
         Foodworx("Foodworx (Sixth College)"),
         OceanView("OceanView (Marshall College)"),
         Pines("Pines (Muir College)"),
+        Custom("Custom"),
         ;
 
         private final String text;
