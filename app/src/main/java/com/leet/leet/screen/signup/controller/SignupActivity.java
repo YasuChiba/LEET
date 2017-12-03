@@ -71,7 +71,7 @@ public class SignupActivity extends AppCompatActivity implements SignupViewInter
      */
     @Override
     public void gotoLogin() {
-        Log.d("SIGNUP", "gotoLogin===============================================================");
+        Log.d("SIGNUP", "gotoLogin");
         Intent intent = new Intent(SignupActivity.this, LoginActivity.class);
         startActivity(intent);
     }
@@ -84,9 +84,9 @@ public class SignupActivity extends AppCompatActivity implements SignupViewInter
      */
     @Override
     public void signup(final String email, final String password, final String confirmPassword) {
-        Log.d("SIGNUP", "signup===============================================================");
+        Log.d("SIGNUP", "signup");
         if (checkAll(email, password, confirmPassword)) {
-            Toast.makeText(this, "200", Toast.LENGTH_SHORT).show();
+            //Toast.makeText(this, "200", Toast.LENGTH_SHORT).show();
 
             // connect to firebase, from LEET-sample
             ProgressDialogManager.showProgressDialog(this);
@@ -95,7 +95,8 @@ public class SignupActivity extends AppCompatActivity implements SignupViewInter
             // send user email verification
             sendEmail();
         } else {
-            Toast.makeText(this, "404", Toast.LENGTH_SHORT).show();
+            Log.d("SIGNUP", "signup failed");
+            //Toast.makeText(this, "404", Toast.LENGTH_SHORT).show();
         }
     }
 

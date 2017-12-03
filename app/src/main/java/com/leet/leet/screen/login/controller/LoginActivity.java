@@ -57,7 +57,7 @@ public class LoginActivity extends AppCompatActivity implements LoginViewInterfa
      * @return true/false
      */
     private boolean checkEmail(final String email) {
-        Log.d("LOGIN", "checkEmail===============================================================");
+        Log.d("LOGIN", "checkEmail");
         // corner cases
         if (email == null || email.equals("")) {
             Toast.makeText(this, EMPTY_EMAIL, Toast.LENGTH_SHORT).show();
@@ -78,7 +78,7 @@ public class LoginActivity extends AppCompatActivity implements LoginViewInterfa
      * @return true/false
      */
     private boolean checkPassword(final String password) {
-        Log.d("LOGIN", "checkPassword===============================================================");
+        Log.d("LOGIN", "checkPassword");
         // corner cases
         if (password == null || password.length() < MIN_LENGTH) {
             Toast.makeText(this, SHORT_PASSWORD, Toast.LENGTH_SHORT).show();
@@ -94,15 +94,16 @@ public class LoginActivity extends AppCompatActivity implements LoginViewInterfa
      */
     @Override
     public void login(final String email, final String password) {
-        Log.d("LOGIN", "login===============================================================");
+        Log.d("LOGIN", "login");
         if (checkEmail(email) && checkPassword(password)) {
-            Toast.makeText(this, "200", Toast.LENGTH_SHORT).show();
+            //Toast.makeText(this, "200", Toast.LENGTH_SHORT).show();
             // connect to firebase, from LEET-sample
             ProgressDialogManager.showProgressDialog(this);
             FirebaseAuthManager.signIn(email, password, this);
 
         } else {
-            Toast.makeText(this, "404", Toast.LENGTH_SHORT).show();
+            Log.d("LOGIN", "login failed");
+            //Toast.makeText(this, "404", Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -111,11 +112,11 @@ public class LoginActivity extends AppCompatActivity implements LoginViewInterfa
      */
     @Override
     public void guestLogin() {
-        Log.d("LOGIN", "guestLogin===============================================================");
+        Log.d("LOGIN", "guestLogin");
         // connect to firebase
         ProgressDialogManager.showProgressDialog(this);
         FirebaseAuthManager.signInAnonymously(this);
-        Toast.makeText(this, "200", Toast.LENGTH_SHORT).show();
+        //Toast.makeText(this, "200", Toast.LENGTH_SHORT).show();
     }
 
     /**
@@ -123,7 +124,7 @@ public class LoginActivity extends AppCompatActivity implements LoginViewInterfa
      */
     @Override
     public void gotoSignup() {
-        Log.d("LOGIN", "gotoSignup===============================================================");
+        Log.d("LOGIN", "gotoSignup");
         Intent intent = new Intent(LoginActivity.this, SignupActivity.class);
         startActivity(intent);
     }
