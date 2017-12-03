@@ -64,7 +64,7 @@ public class StatisticsWeeklyFragment extends Fragment implements StatisticsWeek
                         mView.setupListView(getContext(),
                                 mModel.getAllList(),
                                 mModel.getUserGoalEntity());
-                        mView.setDataToGraph(mModel.getWeekList(),mModel.getPriceList());
+                        mView.setDataToGraph(mModel.getWeekList(),mModel.getPriceList(),mModel.getUserGoalEntity().getPrice());
                     }
         });
 
@@ -76,19 +76,19 @@ public class StatisticsWeeklyFragment extends Fragment implements StatisticsWeek
 
         switch (type){
             case Calorie:
-                mView.setDataToGraph(mModel.getWeekList(),mModel.getCalorieList());
+                mView.setDataToGraph(mModel.getWeekList(),mModel.getCalorieList(),mModel.getUserGoalEntity().getCalorie());
                 break;
             case Price:
-                mView.setDataToGraph(mModel.getWeekList(),mModel.getPriceList());
+                mView.setDataToGraph(mModel.getWeekList(),mModel.getPriceList(),mModel.getUserGoalEntity().getPrice());
                 break;
             case Protein:
-                mView.setDataToGraph(mModel.getWeekList(),mModel.getProteinList());
+                mView.setDataToGraph(mModel.getWeekList(),mModel.getProteinList(),mModel.getUserGoalEntity().getProtein());
                 break;
             case Fat:
-                mView.setDataToGraph(mModel.getWeekList(),mModel.getFatList());
+                mView.setDataToGraph(mModel.getWeekList(),mModel.getFatList(),mModel.getUserGoalEntity().getFat());
                 break;
             case Carb:
-                mView.setDataToGraph(mModel.getWeekList(),mModel.getCarbsList());
+                mView.setDataToGraph(mModel.getWeekList(),mModel.getCarbsList(),mModel.getUserGoalEntity().getCarbs());
                 break;
         }
     }

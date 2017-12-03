@@ -92,8 +92,8 @@ public class StatisticsWeeklyView implements StatisticsWeeklyViewInterface,
         adapter.setData(data,goal);
     }
 
-    public void setDataToGraph(final ArrayList<String> labelList , final ArrayList<Float> val) {
-       header.setDataToGraph(labelList,val);
+    public void setDataToGraph(final ArrayList<String> labelList , final ArrayList<Float> val,float goal) {
+       header.setDataToGraph(labelList,val,goal);
     }
 
     @Override
