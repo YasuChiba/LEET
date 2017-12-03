@@ -78,12 +78,20 @@ public class MainActivity extends AppCompatActivity implements MainViewInterface
         startActivity(new Intent(this, SignupActivity.class));
     }
 
+    private void gotoLogin() {
+        startActivity(new Intent(this, LoginActivity.class));
+    }
+
+    private void gotoMain() {
+        startActivity(new Intent(this, MainActivity.class));
+    }
 
     @Override
     public void tabChanged(int position) {
         if (FirebaseAuthManager.isGuest() && (position == 0 ||position == 2)) {
             Toast.makeText(getApplicationContext(), "Please login first", Toast.LENGTH_SHORT).show();
-            gotoSignup();
+            //gotoSignup();
+            gotoLogin();
         }
     }
 

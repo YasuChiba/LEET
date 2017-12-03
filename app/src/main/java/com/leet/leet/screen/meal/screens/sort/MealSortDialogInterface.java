@@ -6,5 +6,9 @@ package com.leet.leet.screen.meal.screens.sort;
 
 public interface MealSortDialogInterface {
 
-    void dialogOkButtonTap(int priceRange);
+    void dialogOkButtonTap(int priceRange, int calorieRange, int proteinRange, int carbsRange,
+                           int totFatRange, int satFatRange, int sodiumRange, int cholRange,
+                           int fiberRange, int sugarRange);
+
+
 }

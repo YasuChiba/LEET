@@ -10,6 +10,7 @@
         android:layout_weight="0.1"
         android:gravity="center_horizontal"
         android:text="Add Custom Meal"
+        android:textColor="@color/LEET_RED"
         android:textSize="36sp" />
 
     <LinearLayout
@@ -26,6 +27,7 @@
             android:layout_weight="1"
             android:gravity="center_horizontal"
             android:text="Name:"
+            android:textColor="@color/LEET_RED"
             android:textSize="20sp" />
 
         <EditText
@@ -33,9 +35,11 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:backgroundTint="@color/LEET_UNDERLINES"
             android:ems="10"
             android:gravity="center_horizontal"
             android:inputType="textPersonName"
+            android:textColor="@color/LEET_RED"
             android:textSize="20sp" />
     </LinearLayout>
 
@@ -53,6 +57,7 @@
             android:layout_weight="1"
             android:gravity="center_horizontal"
             android:text="Price:"
+            android:textColor="@color/LEET_RED"
             android:textSize="20sp" />
 
         <EditText
@@ -60,9 +65,11 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:backgroundTint="@color/LEET_UNDERLINES"
             android:ems="10"
             android:gravity="center_horizontal"
             android:inputType="numberDecimal"
+            android:textColor="@color/LEET_RED"
             android:textSize="20sp" />
     </LinearLayout>
 
@@ -80,6 +87,7 @@
             android:layout_weight="1"
             android:gravity="center_horizontal"
             android:text="Calories:"
+            android:textColor="@color/LEET_RED"
             android:textSize="20sp" />
 
         <EditText
@@ -87,9 +95,11 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:backgroundTint="@color/LEET_UNDERLINES"
             android:ems="10"
             android:gravity="center_horizontal"
             android:inputType="numberDecimal"
+            android:textColor="@color/LEET_RED"
             android:textSize="20sp" />
     </LinearLayout>
 
@@ -107,6 +117,7 @@
             android:layout_weight="1"
             android:gravity="center_horizontal"
             android:text="Carbs:"
+            android:textColor="@color/LEET_RED"
             android:textSize="20sp" />
 
         <EditText
@@ -114,9 +125,11 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:backgroundTint="@color/LEET_UNDERLINES"
             android:ems="10"
             android:gravity="center_horizontal"
             android:inputType="numberDecimal"
+            android:textColor="@color/LEET_RED"
             android:textSize="20sp" />
     </LinearLayout>
 
@@ -134,6 +147,7 @@
             android:layout_weight="1"
             android:gravity="center_horizontal"
             android:text="Total Fat:"
+            android:textColor="@color/LEET_RED"
             android:textSize="20sp" />
 
         <EditText
@@ -141,9 +155,11 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:backgroundTint="@color/LEET_UNDERLINES"
             android:ems="10"
             android:gravity="center_horizontal"
             android:inputType="numberDecimal"
+            android:textColor="@color/LEET_RED"
             android:textSize="20sp" />
     </LinearLayout>
 
@@ -161,6 +177,7 @@
             android:layout_weight="1"
             android:gravity="center_horizontal"
             android:text="Saturated Fat:"
+            android:textColor="@color/LEET_RED"
             android:textSize="20sp" />
 
         <EditText
@@ -168,9 +185,11 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:backgroundTint="@color/LEET_UNDERLINES"
             android:ems="10"
             android:gravity="center_horizontal"
             android:inputType="numberDecimal"
+            android:textColor="@color/LEET_RED"
             android:textSize="20sp" />
     </LinearLayout>
 
@@ -188,6 +207,7 @@
             android:layout_weight="1"
             android:gravity="center_horizontal"
             android:text="Protein:"
+            android:textColor="@color/LEET_RED"
             android:textSize="20sp" />
 
         <EditText
@@ -195,9 +215,11 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:backgroundTint="@color/LEET_UNDERLINES"
             android:ems="10"
             android:gravity="center_horizontal"
             android:inputType="numberDecimal"
+            android:textColor="@color/LEET_RED"
             android:textSize="20sp" />
     </LinearLayout>
 
@@ -215,6 +237,7 @@
             android:layout_weight="1"
             android:gravity="center_horizontal"
             android:text="Sodium:"
+            android:textColor="@color/LEET_RED"
             android:textSize="20sp" />
 
         <EditText
@@ -222,9 +245,11 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:backgroundTint="@color/LEET_UNDERLINES"
             android:ems="10"
             android:gravity="center_horizontal"
             android:inputType="numberDecimal"
+            android:textColor="@color/LEET_RED"
             android:textSize="20sp" />
     </LinearLayout>
 
@@ -242,6 +267,7 @@
             android:layout_weight="1"
             android:gravity="center_horizontal"
             android:text="Cholesterol"
+            android:textColor="@color/LEET_RED"
             android:textSize="20sp" />
 
         <EditText
@@ -249,9 +275,11 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:backgroundTint="@color/LEET_UNDERLINES"
             android:ems="10"
             android:gravity="center_horizontal"
             android:inputType="numberDecimal"
+            android:textColor="@color/LEET_RED"
             android:textSize="20sp" />
     </LinearLayout>
 
@@ -269,6 +297,7 @@
             android:layout_weight="1"
             android:gravity="center_horizontal"
             android:text="Dietary Fiber:"
+            android:textColor="@color/LEET_RED"
             android:textSize="20sp" />
 
         <EditText
@@ -276,9 +305,11 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:backgroundTint="@color/LEET_UNDERLINES"
             android:ems="10"
             android:gravity="center_horizontal"
             android:inputType="numberDecimal"
+            android:textColor="@color/LEET_RED"
             android:textSize="20sp" />
 
 
@@ -298,6 +329,7 @@
             android:layout_weight="1"
             android:gravity="center_horizontal"
             android:text="Sugar:"
+            android:textColor="@color/LEET_RED"
             android:textSize="20sp" />
 
         <EditText
@@ -305,20 +337,24 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:backgroundTint="@color/LEET_UNDERLINES"
             android:ems="10"
             android:gravity="center_horizontal"
             android:inputType="numberDecimal"
+            android:textColor="@color/LEET_RED"
             android:textSize="20sp" />
 
 
     </LinearLayout>
+
     <Button
         android:id="@+id/button_add_meal"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_weight=".1"
-        android:gravity="center_horizontal"
+        android:background="@color/LEET_BACKGROUND"
         android:text="Create Meal"
+        android:textColor="@color/LEET_BUTTON_TEXT"
         android:textSize="18sp" />
 
 </LinearLayout>
