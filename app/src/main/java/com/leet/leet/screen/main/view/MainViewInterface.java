@@ -1,5 +1,6 @@
 package com.leet.leet.screen.main.view;
 
+import com.leet.leet.common.Enums;
 import com.leet.leet.common.ViewBaseInterface;
 
 /**
@@ -9,7 +10,7 @@ import com.leet.leet.common.ViewBaseInterface;
 public interface MainViewInterface extends ViewBaseInterface {
 
     interface MainViewListener {
-        void tabChanged(int position);
+        void tabChanged(Enums.TabPosition position);
     }
 
 }

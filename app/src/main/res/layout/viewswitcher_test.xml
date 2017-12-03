@@ -33,13 +33,13 @@
                     <TextView
                         android:id="@+id/textView3"
                         android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
+                        android:layout_height="wrap_content"
                         android:layout_centerHorizontal="true"
                         android:layout_centerVertical="true"
                         android:layout_gravity="center"
-                        android:text="My Goals"
-                        android:textColor="#630E0E"
-                        android:textSize="32dp"
+                        android:text="MY GOALS"
+                        android:textColor="@color/Lable"
+                        android:textSize="24sp"
                         android:textStyle="bold"
                         tools:typeface="sans" />
                 </RelativeLayout>
@@ -48,10 +48,15 @@
                     android:id="@+id/linearLayout"
                     android:layout_width="345dp"
                     android:layout_height="450dp"
-                    android:layout_alignParentBottom="true"
+                    android:layout_below="@+id/relativeLayout"
                     android:layout_centerHorizontal="true"
-                    android:layout_marginBottom="12dp"
                     android:orientation="vertical">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                    </RelativeLayout>
 
                     <RelativeLayout
                         android:layout_width="250dp"
@@ -71,9 +76,9 @@
                             android:hint="Price Here"
                             android:inputType="number"
                             android:maxLength="4"
-                            android:textColor="#333333"
-                            android:textColorHint="#cfcfcf"
-                            android:textSize="18dp">
+                            android:textColor="@color/textColor"
+                            android:textColorHint="@color/textColorHint"
+                            android:textSize="18sp">
 
                             <requestFocus />
                         </EditText>
@@ -87,8 +92,8 @@
                             android:layout_alignParentLeft="true"
                             android:layout_alignParentStart="true"
                             android:text="@string/Price"
-                            android:textColor="@color/LEET_LABEL"
-                            android:textSize="18dp" />
+                            android:textColor="@color/light_red"
+                            android:textSize="18sp" />
 
 
                     </RelativeLayout>
@@ -111,9 +116,9 @@
                             android:hint="Calorie Here"
                             android:inputType="number"
                             android:maxLength="6"
-                            android:textColor="#333333"
-                            android:textColorHint="#cfcfcf"
-                            android:textSize="18dp">>
+                            android:textColor="@color/textColor"
+                            android:textColorHint="@color/textColorHint"
+                            android:textSize="18sp">>
 
                             <requestFocus />
                         </EditText>
@@ -127,8 +132,8 @@
                             android:layout_alignParentLeft="true"
                             android:layout_alignParentStart="true"
                             android:text="@string/Calorie"
-                            android:textColor="@color/LEET_LABEL"
-                            android:textSize="18dp" />
+                            android:textColor="@color/light_red"
+                            android:textSize="18sp" />
 
 
                     </RelativeLayout>
@@ -151,9 +156,9 @@
                             android:hint="Carbs Here"
                             android:inputType="number"
                             android:maxLength="5"
-                            android:textColor="#333333"
-                            android:textColorHint="#cfcfcf"
-                            android:textSize="18dp">>
+                            android:textColor="@color/textColor"
+                            android:textColorHint="@color/textColorHint"
+                            android:textSize="18sp">>
 
                             <requestFocus />
                         </EditText>
@@ -167,8 +172,8 @@
                             android:layout_alignParentLeft="true"
                             android:layout_alignParentStart="true"
                             android:text="@string/Carbs"
-                            android:textColor="@color/LEET_LABEL"
-                            android:textSize="18dp" />
+                            android:textColor="@color/light_red"
+                            android:textSize="18sp" />
 
 
                     </RelativeLayout>
@@ -191,9 +196,9 @@
                             android:hint="Protein Here"
                             android:inputType="number"
                             android:maxLength="5"
-                            android:textColor="#333333"
-                            android:textColorHint="#cfcfcf"
-                            android:textSize="18dp">>
+                            android:textColor="@color/textColor"
+                            android:textColorHint="@color/textColorHint"
+                            android:textSize="18sp">>
 
                             <requestFocus />
                         </EditText>
@@ -207,8 +212,8 @@
                             android:layout_alignParentLeft="true"
                             android:layout_alignParentStart="true"
                             android:text="@string/Protein"
-                            android:textColor="@color/LEET_LABEL"
-                            android:textSize="18dp" />
+                            android:textColor="@color/light_red"
+                            android:textSize="18sp" />
 
 
                     </RelativeLayout>
@@ -231,9 +236,9 @@
                             android:hint="Fat Here"
                             android:inputType="number"
                             android:maxLength="5"
-                            android:textColor="#333333"
-                            android:textColorHint="#cfcfcf"
-                            android:textSize="18dp">>
+                            android:textColor="@color/textColor"
+                            android:textColorHint="@color/textColorHint"
+                            android:textSize="18sp">>
 
                             <requestFocus />
                         </EditText>
@@ -247,29 +252,38 @@
                             android:layout_alignParentLeft="true"
                             android:layout_alignParentStart="true"
                             android:text="@string/Fat"
-                            android:textColor="@color/LEET_LABEL"
-                            android:textSize="18dp" />
+                            android:textColor="@color/light_red"
+                            android:textSize="18sp" />
 
 
                     </RelativeLayout>
 
                     <RelativeLayout
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent">
+                        android:layout_height="106dp">
+
+                        <ImageButton
+                            android:id="@+id/cancel_goals"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignBottom="@+id/goals_save"
+                            android:layout_marginStart="13dp"
+                            android:layout_toEndOf="@+id/goals_save"
+                            android:visibility="gone"
+                            app:srcCompat="@mipmap/undo" />
 
                         <Button
                             android:id="@+id/Recommended"
                             android:layout_width="200dp"
                             android:layout_height="wrap_content"
+                            android:layout_alignParentBottom="true"
                             android:layout_alignStart="@+id/goals_save"
                             android:layout_alignWithParentIfMissing="false"
-                            android:layout_below="@+id/goals_save"
                             android:layout_gravity="center_horizontal"
-                            android:layout_marginTop="10dp"
-                            android:backgroundTint="#e00e0e"
+                            android:backgroundTint="@color/buttonColor"
                             android:text="Use Recommended"
-                            android:textColor="#ffffff"
-                            android:textSize="16dp"
+                            android:textColor="@color/buttonTextColor"
+                            android:textSize="18sp"
                             android:visibility="gone" />
 
                         <Button
@@ -280,21 +294,11 @@
                             android:layout_alignWithParentIfMissing="false"
                             android:layout_centerHorizontal="true"
                             android:layout_gravity="center_horizontal"
-                            android:layout_marginTop="16dp"
-                            android:backgroundTint="#e00e0e"
+                            android:backgroundTint="@color/buttonColor"
                             android:text="@string/Edit"
-                            android:textColor="#ffffff"
-                            android:textSize="20dp" />
-
-                        <ImageButton
-                            android:id="@+id/cancel_goals"
-                            android:layout_width="46dp"
-                            android:layout_height="49dp"
-                            android:layout_alignBottom="@+id/goals_save"
-                            android:layout_alignParentEnd="true"
-                            android:layout_marginEnd="6dp"
-                            android:visibility="gone"
-                            app:srcCompat="@mipmap/ic_launcher" />
+                            android:textColor="@color/buttonTextColor"
+                            android:textSize="20sp"
+                            android:visibility="visible" />
                     </RelativeLayout>
 
                 </LinearLayout>
@@ -326,8 +330,8 @@
                         android:layout_marginEnd="34dp"
                         android:gravity="center_horizontal"
                         android:text="My Profile"
-                        android:textColor="@color/LEET_LABEL"
-                        android:textSize="32dp"
+                        android:textColor="@color/Lable"
+                        android:textSize="32sp"
                         android:textStyle="bold"
                         tools:typeface="sans" />
                 </RelativeLayout>
@@ -336,32 +340,28 @@
                     android:id="@+id/linearLayout1"
                     android:layout_width="345dp"
                     android:layout_height="500dp"
+                    android:layout_alignParentBottom="true"
                     android:layout_below="@+id/relativeLayout2"
                     android:layout_centerHorizontal="true"
-                    android:layout_marginTop="12dp"
                     android:orientation="vertical"
                     android:weightSum="1">
 
                     <RelativeLayout
                         android:layout_width="250dp"
-                        android:layout_height="52dp"
+                        android:layout_height="70dp"
                         android:layout_gravity="center">
 
                         <TextView
                             android:id="@+id/Email"
-                            android:layout_width="wrap_content"
+                            android:layout_width="110dp"
                             android:layout_height="wrap_content"
                             android:layout_alignParentRight="true"
                             android:layout_alignParentTop="true"
                             android:backgroundTint="#cfcfcf"
-                            android:ellipsize="marquee"
-                            android:enabled="false"
                             android:gravity="right"
-                            android:hint="Email Here"
                             android:inputType="textEmailAddress"
-                            android:textColor="#333333"
-                            android:textColorHint="#cfcfcf"
-                            android:textSize="18dp">>
+                            android:textColor="@color/textColor"
+                            android:textSize="18sp">>
 
                             <requestFocus />
                         </TextView>
@@ -376,7 +376,7 @@
                             android:layout_alignParentStart="true"
                             android:text="@string/Email"
                             android:textColor="@color/LEET_LABEL"
-                            android:textSize="18dp" />
+                            android:textSize="18sp" />
 
 
                     </RelativeLayout>
@@ -398,9 +398,9 @@
                             android:hint="Name Here"
                             android:inputType="textPersonName"
                             android:maxLength="12"
-                            android:textColor="#333333"
-                            android:textColorHint="#cfcfcf"
-                            android:textSize="18dp">
+                            android:textColor="@color/textColor"
+                            android:textColorHint="@color/textColorHint"
+                            android:textSize="18sp">
 
                             <requestFocus />
                         </EditText>
@@ -415,11 +415,10 @@
                             android:layout_alignParentStart="true"
                             android:text="@string/Name"
                             android:textColor="@color/LEET_LABEL"
-                            android:textSize="18dp" />
+                            android:textSize="18sp" />
 
 
                     </RelativeLayout>
-
 
                     <RelativeLayout
                         android:layout_width="250dp"
@@ -438,9 +437,9 @@
                             android:hint="Age Here"
                             android:inputType="number"
                             android:maxLength="3"
-                            android:textColor="#333333"
-                            android:textColorHint="#cfcfcf"
-                            android:textSize="18dp">>
+                            android:textColor="@color/textColor"
+                            android:textColorHint="@color/textColorHint"
+                            android:textSize="18sp">>
 
                             <requestFocus />
                         </EditText>
@@ -455,7 +454,7 @@
                             android:layout_alignParentStart="true"
                             android:text="@string/Age"
                             android:textColor="@color/LEET_LABEL"
-                            android:textSize="18dp" />
+                            android:textSize="18sp" />
 
 
                     </RelativeLayout>
@@ -479,7 +478,7 @@
                             android:gravity="left"
                             android:text="@string/Gender"
                             android:textColor="@color/LEET_LABEL"
-                            android:textSize="18dp" />
+                            android:textSize="18sp" />
 
                         <Spinner
                             android:id="@+id/Gender"
@@ -497,31 +496,8 @@
                     </RelativeLayout>
 
                     <RelativeLayout
-                        android:layout_width="322dp"
-                        android:layout_height="155dp">
-
-                        <Button
-                            android:id="@+id/acc_save"
-                            android:layout_width="200dp"
-                            android:layout_height="wrap_content"
-                            android:layout_alignParentTop="true"
-                            android:layout_alignWithParentIfMissing="false"
-                            android:layout_centerHorizontal="true"
-                            android:layout_gravity="center_horizontal"
-                            android:layout_marginTop="10dp"
-                            android:backgroundTint="#e00e0e"
-                            android:text="@string/Edit"
-                            android:textColor="#ffffff"
-                            android:textSize="20dp" />
-
-                        <ImageButton
-                            android:id="@+id/cancel_info"
-                            android:layout_width="46dp"
-                            android:layout_height="49dp"
-                            android:layout_alignBottom="@+id/acc_save"
-                            android:layout_alignParentEnd="true"
-                            android:visibility="gone"
-                            app:srcCompat="@mipmap/ic_launcher" />
+                        android:layout_width="match_parent"
+                        android:layout_height="161dp">
 
                         <Button
                             android:id="@+id/Delete"
@@ -531,11 +507,36 @@
                             android:layout_alignWithParentIfMissing="false"
                             android:layout_below="@+id/acc_save"
                             android:layout_gravity="center_horizontal"
-                            android:layout_marginTop="21dp"
-                            android:backgroundTint="#e00e0e"
+                            android:layout_marginTop="18dp"
+                            android:backgroundTint="@color/buttonColor"
                             android:text="Delete Account"
-                            android:textColor="#ffffff"
-                            android:textSize="20dp" />
+                            android:textColor="@color/buttonTextColor"
+                            android:textSize="20sp" />
+
+                        <Button
+                            android:id="@+id/acc_save"
+                            android:layout_width="200dp"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentTop="true"
+                            android:layout_alignWithParentIfMissing="false"
+                            android:layout_centerHorizontal="true"
+                            android:layout_gravity="center_horizontal"
+                            android:layout_marginTop="17dp"
+                            android:backgroundTint="@color/buttonColor"
+                            android:text="@string/Edit"
+                            android:textColor="@color/buttonTextColor"
+                            android:textSize="20sp" />
+
+                        <ImageButton
+                            android:id="@+id/cancel_info"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignBottom="@+id/acc_save"
+                            android:layout_alignParentEnd="true"
+                            android:visibility="gone"
+                            app:srcCompat="@mipmap/undo"
+                            />
+
                     </RelativeLayout>
 
                 </LinearLayout>
