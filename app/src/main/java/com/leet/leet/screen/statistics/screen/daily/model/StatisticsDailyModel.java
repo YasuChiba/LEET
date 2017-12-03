@@ -129,16 +129,9 @@ public class StatisticsDailyModel {
         });
     }
 
-    public static float getPrice_B(){
-        return price_B;
-    }
-
-    public static float getPrice_L(){
-        return price_L;
-    }
-
-    public static float getPrice_D(){
-        return price_D;
+    public static float[] getPrice(){
+        float[] total = new float[] {calorie_B/100, calorie_L/100, calorie_D/100};
+        return total;
     }
 
     public static float[] getCalorie() {
