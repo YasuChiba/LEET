@@ -48,12 +48,9 @@ public class MealResultModel {
                     });
         }
         else {
-            Log.d("Else", "In else");
             FirebaseDBUserDataHelper.getCustomMenus(new FirebaseDBCallaback<ArrayList<MenuEntity>>() {
                 @Override
                 public void getData(ArrayList<MenuEntity> data) {
-                    Log.d("Custom", "In custom");
-
                     menuEntityList = data;
                     searchedMenuEntityList = data;
                     callback.getData(true);

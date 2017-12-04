@@ -135,14 +135,12 @@ public class FirebaseDBUserDataHelper {
                         for(DataSnapshot snap :dataSnapshot.getChildren()){
                             MenuEntity ent = snap.getValue(MenuEntity.class);
                             result.add(ent);
-                            Log.d("Custom2", "In DB Helper 1");
                         }
                         callback.getData(result);
                     }
 
                     @Override
                     public void onCancelled(DatabaseError databaseError) {
-                        Log.d("Custom3", "In DB Helper 2");
                         callback.error();
                         callback.getData(new ArrayList<MenuEntity>());
                     }
