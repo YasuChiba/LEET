@@ -12,6 +12,7 @@ import android.widget.ListView;
 import com.leet.leet.R;
 import com.leet.leet.screen.statistics.screen.daily.StatisticsDailyListViewAdapter;
 import com.leet.leet.screen.statistics.screen.daily.model.StatisticsDailyModel;
+import com.leet.leet.utils.database.entities.menu.MenuEntity;
 import com.leet.leet.utils.database.entities.user.UserGoalEntity;
 
 import java.util.ArrayList;
@@ -32,10 +33,11 @@ public class StatisticsDailyView implements StatisticsDailyViewInterface
     private StatisticsDailyListViewAdapter adapter;
     private StatisticsDailyListViewHeader header;
 
+    public List<String> expandableListTitle;
+    public HashMap<String, List<String>> expandableListDetail;
+
 
     public StatisticsDailyView(LayoutInflater inflater, ViewGroup container) {
-
-
         rootView = inflater.inflate(R.layout.view_statistics_daily, container, false);
         initialize(inflater.getContext());
     }
@@ -51,7 +53,7 @@ public class StatisticsDailyView implements StatisticsDailyViewInterface
         header = new StatisticsDailyListViewHeader(context);
         adapter = new StatisticsDailyListViewAdapter(context);
 
-        expListView = (ExpandableListView) rootView.findViewById(R.id.statistics_daily_expandable_list_view);
+        expListView = (ExpandableListView) rootView.findViewById(R.id.expandableListView);
         expListView.addHeaderView(header);
         expListView.setHeaderDividersEnabled(true);
         expListView.setAdapter(adapter);
@@ -71,6 +73,10 @@ public class StatisticsDailyView implements StatisticsDailyViewInterface
                                float[] protein,
                                UserGoalEntity goalEntity) {
         header.setDataToGraph(price, calories, carbs, fat, protein, goalEntity);
+    }
+
+    public void setDataToRow(List<MenuEntity> m_breakfast, List<MenuEntity> m_lunch, List<MenuEntity> m_dinner) {
+        adapter.setDataToRow(m_breakfast, m_lunch, m_dinner);
     }
 
     @Override

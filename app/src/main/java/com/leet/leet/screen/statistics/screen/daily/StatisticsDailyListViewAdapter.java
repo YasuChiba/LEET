@@ -1,19 +1,16 @@
 package com.leet.leet.screen.statistics.screen.daily;
 
-import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.BaseAdapter;
-import android.widget.BaseExpandableListAdapter;
 import android.widget.TextView;
 
+import com.leet.leet.screen.statistics.screen.daily.model.StatisticsDailyModel;
 import com.leet.leet.screen.statistics.screen.weekly.model.SumModel;
 import com.leet.leet.screen.statistics.screen.weekly.view.StatisticsWeeklyListViewRow;
 import com.leet.leet.utils.DateHelper;
+import com.leet.leet.utils.database.entities.menu.MenuEntity;
 import com.leet.leet.utils.database.entities.user.UserGoalEntity;
-
-import org.joda.time.LocalDate;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
@@ -23,6 +20,17 @@ import java.util.List;
 
 import com.leet.leet.R;
 
+import android.widget.ImageView;
+import android.widget.Switch;
+
+import android.content.Context;
+import android.graphics.Typeface;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.BaseExpandableListAdapter;
+import android.widget.TextView;
+
 /**
  * Created by YasuhiraChiba on 2017/11/22.
  */
@@ -30,91 +38,126 @@ import com.leet.leet.R;
 public class StatisticsDailyListViewAdapter extends BaseExpandableListAdapter {
 
     private Context context;
-    private List<String> listDataHeader;
-    private HashMap<String, List<String>> listDataChild;
+    public List<String> expandableListTitle;
+    public HashMap<String, List<MenuEntity>> expandableListDetail;
+    private ArrayList<MenuEntity> childList;
 
-    private ArrayList<SumModel> data;
-    private UserGoalEntity goal;
-
-
-    public StatisticsDailyListViewAdapter(Context context) {
+    public StatisticsDailyListViewAdapter(Context context){
         this.context = context;
-        this.listDataHeader = new ArrayList<String>();
-        this.listDataChild =  new HashMap<String, List<String>>();
 
-        data = new ArrayList<>();
+        initList();
     }
 
+    private void initList() {
+        expandableListDetail = new HashMap<String, List<MenuEntity>>();
+        expandableListTitle = new ArrayList<String>();
 
-    public void setData() {
-
-        this.data = (ArrayList<SumModel>) data.clone();
-        this.goal = goal;
-
-
-        this.notifyDataSetChanged();
     }
 
+    public void setDataToRow(List<MenuEntity> m_breakfast, List<MenuEntity> m_lunch,
+                                List<MenuEntity> m_dinner){
 
-    @Override
-    public Object getChild(int groupPosition, int childPosititon) {
-        return this.listDataChild.get(this.listDataHeader.get(groupPosition))
-                .get(childPosititon);
-    }
+        expandableListTitle = new ArrayList<>();
+        expandableListTitle.add(
+                new String("Breakfast"));
+        expandableListTitle.add(
+                new String( "Lunch"));
+        expandableListTitle.add(
+                new String( "Dinner"));
 
-    @Override
-    public long getChildId(int groupPosition, int childPosition) {
-        return childPosition;
-    }
+        expandableListDetail = new HashMap<>();
 
-    @Override
-    public View getGroupView(int groupPosition, boolean isExpanded,
-                             View convertView, ViewGroup parent) {
-
-        return convertView;
-    }
-
-
-    @Override
-    public View getChildView(int groupPosition, final int childPosition,
-                             boolean isLastChild, View convertView, ViewGroup parent) {
-
-        final String childText = (String) getChild(groupPosition, childPosition);
-
-        if (convertView == null) {
-            LayoutInflater infalInflater = (LayoutInflater) this.context
-                    .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            convertView = infalInflater.inflate(R.layout.customview_statistics_daily_list_view_row_child, null);
+        childList = new ArrayList<>();
+        if(!m_breakfast.isEmpty()) {
+            for (int i = 0; i < m_breakfast.size(); i++) {
+                childList.add(m_breakfast.get(i));
+            }
         }
 
-        TextView txtListChild = (TextView) convertView
-                .findViewById(R.id.statistics_daily_row_week_tv);
+        expandableListDetail.put(expandableListTitle.get(0), childList);
 
-        txtListChild.setText(childText);
+        childList = new ArrayList<>();
+        if(!m_lunch.isEmpty()) {
+            for (int i = 0; i < m_lunch.size(); i++) {
+                childList.add(m_lunch.get(i));
+            }
+        }
+
+        expandableListDetail.put(expandableListTitle.get(1), childList);
+
+        childList = new ArrayList<>();
+        if(!m_dinner.isEmpty()) {
+            for (int i = 0; i < m_dinner.size(); i++) {
+                childList.add(m_dinner.get(i));
+            }
+        }
+        expandableListDetail.put(expandableListTitle.get(2), childList);
+
+    }
+
+    @Override
+    public Object getChild(int listPosition, int expandedListPosition) {
+        return this.expandableListDetail.get(this.expandableListTitle.get(listPosition))
+                .get(expandedListPosition);
+    }
+
+    @Override
+    public long getChildId(int listPosition, int expandedListPosition) {
+        return expandedListPosition;
+    }
+
+    @Override
+    public View getChildView(int listPosition, final int expandedListPosition,
+                             boolean isLastChild, View convertView, ViewGroup parent) {
+        //final String expandedListText = (String) getChild(listPosition, expandedListPosition);
+
+        if (convertView == null) {
+            LayoutInflater layoutInflater = (LayoutInflater) this.context
+                    .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+            convertView = layoutInflater.inflate(R.layout.customview_statistics_daily_list_view_row_child, null);
+        }
+        TextView expandedListTextView = (TextView) convertView
+                .findViewById(R.id.expandedListItem);
+        expandedListTextView.setText(childList.get(listPosition).getName());
         return convertView;
     }
 
     @Override
-    public int getChildrenCount(int groupPosition) {
-        return this.listDataChild.get(this.listDataHeader.get(groupPosition))
+    public int getChildrenCount(int listPosition) {
+        return this.expandableListDetail.get(this.expandableListTitle.get(listPosition))
                 .size();
     }
 
     @Override
-    public Object getGroup(int groupPosition) {
-        return this.listDataHeader.get(groupPosition);
+    public Object getGroup(int listPosition) {
+        return this.expandableListTitle.get(listPosition);
     }
 
     @Override
     public int getGroupCount() {
-        return this.listDataHeader.size();
+        return this.expandableListTitle.size();
     }
 
     @Override
-    public long getGroupId(int groupPosition) {
-        return groupPosition;
+    public long getGroupId(int listPosition) {
+        return listPosition;
     }
 
+    @Override
+    public View getGroupView(int listPosition, boolean isExpanded,
+                             View convertView, ViewGroup parent) {
+        String listTitle = (String) getGroup(listPosition);
+        if (convertView == null) {
+            LayoutInflater layoutInflater = (LayoutInflater) this.context.
+                    getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+            convertView = layoutInflater.inflate(R.layout.customview_statistics_daily_list_view_row_parent, null);
+        }
+        TextView listTitleTextView = (TextView) convertView
+                .findViewById(R.id.listTitle);
+        listTitleTextView.setTypeface(null, Typeface.BOLD);
+        listTitleTextView.setText(listTitle);
+        return convertView;
+    }
 
     @Override
     public boolean hasStableIds() {
@@ -122,9 +165,7 @@ public class StatisticsDailyListViewAdapter extends BaseExpandableListAdapter {
     }
 
     @Override
-    public boolean isChildSelectable(int groupPosition, int childPosition) {
+    public boolean isChildSelectable(int listPosition, int expandedListPosition) {
         return true;
     }
-
-
 }

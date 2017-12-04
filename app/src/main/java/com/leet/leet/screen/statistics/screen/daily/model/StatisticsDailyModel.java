@@ -15,30 +15,16 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import android.app.Activity;
-import android.os.Bundle;
-import android.view.View;
-import android.widget.ExpandableListView;
-import android.widget.ExpandableListView.OnChildClickListener;
-import android.widget.ExpandableListView.OnGroupClickListener;
-import android.widget.ExpandableListView.OnGroupCollapseListener;
-import android.widget.ExpandableListView.OnGroupExpandListener;
-import android.widget.Toast;
-
 /**
  * Created by YasuhiraChiba on 2017/11/05.
  */
 
 public class StatisticsDailyModel {
 
-
     LocalDate date;
     UserStatisticsEntity statisticsData;
     SumModel sumData;
+
     public static UserGoalEntity userGoalEntity = new UserGoalEntity();
 
     public static float[] price;
@@ -64,7 +50,6 @@ public class StatisticsDailyModel {
     public static float protein_D;
     public static float fat_D;
     public static float carbs_D;
-
 
     public void getStatisticsData(final FirebaseDBCallaback<Boolean> callback) {
 
@@ -141,37 +126,33 @@ public class StatisticsDailyModel {
         });
     }
 
-    public static float[] getPrice(){
+    public float[] getPrice(){
         float[] total = new float[] {calorie_B/100, calorie_L/100, calorie_D/100};
         return total;
     }
 
-    public static float[] getCalorie() {
+    public float[] getCalorie() {
         float[] total = new float[] {calorie_B/100, calorie_L/100, calorie_D/100};
         return total;
     }
 
-    public static float[] getFat() {
+    public float[] getFat() {
         float[] total = new float[] {fat_B/10, fat_L/10, fat_D/10};
         return total;
     }
 
-    public static float[] getProtein() {
+    public float[] getProtein() {
         float[] total = new float[] {protein_B/10, protein_L/10, protein_D/10};
         return total;
     }
 
-    public static float[] getCarbs() {
+    public float[] getCarbs() {
         float[] total = new float[]{carbs_B/10, carbs_L/10, carbs_D/10};
         return total;
     }
 
     public void deleteMeal(String menuKey, Enums.MealTime mealTime) {
         FirebaseDBUserDataHelper.deleteStatisticsMenuData(date,mealTime,menuKey);
-    }
-
-    public String getWeek() {
-        return DateHelper.getWeekByString(DateHelper.getStringByDate(sumData.day)).getString();
     }
 
     public float getTotalPrice() {
@@ -232,4 +213,6 @@ public class StatisticsDailyModel {
     private void prepareListData(){
 
     }
+
+
 }

@@ -48,13 +48,18 @@ public class StatisticsDailyFragment extends Fragment {
                 mModel.getStatisticsData(new FirebaseDBCallaback<Boolean>() {
                     @Override
                     public void getData(Boolean success) {
-                        mView.setDataToGraph(StatisticsDailyModel.getPrice(),
-                                             StatisticsDailyModel.getCalorie(),
-                                             StatisticsDailyModel.getCarbs(),
-                                             StatisticsDailyModel.getFat(),
-                                             StatisticsDailyModel.getProtein(),
-                                             StatisticsDailyModel.getUserGoalEntity()
+                        mView.setDataToGraph(mModel.getPrice(),
+                                mModel.getCalorie(),
+                                mModel.getCarbs(),
+                                mModel.getFat(),
+                                mModel.getProtein(),
+                                mModel.getUserGoalEntity()
                                              );
+
+                        mView.setDataToRow(mModel.getBreakfastList(),
+                                            mModel.getLunchList(),
+                                            mModel.getDinnerList()
+                                            );
                     }
                 });
             }
