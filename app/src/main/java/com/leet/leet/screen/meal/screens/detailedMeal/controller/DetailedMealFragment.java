@@ -3,22 +3,14 @@ package com.leet.leet.screen.meal.screens.detailedMeal.controller;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.view.LayoutInflater;
-import android.view.Menu;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
-import com.leet.leet.common.Enums;
 import com.leet.leet.screen.meal.screens.confirmAdd.controller.ConfirmAddDialogFragment;
 import com.leet.leet.screen.meal.screens.detailedMeal.model.DetailedMealModel;
 import com.leet.leet.screen.meal.screens.detailedMeal.view.DetailedMealInterface;
 import com.leet.leet.screen.meal.screens.detailedMeal.view.DetailedMealView;
 import com.leet.leet.utils.database.entities.menu.MenuEntity;
-import com.leet.leet.utils.database.entities.menu.MenuNutritionsEntity;
-import com.leet.leet.utils.database.entities.menu.MenuTagsEntity;
-
-import java.util.LinkedList;
-import java.util.List;
 
 /**
  * Created by k3vn19 on 11/16/2017.
@@ -32,8 +24,11 @@ public class DetailedMealFragment extends Fragment implements DetailedMealInterf
     //declaration of view and model for this controller
     private DetailedMealView mView;
     private DetailedMealModel mModel;
+    boolean isFromMeal;
 
-    public void setupFragment(MenuEntity data){
+
+    public void setupFragment(MenuEntity data,boolean isFromResultView){
+        this.isFromMeal = isFromResultView;
         mModel = new DetailedMealModel();
         mModel.setMenuEntity(data);
     }
@@ -42,7 +37,7 @@ public class DetailedMealFragment extends Fragment implements DetailedMealInterf
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState){
         //initiate the model and view on create
-        mView = new DetailedMealView(inflater, container);
+        mView = new DetailedMealView(inflater, container, isFromMeal);
         mView.setListener(this); //not sure if needed
 
 

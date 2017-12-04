@@ -66,7 +66,7 @@ public class StatisticsFragment extends Fragment implements StatisticsViewInterf
     @Override
     public void moveToDetailView(MenuEntity menu) {
         DetailedMealFragment detailedMealFragment = new DetailedMealFragment();
-        detailedMealFragment.setupFragment(menu);
+        detailedMealFragment.setupFragment(menu,false);
         mView.setContent(getFragmentManager(),detailedMealFragment,true);
     }
 }
