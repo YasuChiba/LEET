@@ -27,8 +27,7 @@ public class ConfirmAddDialogFragment extends DialogFragment implements DialogIn
     ConfirmAddDialogModel mModel;
 
     MenuEntity menu;
-    //private int mealTimeRange;
-    
+
     public void setupFragment(MenuEntity _menu){
         menu = _menu;
     }
@@ -48,18 +47,13 @@ public class ConfirmAddDialogFragment extends DialogFragment implements DialogIn
                 .setPositiveButton("Confirm", this)
                 .setNegativeButton("Cancel",this);
 
-        initialize();
-
         return builder.create();
     }
-
-    public void initialize(){}
 
     @Override
     public void onClick(DialogInterface dialogInterface, int i) {
         if(i==-1){
-            //OKButton
-            //mListener.dialogOkButtonTap(mModel.getMealTimeRange());
+            //OKButton, add meal to history
             mModel.addMeal(menu, mModel.getMealTimeRange());
 
             Toast.makeText(getContext(), "Added Meal To History", Toast.LENGTH_SHORT).show();
