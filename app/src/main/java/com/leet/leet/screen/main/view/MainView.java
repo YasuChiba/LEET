@@ -64,7 +64,7 @@ public class MainView implements MainViewInterface, ViewPager.OnPageChangeListen
         ((ImageView) tabMeal.findViewById(R.id.tab_icon)).setImageResource(R.drawable.tab_meal_icon);
         ((ImageView) tabStats.findViewById(R.id.tab_icon)).setImageResource(R.drawable.tab_stat_icon);
 
-        ((TextView) tabProfile.findViewById(R.id.tab_textview)).setText("Profile");
+        ((TextView) tabProfile.findViewById(R.id.tab_textview)).setText("Setting");
         ((TextView) tabMeal.findViewById(R.id.tab_textview)).setText("Meal");
         ((TextView) tabStats.findViewById(R.id.tab_textview)).setText("Stats");
 
