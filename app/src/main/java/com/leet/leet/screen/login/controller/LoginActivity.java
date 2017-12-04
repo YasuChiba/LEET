@@ -10,6 +10,8 @@ import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.leet.leet.screen.login.LoginInterface;
 import com.leet.leet.screen.login.model.LoginModel;
 import com.leet.leet.screen.login.view.LoginView;
@@ -93,18 +95,25 @@ public class LoginActivity extends AppCompatActivity implements LoginViewInterfa
      * @param password user input password
      */
     @Override
-    public void login(final String email, final String password) {
-        Log.d("LOGIN", "login");
+    public boolean login(final String email, final String password) {
         if (checkEmail(email) && checkPassword(password)) {
             //Toast.makeText(this, "200", Toast.LENGTH_SHORT).show();
-            // connect to firebase, from LEET-sample
             ProgressDialogManager.showProgressDialog(this);
             FirebaseAuthManager.signIn(email, password, this);
 
-        } else {
-            Log.d("LOGIN", "login failed");
-            //Toast.makeText(this, "404", Toast.LENGTH_SHORT).show();
+            FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+            if (user != null && user.isEmailVerified()) {
+                startActivity(new Intent(this, MainActivity.class));
+                return true;
+            } else {
+                Log.d("LOGIN", "not verified");
+                Toast.makeText(this, "You must verify your email first", Toast.LENGTH_SHORT).show();
+                return false;
+            }
         }
+        Log.d("LOGIN", "login failed");
+        //Toast.makeText(this, "404", Toast.LENGTH_SHORT).show();
+        return false;
     }
 
     /**
@@ -116,6 +125,7 @@ public class LoginActivity extends AppCompatActivity implements LoginViewInterfa
         // connect to firebase
         //ProgressDialogManager.showProgressDialog(this);
         //FirebaseAuthManager.signInAnonymously(this);
+
         startActivity(new Intent(this, MainActivity.class));
         //Toast.makeText(this, "200", Toast.LENGTH_SHORT).show();
     }
@@ -146,10 +156,12 @@ public class LoginActivity extends AppCompatActivity implements LoginViewInterfa
                 }
             });
         } else {
+            /*
             Intent intent = new Intent(this, MainActivity.class);
             intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
             startActivity(intent);
             finish();
+            */
         }
     }
 }

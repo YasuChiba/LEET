@@ -10,6 +10,8 @@ import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.leet.leet.screen.login.controller.LoginActivity;
 import com.leet.leet.screen.main.controller.MainActivity;
 import com.leet.leet.screen.signup.SignupInterface;
@@ -21,11 +23,6 @@ import com.leet.leet.utils.ProgressDialogManager;
 import com.leet.leet.utils.authentication.FirebaseAuthManager;
 import com.leet.leet.utils.database.FirebaseDBUserDataHelper;
 
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-
-import static com.leet.leet.utils.authentication.FirebaseAuthManager.forgotPassword;
-import static com.leet.leet.utils.authentication.FirebaseAuthManager.sendEmail;
 
 /**
  * Created by xinhezhang on 11/11/17.
@@ -92,9 +89,6 @@ public class SignupActivity extends AppCompatActivity implements SignupViewInter
             // connect to firebase, from LEET-sample
             ProgressDialogManager.showProgressDialog(this);
             FirebaseAuthManager.signUpNewUser(email, password, this);
-
-            // send user email verification
-            //sendEmail();
         } else {
             Log.d("SIGNUP", "signup failed");
             //Toast.makeText(this, "404", Toast.LENGTH_SHORT).show();
@@ -199,6 +193,29 @@ public class SignupActivity extends AppCompatActivity implements SignupViewInter
     }
 
     /**
+     * send user email verification
+     */
+    private void sendEmail() {
+        final FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        if (user != null) {
+            user.sendEmailVerification().addOnCompleteListener(this, new OnCompleteListener<Void>() {
+                @Override
+                public void onComplete(@NonNull Task<Void> task) {
+                    if (task.isSuccessful()) {
+                        Log.d("SIGNUP", "send email successful");
+                        Toast.makeText(getApplicationContext(), "Send verification email to " + user.getEmail(), Toast.LENGTH_SHORT).show();
+                    } else {
+                        Log.d("SIGNUP", "send email failed", task.getException());
+                        Toast.makeText(getApplicationContext(), "Fail to send verification email", Toast.LENGTH_SHORT).show();
+                    }
+                }
+            });
+        } else {
+            Log.d("SIGNUP", "user is null");
+        }
+    }
+
+    /**
      * onComplete Listener, from LEET-sample
      *
      * @param task
@@ -214,8 +231,11 @@ public class SignupActivity extends AppCompatActivity implements SignupViewInter
                 }
             });
         } else {
+            // send user email verification
+            sendEmail();
+
             FirebaseDBUserDataHelper.setDefaultProfileEntity();
-            Intent intent = new Intent(this, MainActivity.class);
+            Intent intent = new Intent(this, LoginActivity.class);
             intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
             startActivity(intent);
             finish();
