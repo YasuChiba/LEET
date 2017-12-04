@@ -23,33 +23,36 @@ public class StatisticsDailyModel {
 
     LocalDate date;
     UserStatisticsEntity statisticsData;
-    SumModel sumData;
 
-    public static UserGoalEntity userGoalEntity = new UserGoalEntity();
+    public UserGoalEntity userGoalEntity = new UserGoalEntity();
 
-    public static float[] price;
-    public static float[] calorie;
-    public static float[] protein;
-    public static float[] fat;
-    public static float[] carbs;
+    public float[] price;
+    public float[] calorie;
+    public float[] protein;
+    public float[] fat;
+    public float[] carbs;
 
-    public static float price_B = 0;
-    public static float calorie_B;
-    public static float protein_B;
-    public static float fat_B;
-    public static float carbs_B;
+    private float price_B = 0;
+    private float calorie_B;
+    private float protein_B;
+    private float fat_B;
+    private float carbs_B;
 
-    public static float price_L = 0;
-    public static float calorie_L;
-    public static float protein_L;
-    public static float fat_L;
-    public static float carbs_L;
+    private float price_L = 0;
+    private float calorie_L;
+    private float protein_L;
+    private float fat_L;
+    private float carbs_L;
 
-    public static float price_D= 0;
-    public static float calorie_D;
-    public static float protein_D;
-    public static float fat_D;
-    public static float carbs_D;
+    private float price_D= 0;
+    private float calorie_D;
+    private float protein_D;
+    private float fat_D;
+    private float carbs_D;
+
+    private MenuEntity selectedMenuEntity;
+    private Enums.MealTime selectedMealTime;
+
 
     public void getStatisticsData(final FirebaseDBCallaback<Boolean> callback) {
 
@@ -98,24 +101,7 @@ public class StatisticsDailyModel {
                         fat_D += menu.getNutritions().getTotalFat();
                         carbs_D += menu.getNutritions().getCarb();
                     }
-                    /*
-                    SumModel model = new SumModel(
-                            DateHelper.getDateByString(data.get(0).getDate()),
-                            price,
-                            calorie,
-                            protein,
-                            fat,
-                            carbs);
-                            */
-                    //sumData = model;
 
-                    /*
-                    price = new float[] {price_B, price_L, price_D};
-                    calorie = new float[] {calorie_B / 100, calorie_L / 100, calorie_D / 100};
-                    protein = new float[] {protein_B, protein_L, protein_D};
-                    fat = new float[] {fat_B, fat_L, fat_D};
-                    carbs = new float[] {carbs_B, carbs_L, carbs_D};
-                    */
                     statisticsData = data.get(0);
                     callback.getData(true);
                 } else {
@@ -151,28 +137,13 @@ public class StatisticsDailyModel {
         return total;
     }
 
-    public void deleteMeal(String menuKey, Enums.MealTime mealTime) {
-        FirebaseDBUserDataHelper.deleteStatisticsMenuData(date,mealTime,menuKey);
+    public void deleteSelectedMeal() {
+        FirebaseDBUserDataHelper.deleteStatisticsMenuData(date,selectedMealTime,selectedMenuEntity.getKey());
     }
 
-    public float getTotalPrice() {
-        return sumData.price;
-    }
-
-    public float getTotalCalorie() {
-        return sumData.calorie;
-    }
-
-    public float getTotalProtein() {
-        return sumData.protein;
-    }
-
-    public float getTotalFat() {
-        return sumData.fat;
-    }
-
-    public float getTotalCarb() {
-        return sumData.carbs;
+    public void menuSelected(MenuEntity selectedMenuEntity, Enums.MealTime selectedMealTime) {
+        this.selectedMealTime = selectedMealTime;
+        this.selectedMenuEntity = selectedMenuEntity;
     }
 
     public List<MenuEntity> getBreakfastList() {
@@ -199,7 +170,7 @@ public class StatisticsDailyModel {
         });
     }
 
-    public static UserGoalEntity getUserGoalEntity(){
+    public UserGoalEntity getUserGoalEntity(){
         return userGoalEntity;
     }
 
@@ -208,10 +179,6 @@ public class StatisticsDailyModel {
     }
     public LocalDate getDate(){
         return date;
-    }
-
-    private void prepareListData(){
-
     }
 
 

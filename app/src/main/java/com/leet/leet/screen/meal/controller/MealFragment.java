@@ -64,7 +64,7 @@ public class MealFragment extends Fragment implements MealMainListner,MealResult
     @Override
     public void moveToDetailFragment(MenuEntity data) {
         fragmentDetailedMeal = new DetailedMealFragment();
-        fragmentDetailedMeal.setupFragment(data,true);
+        fragmentDetailedMeal.setupFragment(data,true,null);
         mView.changeContent(getFragmentManager(),fragmentDetailedMeal, true);
     }
 

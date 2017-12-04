@@ -28,15 +28,12 @@ import java.util.List;
 public class StatisticsDailyView implements StatisticsDailyViewInterface
 , ExpandableListView.OnChildClickListener{
     private View rootView;
-    private ListView listView;
     private ExpandableListView expListView;
     private StatisticsDailyViewListener mListener;
 
     private StatisticsDailyListViewAdapter adapter;
     private StatisticsDailyListViewHeader header;
 
-    public List<String> expandableListTitle;
-    public HashMap<String, List<String>> expandableListDetail;
 
 
     public StatisticsDailyView(LayoutInflater inflater, ViewGroup container,StatisticsDailyViewListener listener) {

@@ -10,6 +10,7 @@ import com.leet.leet.screen.meal.screens.confirmAdd.controller.ConfirmAddDialogF
 import com.leet.leet.screen.meal.screens.detailedMeal.model.DetailedMealModel;
 import com.leet.leet.screen.meal.screens.detailedMeal.view.DetailedMealInterface;
 import com.leet.leet.screen.meal.screens.detailedMeal.view.DetailedMealView;
+import com.leet.leet.screen.statistics.screen.daily.StatisticsDailyDetailInterface;
 import com.leet.leet.utils.database.entities.menu.MenuEntity;
 
 /**
@@ -24,11 +25,13 @@ public class DetailedMealFragment extends Fragment implements DetailedMealInterf
     //declaration of view and model for this controller
     private DetailedMealView mView;
     private DetailedMealModel mModel;
-    boolean isFromMeal;
+    private boolean isFromMeal;
+    private StatisticsDailyDetailInterface listenerForStatsDaily;
 
 
-    public void setupFragment(MenuEntity data,boolean isFromResultView){
+    public void setupFragment(MenuEntity data,boolean isFromResultView,StatisticsDailyDetailInterface listenerForStatsDaily){
         this.isFromMeal = isFromResultView;
+        this.listenerForStatsDaily = listenerForStatsDaily;
         mModel = new DetailedMealModel();
         mModel.setMenuEntity(data);
     }
@@ -79,5 +82,11 @@ public class DetailedMealFragment extends Fragment implements DetailedMealInterf
         dialogFragment.show(getFragmentManager(), "fragment_dialog");
 
 
+    }
+
+    @Override
+    public void deleteMealClick() {
+        listenerForStatsDaily.menuDeleted();
+        getFragmentManager().popBackStack();
     }
 }

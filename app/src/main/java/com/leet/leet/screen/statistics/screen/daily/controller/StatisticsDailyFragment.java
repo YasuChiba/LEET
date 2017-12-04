@@ -59,17 +59,14 @@ public class StatisticsDailyFragment extends Fragment implements StatisticsDaily
                                 mModel.getFat(),
                                 mModel.getProtein(),
                                 mModel.getUserGoalEntity()
-                                             );
+                        );
 
                         mView.setDataToRow(mModel.getBreakfastList(),
-                                            mModel.getLunchList(),
-                                            mModel.getDinnerList()
-                                            );
-                    }
+                                mModel.getLunchList(),
+                                mModel.getDinnerList()
+                        );                    }
                 });
             }
-
-
         });
 
 
@@ -88,7 +85,12 @@ public class StatisticsDailyFragment extends Fragment implements StatisticsDaily
         } else {
             menu = mModel.getDinnerList().get(index);
         }
+        mModel.menuSelected(menu,time);
         mListener.moveToDetailView(menu);
+    }
+
+    public void menuDeleting() {
+        mModel.deleteSelectedMeal();
     }
 }
 

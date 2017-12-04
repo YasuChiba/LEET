@@ -64,7 +64,7 @@ public class DetailedMealView implements DetailedMealInterface, View.OnClickList
         if(isFromMeal) {
             bAddMeal.setText("ADD MEAL");
         } else {
-            bAddMeal.setVisibility(View.GONE);
+            bAddMeal.setText("DELETE MEAL");
         }
     }
 
@@ -80,7 +80,11 @@ public class DetailedMealView implements DetailedMealInterface, View.OnClickList
 
     @Override
     public void onClick(View view) {
-        mListener.addMealClick();
+        if(isFromMeal) {
+            mListener.addMealClick();
+        } else {
+            mListener.deleteMealClick();
+        }
     } //end of onClick
 
     //setter methods for TextView's

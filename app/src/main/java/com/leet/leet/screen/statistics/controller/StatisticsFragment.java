@@ -13,6 +13,7 @@ import com.leet.leet.screen.account.model.AccountModel;
 import com.leet.leet.screen.account.view.AccountView;
 import com.leet.leet.screen.meal.screens.detailedMeal.controller.DetailedMealFragment;
 import com.leet.leet.screen.statistics.model.StatisticsModel;
+import com.leet.leet.screen.statistics.screen.daily.StatisticsDailyDetailInterface;
 import com.leet.leet.screen.statistics.screen.daily.StatisticsDailyInterface;
 import com.leet.leet.screen.statistics.screen.daily.controller.StatisticsDailyFragment;
 import com.leet.leet.screen.statistics.screen.weekly.StatisticsWeeklyInterface;
@@ -28,7 +29,8 @@ import org.joda.time.LocalDate;
  */
 
 
-public class StatisticsFragment extends Fragment implements StatisticsViewInterface.StatisticsViewListener,StatisticsWeeklyInterface,StatisticsDailyInterface {
+public class StatisticsFragment extends Fragment implements StatisticsViewInterface.StatisticsViewListener,
+        StatisticsWeeklyInterface,StatisticsDailyInterface, StatisticsDailyDetailInterface{
 
     public enum StatisticsContent {
         Daily,
@@ -66,7 +68,15 @@ public class StatisticsFragment extends Fragment implements StatisticsViewInterf
     @Override
     public void moveToDetailView(MenuEntity menu) {
         DetailedMealFragment detailedMealFragment = new DetailedMealFragment();
-        detailedMealFragment.setupFragment(menu,false);
+        detailedMealFragment.setupFragment(menu,false,this);
         mView.setContent(getFragmentManager(),detailedMealFragment,true);
+    }
+
+
+    @Override
+    public void menuDeleted() {
+        if(dailyFragment != null) {
+            dailyFragment.menuDeleting();
+        }
     }
 }
