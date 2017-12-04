@@ -10,6 +10,7 @@ import android.widget.ExpandableListAdapter;
 import android.widget.ExpandableListView;
 import android.widget.ListView;
 import com.leet.leet.R;
+import com.leet.leet.common.Enums;
 import com.leet.leet.screen.statistics.screen.daily.StatisticsDailyListViewAdapter;
 import com.leet.leet.screen.statistics.screen.daily.model.StatisticsDailyModel;
 import com.leet.leet.utils.database.entities.menu.MenuEntity;
@@ -25,10 +26,11 @@ import java.util.List;
  **/
 
 public class StatisticsDailyView implements StatisticsDailyViewInterface
-, AdapterView.OnItemClickListener{
+, ExpandableListView.OnChildClickListener{
     private View rootView;
     private ListView listView;
     private ExpandableListView expListView;
+    private StatisticsDailyViewListener mListener;
 
     private StatisticsDailyListViewAdapter adapter;
     private StatisticsDailyListViewHeader header;
@@ -37,7 +39,8 @@ public class StatisticsDailyView implements StatisticsDailyViewInterface
     public HashMap<String, List<String>> expandableListDetail;
 
 
-    public StatisticsDailyView(LayoutInflater inflater, ViewGroup container) {
+    public StatisticsDailyView(LayoutInflater inflater, ViewGroup container,StatisticsDailyViewListener listener) {
+        this.mListener = listener;
         rootView = inflater.inflate(R.layout.view_statistics_daily, container, false);
         initialize(inflater.getContext());
     }
@@ -57,6 +60,8 @@ public class StatisticsDailyView implements StatisticsDailyViewInterface
         expListView.addHeaderView(header);
         expListView.setHeaderDividersEnabled(true);
         expListView.setAdapter(adapter);
+        expListView.setOnChildClickListener(this);
+
 
 
     }
@@ -81,7 +86,17 @@ public class StatisticsDailyView implements StatisticsDailyViewInterface
     }
 
     @Override
-    public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-       // mListner.listElementTap(i);
+    public boolean onChildClick(ExpandableListView expandableListView, View view, int i, int i1, long l) {
+
+        Enums.MealTime time = Enums.MealTime.Breakfast;
+        if(i==0) {
+            time = Enums.MealTime.Breakfast;
+        } else if(i == 1) {
+            time = Enums.MealTime.Lunch;
+        } else {
+            time = Enums.MealTime.Dinner;
+        }
+        mListener.elementTapped(time,i1);
+        return false;
     }
 }

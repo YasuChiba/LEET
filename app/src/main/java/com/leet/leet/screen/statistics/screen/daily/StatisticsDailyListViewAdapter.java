@@ -110,7 +110,6 @@ public class StatisticsDailyListViewAdapter extends BaseExpandableListAdapter {
     @Override
     public View getChildView(int groupPosition, final int childPosition,
                              boolean isLastChild, View convertView, ViewGroup parent) {
-        //final String expandedListText = (String) getChild(listPosition, expandedListPosition);
 
         if (convertView == null) {
             LayoutInflater layoutInflater = (LayoutInflater) this.context
