@@ -134,14 +134,15 @@ public class FirebaseDBUserDataHelper {
                         ArrayList<MenuEntity> result = new ArrayList<>();
                         for(DataSnapshot snap :dataSnapshot.getChildren()){
                             MenuEntity ent = snap.getValue(MenuEntity.class);
-                            ent.setName(snap.getKey());
                             result.add(ent);
+                            Log.d("Custom2", "In DB Helper 1");
                         }
                         callback.getData(result);
                     }
 
                     @Override
                     public void onCancelled(DatabaseError databaseError) {
+                        Log.d("Custom3", "In DB Helper 2");
                         callback.error();
                         callback.getData(new ArrayList<MenuEntity>());
                     }
@@ -149,10 +150,10 @@ public class FirebaseDBUserDataHelper {
     }
 
     public static void addCustomMenu(String menuName, MenuEntity menuEntity) {
-
+        menuEntity.setName(menuName);
         mDatabaseRef.child(FirebaseAuthHelper.getUserId())
                 .child(Enums.UserDataItem.CustomMenus.getString())
-                .child(menuName)
+                .push()
                 .setValue(menuEntity);
     }
 

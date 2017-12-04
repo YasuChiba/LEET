@@ -65,6 +65,8 @@ public class MealResultViewListHeader extends LinearLayout implements AdapterVie
             listener.mealTimeSelected(Enums.MealTime.Lunch);
         } else if(i==2) {
             listener.mealTimeSelected(Enums.MealTime.Dinner);
+        } else if (i == 3) {
+            listener.mealTimeSelected(Enums.MealTime.All);
         }
     }
 

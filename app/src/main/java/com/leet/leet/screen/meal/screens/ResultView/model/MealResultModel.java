@@ -1,11 +1,13 @@
 package com.leet.leet.screen.meal.screens.ResultView.model;
 
+import android.util.Log;
 import android.view.Menu;
 
 import com.leet.leet.common.Enums;
 import com.leet.leet.utils.DateHelper;
 import com.leet.leet.utils.database.FirebaseDBCallaback;
 import com.leet.leet.utils.database.FirebaseDBMenuDataHelper;
+import com.leet.leet.utils.database.FirebaseDBUserDataHelper;
 import com.leet.leet.utils.database.entities.menu.MenuEntity;
 
 import java.lang.reflect.Array;
@@ -30,17 +32,34 @@ public class MealResultModel {
     }
 
     public void getMenu(final FirebaseDBCallaback<Boolean> callback) {
-        FirebaseDBMenuDataHelper.getMenuData(currentRestaurantName,
-                DateHelper.getCurrentDate(),
-                currentMealTime,
-                new FirebaseDBCallaback<ArrayList<MenuEntity>>() {
-                    @Override
-                    public void getData(ArrayList<MenuEntity> data) {
-                        menuEntityList = data;
-                        searchedMenuEntityList = data;
-                        callback.getData(true);
-                    }
-                });
+
+        if(currentRestaurantName != Enums.RestaurantName.Custom) {
+            Log.d("If", "In if");
+            FirebaseDBMenuDataHelper.getMenuData(currentRestaurantName,
+                    DateHelper.getCurrentDate(),
+                    currentMealTime,
+                    new FirebaseDBCallaback<ArrayList<MenuEntity>>() {
+                        @Override
+                        public void getData(ArrayList<MenuEntity> data) {
+                            menuEntityList = data;
+                            searchedMenuEntityList = data;
+                            callback.getData(true);
+                        }
+                    });
+        }
+        else {
+            Log.d("Else", "In else");
+            FirebaseDBUserDataHelper.getCustomMenus(new FirebaseDBCallaback<ArrayList<MenuEntity>>() {
+                @Override
+                public void getData(ArrayList<MenuEntity> data) {
+                    Log.d("Custom", "In custom");
+
+                    menuEntityList = data;
+                    searchedMenuEntityList = data;
+                    callback.getData(true);
+                }
+            });
+        }
     }
 
     public Enums.RestaurantName getRestaurantName() {
@@ -237,35 +256,35 @@ public class MealResultModel {
                 valid = false;
             }
             if (proteinMax != -1 && (tmp.getNutritions().getProtein() < proteinMin
-                    && tmp.getNutritions().getProtein() > proteinMax)) {
+                    || tmp.getNutritions().getProtein() > proteinMax)) {
                 valid = false;
             }
             if (carbsMax != -1 && (tmp.getNutritions().getCarb() < carbsMin
-                    && tmp.getNutritions().getCarb() > carbsMax)) {
+                    || tmp.getNutritions().getCarb() > carbsMax)) {
                 valid = false;
             }
             if (totFatMax != -1 && (tmp.getNutritions().getTotalFat() < totalFatMin
-                    && tmp.getNutritions().getTotalFat() > totFatMax)) {
+                    || tmp.getNutritions().getTotalFat() > totFatMax)) {
                 valid = false;
             }
             if (satFatMax != -1 && (tmp.getNutritions().getSatFat() < satFatMin
-                    && tmp.getNutritions().getSatFat() > satFatMax)) {
+                    || tmp.getNutritions().getSatFat() > satFatMax)) {
                 valid = false;
             }
             if (sodiumMax != -1 && (tmp.getNutritions().getSodium() < sodiumMin
-                    && tmp.getNutritions().getSodium() > sodiumMax)) {
+                    || tmp.getNutritions().getSodium() > sodiumMax)) {
                 valid = false;
             }
             if (cholMax != -1 && (tmp.getNutritions().getCholesterol() < cholMin
-                    && tmp.getNutritions().getSodium() > sodiumMax)) {
+                    || tmp.getNutritions().getSodium() > sodiumMax)) {
                 valid = false;
             }
             if (fiberMax != -1 && (tmp.getNutritions().getDietaryFiber() < fiberMin
-                    && tmp.getNutritions().getDietaryFiber() > fiberMax)) {
+                    || tmp.getNutritions().getDietaryFiber() > fiberMax)) {
                 valid = false;
             }
             if (sugarMax != -1 && (tmp.getNutritions().getSugars() < sugarMin
-                    && tmp.getNutritions().getSugars() > sugarMax)) {
+                    || tmp.getNutritions().getSugars() > sugarMax)) {
                 valid = false;
             }
 

@@ -23,6 +23,8 @@ import com.leet.leet.screen.meal.screens.sort.controller.MealSortDialogFragment;
 import com.leet.leet.utils.DialogManager;
 import com.leet.leet.utils.database.FirebaseDBCallaback;
 
+import java.util.ArrayList;
+
 /**
  * Created by Sam on 11/19/2017.
  */
@@ -62,7 +64,14 @@ public class ResultControllerFragment extends Fragment implements ResultViewInte
 
         resultView = new ResultView(inflater, container,this);
         this.setMenuToListView();
-        resultView.setupMealTimeSpinner(model.getMealTimeList(),model.getCurrentMealTime().getIndex());
+        if(model.getRestaurantName() != Enums.RestaurantName.Custom) { // custom has a different spinner
+            resultView.setupMealTimeSpinner(model.getMealTimeList(), model.getCurrentMealTime().getIndex());
+        }
+        else {
+            ArrayList<String> val = new ArrayList<String>();
+            val.add("All");
+            resultView.setupMealTimeSpinner(val, Enums.MealTime.All.getIndex());
+        }
         setHasOptionsMenu(true);
         return resultView.getRootView();
     }
