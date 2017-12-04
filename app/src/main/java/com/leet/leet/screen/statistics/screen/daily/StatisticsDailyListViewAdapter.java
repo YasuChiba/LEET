@@ -40,7 +40,6 @@ public class StatisticsDailyListViewAdapter extends BaseExpandableListAdapter {
     private Context context;
     public List<String> expandableListTitle;
     public HashMap<String, List<MenuEntity>> expandableListDetail;
-    private ArrayList<MenuEntity> childList;
 
     public StatisticsDailyListViewAdapter(Context context){
         this.context = context;
@@ -56,6 +55,8 @@ public class StatisticsDailyListViewAdapter extends BaseExpandableListAdapter {
 
     public void setDataToRow(List<MenuEntity> m_breakfast, List<MenuEntity> m_lunch,
                                 List<MenuEntity> m_dinner){
+
+        ArrayList<MenuEntity> childList;
 
         expandableListTitle = new ArrayList<>();
         expandableListTitle.add(
@@ -92,7 +93,7 @@ public class StatisticsDailyListViewAdapter extends BaseExpandableListAdapter {
             }
         }
         expandableListDetail.put(expandableListTitle.get(2), childList);
-
+        this.notifyDataSetChanged();
     }
 
     @Override
@@ -107,7 +108,7 @@ public class StatisticsDailyListViewAdapter extends BaseExpandableListAdapter {
     }
 
     @Override
-    public View getChildView(int listPosition, final int expandedListPosition,
+    public View getChildView(int groupPosition, final int childPosition,
                              boolean isLastChild, View convertView, ViewGroup parent) {
         //final String expandedListText = (String) getChild(listPosition, expandedListPosition);
 
@@ -118,7 +119,7 @@ public class StatisticsDailyListViewAdapter extends BaseExpandableListAdapter {
         }
         TextView expandedListTextView = (TextView) convertView
                 .findViewById(R.id.expandedListItem);
-        expandedListTextView.setText(childList.get(listPosition).getName());
+        expandedListTextView.setText(expandableListDetail.get(expandableListTitle.get(groupPosition)).get(childPosition).getName());
         return convertView;
     }
 

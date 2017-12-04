@@ -77,6 +77,7 @@ public class StatisticsDailyView implements StatisticsDailyViewInterface
 
     public void setDataToRow(List<MenuEntity> m_breakfast, List<MenuEntity> m_lunch, List<MenuEntity> m_dinner) {
         adapter.setDataToRow(m_breakfast, m_lunch, m_dinner);
+
     }
 
     @Override
