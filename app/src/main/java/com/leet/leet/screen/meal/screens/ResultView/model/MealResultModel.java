@@ -43,6 +43,9 @@ public class MealResultModel {
                 });
     }
 
+    public Enums.RestaurantName getRestaurantName() {
+        return currentRestaurantName;
+    }
     public ArrayList<MenuEntity> getMenuEntityList() {
         return searchedMenuEntityList;
     }

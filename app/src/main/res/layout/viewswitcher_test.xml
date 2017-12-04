@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:focusable="true"
-    android:focusableInTouchMode="true">
+    android:focusableInTouchMode="true"
+    android:background="@drawable/bg">
 
     <ViewSwitcher
         android:id="@+id/goals_to_acc_vs"
@@ -26,8 +28,7 @@
                     android:layout_width="300dp"
                     android:layout_height="50dp"
                     android:layout_alignParentTop="true"
-                    android:layout_centerHorizontal="true"
-                    android:layout_marginTop="21dp">
+                    android:layout_centerHorizontal="true">
 
 
                     <TextView
@@ -37,9 +38,9 @@
                         android:layout_centerHorizontal="true"
                         android:layout_centerVertical="true"
                         android:layout_gravity="center"
-                        android:text="MY GOALS"
+                        android:text="My Goals"
                         android:textColor="@color/Lable"
-                        android:textSize="24sp"
+                        android:textSize="36sp"
                         android:textStyle="bold"
                         tools:typeface="sans" />
                 </RelativeLayout>
@@ -50,8 +51,8 @@
                     android:layout_height="450dp"
                     android:layout_below="@+id/relativeLayout"
                     android:layout_centerHorizontal="true"
-                    android:background="@drawable/profile_border"
-                    android:orientation="vertical">
+                    android:orientation="vertical"
+                    android:weightSum="1">
 
                     <RelativeLayout
                         android:layout_width="match_parent"
@@ -94,7 +95,7 @@
                             android:layout_alignParentStart="true"
                             android:text="@string/Price"
                             android:textColor="@color/light_red"
-                            android:textSize="18sp" />
+                            android:textSize="24sp" />
 
 
                     </RelativeLayout>
@@ -134,7 +135,7 @@
                             android:layout_alignParentStart="true"
                             android:text="@string/Calorie"
                             android:textColor="@color/light_red"
-                            android:textSize="18sp" />
+                            android:textSize="24sp" />
 
 
                     </RelativeLayout>
@@ -174,7 +175,7 @@
                             android:layout_alignParentStart="true"
                             android:text="@string/Carbs"
                             android:textColor="@color/light_red"
-                            android:textSize="18sp" />
+                            android:textSize="24sp" />
 
 
                     </RelativeLayout>
@@ -214,23 +215,22 @@
                             android:layout_alignParentStart="true"
                             android:text="@string/Protein"
                             android:textColor="@color/light_red"
-                            android:textSize="18sp" />
+                            android:textSize="24sp" />
 
 
                     </RelativeLayout>
 
                     <RelativeLayout
+                        android:id="@+id/fat_container"
                         android:layout_width="250dp"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="center">
+                        android:layout_gravity="center"
+                        android:layout_weight="0.53">
 
                         <EditText
                             android:id="@+id/Fat"
                             android:layout_width="110dp"
                             android:layout_height="wrap_content"
-                            android:layout_alignParentRight="true"
-                            android:layout_alignParentTop="true"
-                            android:layout_marginTop="10dp"
                             android:backgroundTint="#cfcfcf"
                             android:ems="10"
                             android:gravity="right"
@@ -239,7 +239,9 @@
                             android:maxLength="5"
                             android:textColor="@color/textColor"
                             android:textColorHint="@color/textColorHint"
-                            android:textSize="18sp">>
+                            android:textSize="18sp"
+                            android:layout_centerVertical="true"
+                            android:layout_alignParentEnd="true">>
 
                             <requestFocus />
                         </EditText>
@@ -248,41 +250,59 @@
                             android:id="@+id/fat"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_alignBaseline="@+id/Fat"
-                            android:layout_alignBottom="@+id/Fat"
-                            android:layout_alignParentLeft="true"
                             android:layout_alignParentStart="true"
                             android:text="@string/Fat"
                             android:textColor="@color/light_red"
-                            android:textSize="18sp" />
+                            android:textSize="24sp"
+                            android:layout_alignBottom="@id/Fat" />
 
 
                     </RelativeLayout>
 
-                    <Button
-                        android:id="@+id/goals_save"
-                        android:layout_width="200dp"
-                        android:layout_height="wrap_content"
-                        android:layout_alignTop="@+id/fat"
-                        android:layout_alignWithParentIfMissing="false"
-                        android:layout_gravity="center_horizontal"
-                        android:backgroundTint="@color/buttonColor"
-                        android:text="@string/Edit"
-                        android:textColor="@color/buttonTextColor"
-                        android:textSize="20sp" />
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="106dp"
+                        android:paddingTop="15dp">
 
-                    <Button
-                        android:id="@+id/Recommended"
-                        android:layout_width="200dp"
-                        android:layout_height="wrap_content"
-                        android:layout_alignTop="@+id/fat"
-                        android:layout_alignWithParentIfMissing="false"
-                        android:layout_gravity="center_horizontal"
-                        android:backgroundTint="@color/buttonColor"
-                        android:text="Use Recommended"
-                        android:textColor="@color/buttonTextColor"
-                        android:textSize="20sp"
-                        android:visibility="gone" />
+                        <ImageButton
+                            android:id="@+id/cancel_goals"
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:layout_alignBottom="@+id/goals_save"
+                            android:layout_marginStart="13dp"
+                            android:layout_toEndOf="@+id/goals_save"
+                            android:visibility="gone"
+                            app:srcCompat="@mipmap/undo" />
+
+                        <Button
+                            android:id="@+id/Recommended"
+                            android:layout_width="200dp"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentBottom="true"
+                            android:layout_alignStart="@+id/goals_save"
+                            android:layout_alignWithParentIfMissing="false"
+                            android:layout_gravity="center_horizontal"
+                            android:backgroundTint="@color/buttonColor"
+                            android:text="Use Recommended"
+                            android:textColor="@color/buttonTextColor"
+                            android:textSize="18sp"
+                            android:visibility="gone" />
+
+                        <Button
+                            android:id="@+id/goals_save"
+                            android:layout_width="200dp"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentTop="true"
+                            android:layout_alignWithParentIfMissing="false"
+                            android:layout_centerHorizontal="true"
+                            android:layout_gravity="center_horizontal"
+                            android:backgroundTint="@color/buttonColor"
+                            android:text="@string/Edit"
+                            android:textColor="@color/buttonTextColor"
+                            android:textSize="20sp"
+                            android:visibility="visible" />
+                    </RelativeLayout>
+
                 </LinearLayout>
 
             </RelativeLayout>
@@ -313,7 +333,7 @@
                         android:gravity="center_horizontal"
                         android:text="My Profile"
                         android:textColor="@color/Lable"
-                        android:textSize="32sp"
+                        android:textSize="36sp"
                         android:textStyle="bold"
                         tools:typeface="sans" />
                 </RelativeLayout>
@@ -322,16 +342,54 @@
                     android:id="@+id/linearLayout1"
                     android:layout_width="345dp"
                     android:layout_height="500dp"
-                    android:layout_alignParentBottom="true"
                     android:layout_below="@+id/relativeLayout2"
                     android:layout_centerHorizontal="true"
-                    android:background="@drawable/profile_border"
+                    android:layout_marginTop="27dp"
                     android:orientation="vertical"
                     android:weightSum="1">
 
                     <RelativeLayout
                         android:layout_width="250dp"
-                        android:layout_height="70dp"
+                        android:layout_height="48dp"
+                        android:layout_gravity="center">
+
+                        <TextView
+                            android:id="@+id/Email"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:layout_alignParentTop="true"
+                            android:backgroundTint="#cfcfcf"
+                            android:ellipsize="marquee"
+                            android:enabled="false"
+                            android:gravity="right"
+                            android:hint="Email Here"
+                            android:inputType="textEmailAddress"
+                            android:textColor="#333333"
+                            android:textColorHint="#cfcfcf"
+                            android:textSize="18dp">>
+
+                            <requestFocus />
+                        </TextView>
+
+                        <TextView
+                            android:id="@+id/email"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignBaseline="@+id/Email"
+                            android:layout_alignBottom="@+id/Email"
+                            android:layout_alignParentLeft="true"
+                            android:layout_alignParentStart="true"
+                            android:text="@string/Email"
+                            android:textColor="@color/LEET_LABEL"
+                            android:textSize="24sp" />
+
+
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="250dp"
+                        android:layout_height="48dp"
                         android:layout_gravity="center">
 
                         <EditText
@@ -362,55 +420,17 @@
                             android:layout_alignParentLeft="true"
                             android:layout_alignParentStart="true"
                             android:text="@string/Name"
-                            android:textColor="@color/light_red"
-                            android:textSize="18sp" />
+                            android:textColor="@color/LEET_LABEL"
+                            android:textSize="24sp" />
 
 
                     </RelativeLayout>
 
                     <RelativeLayout
                         android:layout_width="250dp"
-                        android:layout_height="70dp"
-                        android:layout_gravity="center">
-
-                        <EditText
-                            android:id="@+id/Email"
-                            android:layout_width="110dp"
-                            android:layout_height="wrap_content"
-                            android:layout_alignParentRight="true"
-                            android:layout_alignParentTop="true"
-                            android:backgroundTint="#cfcfcf"
-                            android:ems="10"
-                            android:gravity="right"
-                            android:hint="Email Here"
-                            android:inputType="textEmailAddress"
-                            android:maxLength="12"
-                            android:textColor="@color/textColor"
-                            android:textColorHint="@color/textColorHint"
-                            android:textSize="18sp">>
-
-                            <requestFocus />
-                        </EditText>
-
-                        <TextView
-                            android:id="@+id/email"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_alignBaseline="@+id/Email"
-                            android:layout_alignBottom="@+id/Email"
-                            android:layout_alignParentLeft="true"
-                            android:layout_alignParentStart="true"
-                            android:text="@string/Email"
-                            android:textColor="@color/light_red"
-                            android:textSize="18sp" />
-
-
-                    </RelativeLayout>
-
-                    <RelativeLayout
-                        android:layout_width="250dp"
-                        android:layout_height="40dp"
-                        android:layout_gravity="center">
+                        android:layout_height="48dp"
+                        android:layout_gravity="center"
+                        android:layout_weight="0.10">
 
                         <EditText
                             android:id="@+id/Age"
@@ -440,8 +460,8 @@
                             android:layout_alignParentLeft="true"
                             android:layout_alignParentStart="true"
                             android:text="@string/Age"
-                            android:textColor="@color/light_red"
-                            android:textSize="18sp" />
+                            android:textColor="@color/LEET_LABEL"
+                            android:textSize="24sp" />
 
 
                     </RelativeLayout>
@@ -449,9 +469,8 @@
                     <RelativeLayout
                         android:id="@+id/relativeLayout3"
                         android:layout_width="300dp"
-                        android:layout_height="80dp"
-                        android:layout_gravity="center"
-                        android:layout_weight="0.11">
+                        android:layout_height="66dp"
+                        android:layout_gravity="center">
 
                         <TextView
                             android:id="@+id/textView13"
@@ -464,8 +483,8 @@
                             android:backgroundTint="@android:color/holo_orange_dark"
                             android:gravity="left"
                             android:text="@string/Gender"
-                            android:textColor="@color/light_red"
-                            android:textSize="18sp" />
+                            android:textColor="@color/LEET_LABEL"
+                            android:textSize="24sp" />
 
                         <Spinner
                             android:id="@+id/Gender"
@@ -482,31 +501,40 @@
 
                     </RelativeLayout>
 
-                    <Button
-                        android:id="@+id/acc_save"
-                        android:layout_width="200dp"
-                        android:layout_height="wrap_content"
-                        android:layout_alignTop="@+id/fat"
-                        android:layout_alignWithParentIfMissing="false"
-                        android:layout_gravity="center_horizontal"
-                        android:layout_marginTop="20dp"
-                        android:backgroundTint="@color/buttonColor"
-                        android:text="@string/Edit"
-                        android:textColor="@color/buttonTextColor"
-                        android:textSize="20sp" />
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="161dp">
 
-                    <Button
-                        android:id="@+id/Delete"
-                        android:layout_width="200dp"
-                        android:layout_height="wrap_content"
-                        android:layout_alignTop="@+id/fat"
-                        android:layout_alignWithParentIfMissing="false"
-                        android:layout_gravity="center_horizontal"
-                        android:layout_marginTop="70dp"
-                        android:backgroundTint="@color/buttonColor"
-                        android:text="Delete Account"
-                        android:textColor="@color/buttonTextColor"
-                        android:textSize="20sp" />
+                        <Button
+                            android:id="@+id/Delete"
+                            android:layout_width="200dp"
+                            android:layout_height="wrap_content"
+                            android:layout_alignStart="@+id/acc_save"
+                            android:layout_alignWithParentIfMissing="false"
+                            android:layout_below="@+id/acc_save"
+                            android:layout_gravity="center_horizontal"
+                            android:layout_marginTop="18dp"
+                            android:backgroundTint="@color/buttonColor"
+                            android:text="Delete Account"
+                            android:textColor="@color/buttonTextColor"
+                            android:textSize="20sp" />
+
+                        <Button
+                            android:id="@+id/acc_save"
+                            android:layout_width="200dp"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentTop="true"
+                            android:layout_alignWithParentIfMissing="false"
+                            android:layout_centerHorizontal="true"
+                            android:layout_gravity="center_horizontal"
+                            android:layout_marginTop="17dp"
+                            android:backgroundTint="@color/buttonColor"
+                            android:text="@string/Edit"
+                            android:textColor="@color/buttonTextColor"
+                            android:textSize="20sp" />
+
+                    </RelativeLayout>
+
                 </LinearLayout>
 
             </RelativeLayout>
