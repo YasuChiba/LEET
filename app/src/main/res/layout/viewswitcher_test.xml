@@ -37,9 +37,9 @@
                         android:layout_centerHorizontal="true"
                         android:layout_centerVertical="true"
                         android:layout_gravity="center"
-                        android:text="MY GOALS"
+                        android:text="My Goals"
                         android:textColor="@color/Lable"
-                        android:textSize="24sp"
+                        android:textSize="36sp"
                         android:textStyle="bold"
                         tools:typeface="sans" />
                 </RelativeLayout>
@@ -50,7 +50,8 @@
                     android:layout_height="450dp"
                     android:layout_below="@+id/relativeLayout"
                     android:layout_centerHorizontal="true"
-                    android:orientation="vertical">
+                    android:orientation="vertical"
+                    android:weightSum="1">
 
                     <RelativeLayout
                         android:layout_width="match_parent"
@@ -93,7 +94,7 @@
                             android:layout_alignParentStart="true"
                             android:text="@string/Price"
                             android:textColor="@color/light_red"
-                            android:textSize="18sp" />
+                            android:textSize="24sp" />
 
 
                     </RelativeLayout>
@@ -133,7 +134,7 @@
                             android:layout_alignParentStart="true"
                             android:text="@string/Calorie"
                             android:textColor="@color/light_red"
-                            android:textSize="18sp" />
+                            android:textSize="24sp" />
 
 
                     </RelativeLayout>
@@ -173,7 +174,7 @@
                             android:layout_alignParentStart="true"
                             android:text="@string/Carbs"
                             android:textColor="@color/light_red"
-                            android:textSize="18sp" />
+                            android:textSize="24sp" />
 
 
                     </RelativeLayout>
@@ -213,23 +214,22 @@
                             android:layout_alignParentStart="true"
                             android:text="@string/Protein"
                             android:textColor="@color/light_red"
-                            android:textSize="18sp" />
+                            android:textSize="24sp" />
 
 
                     </RelativeLayout>
 
                     <RelativeLayout
+                        android:id="@+id/fat_container"
                         android:layout_width="250dp"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="center">
+                        android:layout_gravity="center"
+                        android:layout_weight="0.53">
 
                         <EditText
                             android:id="@+id/Fat"
                             android:layout_width="110dp"
                             android:layout_height="wrap_content"
-                            android:layout_alignParentRight="true"
-                            android:layout_alignParentTop="true"
-                            android:layout_marginTop="10dp"
                             android:backgroundTint="#cfcfcf"
                             android:ems="10"
                             android:gravity="right"
@@ -238,7 +238,9 @@
                             android:maxLength="5"
                             android:textColor="@color/textColor"
                             android:textColorHint="@color/textColorHint"
-                            android:textSize="18sp">>
+                            android:textSize="18sp"
+                            android:layout_centerVertical="true"
+                            android:layout_alignParentEnd="true">>
 
                             <requestFocus />
                         </EditText>
@@ -247,13 +249,11 @@
                             android:id="@+id/fat"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_alignBaseline="@+id/Fat"
-                            android:layout_alignBottom="@+id/Fat"
-                            android:layout_alignParentLeft="true"
                             android:layout_alignParentStart="true"
                             android:text="@string/Fat"
                             android:textColor="@color/light_red"
-                            android:textSize="18sp" />
+                            android:textSize="24sp"
+                            android:layout_alignBottom="@id/Fat" />
 
 
                     </RelativeLayout>
@@ -332,7 +332,7 @@
                         android:gravity="center_horizontal"
                         android:text="My Profile"
                         android:textColor="@color/Lable"
-                        android:textSize="32sp"
+                        android:textSize="36sp"
                         android:textStyle="bold"
                         tools:typeface="sans" />
                 </RelativeLayout>
@@ -341,15 +341,15 @@
                     android:id="@+id/linearLayout1"
                     android:layout_width="345dp"
                     android:layout_height="500dp"
-                    android:orientation="vertical"
-                    android:weightSum="1"
                     android:layout_below="@+id/relativeLayout2"
                     android:layout_centerHorizontal="true"
-                    android:layout_marginTop="27dp">
+                    android:layout_marginTop="27dp"
+                    android:orientation="vertical"
+                    android:weightSum="1">
 
                     <RelativeLayout
                         android:layout_width="250dp"
-                        android:layout_height="70dp"
+                        android:layout_height="48dp"
                         android:layout_gravity="center">
 
                         <TextView
@@ -381,14 +381,14 @@
                             android:layout_alignParentStart="true"
                             android:text="@string/Email"
                             android:textColor="@color/LEET_LABEL"
-                            android:textSize="18sp" />
+                            android:textSize="24sp" />
 
 
                     </RelativeLayout>
 
                     <RelativeLayout
                         android:layout_width="250dp"
-                        android:layout_height="70dp"
+                        android:layout_height="48dp"
                         android:layout_gravity="center">
 
                         <EditText
@@ -420,15 +420,16 @@
                             android:layout_alignParentStart="true"
                             android:text="@string/Name"
                             android:textColor="@color/LEET_LABEL"
-                            android:textSize="18sp" />
+                            android:textSize="24sp" />
 
 
                     </RelativeLayout>
 
                     <RelativeLayout
                         android:layout_width="250dp"
-                        android:layout_height="40dp"
-                        android:layout_gravity="center">
+                        android:layout_height="48dp"
+                        android:layout_gravity="center"
+                        android:layout_weight="0.10">
 
                         <EditText
                             android:id="@+id/Age"
@@ -459,7 +460,7 @@
                             android:layout_alignParentStart="true"
                             android:text="@string/Age"
                             android:textColor="@color/LEET_LABEL"
-                            android:textSize="18sp" />
+                            android:textSize="24sp" />
 
 
                     </RelativeLayout>
@@ -467,9 +468,8 @@
                     <RelativeLayout
                         android:id="@+id/relativeLayout3"
                         android:layout_width="300dp"
-                        android:layout_height="80dp"
-                        android:layout_gravity="center"
-                        android:layout_weight="0.11">
+                        android:layout_height="66dp"
+                        android:layout_gravity="center">
 
                         <TextView
                             android:id="@+id/textView13"
@@ -483,7 +483,7 @@
                             android:gravity="left"
                             android:text="@string/Gender"
                             android:textColor="@color/LEET_LABEL"
-                            android:textSize="18sp" />
+                            android:textSize="24sp" />
 
                         <Spinner
                             android:id="@+id/Gender"
@@ -531,16 +531,6 @@
                             android:text="@string/Edit"
                             android:textColor="@color/buttonTextColor"
                             android:textSize="20sp" />
-
-                        <ImageButton
-                            android:id="@+id/cancel_info"
-                            android:layout_width="40dp"
-                            android:layout_height="40dp"
-                            android:layout_alignTop="@+id/acc_save"
-                            android:layout_marginStart="16dp"
-                            android:layout_toEndOf="@+id/acc_save"
-                            android:visibility="gone"
-                            app:srcCompat="@mipmap/undo" />
 
                     </RelativeLayout>
 

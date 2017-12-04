@@ -54,7 +54,7 @@ public class ProfileView implements ProfileViewInterface, View.OnClickListener{
 
     Button goals_save, acc_save, Recommended, delete;
     ViewSwitcher goals_to_acc_vs;
-    ImageButton cancel_info, cancel_goals;
+    ImageButton cancel_goals;
 
 
 
@@ -90,9 +90,7 @@ public class ProfileView implements ProfileViewInterface, View.OnClickListener{
         acc_save.setOnClickListener(this);
         delete = (Button)this.getRootView().findViewById(R.id.Delete);
         delete.setOnClickListener(this);
-        cancel_info = this.getRootView().findViewById(R.id.cancel_info);
         cancel_goals = this.getRootView().findViewById(R.id.cancel_goals);
-        cancel_info.setOnClickListener(this);
         cancel_goals.setOnClickListener(this);
 
 
@@ -215,13 +213,6 @@ public class ProfileView implements ProfileViewInterface, View.OnClickListener{
                 Recommended.setVisibility(View.GONE);
                 cancel_goals.setVisibility(View.GONE);
                 break;
-            case R.id.cancel_info:
-                mListner.discardGoalChanges();
-                acc_save.setText("Edit");
-                setProfileEdit(false);
-                accEdit = false;
-                cancel_info.setVisibility(View.GONE);
-                break;
             case R.id.Recommended:
                 mListner.setRecommended();
                 break;
@@ -229,13 +220,11 @@ public class ProfileView implements ProfileViewInterface, View.OnClickListener{
                 mListner.saveInfoEntity(createUserInfoEntity());
                 if(accEdit == false) {
                     acc_save.setText("Save");
-                    cancel_info.setVisibility(View.VISIBLE);
                     setProfileEdit(true);
                     accEdit = true;
                 }
                 else {
                     acc_save.setText("Edit");
-                    cancel_info.setVisibility(View.GONE);
                     mListner.saveInfoEntity(createUserInfoEntity());
                     setProfileEdit(false);
                     accEdit = false;
