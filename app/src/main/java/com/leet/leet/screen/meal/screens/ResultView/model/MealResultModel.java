@@ -237,35 +237,35 @@ public class MealResultModel {
                 valid = false;
             }
             if (proteinMax != -1 && (tmp.getNutritions().getProtein() < proteinMin
-                    && tmp.getNutritions().getProtein() > proteinMax)) {
+                    || tmp.getNutritions().getProtein() > proteinMax)) {
                 valid = false;
             }
             if (carbsMax != -1 && (tmp.getNutritions().getCarb() < carbsMin
-                    && tmp.getNutritions().getCarb() > carbsMax)) {
+                    || tmp.getNutritions().getCarb() > carbsMax)) {
                 valid = false;
             }
             if (totFatMax != -1 && (tmp.getNutritions().getTotalFat() < totalFatMin
-                    && tmp.getNutritions().getTotalFat() > totFatMax)) {
+                    || tmp.getNutritions().getTotalFat() > totFatMax)) {
                 valid = false;
             }
             if (satFatMax != -1 && (tmp.getNutritions().getSatFat() < satFatMin
-                    && tmp.getNutritions().getSatFat() > satFatMax)) {
+                    || tmp.getNutritions().getSatFat() > satFatMax)) {
                 valid = false;
             }
             if (sodiumMax != -1 && (tmp.getNutritions().getSodium() < sodiumMin
-                    && tmp.getNutritions().getSodium() > sodiumMax)) {
+                    || tmp.getNutritions().getSodium() > sodiumMax)) {
                 valid = false;
             }
             if (cholMax != -1 && (tmp.getNutritions().getCholesterol() < cholMin
-                    && tmp.getNutritions().getSodium() > sodiumMax)) {
+                    || tmp.getNutritions().getSodium() > sodiumMax)) {
                 valid = false;
             }
             if (fiberMax != -1 && (tmp.getNutritions().getDietaryFiber() < fiberMin
-                    && tmp.getNutritions().getDietaryFiber() > fiberMax)) {
+                    || tmp.getNutritions().getDietaryFiber() > fiberMax)) {
                 valid = false;
             }
             if (sugarMax != -1 && (tmp.getNutritions().getSugars() < sugarMin
-                    && tmp.getNutritions().getSugars() > sugarMax)) {
+                    || tmp.getNutritions().getSugars() > sugarMax)) {
                 valid = false;
             }
 
