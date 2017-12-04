@@ -8,8 +8,6 @@ import android.widget.TextView;
 
 import com.leet.leet.R;
 
-import java.util.List;
-
 /**
  * Created by k3vn19 on 11/16/2017.
  *
@@ -36,10 +34,11 @@ public class DetailedMealView implements DetailedMealInterface, View.OnClickList
 
     private View mRootView;
     private DetailedMealListener mListener;
+    private boolean isFromMeal;
 
-    public DetailedMealView(LayoutInflater inflater, ViewGroup container) {
+    public DetailedMealView(LayoutInflater inflater, ViewGroup container,boolean isFromResultView) {
         mRootView = inflater.inflate(R.layout.view_detailed_meal, container, false);
-
+        this.isFromMeal = isFromResultView;
         initialize();
     } //end of constructor
 
@@ -61,6 +60,12 @@ public class DetailedMealView implements DetailedMealInterface, View.OnClickList
         bAddMeal = (Button) mRootView.findViewById(R.id.button_add_meal);
 
         bAddMeal.setOnClickListener(this);
+
+        if(isFromMeal) {
+            bAddMeal.setText("ADD MEAL");
+        } else {
+            bAddMeal.setText("DELETE MEAL");
+        }
     }
 
     @Override
@@ -75,7 +80,11 @@ public class DetailedMealView implements DetailedMealInterface, View.OnClickList
 
     @Override
     public void onClick(View view) {
+        if(isFromMeal) {
             mListener.addMealClick();
+        } else {
+            mListener.deleteMealClick();
+        }
     } //end of onClick
 
     //setter methods for TextView's

@@ -1,5 +1,6 @@
 package com.leet.leet.screen.statistics.screen.daily.view;
 
+import com.leet.leet.common.Enums;
 import com.leet.leet.common.ViewBaseInterface;
 
 /**
@@ -7,4 +8,9 @@ import com.leet.leet.common.ViewBaseInterface;
  */
 
 public interface StatisticsDailyViewInterface extends ViewBaseInterface {
+
+    interface StatisticsDailyViewListener{
+        void elementTapped(Enums.MealTime time,int index);
+    }
+
 }

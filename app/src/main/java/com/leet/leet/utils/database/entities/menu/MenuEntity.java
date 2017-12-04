@@ -11,6 +11,8 @@ public class MenuEntity {
     private float price;
     private MenuTagsEntity tags;
 
+    private String key = "";
+
     public MenuEntity(){} //default constructor
 
     public MenuEntity(String name, MenuNutritionsEntity nutritions, float price, MenuTagsEntity tags){
@@ -47,6 +49,13 @@ public class MenuEntity {
     }
     public void setName(String name){
         this.name = name;
+    }
+
+    public String getKey(){
+        return key;
+    }
+    public void setKey(String key){
+        this.key = key;
     }
 
 }

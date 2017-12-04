@@ -8,7 +8,7 @@ import org.joda.time.LocalDate;
 
 public class SumModel {
 
-    SumModel(LocalDate day, float price, float calorie, float protein, float fat, float carbs) {
+    public SumModel(LocalDate day, float price, float calorie, float protein, float fat, float carbs) {
         this.day = day;
         this.price = price;
         this.calorie = calorie;

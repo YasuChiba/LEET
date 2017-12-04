@@ -2,6 +2,7 @@ package com.leet.leet.screen.meal.controller;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -42,7 +43,7 @@ public class MealFragment extends Fragment implements MealMainListner,MealResult
         //set initial fragment.
         mealMainFragment = new MealMainFragment();
         mealMainFragment.setupFragment(this);
-        mView.changeContent(getFragmentManager(),mealMainFragment,false);
+        mView.changeContent(getChildFragmentManager(),mealMainFragment,false);
 
         return mView.getRootView();
     }
@@ -50,7 +51,7 @@ public class MealFragment extends Fragment implements MealMainListner,MealResult
     @Override
     public void moveToAddCustomFragment(){
         fragmentAddCustomMeal = new AddCustomMealFragment();
-        mView.changeContent(getFragmentManager(), fragmentAddCustomMeal, true);
+        mView.changeContent(getChildFragmentManager(), fragmentAddCustomMeal, true);
     }
 
     @Override
@@ -58,14 +59,14 @@ public class MealFragment extends Fragment implements MealMainListner,MealResult
         resultFragment = new ResultControllerFragment();
         resultFragment.setupFragment(restaurantName,this);
         resultFragment.isScreenShow(true);
-        mView.changeContent(getFragmentManager(),resultFragment,true);
+        mView.changeContent(getChildFragmentManager(),resultFragment,true);
     }
 
     @Override
     public void moveToDetailFragment(MenuEntity data) {
         fragmentDetailedMeal = new DetailedMealFragment();
-        fragmentDetailedMeal.setupFragment(data);
-        mView.changeContent(getFragmentManager(),fragmentDetailedMeal, true);
+        fragmentDetailedMeal.setupFragment(data,true,null);
+        mView.changeContent(getChildFragmentManager(),fragmentDetailedMeal, true);
     }
 
     public void isScreenShow(boolean isScreenShow) {

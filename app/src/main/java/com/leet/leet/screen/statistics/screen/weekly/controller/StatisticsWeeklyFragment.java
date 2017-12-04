@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import com.leet.leet.common.Enums;
 import com.leet.leet.screen.statistics.model.StatisticsModel;
 import com.leet.leet.screen.statistics.screen.daily.controller.StatisticsDailyFragment;
+import com.leet.leet.screen.statistics.screen.weekly.StatisticsWeeklyInterface;
 import com.leet.leet.screen.statistics.screen.weekly.model.StatisticsWeeklyModel;
 import com.leet.leet.screen.statistics.screen.weekly.view.StatisticsWeeklyView;
 import com.leet.leet.screen.statistics.view.StatisticsView;
@@ -28,6 +29,12 @@ public class StatisticsWeeklyFragment extends Fragment implements StatisticsWeek
 
     StatisticsWeeklyView mView;
     StatisticsWeeklyModel mModel;
+
+    StatisticsWeeklyInterface mListener;
+
+    public void setupFragment(StatisticsWeeklyInterface listner) {
+        this.mListener = listner;
+    }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -57,7 +64,7 @@ public class StatisticsWeeklyFragment extends Fragment implements StatisticsWeek
                         mView.setupListView(getContext(),
                                 mModel.getAllList(),
                                 mModel.getUserGoalEntity());
-                        mView.setDataToGraph(mModel.getWeekList(),mModel.getPriceList());
+                        mView.setDataToGraph(mModel.getWeekList(),mModel.getPriceList(),mModel.getUserGoalEntity().getPrice());
                     }
         });
 
@@ -69,25 +76,26 @@ public class StatisticsWeeklyFragment extends Fragment implements StatisticsWeek
 
         switch (type){
             case Calorie:
-                mView.setDataToGraph(mModel.getWeekList(),mModel.getCalorieList());
+                mView.setDataToGraph(mModel.getWeekList(),mModel.getCalorieList(),mModel.getUserGoalEntity().getCalorie());
                 break;
             case Price:
-                mView.setDataToGraph(mModel.getWeekList(),mModel.getPriceList());
+                mView.setDataToGraph(mModel.getWeekList(),mModel.getPriceList(),mModel.getUserGoalEntity().getPrice());
                 break;
             case Protein:
-                mView.setDataToGraph(mModel.getWeekList(),mModel.getProteinList());
+                mView.setDataToGraph(mModel.getWeekList(),mModel.getProteinList(),mModel.getUserGoalEntity().getProtein());
                 break;
             case Fat:
-                mView.setDataToGraph(mModel.getWeekList(),mModel.getFatList());
+                mView.setDataToGraph(mModel.getWeekList(),mModel.getFatList(),mModel.getUserGoalEntity().getFat());
                 break;
             case Carb:
-                mView.setDataToGraph(mModel.getWeekList(),mModel.getCarbsList());
+                mView.setDataToGraph(mModel.getWeekList(),mModel.getCarbsList(),mModel.getUserGoalEntity().getCarbs());
                 break;
         }
     }
 
     @Override
     public void listElementTap(int index) {
+        mListener.changeToDaily(mModel.getDayList().get(mModel.getDayList().size() - index));
         //do something to move to daily view
     }
 }
