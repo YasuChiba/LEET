@@ -18,14 +18,12 @@ import com.leet.leet.screen.statistics.controller.StatisticsFragment;
  * Created by YasuhiraChiba on 2017/11/05.
  */
 
-public class StatisticsView implements StatisticsViewInterface, CompoundButton.OnCheckedChangeListener {
+public class StatisticsView implements StatisticsViewInterface {
 
     private View mRootView;
     private StatisticsViewListener mListner;
 
     private FrameLayout container;
-    private Switch changeContentSwitch;
-
 
     public StatisticsView(LayoutInflater inflater, ViewGroup container,StatisticsViewListener listener ) {
         mRootView = inflater.inflate(R.layout.view_statistics, container, false);
@@ -36,15 +34,20 @@ public class StatisticsView implements StatisticsViewInterface, CompoundButton.O
 
     private void initialize() {
         container = (FrameLayout)mRootView.findViewById(R.id.statistics_container);
-        changeContentSwitch = (Switch)mRootView.findViewById(R.id.statistics_switch);
-
-        changeContentSwitch.setOnCheckedChangeListener(this);
     }
 
-    public void setContent(FragmentManager fragmentManager, Fragment fragment) {
-        FragmentTransaction transaction = fragmentManager.beginTransaction();
-        transaction.replace(R.id.statistics_container, fragment);
-        transaction.commit();
+    public void setContent(FragmentManager fragmentManager, Fragment fragment, boolean isAddToStack) {
+
+        FragmentTransaction ft = fragmentManager.beginTransaction();
+        ft.setCustomAnimations(
+                R.anim.slide_in_right, R.anim.slide_out_left,
+                R.anim.slide_in_left, R.anim.slide_out_right
+        );
+        ft.replace(R.id.statistics_container, fragment);
+        if(isAddToStack) {
+            ft = ft.addToBackStack(null);
+        }
+        ft.commit();
     }
 
     @Override
@@ -52,15 +55,4 @@ public class StatisticsView implements StatisticsViewInterface, CompoundButton.O
         return mRootView;
     }
 
-    @Override
-    public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-
-        Log.d("","switch changed");
-        if(b) {
-            mListner.contentChange(StatisticsFragment.StatisticsContent.Daily);
-        } else {
-            mListner.contentChange(StatisticsFragment.StatisticsContent.Weekly);
-        }
-
-    }
 }

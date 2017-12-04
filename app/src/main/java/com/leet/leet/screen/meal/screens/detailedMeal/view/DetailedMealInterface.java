@@ -10,6 +10,7 @@ public interface DetailedMealInterface extends ViewBaseInterface {
 
     interface DetailedMealListener{
         void addMealClick();
+        void deleteMealClick();
     }
 
     void setListener(DetailedMealListener listener);
