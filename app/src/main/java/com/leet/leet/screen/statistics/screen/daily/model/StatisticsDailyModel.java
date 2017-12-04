@@ -103,8 +103,12 @@ public class StatisticsDailyModel {
                     }
 
                     statisticsData = data.get(0);
+                    if(statisticsData == null) {
+                        statisticsData = new UserStatisticsEntity();
+                    }
                     callback.getData(true);
                 } else {
+                    statisticsData = new UserStatisticsEntity();
                     callback.getData(false);
 
                 }
@@ -147,14 +151,23 @@ public class StatisticsDailyModel {
     }
 
     public List<MenuEntity> getBreakfastList() {
+        if(statisticsData.getBreakfastMenu() == null) {
+            return new ArrayList<>();
+        }
         return statisticsData.getBreakfastMenu();
     }
 
     public List<MenuEntity> getLunchList() {
+        if(statisticsData.getLunchMenu() == null) {
+            return new ArrayList<>();
+        }
         return statisticsData.getLunchMenu();
     }
 
     public List<MenuEntity> getDinnerList() {
+        if(statisticsData.getDinnerMenu() == null) {
+            return new ArrayList<>();
+        }
         return statisticsData.getDinnerMenu();
     }
 
@@ -171,6 +184,9 @@ public class StatisticsDailyModel {
     }
 
     public UserGoalEntity getUserGoalEntity(){
+        if(userGoalEntity == null) {
+            return new UserGoalEntity();
+        }
         return userGoalEntity;
     }
 

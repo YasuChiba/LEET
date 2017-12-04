@@ -6,6 +6,8 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
@@ -33,16 +35,11 @@ import org.joda.time.LocalDate;
 public class StatisticsFragment extends Fragment implements StatisticsViewInterface.StatisticsViewListener,
         StatisticsWeeklyInterface,StatisticsDailyInterface, StatisticsDailyDetailInterface{
 
-    public enum StatisticsContent {
-        Daily,
-        Weekly;
-    }
+    private StatisticsView mView;
+    private StatisticsModel mModel;
 
-    StatisticsView mView;
-    StatisticsModel mModel;
-
-    StatisticsDailyFragment dailyFragment;
-    StatisticsWeeklyFragment weeklyFragment;
+    private StatisticsDailyFragment dailyFragment;
+    private StatisticsWeeklyFragment weeklyFragment;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -50,6 +47,7 @@ public class StatisticsFragment extends Fragment implements StatisticsViewInterf
 
         mModel = new StatisticsModel();
         mView = new StatisticsView(inflater,container,this);
+        setHasOptionsMenu(true);
 
         weeklyFragment = new StatisticsWeeklyFragment();
         weeklyFragment.setupFragment(this);
@@ -57,6 +55,12 @@ public class StatisticsFragment extends Fragment implements StatisticsViewInterf
 
         return mView.getRootView();
     }
+
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        super.onCreateOptionsMenu(menu,inflater);
+    }
+
 
     @Override
     public void changeToDaily(LocalDate date) {
