@@ -20,6 +20,301 @@
 
             <RelativeLayout
                 android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+
+                <RelativeLayout
+                    android:id="@+id/relativeLayout"
+                    android:layout_width="300dp"
+                    android:layout_height="50dp"
+                    android:layout_alignParentTop="true"
+                    android:layout_centerHorizontal="true">
+
+
+                    <TextView
+                        android:id="@+id/textView3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:layout_centerVertical="true"
+                        android:layout_gravity="center"
+                        android:text="My Goals"
+                        android:textColor="@color/Lable"
+                        android:textSize="36sp"
+                        android:textStyle="bold"
+                        tools:typeface="sans" />
+                </RelativeLayout>
+
+                <LinearLayout
+                    android:id="@+id/linearLayout"
+                    android:layout_width="345dp"
+                    android:layout_height="450dp"
+                    android:layout_below="@+id/relativeLayout"
+                    android:layout_centerHorizontal="true"
+                    android:orientation="vertical"
+                    android:weightSum="1">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="250dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center">
+
+                        <EditText
+                            android:id="@+id/Price"
+                            android:layout_width="110dp"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:layout_alignParentTop="true"
+                            android:layout_marginTop="20dp"
+                            android:backgroundTint="#cfcfcf"
+                            android:ems="10"
+                            android:gravity="right"
+                            android:hint="Price Here"
+                            android:inputType="number"
+                            android:maxLength="4"
+                            android:textColor="@color/textColor"
+                            android:textColorHint="@color/textColorHint"
+                            android:textSize="18sp">
+
+                            <requestFocus />
+                        </EditText>
+
+                        <TextView
+                            android:id="@+id/price"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignBaseline="@+id/Price"
+                            android:layout_alignBottom="@+id/Price"
+                            android:layout_alignParentLeft="true"
+                            android:layout_alignParentStart="true"
+                            android:text="@string/Price"
+                            android:textColor="@color/light_red"
+                            android:textSize="24sp" />
+
+
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="250dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center">
+
+                        <EditText
+                            android:id="@+id/Calorie"
+                            android:layout_width="110dp"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:layout_alignParentTop="true"
+                            android:layout_marginTop="20dp"
+                            android:backgroundTint="#cfcfcf"
+                            android:ems="10"
+                            android:gravity="right"
+                            android:hint="Calorie Here"
+                            android:inputType="number"
+                            android:maxLength="6"
+                            android:textColor="@color/textColor"
+                            android:textColorHint="@color/textColorHint"
+                            android:textSize="18sp">>
+
+                            <requestFocus />
+                        </EditText>
+
+                        <TextView
+                            android:id="@+id/calorie"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignBaseline="@+id/Calorie"
+                            android:layout_alignBottom="@+id/Calorie"
+                            android:layout_alignParentLeft="true"
+                            android:layout_alignParentStart="true"
+                            android:text="@string/Calorie"
+                            android:textColor="@color/light_red"
+                            android:textSize="24sp" />
+
+
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="250dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center">
+
+                        <EditText
+                            android:id="@+id/Carbs"
+                            android:layout_width="110dp"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:layout_alignParentTop="true"
+                            android:layout_marginTop="20dp"
+                            android:backgroundTint="#cfcfcf"
+                            android:ems="10"
+                            android:gravity="right"
+                            android:hint="Carbs Here"
+                            android:inputType="number"
+                            android:maxLength="5"
+                            android:textColor="@color/textColor"
+                            android:textColorHint="@color/textColorHint"
+                            android:textSize="18sp">>
+
+                            <requestFocus />
+                        </EditText>
+
+                        <TextView
+                            android:id="@+id/carbs"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignBaseline="@+id/Carbs"
+                            android:layout_alignBottom="@+id/Carbs"
+                            android:layout_alignParentLeft="true"
+                            android:layout_alignParentStart="true"
+                            android:text="@string/Carbs"
+                            android:textColor="@color/light_red"
+                            android:textSize="24sp" />
+
+
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="250dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center">
+
+                        <EditText
+                            android:id="@+id/Protein"
+                            android:layout_width="110dp"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:layout_alignParentTop="true"
+                            android:layout_marginTop="20dp"
+                            android:backgroundTint="#cfcfcf"
+                            android:ems="10"
+                            android:gravity="right"
+                            android:hint="Protein Here"
+                            android:inputType="number"
+                            android:maxLength="5"
+                            android:textColor="@color/textColor"
+                            android:textColorHint="@color/textColorHint"
+                            android:textSize="18sp">>
+
+                            <requestFocus />
+                        </EditText>
+
+                        <TextView
+                            android:id="@+id/protein"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignBaseline="@+id/Protein"
+                            android:layout_alignBottom="@+id/Protein"
+                            android:layout_alignParentLeft="true"
+                            android:layout_alignParentStart="true"
+                            android:text="@string/Protein"
+                            android:textColor="@color/light_red"
+                            android:textSize="24sp" />
+
+
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:id="@+id/fat_container"
+                        android:layout_width="250dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_weight="0.53">
+
+                        <EditText
+                            android:id="@+id/Fat"
+                            android:layout_width="110dp"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentEnd="true"
+                            android:layout_centerVertical="true"
+                            android:backgroundTint="#cfcfcf"
+                            android:ems="10"
+                            android:gravity="right"
+                            android:hint="Fat Here"
+                            android:inputType="number"
+                            android:maxLength="5"
+                            android:textColor="@color/textColor"
+                            android:textColorHint="@color/textColorHint"
+                            android:textSize="18sp">>
+
+                            <requestFocus />
+                        </EditText>
+
+                        <TextView
+                            android:id="@+id/fat"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignBottom="@id/Fat"
+                            android:layout_alignParentStart="true"
+                            android:text="@string/Fat"
+                            android:textColor="@color/light_red"
+                            android:textSize="24sp" />
+
+
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="106dp"
+                        android:paddingTop="15dp">
+
+                        <ImageButton
+                            android:id="@+id/cancel_goals"
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:layout_alignBottom="@+id/goals_save"
+                            android:layout_marginStart="13dp"
+                            android:layout_toEndOf="@+id/goals_save"
+                            android:visibility="gone"
+                            app:srcCompat="@mipmap/undo" />
+
+                        <Button
+                            android:id="@+id/Recommended"
+                            android:layout_width="200dp"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentBottom="true"
+                            android:layout_alignStart="@+id/goals_save"
+                            android:layout_alignWithParentIfMissing="false"
+                            android:layout_gravity="center_horizontal"
+                            android:backgroundTint="@color/buttonColor"
+                            android:text="Use Recommended"
+                            android:textColor="@color/buttonTextColor"
+                            android:textSize="18sp"
+                            android:visibility="gone" />
+
+                        <Button
+                            android:id="@+id/goals_save"
+                            android:layout_width="200dp"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentTop="true"
+                            android:layout_alignWithParentIfMissing="false"
+                            android:layout_centerHorizontal="true"
+                            android:layout_gravity="center_horizontal"
+                            android:backgroundTint="@color/buttonColor"
+                            android:text="@string/Edit"
+                            android:textColor="@color/buttonTextColor"
+                            android:textSize="20sp"
+                            android:visibility="visible" />
+                    </RelativeLayout>
+
+                </LinearLayout>
+
+            </RelativeLayout>
+        </ScrollView>
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
 
@@ -240,301 +535,6 @@
                             android:textColor="@color/buttonTextColor"
                             android:textSize="20sp" />
 
-                    </RelativeLayout>
-
-                </LinearLayout>
-
-            </RelativeLayout>
-        </ScrollView>
-
-        <ScrollView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
-
-
-                <RelativeLayout
-                    android:id="@+id/relativeLayout"
-                    android:layout_width="300dp"
-                    android:layout_height="50dp"
-                    android:layout_alignParentTop="true"
-                    android:layout_centerHorizontal="true">
-
-
-                    <TextView
-                        android:id="@+id/textView3"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_centerHorizontal="true"
-                        android:layout_centerVertical="true"
-                        android:layout_gravity="center"
-                        android:text="My Goals"
-                        android:textColor="@color/Lable"
-                        android:textSize="36sp"
-                        android:textStyle="bold"
-                        tools:typeface="sans" />
-                </RelativeLayout>
-
-                <LinearLayout
-                    android:id="@+id/linearLayout"
-                    android:layout_width="345dp"
-                    android:layout_height="450dp"
-                    android:layout_below="@+id/relativeLayout"
-                    android:layout_centerHorizontal="true"
-                    android:orientation="vertical"
-                    android:weightSum="1">
-
-                    <RelativeLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
-
-                    </RelativeLayout>
-
-                    <RelativeLayout
-                        android:layout_width="250dp"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center">
-
-                        <EditText
-                            android:id="@+id/Price"
-                            android:layout_width="110dp"
-                            android:layout_height="wrap_content"
-                            android:layout_alignParentRight="true"
-                            android:layout_alignParentTop="true"
-                            android:layout_marginTop="20dp"
-                            android:backgroundTint="#cfcfcf"
-                            android:ems="10"
-                            android:gravity="right"
-                            android:hint="Price Here"
-                            android:inputType="number"
-                            android:maxLength="4"
-                            android:textColor="@color/textColor"
-                            android:textColorHint="@color/textColorHint"
-                            android:textSize="18sp">
-
-                            <requestFocus />
-                        </EditText>
-
-                        <TextView
-                            android:id="@+id/price"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_alignBaseline="@+id/Price"
-                            android:layout_alignBottom="@+id/Price"
-                            android:layout_alignParentLeft="true"
-                            android:layout_alignParentStart="true"
-                            android:text="@string/Price"
-                            android:textColor="@color/light_red"
-                            android:textSize="24sp" />
-
-
-                    </RelativeLayout>
-
-                    <RelativeLayout
-                        android:layout_width="250dp"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center">
-
-                        <EditText
-                            android:id="@+id/Calorie"
-                            android:layout_width="110dp"
-                            android:layout_height="wrap_content"
-                            android:layout_alignParentRight="true"
-                            android:layout_alignParentTop="true"
-                            android:layout_marginTop="20dp"
-                            android:backgroundTint="#cfcfcf"
-                            android:ems="10"
-                            android:gravity="right"
-                            android:hint="Calorie Here"
-                            android:inputType="number"
-                            android:maxLength="6"
-                            android:textColor="@color/textColor"
-                            android:textColorHint="@color/textColorHint"
-                            android:textSize="18sp">>
-
-                            <requestFocus />
-                        </EditText>
-
-                        <TextView
-                            android:id="@+id/calorie"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_alignBaseline="@+id/Calorie"
-                            android:layout_alignBottom="@+id/Calorie"
-                            android:layout_alignParentLeft="true"
-                            android:layout_alignParentStart="true"
-                            android:text="@string/Calorie"
-                            android:textColor="@color/light_red"
-                            android:textSize="24sp" />
-
-
-                    </RelativeLayout>
-
-                    <RelativeLayout
-                        android:layout_width="250dp"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center">
-
-                        <EditText
-                            android:id="@+id/Carbs"
-                            android:layout_width="110dp"
-                            android:layout_height="wrap_content"
-                            android:layout_alignParentRight="true"
-                            android:layout_alignParentTop="true"
-                            android:layout_marginTop="20dp"
-                            android:backgroundTint="#cfcfcf"
-                            android:ems="10"
-                            android:gravity="right"
-                            android:hint="Carbs Here"
-                            android:inputType="number"
-                            android:maxLength="5"
-                            android:textColor="@color/textColor"
-                            android:textColorHint="@color/textColorHint"
-                            android:textSize="18sp">>
-
-                            <requestFocus />
-                        </EditText>
-
-                        <TextView
-                            android:id="@+id/carbs"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_alignBaseline="@+id/Carbs"
-                            android:layout_alignBottom="@+id/Carbs"
-                            android:layout_alignParentLeft="true"
-                            android:layout_alignParentStart="true"
-                            android:text="@string/Carbs"
-                            android:textColor="@color/light_red"
-                            android:textSize="24sp" />
-
-
-                    </RelativeLayout>
-
-                    <RelativeLayout
-                        android:layout_width="250dp"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center">
-
-                        <EditText
-                            android:id="@+id/Protein"
-                            android:layout_width="110dp"
-                            android:layout_height="wrap_content"
-                            android:layout_alignParentRight="true"
-                            android:layout_alignParentTop="true"
-                            android:layout_marginTop="20dp"
-                            android:backgroundTint="#cfcfcf"
-                            android:ems="10"
-                            android:gravity="right"
-                            android:hint="Protein Here"
-                            android:inputType="number"
-                            android:maxLength="5"
-                            android:textColor="@color/textColor"
-                            android:textColorHint="@color/textColorHint"
-                            android:textSize="18sp">>
-
-                            <requestFocus />
-                        </EditText>
-
-                        <TextView
-                            android:id="@+id/protein"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_alignBaseline="@+id/Protein"
-                            android:layout_alignBottom="@+id/Protein"
-                            android:layout_alignParentLeft="true"
-                            android:layout_alignParentStart="true"
-                            android:text="@string/Protein"
-                            android:textColor="@color/light_red"
-                            android:textSize="24sp" />
-
-
-                    </RelativeLayout>
-
-                    <RelativeLayout
-                        android:id="@+id/fat_container"
-                        android:layout_width="250dp"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:layout_weight="0.53">
-
-                        <EditText
-                            android:id="@+id/Fat"
-                            android:layout_width="110dp"
-                            android:layout_height="wrap_content"
-                            android:backgroundTint="#cfcfcf"
-                            android:ems="10"
-                            android:gravity="right"
-                            android:hint="Fat Here"
-                            android:inputType="number"
-                            android:maxLength="5"
-                            android:textColor="@color/textColor"
-                            android:textColorHint="@color/textColorHint"
-                            android:textSize="18sp"
-                            android:layout_centerVertical="true"
-                            android:layout_alignParentEnd="true">>
-
-                            <requestFocus />
-                        </EditText>
-
-                        <TextView
-                            android:id="@+id/fat"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_alignParentStart="true"
-                            android:text="@string/Fat"
-                            android:textColor="@color/light_red"
-                            android:textSize="24sp"
-                            android:layout_alignBottom="@id/Fat" />
-
-
-                    </RelativeLayout>
-
-                    <RelativeLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="106dp"
-                        android:paddingTop="15dp">
-
-                        <ImageButton
-                            android:id="@+id/cancel_goals"
-                            android:layout_width="40dp"
-                            android:layout_height="40dp"
-                            android:layout_alignBottom="@+id/goals_save"
-                            android:layout_marginStart="13dp"
-                            android:layout_toEndOf="@+id/goals_save"
-                            android:visibility="gone"
-                            app:srcCompat="@mipmap/undo" />
-
-                        <Button
-                            android:id="@+id/Recommended"
-                            android:layout_width="200dp"
-                            android:layout_height="wrap_content"
-                            android:layout_alignParentBottom="true"
-                            android:layout_alignStart="@+id/goals_save"
-                            android:layout_alignWithParentIfMissing="false"
-                            android:layout_gravity="center_horizontal"
-                            android:backgroundTint="@color/buttonColor"
-                            android:text="Use Recommended"
-                            android:textColor="@color/buttonTextColor"
-                            android:textSize="18sp"
-                            android:visibility="gone" />
-
-                        <Button
-                            android:id="@+id/goals_save"
-                            android:layout_width="200dp"
-                            android:layout_height="wrap_content"
-                            android:layout_alignParentTop="true"
-                            android:layout_alignWithParentIfMissing="false"
-                            android:layout_centerHorizontal="true"
-                            android:layout_gravity="center_horizontal"
-                            android:backgroundTint="@color/buttonColor"
-                            android:text="@string/Edit"
-                            android:textColor="@color/buttonTextColor"
-                            android:textSize="20sp"
-                            android:visibility="visible" />
                     </RelativeLayout>
 
                 </LinearLayout>
