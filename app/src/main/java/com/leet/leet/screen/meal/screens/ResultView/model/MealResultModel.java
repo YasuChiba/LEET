@@ -1,11 +1,13 @@
 package com.leet.leet.screen.meal.screens.ResultView.model;
 
+import android.util.Log;
 import android.view.Menu;
 
 import com.leet.leet.common.Enums;
 import com.leet.leet.utils.DateHelper;
 import com.leet.leet.utils.database.FirebaseDBCallaback;
 import com.leet.leet.utils.database.FirebaseDBMenuDataHelper;
+import com.leet.leet.utils.database.FirebaseDBUserDataHelper;
 import com.leet.leet.utils.database.entities.menu.MenuEntity;
 
 import java.lang.reflect.Array;
@@ -30,17 +32,34 @@ public class MealResultModel {
     }
 
     public void getMenu(final FirebaseDBCallaback<Boolean> callback) {
-        FirebaseDBMenuDataHelper.getMenuData(currentRestaurantName,
-                DateHelper.getCurrentDate(),
-                currentMealTime,
-                new FirebaseDBCallaback<ArrayList<MenuEntity>>() {
-                    @Override
-                    public void getData(ArrayList<MenuEntity> data) {
-                        menuEntityList = data;
-                        searchedMenuEntityList = data;
-                        callback.getData(true);
-                    }
-                });
+
+        if(currentRestaurantName != Enums.RestaurantName.Custom) {
+            Log.d("If", "In if");
+            FirebaseDBMenuDataHelper.getMenuData(currentRestaurantName,
+                    DateHelper.getCurrentDate(),
+                    currentMealTime,
+                    new FirebaseDBCallaback<ArrayList<MenuEntity>>() {
+                        @Override
+                        public void getData(ArrayList<MenuEntity> data) {
+                            menuEntityList = data;
+                            searchedMenuEntityList = data;
+                            callback.getData(true);
+                        }
+                    });
+        }
+        else {
+            Log.d("Else", "In else");
+            FirebaseDBUserDataHelper.getCustomMenus(new FirebaseDBCallaback<ArrayList<MenuEntity>>() {
+                @Override
+                public void getData(ArrayList<MenuEntity> data) {
+                    Log.d("Custom", "In custom");
+
+                    menuEntityList = data;
+                    searchedMenuEntityList = data;
+                    callback.getData(true);
+                }
+            });
+        }
     }
 
     public Enums.RestaurantName getRestaurantName() {

@@ -31,7 +31,8 @@ public class Enums {
     public enum MealTime {
         Breakfast("breakfastMenu"),
         Lunch("lunchMenu"),
-        Dinner("dinnerMenu");
+        Dinner("dinnerMenu"),
+        All("All");
 
         private final String text;
 
@@ -50,7 +51,10 @@ public class Enums {
                 return 1;
             } else if(this.text == "dinnerMenu") {
                 return 2;
-            } else {
+            } else if (this.text == "All") {
+                return 3;
+            }
+            else {
                 return -1;
             }
 
