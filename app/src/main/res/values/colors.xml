@@ -12,6 +12,9 @@
     <color name="LEET_BACKGROUND">#e00e0e</color>
     <color name="LEET_BUTTON_TEXT">#ffffff</color>
     <color name="bgColor">#e00e0e</color>
+
+    <color name="base_color">#3d547f</color>
+    <color name="transparent">#00ff0000</color>
     <color name="light_red">#592323</color>
     <color name="Lable">#630e0e</color>
     <color name="textColor">#333333</color>

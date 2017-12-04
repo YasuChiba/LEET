@@ -24,7 +24,6 @@ public class UtilCommon extends Application {
         ContextManager.onCreateApplication(getApplicationContext());
         JodaTimeAndroid.init(this);
         getDisplaySize();
-        FirebaseDatabase.getInstance().setPersistenceEnabled(true);
     }
 
 

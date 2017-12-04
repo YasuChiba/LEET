@@ -25,7 +25,7 @@ public class SignupView implements SignupViewInterface, View.OnClickListener {
 
     // button
     private Button signup;
-    private Button back;
+    //private Button back;
 
     public SignupView(LayoutInflater inflater, ViewGroup container) {
         rootView = inflater.inflate(R.layout.view_signup, container, false);
@@ -45,10 +45,10 @@ public class SignupView implements SignupViewInterface, View.OnClickListener {
 
         // button
         signup = rootView.findViewById(R.id.btSignup);
-        back = rootView.findViewById(R.id.btBack);
+        //back = rootView.findViewById(R.id.btBack);
 
         signup.setOnClickListener(this);
-        back.setOnClickListener(this);
+        //back.setOnClickListener(this);
     }
 
 
@@ -68,9 +68,9 @@ public class SignupView implements SignupViewInterface, View.OnClickListener {
             case R.id.btSignup:
                 mListener.signup(email.getText().toString(), password.getText().toString(), confirmPassword.getText().toString());
                 break;
-            case R.id.btBack:
-                mListener.gotoLogin();
-                break;
+            //case R.id.btBack:
+              //  mListener.gotoLogin();
+              //  break;
         }
     }
 }

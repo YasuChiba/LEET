@@ -45,7 +45,7 @@ public class StatisticsFragment extends Fragment implements StatisticsViewInterf
         dailyFragment = new StatisticsDailyFragment();
         weeklyFragment = new StatisticsWeeklyFragment();
         mView.setContent(getChildFragmentManager(),weeklyFragment);
-
+        setHasOptionsMenu(true);
         return mView.getRootView();
     }
 
