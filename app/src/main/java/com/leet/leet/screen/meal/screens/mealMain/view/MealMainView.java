@@ -63,9 +63,9 @@ public class MealMainView implements MealMainViewInterface, View.OnClickListener
     public void onClick(View view) {
 
         //pass the button click event to MealMainFragment.\
-            if(view.getId() == R.id.customMeal) {
-                mListner.mealToCustom();
-            } else {
+           // if(view.getId() == R.id.customMeal) {
+              //  mListner.mealToCustom();
+            //} else {
                 Enums.RestaurantName name = Enums.RestaurantName.CafeVentanas;
                 switch(view.getId()){
                     case R.id.sixtyFour:
@@ -86,8 +86,11 @@ public class MealMainView implements MealMainViewInterface, View.OnClickListener
                     case R.id.pines:
                         name = Enums.RestaurantName.Pines;
                         break;
+                    case R.id.customMeal:
+                        name = Enums.RestaurantName.Custom;
+                        break;
                 }
                 mListner.mealToResult(name);
-            }
+           // }
     }
 }

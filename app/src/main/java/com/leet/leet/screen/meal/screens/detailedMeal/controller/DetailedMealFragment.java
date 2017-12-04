@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import android.widget.Toast;
 
 import com.leet.leet.common.Enums;
+import com.leet.leet.screen.meal.screens.confirmAdd.controller.ConfirmAddDialogFragment;
 import com.leet.leet.screen.meal.screens.detailedMeal.model.DetailedMealModel;
 import com.leet.leet.screen.meal.screens.detailedMeal.view.DetailedMealInterface;
 import com.leet.leet.screen.meal.screens.detailedMeal.view.DetailedMealView;
@@ -32,7 +33,6 @@ public class DetailedMealFragment extends Fragment implements DetailedMealInterf
     private DetailedMealView mView;
     private DetailedMealModel mModel;
 
-
     public void setupFragment(MenuEntity data){
         mModel = new DetailedMealModel();
         mModel.setMenuEntity(data);
@@ -45,17 +45,6 @@ public class DetailedMealFragment extends Fragment implements DetailedMealInterf
         mView = new DetailedMealView(inflater, container);
         mView.setListener(this); //not sure if needed
 
-        //TODO - Need to get the MenuEntity from the previous page rather than initiate a new meal.
-        /*
-        List<String> listStrings = new LinkedList<String>();
-        MenuTagsEntity tags = new MenuTagsEntity(false,false,false);
-        listStrings.add("list");
-        nutritions = new MenuNutritionsEntity(1,2,3,4,5,6,7,8,9,"One", listStrings );
-
-        meal = new MenuEntity("Cheese Burger", nutritions, 7, tags); //parameters are currently null, but this won't be a problem when
-                                 //getting the meal from the previos page.
-        */
-        //display the MenuEntity's parameters on the screen
 
         displayNutrition();
 
@@ -87,12 +76,13 @@ public class DetailedMealFragment extends Fragment implements DetailedMealInterf
     //Delegate adding meal to the model using parameters retreived from the view
     public void addMealClick() {
         //add the meal to the user's history when the add button is pressed.
+        //call the dialog to get MealTime
 
-        //TODO: need to set MealTime   ---11/24  Yasuhira Chiba
-        mModel.addMeal(mModel.getMenuEntity(), Enums.MealTime.Breakfast);
+        ConfirmAddDialogFragment dialogFragment = new ConfirmAddDialogFragment();
+        //pass parameters for spinners here
+        dialogFragment.setupFragment(mModel.getMenuEntity());
+        dialogFragment.show(getFragmentManager(), "fragment_dialog");
 
-        Toast.makeText(getContext(), "Added Meal To History", Toast.LENGTH_SHORT).show();
+
     }
-
-
 }

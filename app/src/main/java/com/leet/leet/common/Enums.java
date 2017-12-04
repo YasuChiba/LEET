@@ -14,6 +14,7 @@ public class Enums {
         Foodworx("Foodworx (Sixth College)"),
         OceanView("OceanView (Marshall College)"),
         Pines("Pines (Muir College)"),
+        Custom("Custom"),
         ;
 
         private final String text;
@@ -30,7 +31,8 @@ public class Enums {
     public enum MealTime {
         Breakfast("breakfastMenu"),
         Lunch("lunchMenu"),
-        Dinner("dinnerMenu");
+        Dinner("dinnerMenu"),
+        All("All");
 
         private final String text;
 
@@ -49,7 +51,10 @@ public class Enums {
                 return 1;
             } else if(this.text == "dinnerMenu") {
                 return 2;
-            } else {
+            } else if (this.text == "All") {
+                return 3;
+            }
+            else {
                 return -1;
             }
 
@@ -164,6 +169,21 @@ public class Enums {
         Fat,
         Carb;
 
+    }
+
+    public enum TabPosition {
+        Profile(0),
+        Meal(1),
+        Statistics(2);
+
+        private final int val;
+        private TabPosition(final int val) {
+            this.val = val;
+        }
+
+        public int getVal() {
+            return this.val;
+        }
     }
 
 }

@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/bg"
     android:weightSum="1">
 
     <TextView
@@ -12,6 +13,7 @@
         android:layout_weight="0.05"
         android:gravity="center_horizontal"
         android:text="Text"
+        android:textColor="@color/LEET_LABEL"
         android:textSize="36sp" />
 
     <LinearLayout
@@ -26,8 +28,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight=".66"
+            android:fontFamily="segoe"
             android:gravity="center_vertical|center_horizontal"
             android:text="Price"
+            android:textColor="@color/LEET_RED"
             android:textSize="20sp" />
 
         <TextView
@@ -36,7 +40,8 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="center_horizontal"
-            android:text="N/A" />
+            android:text="N/A"
+            android:textColor="@color/LEET_RED" />
 
     </LinearLayout>
 
@@ -54,6 +59,7 @@
             android:layout_weight=".66"
             android:gravity="center_horizontal"
             android:text="Calories"
+            android:textColor="@color/LEET_RED"
             android:textSize="20sp" />
 
         <TextView
@@ -62,7 +68,8 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="center_horizontal"
-            android:text="N/A" />
+            android:text="N/A"
+            android:textColor="@color/LEET_RED" />
     </LinearLayout>
 
     <LinearLayout
@@ -79,6 +86,7 @@
             android:layout_weight=".66"
             android:gravity="center_horizontal"
             android:text="Carbs"
+            android:textColor="@color/LEET_RED"
             android:textSize="20sp" />
 
         <TextView
@@ -87,7 +95,8 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="center_horizontal"
-            android:text="N/A" />
+            android:text="N/A"
+            android:textColor="@color/LEET_RED" />
     </LinearLayout>
 
     <LinearLayout
@@ -104,6 +113,7 @@
             android:layout_weight=".66"
             android:gravity="center_horizontal"
             android:text="Total Fat"
+            android:textColor="@color/LEET_RED"
             android:textSize="20sp" />
 
         <TextView
@@ -112,7 +122,8 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="center_horizontal"
-            android:text="N/A" />
+            android:text="N/A"
+            android:textColor="@color/LEET_RED" />
     </LinearLayout>
 
     <LinearLayout
@@ -129,6 +140,7 @@
             android:layout_weight=".66"
             android:gravity="center_horizontal"
             android:text="Saturated Fat"
+            android:textColor="@color/LEET_RED"
             android:textSize="20sp" />
 
         <TextView
@@ -137,7 +149,8 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="center_horizontal"
-            android:text="N/A" />
+            android:text="N/A"
+            android:textColor="@color/LEET_RED" />
     </LinearLayout>
 
     <LinearLayout
@@ -154,6 +167,7 @@
             android:layout_weight=".66"
             android:gravity="center_horizontal"
             android:text="Protein"
+            android:textColor="@color/LEET_RED"
             android:textSize="20sp" />
 
         <TextView
@@ -162,7 +176,8 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="center_horizontal"
-            android:text="N/A" />
+            android:text="N/A"
+            android:textColor="@color/LEET_RED" />
     </LinearLayout>
 
     <LinearLayout
@@ -179,6 +194,7 @@
             android:layout_weight=".66"
             android:gravity="center_horizontal"
             android:text="Sodium"
+            android:textColor="@color/LEET_RED"
             android:textSize="20sp" />
 
         <TextView
@@ -187,7 +203,8 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="center_horizontal"
-            android:text="N/A" />
+            android:text="N/A"
+            android:textColor="@color/LEET_RED" />
     </LinearLayout>
 
     <LinearLayout
@@ -204,6 +221,7 @@
             android:layout_weight=".66"
             android:gravity="center_horizontal"
             android:text="Cholesterol"
+            android:textColor="@color/LEET_RED"
             android:textSize="20sp" />
 
         <TextView
@@ -212,7 +230,8 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="center_horizontal"
-            android:text="N/A" />
+            android:text="N/A"
+            android:textColor="@color/LEET_RED" />
     </LinearLayout>
 
     <LinearLayout
@@ -229,6 +248,7 @@
             android:layout_weight=".66"
             android:gravity="center_horizontal"
             android:text="Dietary Fiber"
+            android:textColor="@color/LEET_RED"
             android:textSize="20sp" />
 
         <TextView
@@ -237,7 +257,8 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="center_horizontal"
-            android:text="N/A" />
+            android:text="N/A"
+            android:textColor="@color/LEET_RED" />
     </LinearLayout>
 
     <LinearLayout
@@ -254,6 +275,7 @@
             android:layout_weight=".66"
             android:gravity="center_horizontal"
             android:text="Sugar"
+            android:textColor="@color/LEET_RED"
             android:textSize="20sp" />
 
         <TextView
@@ -262,7 +284,8 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="center_horizontal"
-            android:text="N/A" />
+            android:text="N/A"
+            android:textColor="@color/LEET_RED" />
     </LinearLayout>
 
     <LinearLayout
@@ -279,6 +302,7 @@
             android:layout_weight=".66"
             android:gravity="center_horizontal"
             android:text="Serving Size"
+            android:textColor="@color/LEET_RED"
             android:textSize="20sp" />
 
         <TextView
@@ -287,7 +311,8 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="center_horizontal"
-            android:text="N/A" />
+            android:text="N/A"
+            android:textColor="@color/LEET_RED" />
     </LinearLayout>
 
     <LinearLayout
@@ -304,6 +329,7 @@
             android:layout_weight=".66"
             android:gravity="center_horizontal"
             android:text="Allergens"
+            android:textColor="@color/LEET_RED"
             android:textSize="20sp" />
 
         <TextView
@@ -312,7 +338,8 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="center_horizontal"
-            android:text="None." />
+            android:text="None."
+            android:textColor="@color/LEET_RED" />
     </LinearLayout>
 
     <Button
@@ -320,6 +347,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="0.05"
-        android:text="Add Meal" />
+        android:background="@color/buttonColor"
+        android:fontFamily="Segoe "
+        android:text="Add Meal"
+        android:textColor="@color/LEET_BUTTON_TEXT"
+        android:textSize="20sp"
+        android:textStyle="bold" />
 
 </LinearLayout>

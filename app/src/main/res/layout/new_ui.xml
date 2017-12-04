@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <TextView
+        android:id="@+id/textView21"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="10dp"
+        android:background="@drawable/back"
+        android:gravity="center_horizontal"
+        android:text="Price"
+        android:textSize="32sp"
+        tools:text="PRICE"
+        android:layout_below="@+id/textView15"
+        android:layout_toStartOf="@+id/editText"
+        android:layout_marginEnd="37dp"
+        android:layout_marginTop="78dp" />
+
+    <TextView
+        android:id="@+id/textView20"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/back"
+        android:gravity="center_horizontal"
+        android:text="Protein"
+        android:textSize="32sp"
+        tools:text="PROTEIN"
+        android:layout_below="@+id/textView21"
+        android:layout_alignStart="@+id/textView21"
+        android:layout_marginTop="46dp" />
+
+    <TextView
+        android:id="@+id/textView19"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/back"
+        android:gravity="center_horizontal"
+        android:text="Calories"
+        android:textSize="32sp"
+        tools:text="CALORIES"
+        android:layout_below="@+id/textView20"
+        android:layout_alignStart="@+id/textView20"
+        android:layout_marginTop="25dp" />
+
+    <TextView
+        android:id="@+id/textView18"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/textView20"
+        android:layout_alignStart="@+id/textView19"
+        android:layout_below="@+id/textView19"
+        android:layout_marginTop="34dp"
+        android:background="@drawable/back"
+        android:gravity="center_horizontal"
+        android:text="Carbs"
+        android:textSize="32sp"
+        tools:text="CARBS" />
+
+    <TextView
+        android:id="@+id/textView17"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/textView20"
+        android:layout_alignStart="@+id/textView18"
+        android:layout_below="@+id/textView18"
+        android:layout_marginTop="55dp"
+        android:background="@drawable/back"
+        android:gravity="center_horizontal"
+        android:text="FA"
+        android:textSize="32sp"
+        tools:fontFamily="sans-serif"
+        tools:text="FAT" />
+
+    <TextView
+        android:id="@+id/textView15"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="120dp"
+        android:background="@drawable/back"
+        android:gravity="center_horizontal"
+        android:text="My Goals"
+        android:textColor="@android:color/black"
+        android:textSize="50sp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+
+    <EditText
+        android:id="@+id/editText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignTop="@+id/textView21"
+        android:layout_marginEnd="25dp"
+        android:background="@drawable/back"
+        android:ems="10"
+        android:gravity="right"
+        android:inputType="textPersonName"
+        android:text="2200"
+        android:textSize="32sp" />
+
+    <EditText
+        android:id="@+id/editText6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/editText"
+        android:layout_alignTop="@+id/textView20"
+        android:background="@drawable/back"
+        android:ems="10"
+        android:gravity="right"
+        android:inputType="textPersonName"
+        android:text="18"
+        android:textSize="32sp" />
+
+    <EditText
+        android:id="@+id/editText5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:gravity="right"
+        android:layout_alignStart="@+id/editText"
+        android:inputType="textPersonName"
+        android:text="Name"
+        android:textSize="32sp"
+        android:background="@drawable/back"
+        android:layout_alignBaseline="@+id/textView19"
+        android:layout_alignBottom="@+id/textView19"
+        android:layout_toEndOf="@+id/textView19" />
+
+    <EditText
+        android:id="@+id/editText4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/editText"
+        android:layout_alignTop="@+id/textView18"
+        android:ems="10"
+        android:gravity="right"
+        android:inputType="textPersonName"
+        android:text="Name"
+        android:textSize="32sp"
+        android:background="@drawable/back"/>
+
+    <EditText
+        android:id="@+id/editText3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/textView17"
+        android:layout_alignBottom="@+id/textView17"
+        android:layout_alignStart="@+id/editText"
+        android:ems="10"
+        android:gravity="right"
+        android:inputType="textPersonName"
+        android:text="Name"
+        android:textSize="32sp"
+        android:background="@drawable/back"/>
+
+    <ImageButton
+        android:id="@+id/imageButton7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/textView15"
+        android:layout_alignEnd="@+id/editText"
+        android:layout_marginEnd="30dp"
+        app:srcCompat="@mipmap/ic_launcher" />
+
+</RelativeLayout>

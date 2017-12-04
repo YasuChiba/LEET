@@ -1,89 +1,144 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background"
-    android:paddingTop="50dp"
-    android:paddingBottom="20dp">
+    android:background="@color/white"
+    android:orientation="vertical"
+    >
 
     <!-- Xinhe Zhang, 11/05/2017 -->
 
-    <TableLayout android:id="@+id/table1"
-        android:layout_width="wrap_content"
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:background="@color/white"
+        android:id="@+id/frameLayout3">
+
+        <ImageView
+            android:id="@+id/imageView1"
+            android:layout_width="400dp"
+            android:layout_height="230dp"
+            android:src="@drawable/triton"></ImageView>
+
+
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/frameLayout"
+        android:layout_width="400dp"
         android:layout_height="wrap_content"
-        android:layout_gravity="center">
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop= "10dp"
+        android:layout_marginBottom="10dp"
+        >
 
-        <TextView
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="@string/login"
-            android:id="@+id/textview"
-            android:layout_gravity="center_horizontal"
-            android:gravity="center"
-            android:textStyle="bold"
-            android:textSize="30sp"
-            android:paddingBottom="30dp"/>
 
-        <TextView
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="@string/email"
-            android:id="@+id/textview1"
-            android:layout_gravity="center_horizontal"
-            android:textSize="18sp"
-            android:textIsSelectable="true"
-            android:gravity="center"
-            android:textStyle="bold"/>
-
-        <EditText
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:inputType="textEmailAddress"
-            android:id="@+id/etEmail" />
-
-        <TextView
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="@string/password"
-            android:id="@+id/textview2"
-            android:layout_gravity="center_horizontal"
-            android:textSize="18sp"
-            android:textIsSelectable="true"
-            android:gravity="center"
-            android:textStyle="bold"/>
-
-        <EditText
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:inputType="textPassword"
-            android:id="@+id/etPassword"/>
-
-        <Button
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/login"
-            android:id="@+id/btLogin"
+        <TableLayout
+            android:id="@+id/table1"
+            android:layout_width="300dp"
+            android:layout_height="330dp"
             android:layout_gravity="center"
-            android:textSize="18sp"/>
+            android:background="@color/white"
 
-        <Button
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/guest"
-            android:id="@+id/btGuest"
-            android:layout_gravity="center"
-            android:textSize="18sp"/>
+            android:weightSum="1">
 
-        <Button
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/signup"
-            android:id="@+id/btGotoSignup"
-            android:layout_gravity="center"
-            android:textSize="18sp"/>
-    </TableLayout>
-</LinearLayout>
+            <TextView
+                android:id="@+id/textview"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="10dp"
+                android:gravity="center"
+                android:paddingBottom="30dp"
+                android:text="Triton Meal Planner"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textSize="30sp"
+                android:textStyle="bold"
+                android:layout_weight="6.05" />
+
+            <TextView
+                android:id="@+id/textview1"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:gravity="left"
+                android:text="E-MAIL"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textIsSelectable="true"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/etEmail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:inputType="textEmailAddress" />
+
+            <TextView
+                android:id="@+id/textview2"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:gravity="left"
+                android:text="PASSWORD"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textIsSelectable="true"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/etPassword"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:inputType="textPassword" />
+
+            <Button
+                android:id="@+id/btLogin"
+                android:layout_width="150dp"
+                android:layout_height="33dp"
+                android:layout_gravity="center"
+                android:layout_marginBottom="15dp"
+                android:layout_marginRight="50dp"
+                android:layout_marginLeft="50dp"
+                android:background="@color/buttonColor"
+                android:text="@string/login"
+                android:textColor="@android:color/background_light"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <Button
+                android:id="@+id/btGuest"
+                android:layout_width="wrap_content"
+                android:layout_height="33dp"
+                android:layout_gravity="center"
+                android:layout_marginBottom="15dp"
+                android:layout_marginRight="50dp"
+                android:layout_marginLeft="50dp"
+                android:background="@color/buttonColor"
+                android:text="@string/guest"
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <Button
+                android:id="@+id/btGotoSignup"
+                android:layout_width="fill_parent"
+                android:layout_height="33dp"
+                android:layout_gravity="center"
+                android:layout_marginBottom="15dp"
+                android:background="@color/buttonColor"
+                android:layout_marginRight="50dp"
+                android:layout_marginLeft="50dp"
+                android:text="@string/signup"
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+        </TableLayout>
+    </FrameLayout>
+
+</RelativeLayout>

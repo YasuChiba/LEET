@@ -10,7 +10,18 @@
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
-        style="@style/ToolbarDesign"/>
+        android:theme="@style/ToolbarDesign">
+
+        <TextView
+            android:id="@+id/toolbar_title_textview"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:background="#07000000"
+            android:gravity="center"
+            android:textStyle="bold" />
+
+    </android.support.v7.widget.Toolbar>
 
     <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
@@ -22,7 +33,7 @@
             android:layout_width="0dp"
             android:layout_height="50dp"
             android:layout_marginBottom="0dp"
-            android:background="@color/floating_popup_divider_light"
+            android:background="@color/white"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent" />

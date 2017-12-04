@@ -8,6 +8,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.LinearLayout;
 import android.widget.Spinner;
+import android.widget.TextView;
 
 import com.leet.leet.R;
 import com.leet.leet.common.Enums;
@@ -64,6 +65,8 @@ public class MealResultViewListHeader extends LinearLayout implements AdapterVie
             listener.mealTimeSelected(Enums.MealTime.Lunch);
         } else if(i==2) {
             listener.mealTimeSelected(Enums.MealTime.Dinner);
+        } else if (i == 3) {
+            listener.mealTimeSelected(Enums.MealTime.All);
         }
     }
 
