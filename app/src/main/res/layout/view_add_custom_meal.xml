@@ -360,7 +360,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight=".1"
-                android:background="@color/LEET_BACKGROUND"
+                android:background="@color/buttonColor"
                 android:text="Create Meal"
                 android:textColor="@color/LEET_BUTTON_TEXT"
                 android:textSize="18sp" />

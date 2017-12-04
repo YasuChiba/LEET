@@ -18,15 +18,19 @@ public class ConfirmAddDialogModel {
 
     private int mealTimeRange; //index in the string-array of meal time ranges: bfast, lunch, dinner
 
+    /**
+     * default constructor, set default to lunch
+     */
     public ConfirmAddDialogModel(){
         mealTimeRange = 1;
-    } //default constructor
+    }
 
     //Purpose - Once the user has decided to eat a meal, they will add it to their history.
     //          This method will add the MenuEntity to the profile's history.
     public void addMeal(MenuEntity meal, int time){
         Enums.MealTime mealTime = Breakfast;
 
+        //Determine which meal time to use depending on index in string array
         if(time == 0){
             mealTime = Breakfast;
         }
@@ -42,9 +46,18 @@ public class ConfirmAddDialogModel {
 
     } //end of addMeal
 
+    /**
+     * Setter
+     * @param i - The meal time to set
+     */
     public void setMealTimeRange(int i){
         mealTimeRange = i;
     }
+
+    /**
+     * Getter for meal time, is used in the fragment.
+     * @return
+     */
     public int getMealTimeRange(){
         return mealTimeRange;
     }

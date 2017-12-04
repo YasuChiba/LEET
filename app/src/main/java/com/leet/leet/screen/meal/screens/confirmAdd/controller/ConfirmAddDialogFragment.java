@@ -26,7 +26,7 @@ public class ConfirmAddDialogFragment extends DialogFragment implements DialogIn
     ConfirmAddView mView;
     ConfirmAddDialogModel mModel;
 
-    MenuEntity menu;
+    MenuEntity menu; //Menu to add to firebase, is passed into the constructor by detailedMeal
 
     public void setupFragment(MenuEntity _menu){
         menu = _menu;
@@ -39,6 +39,7 @@ public class ConfirmAddDialogFragment extends DialogFragment implements DialogIn
 
         final Activity activity = getActivity();
         AlertDialog.Builder builder = new AlertDialog.Builder(activity);
+
         //create view with passed parameters
         mView = new ConfirmAddView(LayoutInflater.from(activity),this);
 
@@ -66,4 +67,4 @@ public class ConfirmAddDialogFragment extends DialogFragment implements DialogIn
     public void mealTimeSelected(int index) {
         mModel.setMealTimeRange(index);
     }
-}
+} //end of class

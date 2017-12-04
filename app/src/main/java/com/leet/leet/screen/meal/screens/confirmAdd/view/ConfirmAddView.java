@@ -19,8 +19,11 @@ public class ConfirmAddView implements ConfirmAddDialogViewInterface,AdapterView
 
     private Spinner mealTimeSpinner;
 
-    //private int mealTime_Range;
-
+    /**
+     * Constructor
+     * @param inflater
+     * @param listener
+     */
     public ConfirmAddView(LayoutInflater inflater, ConfirmAddDialogViewListener listener){
         mRootView = inflater.inflate(R.layout.dialog_view_confirm_add, null);
         this.mListener = listener;
@@ -28,6 +31,10 @@ public class ConfirmAddView implements ConfirmAddDialogViewInterface,AdapterView
         initialize();
     }
 
+    /**
+     * Purpose - Initialiaze the spinner  and set the the default to lunch. Then set a listener
+     *           to the spinner. When the spinner is then changed then onItemSeletected() is called.
+     */
     private void initialize() {
         mealTimeSpinner = mRootView.findViewById(R.id.meal_time_spinner);
         mealTimeSpinner.setSelection(1); //default to lunch
@@ -40,6 +47,9 @@ public class ConfirmAddView implements ConfirmAddDialogViewInterface,AdapterView
     }
 
     @Override
+    /**
+     * Purpose - This method is called when a value in the spinner is changed.
+     */
     public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
         switch (adapterView.getId()) {
             case R.id.meal_sort_price_spinner:

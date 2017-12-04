@@ -9,6 +9,6 @@ import com.leet.leet.common.ViewBaseInterface;
 public interface ConfirmAddDialogViewInterface extends ViewBaseInterface {
 
     interface ConfirmAddDialogViewListener{
-        void mealTimeSelected(int index);
+        void mealTimeSelected(int index); //Implemented in Fragment
     }
 }
