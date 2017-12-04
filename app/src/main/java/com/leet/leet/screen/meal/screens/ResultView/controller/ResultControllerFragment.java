@@ -17,6 +17,7 @@ import com.leet.leet.screen.meal.screens.ResultView.MealResultListener;
 import com.leet.leet.screen.meal.screens.ResultView.model.MealResultModel;
 import com.leet.leet.screen.meal.screens.ResultView.view.ResultViewInterface;
 import com.leet.leet.screen.meal.screens.ResultView.view.ResultView;
+import com.leet.leet.screen.meal.screens.addCustomMeal.controller.AddCustomMealFragment;
 import com.leet.leet.screen.meal.screens.sort.MealSortDialogInterface;
 import com.leet.leet.screen.meal.screens.sort.controller.MealSortDialogFragment;
 import com.leet.leet.utils.DialogManager;
@@ -31,7 +32,9 @@ public class ResultControllerFragment extends Fragment implements ResultViewInte
     MealResultModel model;
     ResultView resultView;
     private MealResultListener mListner;
-    boolean isVisible = false;
+
+    //This flag is true when MealFragment screen is shown
+    private boolean isScreenShow = false;
 
 
     private int price_Range;
@@ -66,10 +69,15 @@ public class ResultControllerFragment extends Fragment implements ResultViewInte
 
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
-        if(resultView.getRootView().getGlobalVisibleRect(new Rect()) || !menu.hasVisibleItems()) {
-            inflater.inflate(R.menu.meal_search_result_view_menu, menu);
+        if(isScreenShow) {
+            if(model.getRestaurantName() == Enums.RestaurantName.Custom) {
+                inflater.inflate(R.menu.custommeal_search_result, menu);
+            }
+            else {
+                inflater.inflate(R.menu.meal_search_result_view_menu, menu);
+            }
         }
-        super.onCreateOptionsMenu(menu,inflater);
+       // super.onCreateOptionsMenu(menu,inflater);
     }
 
     @Override
@@ -83,6 +91,9 @@ public class ResultControllerFragment extends Fragment implements ResultViewInte
                         satFat_Range, protein_Range, sodium_Range, cholesterol_Range, fiber_Range, sugar_Range);
                 dialogFragment.show(getFragmentManager(), "fragment_dialog");
                 break;
+            case R.id.create_custom_meal:
+                AddCustomMealFragment addCustomMealFragment = new AddCustomMealFragment();
+                mListner.moveToAddCustomFragment();
         }
 
         return true;
@@ -127,5 +138,9 @@ public class ResultControllerFragment extends Fragment implements ResultViewInte
         model.sort(priceRange, calorieRange, proteinRange, carbsRange, totFatRange, satFatRange,
                 sodiumRange, cholRange, fiberRange, sugarRange);
         resultView.setupListView(model.getMenuEntityList());
+    }
+
+    public void isScreenShow(boolean isScreenShow) {
+        this.isScreenShow = isScreenShow;
     }
 }

@@ -36,6 +36,7 @@ public class ProfileFragment extends Fragment implements ProfileViewInterface.Pr
     private ProfileViewInterface mView;
     private ProfileModel mModel;
     private boolean inProfile = false;
+    private boolean isScreenShow = false;
     private Menu menu;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -56,14 +57,15 @@ public class ProfileFragment extends Fragment implements ProfileViewInterface.Pr
 
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
-        //if(mView.getRootView().getGlobalVisibleRect(new Rect())) {
+        menu.clear();
+        if(isScreenShow) {
             Log.d("asd", "TEST LOG");
             inflater.inflate(R.menu.profile_view_menu, menu);
             this.menu = menu;
 
-        //}
+        }
 
-        super.onCreateOptionsMenu(menu,inflater);
+       // super.onCreateOptionsMenu(menu,inflater);
     }
 
     @Override
@@ -83,6 +85,7 @@ public class ProfileFragment extends Fragment implements ProfileViewInterface.Pr
                 return super.onOptionsItemSelected(item);
         }
     }
+
     private void updateMenuTitles(MenuItem edit) {
         if (inProfile) {
             edit.setTitle(R.string.editProfile);
@@ -118,6 +121,29 @@ public class ProfileFragment extends Fragment implements ProfileViewInterface.Pr
                 mView.setUserGoalDefaults(data.getGoals());
             }
         });
+    }
+    @Override
+    public void discardGoalChanges() {
+        mModel.getUserData(new FirebaseDBCallaback<UserProfileEntity>() {
+            @Override
+            public void getData(UserProfileEntity data) {
+                mView.setUserGoalDefaults(data.getGoals());
+            }
+        });
+    }
+
+    @Override
+    public void discardProfileChanges() {
+        mModel.getUserData(new FirebaseDBCallaback<UserProfileEntity>() {
+            @Override
+            public void getData(UserProfileEntity data) {
+                mView.setUserInfoDefaults(data.getInfo());
+            }
+        });
+    }
+
+    public void isScreenShow(boolean isScreenShow) {
+        this.isScreenShow = isScreenShow;
     }
 }
 

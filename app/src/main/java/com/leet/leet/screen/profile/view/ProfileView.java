@@ -16,12 +16,15 @@ import android.widget.ArrayAdapter;
 import android.widget.EditText;
 
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.ViewSwitcher;
 
 
 import com.leet.leet.R;
 import com.leet.leet.common.ContextManager;
+import com.leet.leet.utils.authentication.FirebaseAuthManager;
 import com.leet.leet.utils.database.entities.user.UserGoalEntity;
 import com.leet.leet.utils.database.entities.user.UserInfoEntity;
 import com.leet.leet.utils.database.entities.user.UserProfileEntity;
@@ -36,7 +39,7 @@ public class ProfileView implements ProfileViewInterface, View.OnClickListener{
     EditText carbs;
     EditText protein;
     EditText fat;
-    EditText email;
+    TextView email;
     EditText name;
     EditText age;
     Spinner gender;
@@ -51,6 +54,7 @@ public class ProfileView implements ProfileViewInterface, View.OnClickListener{
 
     Button goals_save, acc_save, Recommended, delete;
     ViewSwitcher goals_to_acc_vs;
+    ImageButton cancel_goals;
 
 
 
@@ -72,7 +76,7 @@ public class ProfileView implements ProfileViewInterface, View.OnClickListener{
 
         fat = ((EditText)this.getRootView().findViewById(R.id.Fat));
 
-        email = ((EditText)this.getRootView().findViewById(R.id.Email));
+        email = this.getRootView().findViewById(R.id.Email);
         name = ((EditText)this.getRootView().findViewById(R.id.Name));
         age = ((EditText)this.getRootView().findViewById(R.id.Age));
 
@@ -86,6 +90,9 @@ public class ProfileView implements ProfileViewInterface, View.OnClickListener{
         acc_save.setOnClickListener(this);
         delete = (Button)this.getRootView().findViewById(R.id.Delete);
         delete.setOnClickListener(this);
+        cancel_goals = this.getRootView().findViewById(R.id.cancel_goals);
+        cancel_goals.setOnClickListener(this);
+
 
         // Set up profile page viewswitchers
         goals_to_acc_vs = (ViewSwitcher) this.getRootView().findViewById(R.id.goals_to_acc_vs);
@@ -109,7 +116,7 @@ public class ProfileView implements ProfileViewInterface, View.OnClickListener{
     }
 
     public void setUserInfoDefaults(UserInfoEntity acc_info) {
-        email.setText((acc_info.getEmail()));
+        email.setText(FirebaseAuthManager.getEmail());
         name.setText((acc_info.getName()));
         String compareValue = acc_info.getGender();
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this.getRootView().getContext(), R.array.whatGender, android.R.layout.simple_spinner_item);
@@ -126,12 +133,11 @@ public class ProfileView implements ProfileViewInterface, View.OnClickListener{
 
     private UserInfoEntity createUserInfoEntity(){
         String name = this.name.getText().toString();
-        String email = this.email.getText().toString();
         String gender = this.gender.getSelectedItem().toString();
         int age = 0;
         try {age = Integer.valueOf(this.age.getText().toString()); }
         catch (Exception e) { this.age.setText("0"); }
-        return new UserInfoEntity(name, gender, email, age, null);
+        return new UserInfoEntity(name, gender, age, null);
     }
 
     private UserGoalEntity createUserGoalEntity(){
@@ -150,7 +156,6 @@ public class ProfileView implements ProfileViewInterface, View.OnClickListener{
 
     private void setProfileEdit(boolean b){
         name.setEnabled(b);
-        email.setEnabled(b);
         age.setEnabled(b);
         gender.setEnabled(b);
     }
@@ -200,6 +205,14 @@ public class ProfileView implements ProfileViewInterface, View.OnClickListener{
     public void onClick(View v) {
         Log.i("hello", "onclick");
         switch (v.getId()){
+            case R.id.cancel_goals:
+                mListner.discardGoalChanges();
+                goals_save.setText("Edit");
+                setGoalsEdit(false);
+                goalsEdit = false;
+                Recommended.setVisibility(View.GONE);
+                cancel_goals.setVisibility(View.GONE);
+                break;
             case R.id.Recommended:
                 mListner.setRecommended();
                 break;
@@ -221,6 +234,7 @@ public class ProfileView implements ProfileViewInterface, View.OnClickListener{
                 if(goalsEdit == false){
                     goals_save.setText("Save");
                     Recommended.setVisibility(View.VISIBLE);
+                    cancel_goals.setVisibility(View.VISIBLE);
                     setGoalsEdit(true);
                     goalsEdit = true;
                 }
@@ -228,6 +242,7 @@ public class ProfileView implements ProfileViewInterface, View.OnClickListener{
                     goals_save.setText("Edit");
                     mListner.saveGoalEntity(createUserGoalEntity());
                     Recommended.setVisibility(View.GONE);
+                    cancel_goals.setVisibility(View.GONE);
                     setGoalsEdit(false);
                     goalsEdit = false;
                 }
@@ -236,8 +251,6 @@ public class ProfileView implements ProfileViewInterface, View.OnClickListener{
                 Log.d("delete", "===============================");
                 showDeleteDialog();
                 break;
-
-
         }
     }
 }

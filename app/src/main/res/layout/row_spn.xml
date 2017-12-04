@@ -3,8 +3,10 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/row_spn_tv"
     android:layout_width="wrap_content"
+    android:textSize="30sp"
+    android:textColor="@color/light_red"
     android:layout_height="32dp"
-    android:gravity="center_vertical"
+    android:gravity="center"
     android:paddingLeft="16dp"
     android:paddingRight="16dp"
     android:textDirection="locale" />

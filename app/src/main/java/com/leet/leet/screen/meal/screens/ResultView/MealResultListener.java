@@ -9,4 +9,5 @@ import com.leet.leet.utils.database.entities.menu.MenuEntity;
 // This interface is so MealFragment can communicate with ResultControllerFragment
 public interface MealResultListener {
     void moveToDetailFragment(MenuEntity data);
+    void moveToAddCustomFragment();
 }
