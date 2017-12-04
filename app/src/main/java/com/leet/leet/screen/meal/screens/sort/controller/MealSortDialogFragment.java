@@ -20,6 +20,7 @@ import com.leet.leet.screen.meal.screens.sort.view.MealSortView;
 
 /**
  * Created by YasuhiraChiba on 2017/11/29.
+ * Implemented by k3vn19.
  */
 
 public class MealSortDialogFragment extends DialogFragment implements DialogInterface.OnClickListener, MealSortDialogViewInterface.MealSortDialogViewListener{
@@ -27,6 +28,7 @@ public class MealSortDialogFragment extends DialogFragment implements DialogInte
     MealSortView mView;
     MealSortDialogModel mModel;
 
+    //Stores the index in each respective range array for spinners
     private int price_Range;
     private int calorie_Range;
     private int carbs_Range;
@@ -38,11 +40,9 @@ public class MealSortDialogFragment extends DialogFragment implements DialogInte
     private int fiber_Range;
     private int sugar_Range;
 
-    //spinners to be instantiated
-
     private MealSortDialogInterface mListener;
 
-    //assign values to spinners, integers
+    //assign values to spinners, integers - doesn't use a consrucor since this is a dialog
     public void setupFragment(MealSortDialogInterface listener, int priceRange, int calorieRange,
                               int carbsRange, int totalFatRange, int satFatRange, int proteinRange,
                               int sodiumRange, int cholRange, int fiberRange, int sugarRange) {
@@ -67,7 +67,9 @@ public class MealSortDialogFragment extends DialogFragment implements DialogInte
 
         final Activity activity = getActivity();
         AlertDialog.Builder builder = new AlertDialog.Builder(activity);
-        //create view with passed parameters
+
+        //create view with passed parameters - this is so when the dialog is created the old ranges
+        //are passed in and the user can see old ranges
         mView = new MealSortView(LayoutInflater.from(activity),this, price_Range, calorie_Range,
                 carbs_Range, totalFat_Range, satFat_Range, protein_Range, sodium_Range,
                 cholesterol_Range, fiber_Range, sugar_Range);
@@ -77,33 +79,26 @@ public class MealSortDialogFragment extends DialogFragment implements DialogInte
                 .setPositiveButton("Apply", this)
                 .setNegativeButton("Cancel",this);
 
-
-        initialize();
-
         return builder.create();
-
-    }
-
-    public void initialize(){
-
-    }
-
+    } //end of onCreateDialog
 
     @Override
     public void onClick(DialogInterface dialogInterface, int i) {
         if(i==-1){
-            //OKButton
+            //OKButton, positive
             mListener.dialogOkButtonTap(mModel.getPriceRange(), mModel.getCalorieRange(), mModel.getProteinRange(),
                     mModel.getCarbsRange(), mModel. getTotalFatRange(), mModel.getSatFatRange(), mModel.getSodiumRange(),
                     mModel.getCholesterolRange(), mModel.getFiberRange(), mModel.getSugarRange());
 
         } else if(i==-2){
-            //cancelButton
-
+            //cancelButton, negative. Does nothing and returns user to last page.
         }
     }
 
     @Override
+    /**
+     * Calls models method to save the range to the private variables of the model
+     */
     public void priceSelected(int index) {
         mModel.setPriceRange(index);
     }

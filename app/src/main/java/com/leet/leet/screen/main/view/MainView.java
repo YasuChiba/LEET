@@ -4,6 +4,7 @@ import android.graphics.Color;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
+import android.support.v4.content.ContextCompat;
 import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,6 +14,7 @@ import android.widget.TextView;
 import android.support.v7.widget.Toolbar;
 
 import com.leet.leet.R;
+import com.leet.leet.common.ContextManager;
 import com.leet.leet.common.Enums;
 import com.leet.leet.screen.main.MainViewViewPagerAdapter;
 
@@ -54,7 +56,7 @@ public class MainView implements MainViewInterface, ViewPager.OnPageChangeListen
         viewPager.setAdapter(viewPagerAdapter);
         viewPager.addOnPageChangeListener(this);
         tabLayout.setupWithViewPager(viewPager);
-        tabLayout.setBackgroundColor(Color.parseColor("#e00e0e"));
+        tabLayout.setBackgroundColor(ContextCompat.getColor(ContextManager.getInstance().getApplicationContext(),R.color.base_color));
 
         tabLayout.getTabAt(Enums.TabPosition.Profile.getVal()).setCustomView(tabProfile);
         tabLayout.getTabAt(Enums.TabPosition.Meal.getVal()).setCustomView(tabMeal);
@@ -64,7 +66,7 @@ public class MainView implements MainViewInterface, ViewPager.OnPageChangeListen
         ((ImageView) tabMeal.findViewById(R.id.tab_icon)).setImageResource(R.drawable.tab_meal_icon);
         ((ImageView) tabStats.findViewById(R.id.tab_icon)).setImageResource(R.drawable.tab_stat_icon);
 
-        ((TextView) tabProfile.findViewById(R.id.tab_textview)).setText("Profile");
+        ((TextView) tabProfile.findViewById(R.id.tab_textview)).setText("Setting");
         ((TextView) tabMeal.findViewById(R.id.tab_textview)).setText("Meal");
         ((TextView) tabStats.findViewById(R.id.tab_textview)).setText("Stats");
 
