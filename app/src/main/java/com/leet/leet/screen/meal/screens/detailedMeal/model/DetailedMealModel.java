@@ -22,22 +22,12 @@ import android.widget.Toast;
 public class DetailedMealModel {
 
     private MenuEntity menu;
+
     public DetailedMealModel(){} //default constructor
-
-    //Purpose - Once the user has decided to eat a meal, they will add it to their history.
-    //          This method will add the MenuEntity to the profile's history.
-    public void addMeal(MenuEntity meal, Enums.MealTime time){
-
-        //add the meal to the database
-        FirebaseDBUserDataHelper.setStatisticsData(new LocalDate() , time,meal);
-        //Toast.makeText(this, "Added Meal To History", Toast.LENGTH_SHORT).show();
-
-    } //end of addMeal
 
     public void setMenuEntity(MenuEntity menu) {
         this.menu = menu;
     }
-
     public MenuEntity getMenuEntity() {
         return menu;
     }

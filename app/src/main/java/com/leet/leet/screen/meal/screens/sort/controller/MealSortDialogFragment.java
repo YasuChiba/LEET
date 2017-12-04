@@ -20,6 +20,7 @@ import com.leet.leet.screen.meal.screens.sort.view.MealSortView;
 
 /**
  * Created by YasuhiraChiba on 2017/11/29.
+ * Implemented by k3vn19.
  */
 
 public class MealSortDialogFragment extends DialogFragment implements DialogInterface.OnClickListener, MealSortDialogViewInterface.MealSortDialogViewListener{
@@ -99,7 +100,6 @@ public class MealSortDialogFragment extends DialogFragment implements DialogInte
 
         } else if(i==-2){
             //cancelButton
-
         }
     }
 
