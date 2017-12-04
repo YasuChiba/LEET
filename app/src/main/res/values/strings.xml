@@ -106,6 +106,12 @@
         <item>25-40</item>
     </string-array>
 
+    <string-array name="mealTimeArray">
+        <item>Breakfast</item>
+        <item>Lunch</item>
+        <item>Dinner</item>
+    </string-array>
+
 
     <string-array name="feet_array">
         <item>3</item>

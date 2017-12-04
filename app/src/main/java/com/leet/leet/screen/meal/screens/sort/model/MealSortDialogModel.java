@@ -9,6 +9,7 @@ import java.util.ArrayList;
 
 public class MealSortDialogModel {
 
+    //Used to store the index of the range within the string array
     private int priceRange;
     private int calorieRange;
     private int carbsRange;
@@ -23,9 +24,7 @@ public class MealSortDialogModel {
     public void setPriceRange(int i){
         priceRange = i;
     }
-    public int getPriceRange(){
-        return priceRange;
-    }
+    public int getPriceRange(){return priceRange;}
 
     public void setCalorieRange(int i){calorieRange = i;}
     public int getCalorieRange(){return calorieRange;}

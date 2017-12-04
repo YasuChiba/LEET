@@ -18,6 +18,7 @@ public class MealSortView implements MealSortDialogViewInterface,AdapterView.OnI
     private View mRootView;
     private MealSortDialogViewListener mListener;
 
+    //Spinners from xml file
     private Spinner priceSpinner;
     private Spinner calorieSpinner;
     private Spinner proteinSpinner;
@@ -29,6 +30,7 @@ public class MealSortView implements MealSortDialogViewInterface,AdapterView.OnI
     private Spinner fiberSpinner;
     private Spinner sugarSpinner;
 
+    //used to store index of range within string array of each spinner
     private int price_Range;
     private int calorie_Range;
     private int carbs_Range;
@@ -47,6 +49,7 @@ public class MealSortView implements MealSortDialogViewInterface,AdapterView.OnI
         mRootView = inflater.inflate(R.layout.dialog_view_meal_sort, null);
         this.mListener = listener;
 
+        //this is done so that the view has the last selected ranges
         price_Range = priceRange;
         calorie_Range = calorieRange;
         protein_Range = proteinRange;
@@ -64,36 +67,45 @@ public class MealSortView implements MealSortDialogViewInterface,AdapterView.OnI
 
     private void initialize() {
         priceSpinner = mRootView.findViewById(R.id.meal_sort_price_spinner);
-        priceSpinner.setSelection(price_Range);
-        priceSpinner.setOnItemSelectedListener(this);
+        priceSpinner.setSelection(price_Range);//sets the original spinner value, in this case it's the last value
+        priceSpinner.setOnItemSelectedListener(this); //sets listener for any changes to spinner value
+
         calorieSpinner = mRootView.findViewById(R.id.meal_sort_calories_spinner);
         calorieSpinner.setSelection(calorie_Range);
         calorieSpinner.setOnItemSelectedListener(this);
+
         proteinSpinner = mRootView.findViewById(R.id.meal_sort_protein_spinner);
         proteinSpinner.setSelection(protein_Range);
         proteinSpinner.setOnItemSelectedListener(this);
+
         carbsSpinner = mRootView.findViewById(R.id.meal_sort_carbs_spinner);
         carbsSpinner.setSelection(carbs_Range);
         carbsSpinner.setOnItemSelectedListener(this);
+
         totFatSpinner = mRootView.findViewById(R.id.meal_sort_total_fat_spinner);
         totFatSpinner.setSelection(totalFat_Range);
         totFatSpinner.setOnItemSelectedListener(this);
+
         satFatSpinner = mRootView.findViewById(R.id.meal_sort_sat_fat_spinner);
         satFatSpinner.setSelection(satFat_Range);
         satFatSpinner.setOnItemSelectedListener(this);
+
         sodiumSpinner = mRootView.findViewById(R.id.meal_sort_sodium_spinner);
         sodiumSpinner.setSelection(sodium_Range);
         sodiumSpinner.setOnItemSelectedListener(this);
+
         cholesterolSpinner = mRootView.findViewById(R.id.meal_sort_cholesterol_spinner);
         cholesterolSpinner.setSelection(cholesterol_Range);
         cholesterolSpinner.setOnItemSelectedListener(this);
+
         fiberSpinner = mRootView.findViewById(R.id.meal_sort_fiber_spinner);
         fiberSpinner.setSelection(fiber_Range);
         fiberSpinner.setOnItemSelectedListener(this);
+
         sugarSpinner = mRootView.findViewById(R.id.meal_sort_sugar_spinner);
         sugarSpinner.setSelection(sugar_Range);
         sugarSpinner.setOnItemSelectedListener(this);
-    }
+    }//end of initialize()
 
 
     @Override
@@ -102,6 +114,10 @@ public class MealSortView implements MealSortDialogViewInterface,AdapterView.OnI
     }
 
     @Override
+    /**
+     * Purpose - When a spinner's value is changed this is called and the selected range is
+     *           updated in the model
+     */
     public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
         switch(adapterView.getId()) {
             case R.id.meal_sort_price_spinner:
@@ -138,7 +154,5 @@ public class MealSortView implements MealSortDialogViewInterface,AdapterView.OnI
     }
 
     @Override
-    public void onNothingSelected(AdapterView<?> adapterView) {
-
-    }
+    public void onNothingSelected(AdapterView<?> adapterView) {}
 }
