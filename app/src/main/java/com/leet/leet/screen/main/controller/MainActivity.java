@@ -30,11 +30,11 @@ public class MainActivity extends AppCompatActivity implements MainViewInterface
     private MainView mView;
     private MainModel mModel;
 
-    Fragment[] fragments;
-    ProfileFragment profileFragment;
-    MealFragment mealFragment;
-    StatisticsFragment statisticsFragment;
-    Enums.TabPosition currentTabPosition;
+    private Fragment[] fragments;
+    private ProfileFragment profileFragment;
+    private MealFragment mealFragment;
+    private StatisticsFragment statisticsFragment;
+    private Enums.TabPosition currentTabPosition;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
