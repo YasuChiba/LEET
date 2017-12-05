@@ -14,6 +14,8 @@ import com.leet.leet.screen.meal.screens.sortMeal.view.SortMealView;
  * Created by k3vn19 on 11/19/2017.
  *
  * This class acts as the Controller for the Sort Menu Options Page.
+ *
+ * THIS CLASS IS NO LONGER BEING USED
  */
 
 public class SortMealFragment extends Fragment implements SortMealInterface.SortMealListener {

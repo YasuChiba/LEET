@@ -19,6 +19,7 @@ public class MealMainView implements MealMainViewInterface, View.OnClickListener
     private View mRootView;
     private MealMainViewListner mListner;
 
+    //menus the user can choose from
     private Button sixtyFour;
     private Button cafeVentanas;
     private Button canyonVista;
@@ -32,6 +33,7 @@ public class MealMainView implements MealMainViewInterface, View.OnClickListener
         mRootView = inflater.inflate(R.layout.view_meal_main, container, false);
         initialize();
     }
+
 
     private void initialize() {
 
@@ -62,35 +64,30 @@ public class MealMainView implements MealMainViewInterface, View.OnClickListener
     @Override
     public void onClick(View view) {
 
-        //pass the button click event to MealMainFragment.\
-           // if(view.getId() == R.id.customMeal) {
-              //  mListner.mealToCustom();
-            //} else {
-                Enums.RestaurantName name = Enums.RestaurantName.CafeVentanas;
-                switch(view.getId()){
-                    case R.id.sixtyFour:
-                        name = Enums.RestaurantName.Degrees;
-                        break;
-                    case R.id.cafeVentanas:
-                        name = Enums.RestaurantName.CafeVentanas;
-                        break;
-                    case R.id.canyonVista:
-                        name = Enums.RestaurantName.Canyon;
-                        break;
-                    case R.id.foodworx:
-                        name = Enums.RestaurantName.Foodworx;
-                        break;
-                    case R.id.oceanView:
-                        name = Enums.RestaurantName.OceanView;
-                        break;
-                    case R.id.pines:
-                        name = Enums.RestaurantName.Pines;
-                        break;
-                    case R.id.customMeal:
-                        name = Enums.RestaurantName.Custom;
-                        break;
-                }
-                mListner.mealToResult(name);
-           // }
+        Enums.RestaurantName name = Enums.RestaurantName.CafeVentanas;
+        switch(view.getId()){
+            case R.id.sixtyFour:
+                name = Enums.RestaurantName.Degrees;
+                break;
+            case R.id.cafeVentanas:
+                name = Enums.RestaurantName.CafeVentanas;
+                break;
+            case R.id.canyonVista:
+                name = Enums.RestaurantName.Canyon;
+                break;
+            case R.id.foodworx:
+                name = Enums.RestaurantName.Foodworx;
+                break;
+            case R.id.oceanView:
+                name = Enums.RestaurantName.OceanView;
+                break;
+            case R.id.pines:
+                name = Enums.RestaurantName.Pines;
+                break;
+            case R.id.customMeal:
+                name = Enums.RestaurantName.Custom;
+                break;
+        }
+        mListner.mealToResult(name);
     }
 }

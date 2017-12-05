@@ -5,6 +5,8 @@ import com.leet.leet.common.ViewBaseInterface;
 
 /**
  * Created by YasuhiraChiba on 2017/11/16.
+ *
+ * Purpose - To connect controller and view of mealMain.
  */
 
 //For MealMainView

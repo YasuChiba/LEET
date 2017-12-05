@@ -25,16 +25,21 @@ public class MealResultModel {
     private Enums.RestaurantName currentRestaurantName;
 
     public MealResultModel() {
-
         //TODO:need to consider about default value
         currentMealTime = Enums.MealTime.Lunch;
         currentRestaurantName = Enums.RestaurantName.CafeVentanas;
     }
 
+    /**
+     * Purpose - this method determines which menu was selected by the user. Either the user's custom
+     *           menu will be retrieved or one of the six dining halls will be retrieved.
+     * @param callback
+     */
     public void getMenu(final FirebaseDBCallaback<Boolean> callback) {
 
+        //For if the user selected a dining hall
         if(currentRestaurantName != Enums.RestaurantName.Custom) {
-            Log.d("If", "In if");
+            //Log.d("If", "In if");
             FirebaseDBMenuDataHelper.getMenuData(currentRestaurantName,
                     DateHelper.getCurrentDate(),
                     currentMealTime,
@@ -48,7 +53,7 @@ public class MealResultModel {
                     });
         }
         else {
-            Log.d("Else", "In else");
+            //Log.d("Else", "In else");
             FirebaseDBUserDataHelper.getCustomMenus(new FirebaseDBCallaback<ArrayList<MenuEntity>>() {
                 @Override
                 public void getData(ArrayList<MenuEntity> data) {
@@ -62,6 +67,9 @@ public class MealResultModel {
         }
     }
 
+    /*
+     * Getters and setters
+     */
     public Enums.RestaurantName getRestaurantName() {
         return currentRestaurantName;
     }
@@ -81,6 +89,10 @@ public class MealResultModel {
         this.currentRestaurantName = name;
     }
 
+    /**
+     * Purpose - These are the strings to be used in the spinner for selecting meal time
+     * @return
+     */
     public ArrayList<String> getMealTimeList() {
         ArrayList<String> val = new ArrayList<>();
         val.add("Breakfast");
@@ -89,11 +101,25 @@ public class MealResultModel {
         return val;
     }
 
+    /**
+     * Purpose - this method is called from MealSortDialog to filter out results depending on selected
+     *           ranges in the spinners of the dialog.
+     * @param priceRange - index in price array string
+     * @param calorieRange - index in calorie range array string
+     * @param proteinRange - index in protein range array
+     * @param carbsRange - index for carbs
+     * @param totFatRange - index for totFat
+     * @param satFatRange - index for saturated fat
+     * @param sodiumRange - index for sodium range
+     * @param cholRange - index for cholesterol
+     * @param fiberRange - index for fiber
+     * @param sugarRange - index for sugar
+     */
     public void sort(int priceRange, int calorieRange, int proteinRange, int carbsRange, int totFatRange
         , int satFatRange, int sodiumRange, int cholRange, int fiberRange, int sugarRange) {
 
         ArrayList<MenuEntity> result = new ArrayList<>();
-        float priceMax=-1; //make -1 to skip
+        float priceMax=-1; //make -1 to skip by default
         float priceMin=0;
         float calorieMax = -1;
         float calorieMin = 0;
@@ -116,16 +142,16 @@ public class MealResultModel {
 
         //check price Array index
         if(priceRange == 1){
-            priceMax = 5;
+            priceMax = 4;
             priceMin = 0;
         }
         else if(priceRange == 2){
-            priceMax = 10;
-            priceMin = 5;
+            priceMax = 7;
+            priceMin = 4;
         }
         else if(priceRange == 3){
-            priceMax = 15;
-            priceMin = 10;
+            priceMax = 9999;
+            priceMin = 7;
         }
 
         //check calorie range
@@ -140,6 +166,10 @@ public class MealResultModel {
             calorieMax = 2000;
             calorieMin = 1200;
         }
+        else if(calorieRange == 4){
+            calorieMax = 9999;
+            calorieMin = 2000;
+        }
 
         //check protein range
         if(proteinRange == 1){
@@ -152,6 +182,10 @@ public class MealResultModel {
         else if(proteinRange == 3){
             proteinMax = 20;
             proteinMin = 15;
+        }
+        else if(proteinRange == 4){
+            proteinMax = 9999;
+            proteinMin = 20;
         }
 
         //check carbs range
@@ -166,6 +200,10 @@ public class MealResultModel {
             carbsMax = 40;
             carbsMin = 25;
         }
+        else if(carbsRange == 4){
+            carbsMax = 9999;
+            carbsMin = 40;
+        }
 
         //check total fat
         if(totFatRange == 1){
@@ -178,6 +216,10 @@ public class MealResultModel {
         else if(totFatRange == 3){
             totFatMax = 50;
             totalFatMin = 30;
+        }
+        else if(totFatRange == 4){
+            totalFatMin = 50;
+            totFatMax = 9999;
         }
 
         //check saturated fat range
@@ -192,6 +234,10 @@ public class MealResultModel {
             satFatMax = 30;
             satFatMin = 20;
         }
+        else if(satFatRange == 4){
+            satFatMax = 9999;
+            satFatMin = 30;
+        }
 
         //check sodium range
         if(sodiumRange == 1){
@@ -204,6 +250,10 @@ public class MealResultModel {
         else if(sodiumRange == 3){
             sodiumMax = 2000;
             sodiumMin = 1200;
+        }
+        else if(sodiumRange == 4){
+            sodiumMax = 9999;
+            sodiumMin = 2000;
         }
 
         //check cholesterol range
@@ -218,6 +268,10 @@ public class MealResultModel {
             cholMax = 150;
             cholMin = 100;
         }
+        else if(cholRange == 4){
+            cholMax = 9999;
+            cholMin = 150;
+        }
 
         //check fiber range
         if(fiberRange == 1){
@@ -231,6 +285,10 @@ public class MealResultModel {
             fiberMax = 30;
             fiberMin = 15;
         }
+        else if(fiberRange == 4){
+            fiberMax = 9999;
+            fiberMin = 30;
+        }
 
         //check sugar range
         if(sugarRange == 1){
@@ -243,6 +301,10 @@ public class MealResultModel {
         else if(sugarRange == 3){
             sugarMax = 40;
             sugarMin = 25;
+        }
+        else if(sugarRange == 4){
+            sugarMin = 40;
+            sugarMax = 9999;
         }
 
         //add to result if the range is valid
@@ -293,6 +355,8 @@ public class MealResultModel {
             }
         }//end of for each loop
 
+        //once all the MenuEntity's that meet the users criteria are filtered assign it to be used in
+        //results page
         searchedMenuEntityList = result;
 
     }//end of method

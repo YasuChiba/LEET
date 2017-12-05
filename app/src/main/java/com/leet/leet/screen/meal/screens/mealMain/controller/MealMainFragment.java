@@ -26,8 +26,6 @@ public class MealMainFragment extends Fragment implements MealMainViewInterface.
         this.mainListner = listner;
     }
 
-    //public void setupFragment2(MealMainListner listner) { this.mainListner2 = listner;}
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -37,14 +35,20 @@ public class MealMainFragment extends Fragment implements MealMainViewInterface.
         return mView.getRootView();
     }
 
-    //Method of MealMainViewListner
     @Override
+    /**
+     * Purpose - Method of MealMainViewListner to switch from meal main to a specific dining hall
+     *           menu.
+     */
     public void mealToResult(Enums.RestaurantName restaurantName) {
        // mainListner.moveToDetaileFragment();
         mainListner.moveToResultFragment(restaurantName);
     }
 
     @Override
+    /**
+     * Purpose - Transition from main meal page to custom menu
+     */
     public void mealToCustom() { mainListner.moveToAddCustomFragment();}
 
 }

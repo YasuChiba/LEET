@@ -39,6 +39,7 @@ public class ResultControllerFragment extends Fragment implements ResultViewInte
     private boolean isScreenShow = false;
 
 
+    // Used to record last selected spinner value in sorting.
     private int price_Range;
     private int calorie_Range;
     private int carbs_Range;
@@ -51,7 +52,11 @@ public class ResultControllerFragment extends Fragment implements ResultViewInte
     private int sugar_Range;
 
 
-    //Since Fragment cannot implement constructor with our original arguments, we should create this kind of method
+    /**
+     * Purpose - Used in place of a constructor since we are using a fragment.
+     * @param restaurantName
+     * @param listener
+     */
     public void setupFragment(Enums.RestaurantName restaurantName,MealResultListener listener) {
         model = new MealResultModel();
         model.setCurrentRestaurantName(restaurantName);
@@ -67,7 +72,7 @@ public class ResultControllerFragment extends Fragment implements ResultViewInte
         if(model.getRestaurantName() != Enums.RestaurantName.Custom) { // custom has a different spinner
             resultView.setupMealTimeSpinner(model.getMealTimeList(), model.getCurrentMealTime().getIndex());
         }
-        else {
+        else { //normal bfast/lunch/dinner spinner for UCSD dining halls
             ArrayList<String> val = new ArrayList<String>();
             val.add("All");
             resultView.setupMealTimeSpinner(val, Enums.MealTime.All.getIndex());
@@ -86,7 +91,7 @@ public class ResultControllerFragment extends Fragment implements ResultViewInte
                 inflater.inflate(R.menu.meal_search_result_view_menu, menu);
             }
         }
-       // super.onCreateOptionsMenu(menu,inflater);
+       //super.onCreateOptionsMenu(menu,inflater);
     }
 
     @Override
@@ -95,7 +100,9 @@ public class ResultControllerFragment extends Fragment implements ResultViewInte
         switch (item.getItemId()) {
             case R.id.menu_search:
                 MealSortDialogFragment dialogFragment = new MealSortDialogFragment();
-                //pass parameters for spinners here
+
+                //pass parameters for spinners here to set the spinner values to whatever the user
+                //previously selected as a sorting option
                 dialogFragment.setupFragment(this, price_Range, calorie_Range,carbs_Range, totalFat_Range,
                         satFat_Range, protein_Range, sodium_Range, cholesterol_Range, fiber_Range, sugar_Range);
                 dialogFragment.show(getFragmentManager(), "fragment_dialog");
