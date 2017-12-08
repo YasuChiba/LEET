@@ -40,6 +40,7 @@ public class MealResultViewListHeader extends LinearLayout implements AdapterVie
         initializeView(context);
     }
 
+    // set up page
     private void initializeView(Context context) {
         View.inflate(context, R.layout.customview_menu_result_list_view_header, this);
         mealTimeSpinner = (Spinner)this.findViewById(R.id.meal_result_list_header_mealtime_spinner);
@@ -48,6 +49,7 @@ public class MealResultViewListHeader extends LinearLayout implements AdapterVie
         mealTimeSpinner.setAdapter(mealTimeSpinnerAdapter);
     }
 
+    // create spinner with the field in data, will be breakfast/luncher/dinner for dining hall or all for custom
     public void setupMealTimeSpinner(ArrayList<String> data, int defualtIndex,ResultViewInterface.MealResultHeaderListener listener) {
         this.listener = listener;
 
@@ -56,7 +58,7 @@ public class MealResultViewListHeader extends LinearLayout implements AdapterVie
         mealTimeSpinner.setSelection(defualtIndex);
         mealTimeSpinner.setOnItemSelectedListener(this);
     }
-    @Override
+    @Override // set meal time based on which option was selected
     public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
         if(i==0) {
             listener.mealTimeSelected(Enums.MealTime.Breakfast);
@@ -70,7 +72,7 @@ public class MealResultViewListHeader extends LinearLayout implements AdapterVie
         }
     }
 
-    @Override
+    @Override // don't do anything if nothing was selected
     public void onNothingSelected(AdapterView<?> adapterView) {
 
     }
