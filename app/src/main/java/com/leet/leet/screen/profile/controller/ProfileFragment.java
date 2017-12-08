@@ -32,6 +32,9 @@ import static com.leet.leet.utils.authentication.FirebaseAuthManager.isGuest;
  * Created by YasuhiraChiba on 2017/11/05.
  */
 
+/**
+ * controller for the profile fragment
+ */
 public class ProfileFragment extends Fragment implements ProfileViewInterface.ProfileViewListener{
 
     private ProfileViewInterface mView;
@@ -45,7 +48,7 @@ public class ProfileFragment extends Fragment implements ProfileViewInterface.Pr
         mView = new ProfileView(inflater, container);
         mView.setListener(this);
         mModel = new ProfileModel();
-        setHasOptionsMenu(true);
+        setHasOptionsMenu(true); //creates the options
         mModel.getUserData(new FirebaseDBCallaback<UserProfileEntity>() {
             @Override
             public void getData(UserProfileEntity data) {
@@ -56,11 +59,15 @@ public class ProfileFragment extends Fragment implements ProfileViewInterface.Pr
         return mView.getRootView();
     }
 
+    /**
+     * creating the options menu
+     * @param menu
+     * @param inflater
+     */
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         menu.clear();
         if(isScreenShow) {
-            Log.d("asd", "TEST LOG");
             inflater.inflate(R.menu.profile_view_menu, menu);
             this.menu = menu;
 
@@ -69,6 +76,11 @@ public class ProfileFragment extends Fragment implements ProfileViewInterface.Pr
        // super.onCreateOptionsMenu(menu,inflater);
     }
 
+    /**
+     * when the user clicks one of the opions in the menu
+     * @param item
+     * @return
+     */
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle item selection
@@ -87,6 +99,10 @@ public class ProfileFragment extends Fragment implements ProfileViewInterface.Pr
         }
     }
 
+    /**
+     *alter the option menu when clicked
+     * @param edit
+     */
     private void updateMenuTitles(MenuItem edit) {
         if (inProfile) {
             edit.setTitle(R.string.editProfile);
@@ -97,11 +113,19 @@ public class ProfileFragment extends Fragment implements ProfileViewInterface.Pr
         }
     }
 
+    /**
+     *Saving the user info entity
+     * @param info
+     */
     @Override
     public void saveInfoEntity(UserInfoEntity info) {
         mModel.saveInfo(info);
     }
 
+    /**
+     * saving the goal entitiy
+     * @param goal
+     */
     @Override
     public void saveGoalEntity(UserGoalEntity goal) {
         mModel.saveGoals(goal);
@@ -113,9 +137,12 @@ public class ProfileFragment extends Fragment implements ProfileViewInterface.Pr
         Intent logInIntent = new Intent(getActivity(), LoginActivity.class);
         startActivity(logInIntent);
     }
+
+    /**
+     * setting recommended settings by retrieving the data from firebase
+     */
     @Override
     public void setRecommended() {
-        Log.d("recommended", "is it working");
         mModel.getUserRecommended(new FirebaseDBCallaback<UserProfileEntity>() {
             @Override
             public void getData(UserProfileEntity data) {
@@ -123,6 +150,8 @@ public class ProfileFragment extends Fragment implements ProfileViewInterface.Pr
             }
         });
     }
+
+
     @Override
     public void discardGoalChanges() {
         mModel.getUserData(new FirebaseDBCallaback<UserProfileEntity>() {

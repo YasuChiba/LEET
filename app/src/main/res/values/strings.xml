@@ -33,7 +33,7 @@
     <string name="editGoals">Goals</string>
     <string name="logout">Logout</string>
     <string name="Age">Age</string>
-    <string name="Gender">Gender</string>
+    <string name="Sex">Sex</string>
 
     <!-- Used in dialog_view_meal_sort.xml -->
     <string-array name = "priceArray">

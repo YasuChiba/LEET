@@ -484,7 +484,7 @@
                             android:layout_weight="1"
                             android:backgroundTint="@android:color/holo_orange_dark"
                             android:gravity="left"
-                            android:text="@string/Gender"
+                            android:text="@string/Sex"
                             android:textColor="@color/LEET_LABEL"
                             android:textSize="24sp" />
 

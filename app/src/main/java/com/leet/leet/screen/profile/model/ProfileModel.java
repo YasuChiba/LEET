@@ -34,37 +34,24 @@ import static android.content.ContentValues.TAG;
 
 public class ProfileModel {
 
-    /*public void saveUserInfoData(ProfileView v) {
-        Log.d("data", "working");
-        name = ((EditText) v.getRootView().findViewById(R.id.name_field)).getText().toString();
-        gender = ((EditText) v.getRootView().findViewById(R.id.gender_field)).getText().toString();
-        age = Integer.parseInt(((EditText) v.getRootView().findViewById(R.id.age_field)).getText().toString());
-        weight = Float.parseFloat(((EditText) v.getRootView().findViewById(R.id.weight_field)).getText().toString());
-        feet = Float.parseFloat(((EditText) v.getRootView().findViewById(R.id.height_field)).getText().toString());
-
-        final UserInfoEntity new_info = new UserInfoEntity(name, gender, "", age, weight, feet, 0, allergens);
-
-        FirebaseDBUserDataHelper.getUserProfile(new FirebaseDBCallaback<UserProfileEntity>() {
-            @Override
-            public void getData(UserProfileEntity data) {
-                FirebaseDBUserDataHelper.setUserProfile(new UserProfileEntity(new UserGoalEntity(10,20,30,40,50), new_info));
-            }
-        });
-    }*/
     public void logout(){
         FirebaseAuthHelper.logout();
     }
     public void saveGoals(UserGoalEntity goalEntity) {
+        //passing usergoalentity to the firebase
         FirebaseDBUserDataHelper.setUserGoals(goalEntity);
     }
 
     public void saveInfo(UserInfoEntity infoEntity) {
+        //passing userinfoentity to the firebase
         FirebaseDBUserDataHelper.setUserInfo(infoEntity);
     }
 
-
+    /**
+     * obatining the user profile entity data via call back method
+     * @param callaback
+     */
     public void getUserData(final FirebaseDBCallaback<UserProfileEntity> callaback) {
-        //final UserProfileEntity acc_info = new UserProfileEntity();
         FirebaseDBUserDataHelper.getUserProfile(new FirebaseDBCallaback<UserProfileEntity>() {
             @Override
             public void getData(UserProfileEntity data) {
@@ -73,8 +60,12 @@ public class ProfileModel {
         });
 
     }
+
+    /**
+     * getting the user recommended values depending on age and gender
+     * @param callaback
+     */
     public void getUserRecommended(final FirebaseDBCallaback<UserProfileEntity> callaback) {
-        //final UserProfileEntity acc_info = new UserProfileEntity();
         FirebaseDBUserDataHelper.getUserProfile(new FirebaseDBCallaback<UserProfileEntity>() {
             @Override
             public void getData(UserProfileEntity data) {
@@ -84,6 +75,7 @@ public class ProfileModel {
                 int recFat = 0;
                 if(data.getInfo().getGender() == "male")
                 {
+                    //obtain the data from the FDAHelper class
                     recCal = FDAHelper.getMaleCalories(data.getInfo().getAge());
                     recProtein = FDAHelper.getMaleProtein(data.getInfo().getAge());
                 }
@@ -94,6 +86,7 @@ public class ProfileModel {
                 }
                 recFat = (recCal/36);
                 recCarbs = (6*recCal/40);
+                //set the data's values and pass it to the callback
                 data.getGoals().setCalorie(recCal);
                 data.getGoals().setProtein(recProtein);
                 data.getGoals().setFat(recFat);
@@ -106,7 +99,9 @@ public class ProfileModel {
     }
 
     public void deleteAccount(){
+        //remove the user ID first
         FirebaseDBUserDataHelper.removeUserID();
+        //remove the data for the user
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         user.delete()
                 .addOnCompleteListener(new OnCompleteListener<Void>() {
@@ -120,9 +115,6 @@ public class ProfileModel {
 
     }
 
-    public UserGoalEntity getUserGoalData() {
-        return new UserGoalEntity();
-    }
 }
 
 

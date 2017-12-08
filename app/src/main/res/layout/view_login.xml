@@ -19,14 +19,8 @@
 
         <ImageView
             android:id="@+id/imageView1"
-<<<<<<< HEAD
             android:layout_width="400dp"
-            android:layout_height="249dp"
-=======
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
->>>>>>> 4edf74d625e3074064401edf431fea00d07efded
-            android:src="@drawable/triton"></ImageView>
+            android:layout_height="249dp"/>
 
 
 
@@ -35,7 +29,6 @@
 
     <FrameLayout
         android:id="@+id/frameLayout"
-<<<<<<< HEAD
         android:layout_width="400dp"
         android:layout_height="450dp"
         android:layout_marginTop="226dp"

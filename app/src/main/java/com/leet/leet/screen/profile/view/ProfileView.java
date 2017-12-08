@@ -65,6 +65,9 @@ public class ProfileView implements ProfileViewInterface, View.OnClickListener{
         initialize();
     }
 
+    /**
+     * initializing all the fields that are in the screen currently
+     */
     private void initialize() {
         price = ((EditText)this.getRootView().findViewById(R.id.Price));
 
@@ -106,7 +109,10 @@ public class ProfileView implements ProfileViewInterface, View.OnClickListener{
         return mRootView;
     }
 
-
+    /**
+     * set the default UserGoalEntity that is retrieved from the database
+     * @param goals
+     */
     public void setUserGoalDefaults(UserGoalEntity goals) {
         ((EditText) mRootView.findViewById(R.id.Price)).setText((String.valueOf(goals.getPrice())));
         ((EditText) mRootView.findViewById(R.id.Calorie)).setText((String.valueOf(goals.getCalorie())));
@@ -115,6 +121,10 @@ public class ProfileView implements ProfileViewInterface, View.OnClickListener{
         ((EditText) mRootView.findViewById(R.id.Protein)).setText((String.valueOf(goals.getProtein())));
     }
 
+    /**
+     * set the default userinfoentity that is retrieved from the database
+     * @param acc_info
+     */
     public void setUserInfoDefaults(UserInfoEntity acc_info) {
         email.setText(FirebaseAuthManager.getEmail());
         name.setText((acc_info.getName()));
@@ -131,6 +141,10 @@ public class ProfileView implements ProfileViewInterface, View.OnClickListener{
 
     }
 
+    /**
+     * creating the userinfo entity
+     * @return
+     */
     private UserInfoEntity createUserInfoEntity(){
         String name = this.name.getText().toString();
         String gender = this.gender.getSelectedItem().toString();
@@ -140,6 +154,10 @@ public class ProfileView implements ProfileViewInterface, View.OnClickListener{
         return new UserInfoEntity(name, gender, age, null);
     }
 
+    /**
+     * creating the user goal entity
+     * @return
+     */
     private UserGoalEntity createUserGoalEntity(){
         float price = 0;
         float calorie = 0;
@@ -154,12 +172,19 @@ public class ProfileView implements ProfileViewInterface, View.OnClickListener{
         return new UserGoalEntity(calorie, price, fat, carbs, protein);
     }
 
+    /**
+     * depending on if you are in save or edit state, disable or enable the entries
+     * @param b
+     */
     private void setProfileEdit(boolean b){
         name.setEnabled(b);
         age.setEnabled(b);
         gender.setEnabled(b);
     }
-
+    /**
+     * depending on if you are in save or edit state, disable or enable the entries
+     * @param b
+     */
     private void setGoalsEdit(boolean b){
         price.setEnabled(b);
         calorie.setEnabled(b);
@@ -184,6 +209,10 @@ public class ProfileView implements ProfileViewInterface, View.OnClickListener{
         });
         deleteAlert.show();
     }
+
+    /**
+     * switching the views for the view switcher
+     */
     @Override
     public void switchViews() {
         goals_to_acc_vs.showNext();
@@ -193,6 +222,10 @@ public class ProfileView implements ProfileViewInterface, View.OnClickListener{
         mListner = listener;
     }
 
+    /**
+     * setting the initial data passed in from the firebase
+     * @param profileEntity
+     */
     public void setInitialData(UserProfileEntity profileEntity){
         if(profileEntity == null || profileEntity.getInfo() == null || profileEntity.getGoals() == null) {
             return;
