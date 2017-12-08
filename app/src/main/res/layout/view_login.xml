@@ -19,140 +19,19 @@
 
         <ImageView
             android:id="@+id/imageView1"
-<<<<<<< HEAD
-            android:layout_width="400dp"
-            android:layout_height="249dp"
-=======
             android:layout_width="match_parent"
             android:layout_height="match_parent"
->>>>>>> 4edf74d625e3074064401edf431fea00d07efded
             android:src="@drawable/triton"></ImageView>
-
-
-
 
     </FrameLayout>
 
     <FrameLayout
         android:id="@+id/frameLayout"
-<<<<<<< HEAD
-        android:layout_width="400dp"
-        android:layout_height="450dp"
-        android:layout_marginTop="226dp"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentStart="true">
-
-
-        <TableLayout
-            android:id="@+id/table1"
-            android:layout_width="311dp"
-            android:layout_height="360dp"
-            android:layout_gravity="center"
-            android:background="@color/white"
-
-            android:weightSum="1">
-
-            <TextView
-                android:id="@+id/textview"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginTop="10dp"
-                android:gravity="center"
-                android:layout_marginBottom="20dp"
-                android:text="Triton Meal Planner"
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:textSize="30sp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/textview1"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:gravity="left"
-                android:text="E-MAIL"
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:textIsSelectable="true"
-                android:textSize="18sp"
-                android:textStyle="bold" />
-
-            <EditText
-                android:id="@+id/etEmail"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:inputType="textEmailAddress" />
-
-            <TextView
-                android:id="@+id/textview2"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:gravity="left"
-                android:text="PASSWORD"
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:textIsSelectable="true"
-                android:textSize="18sp"
-                android:textStyle="bold" />
-
-            <EditText
-                android:id="@+id/etPassword"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:inputType="textPassword" />
-
-            <Button
-                android:id="@+id/btLogin"
-                android:layout_width="150dp"
-                android:layout_height="33dp"
-                android:layout_gravity="center"
-                android:layout_marginBottom="15dp"
-                android:layout_marginLeft="50dp"
-                android:layout_marginRight="50dp"
-                android:layout_marginTop="10dp"
-                android:background="@color/buttonColor"
-                android:text="@string/login"
-                android:textColor="@android:color/background_light"
-                android:textSize="20sp"
-                android:textStyle="bold" />
-
-            <Button
-                android:id="@+id/btGuest"
-                android:layout_width="wrap_content"
-                android:layout_height="33dp"
-                android:layout_gravity="center"
-                android:layout_marginBottom="15dp"
-                android:layout_marginLeft="50dp"
-                android:layout_marginRight="50dp"
-                android:background="@color/buttonColor"
-                android:text="@string/guest"
-                android:textColor="@color/white"
-                android:textSize="20sp"
-                android:textStyle="bold" />
-
-            <Button
-                android:id="@+id/btGotoSignup"
-                android:layout_width="fill_parent"
-                android:layout_height="33dp"
-                android:layout_gravity="center"
-                android:layout_marginBottom="15dp"
-                android:layout_marginLeft="50dp"
-                android:layout_marginRight="50dp"
-                android:background="@color/buttonColor"
-                android:text="SIGN UP"
-                android:textColor="@color/white"
-                android:textSize="20sp"
-                android:textStyle="bold" />
-        </TableLayout>
-=======
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_alignParentEnd="true"
         android:layout_marginEnd="28dp">
-
-
->>>>>>> 4edf74d625e3074064401edf431fea00d07efded
     </FrameLayout>
 
     <TableLayout
