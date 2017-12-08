@@ -19,8 +19,13 @@
 
         <ImageView
             android:id="@+id/imageView1"
+<<<<<<< HEAD
+            android:layout_width="400dp"
+            android:layout_height="249dp"
+=======
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+>>>>>>> 4edf74d625e3074064401edf431fea00d07efded
             android:src="@drawable/triton"></ImageView>
 
 
@@ -30,25 +35,26 @@
     <FrameLayout
         android:id="@+id/frameLayout"
         android:layout_width="400dp"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginBottom="10dp"
-        android:layout_marginTop="10dp">
+        android:layout_height="460dp"
+        android:background="@color/white"
+        android:layout_marginTop="239dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true">
 
         <TableLayout
             android:id="@+id/table1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center">
-
+            android:layout_gravity="center"
+            android:weightSum="1">
 
 
             <TextView
                 android:id="@+id/textview1"
-                android:layout_width="fill_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
+                android:layout_weight="1.37"
                 android:gravity="center"
                 android:text="@string/email"
                 android:textAppearance="?android:attr/textAppearanceLarge"
@@ -137,7 +143,6 @@
                 android:textColor="@color/white"
                 android:textSize="18sp"
                 android:textStyle="bold" />
-
 
 
         </TableLayout>
