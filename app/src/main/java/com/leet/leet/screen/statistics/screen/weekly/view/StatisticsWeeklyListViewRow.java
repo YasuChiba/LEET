@@ -56,6 +56,7 @@ public class StatisticsWeeklyListViewRow extends LinearLayout {
         super.onDraw(canvas);
     }
 
+    //call this method to set data to each row.
     public void setData(String week,
                         float price,
                         float priceGoal,
@@ -76,6 +77,7 @@ public class StatisticsWeeklyListViewRow extends LinearLayout {
         setIcon(carbIcon,carb,carbGoal);
     }
 
+    //set icon depends on the value of val and goal
     private void setIcon(ImageView view, float val, float goal) {
         if(val>goal) {
             view.setImageResource(R.mipmap.up_arrow_red);

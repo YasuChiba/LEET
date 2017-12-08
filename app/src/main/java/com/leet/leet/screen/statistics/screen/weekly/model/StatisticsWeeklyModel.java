@@ -36,6 +36,7 @@ public class StatisticsWeeklyModel {
     private ArrayList<SumModel> dataList = new ArrayList<>();
     private UserGoalEntity userGoalEntity = new UserGoalEntity();
 
+    //set test data to database
     public void setDataTest() {
 
         for(int i=0;i<10;i++){
@@ -86,6 +87,7 @@ public class StatisticsWeeklyModel {
                     float fat = 0;
                     float carbs = 0;
 
+                    //adding price, calorie, etc...
                     for(MenuEntity menu : entity.getBreakfastMenu()) {
                         price += menu.getPrice();
                         calorie += menu.getNutritions().getCalories();
@@ -121,6 +123,7 @@ public class StatisticsWeeklyModel {
                     dataL.add(model);
                 }
 
+                //check all the date is in the list. if not exists, add the date.
                 LocalDate d = startDate;
                 for(int i=0; ; i++) {
                     if(dataL.size() <= i) {

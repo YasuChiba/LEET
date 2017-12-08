@@ -27,11 +27,11 @@ import java.util.ArrayList;
  * Created by YasuhiraChiba on 2017/11/22.
  */
 
+//header for weekly page. This header contains graph.
 public class StatisticsWeeklyListViewHeader extends LinearLayout implements View.OnClickListener {
 
 
     private LineChart graphView;
- //   private ConstraintLayout constraintLayout;
     private LinearLayout graphButtonContainer;
     private Button btGraphCalorie;
     private Button btGraphPrice;
@@ -104,6 +104,7 @@ public class StatisticsWeeklyListViewHeader extends LinearLayout implements View
     public void setDataToGraph(final ArrayList<String> labelList , final ArrayList<Float> val, float goal) {
         ArrayList<Float> tmp = new ArrayList<>();
 
+        //test data
         if(val == null) {
             tmp.add(((float)10));
             tmp.add((float)20);
