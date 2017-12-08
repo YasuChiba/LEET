@@ -27,6 +27,7 @@ import java.util.ArrayList;
 
 /**
  * Created by Sam on 11/19/2017.
+ * This class is responsible for controlling the actions of the menu pages.
  */
 
 public class ResultControllerFragment extends Fragment implements ResultViewInterface.MealResultViewListener,MealSortDialogInterface {
@@ -115,6 +116,7 @@ public class ResultControllerFragment extends Fragment implements ResultViewInte
         return true;
     }
 
+    // retrive menu from Firebase
     private void setMenuToListView() {
         model.getMenu(new FirebaseDBCallaback<Boolean>() {
             @Override
@@ -130,6 +132,7 @@ public class ResultControllerFragment extends Fragment implements ResultViewInte
     }
 
     @Override
+    // if user changes between breakfast/luncher/dinner, then retrieve the requested menu
     public void mealTimeSelected(Enums.MealTime time) {
         model.setCurrentMealTime(time);
         setMenuToListView();

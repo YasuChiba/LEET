@@ -44,9 +44,11 @@ public class ResultViewRow extends LinearLayout {
         initialiseView(context);
     }
 
+    // initialize view to show the menu item and some of it's nutritional values
     private void initialiseView(Context context) {
         View.inflate(context, R.layout.customview_menu_search_list_view_row, this);
 
+        // these values were selected based on relevance for deciding how healthy a meal is
         name = (TextView)this.findViewById(R.id.menu_search_row_foodname);
         price = (TextView)this.findViewById(R.id.menu_search_row_price);
         calory = (TextView)this.findViewById(R.id.menu_search_row_calory);
