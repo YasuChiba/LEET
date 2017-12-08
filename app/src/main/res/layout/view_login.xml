@@ -21,8 +21,10 @@
         <ImageView
             android:id="@+id/imageView1"
             android:layout_width="400dp"
-            android:layout_height="230dp"
+            android:layout_height="249dp"
             android:src="@drawable/triton"></ImageView>
+
+
 
 
     </FrameLayout>
@@ -30,18 +32,16 @@
     <FrameLayout
         android:id="@+id/frameLayout"
         android:layout_width="400dp"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop= "10dp"
-        android:layout_marginBottom="10dp"
-        >
+        android:layout_height="450dp"
+        android:layout_marginTop="226dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true">
 
 
         <TableLayout
             android:id="@+id/table1"
-            android:layout_width="300dp"
-            android:layout_height="330dp"
+            android:layout_width="311dp"
+            android:layout_height="360dp"
             android:layout_gravity="center"
             android:background="@color/white"
 
@@ -49,17 +49,16 @@
 
             <TextView
                 android:id="@+id/textview"
-                android:layout_width="match_parent"
-                android:layout_height="45dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="10dp"
                 android:gravity="center"
-                android:paddingBottom="30dp"
+                android:layout_marginBottom="20dp"
                 android:text="Triton Meal Planner"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:textSize="30sp"
-                android:textStyle="bold"
-                android:layout_weight="6.05" />
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/textview1"
@@ -103,8 +102,9 @@
                 android:layout_height="33dp"
                 android:layout_gravity="center"
                 android:layout_marginBottom="15dp"
-                android:layout_marginRight="50dp"
                 android:layout_marginLeft="50dp"
+                android:layout_marginRight="50dp"
+                android:layout_marginTop="10dp"
                 android:background="@color/buttonColor"
                 android:text="@string/login"
                 android:textColor="@android:color/background_light"
@@ -117,8 +117,8 @@
                 android:layout_height="33dp"
                 android:layout_gravity="center"
                 android:layout_marginBottom="15dp"
-                android:layout_marginRight="50dp"
                 android:layout_marginLeft="50dp"
+                android:layout_marginRight="50dp"
                 android:background="@color/buttonColor"
                 android:text="@string/guest"
                 android:textColor="@color/white"
@@ -131,10 +131,10 @@
                 android:layout_height="33dp"
                 android:layout_gravity="center"
                 android:layout_marginBottom="15dp"
-                android:background="@color/buttonColor"
-                android:layout_marginRight="50dp"
                 android:layout_marginLeft="50dp"
-                android:text="@string/signup"
+                android:layout_marginRight="50dp"
+                android:background="@color/buttonColor"
+                android:text="SIGN UP"
                 android:textColor="@color/white"
                 android:textSize="20sp"
                 android:textStyle="bold" />

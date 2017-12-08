@@ -10,11 +10,10 @@ import android.view.ViewGroup;
 import com.leet.leet.R;
 import com.leet.leet.screen.meal.screens.addCustomMeal.controller.AddCustomMealFragment;
 
-/**
+/** This class is the base view for Meal where it would control the shifting between fragments
  * Created by Jhern on 11/15/2017.
  */
 
-//This is base view for Meal. By changing the content of R.id.meal_base_container, move to other screen.
 public class MealView implements MealViewInterface  {
 
     private View mRootView;
@@ -23,13 +22,19 @@ public class MealView implements MealViewInterface  {
         mRootView = inflater.inflate(R.layout.view_meal, container, false); //connect the view with the meal base view
     }
 
+    /**
+     * This method is used to get the view the meal base page or shows the view_mail layout
+     * @return the View of the view_mail
+     */
     @Override
     public View getRootView() {
         return mRootView;
     }
 
-    //this method goot to be put in controller. but this method use "R.id.~" which is unique in view, so i put this here.
-    public void changeContent(FragmentManager fragmentManager, Fragment fragment, boolean isAddToStack) { // ini di ganti
+    /**
+     *  This method is used shift between fragments in the meal page view
+     */
+    public void changeContent(FragmentManager fragmentManager, Fragment fragment, boolean isAddToStack) {
 
         FragmentTransaction ft = fragmentManager.beginTransaction();
         ft.setCustomAnimations(

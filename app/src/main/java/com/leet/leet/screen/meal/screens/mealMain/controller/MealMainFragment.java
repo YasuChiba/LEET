@@ -12,21 +12,23 @@ import com.leet.leet.screen.meal.screens.mealMain.view.MealMainView;
 import com.leet.leet.screen.meal.screens.mealMain.view.MealMainViewInterface;
 
 /**
+ * This class is the controller of the mail main fragment
  * Created by YasuhiraChiba on 2017/11/16.
  */
 
 public class MealMainFragment extends Fragment implements MealMainViewInterface.MealMainViewListner {
 
     MealMainView mView;
-    MealMainListner mainListner; //once button is clicked, move to another fragment
+    MealMainListner mainListner; // listener that handles switching fragment once button is clicked
 
 
-    //Since Fragment cannot implement constructor with our original arguments, we should create this kind of method
+    /**
+     * This method sets up the fragment that will be swtiched onto
+     * @param listner
+     */
     public void setupFragment(MealMainListner listner) {
         this.mainListner = listner;
     }
-
-    //public void setupFragment2(MealMainListner listner) { this.mainListner2 = listner;}
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -37,13 +39,17 @@ public class MealMainFragment extends Fragment implements MealMainViewInterface.
         return mView.getRootView();
     }
 
-    //Method of MealMainViewListner
+    /**
+     *  This method changes the shifting from meal main page to the result page
+     */
     @Override
     public void mealToResult(Enums.RestaurantName restaurantName) {
-       // mainListner.moveToDetaileFragment();
         mainListner.moveToResultFragment(restaurantName);
     }
 
+    /**
+     * This method changes the shifting from meal main page to the custom meal page
+     */
     @Override
     public void mealToCustom() { mainListner.moveToAddCustomFragment();}
 
