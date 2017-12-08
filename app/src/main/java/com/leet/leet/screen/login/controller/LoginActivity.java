@@ -95,25 +95,15 @@ public class LoginActivity extends AppCompatActivity implements LoginViewInterfa
      * @param password user input password
      */
     @Override
-    public boolean login(final String email, final String password) {
+    public void login(final String email, final String password) {
         if (checkEmail(email) && checkPassword(password)) {
             //Toast.makeText(this, "200", Toast.LENGTH_SHORT).show();
             ProgressDialogManager.showProgressDialog(this);
             FirebaseAuthManager.signIn(email, password, this);
-
-            FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-            if (user != null && user.isEmailVerified()) {
-                startActivity(new Intent(this, MainActivity.class));
-                return true;
-            } else {
-                Log.d("LOGIN", "not verified");
-                Toast.makeText(this, "You must verify your email first", Toast.LENGTH_SHORT).show();
-                return false;
-            }
+        } else {
+            Log.d("LOGIN", "login failed");
+            //Toast.makeText(this, "404", Toast.LENGTH_SHORT).show();
         }
-        Log.d("LOGIN", "login failed");
-        //Toast.makeText(this, "404", Toast.LENGTH_SHORT).show();
-        return false;
     }
 
     /**
@@ -156,6 +146,14 @@ public class LoginActivity extends AppCompatActivity implements LoginViewInterfa
                 }
             });
         } else {
+            // check if user verify their email or not before goto meal page
+            FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+            if (user != null && user.isEmailVerified()) {
+                startActivity(new Intent(this, MainActivity.class));
+            } else {
+                Log.d("LOGIN", "not verified");
+                Toast.makeText(this, "You must verify your email first", Toast.LENGTH_SHORT).show();
+            }
             /*
             Intent intent = new Intent(this, MainActivity.class);
             intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);

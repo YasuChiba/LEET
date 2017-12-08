@@ -12,13 +12,15 @@ import com.leet.leet.screen.meal.view.MealView;
 
 /**
  * Created by YasuhiraChiba on 2017/11/16.
+ *
+ * THIS CLASS IS NOT USED, WAS USED AS AN EXAMPLE.
  */
 
 public class ExampleFragment extends Fragment {
 
     ExampleView mView;
 
-    @Override //what is this?
+    @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 

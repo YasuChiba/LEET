@@ -8,6 +8,8 @@ import java.util.ArrayList;
  * Created by k3vn19 on 11/19/2017.
  *
  * This class acts as the Model for the Sort Menu Options Page.
+ *
+ * THIS CLASS IS NO LONGER BEING USED
  */
 
 public class SortMealModel {

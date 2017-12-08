@@ -231,6 +231,8 @@
                             android:id="@+id/Fat"
                             android:layout_width="110dp"
                             android:layout_height="wrap_content"
+                            android:layout_alignParentEnd="true"
+                            android:layout_centerVertical="true"
                             android:backgroundTint="#cfcfcf"
                             android:ems="10"
                             android:gravity="right"
@@ -239,9 +241,7 @@
                             android:maxLength="5"
                             android:textColor="@color/textColor"
                             android:textColorHint="@color/textColorHint"
-                            android:textSize="18sp"
-                            android:layout_centerVertical="true"
-                            android:layout_alignParentEnd="true">>
+                            android:textSize="18sp">>
 
                             <requestFocus />
                         </EditText>
@@ -250,11 +250,11 @@
                             android:id="@+id/fat"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:layout_alignBottom="@id/Fat"
                             android:layout_alignParentStart="true"
                             android:text="@string/Fat"
                             android:textColor="@color/light_red"
-                            android:textSize="24sp"
-                            android:layout_alignBottom="@id/Fat" />
+                            android:textSize="24sp" />
 
 
                     </RelativeLayout>
@@ -360,7 +360,9 @@
                             android:layout_alignParentRight="true"
                             android:layout_alignParentTop="true"
                             android:backgroundTint="#cfcfcf"
-                            android:ellipsize="marquee"
+                            android:ellipsize="end"
+                            android:maxLength="22"
+                            android:maxLines="1"
                             android:enabled="false"
                             android:gravity="right"
                             android:hint="Email Here"

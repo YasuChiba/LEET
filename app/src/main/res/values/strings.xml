@@ -38,9 +38,10 @@
     <!-- Used in dialog_view_meal_sort.xml -->
     <string-array name = "priceArray">
         <item>None</item>
-        <item>0-5</item>
-        <item>5-10</item>
-        <item>10-15</item>
+        <item>0-4</item>
+        <item>4-7</item>
+        <item>7+</item>
+
     </string-array>
 
     <string-array name = "calorieArray">
@@ -48,6 +49,7 @@
         <item>0-600</item>
         <item>600-1200</item>
         <item>1200-2000</item>
+        <item>2000+</item>
     </string-array>
 
     <string-array name = "proteinArray">
@@ -55,6 +57,7 @@
         <item>0-5</item>
         <item>5-15</item>
         <item>15-20</item>
+        <item>20+</item>
     </string-array>
 
     <string-array name = "carbsArray">
@@ -62,6 +65,7 @@
         <item>0-15</item>
         <item>15-25</item>
         <item>25-40</item>
+        <item>40+</item>
     </string-array>
 
     <string-array name = "totFatArray">
@@ -69,6 +73,7 @@
         <item>0-15</item>
         <item>15-30</item>
         <item>30-50</item>
+        <item>50+</item>
     </string-array>
 
     <string-array name = "satFatArray">
@@ -76,6 +81,7 @@
         <item>0-10</item>
         <item>10-20</item>
         <item>20-30</item>
+        <item>30+</item>
     </string-array>
 
     <string-array name = "sodiumArray">
@@ -83,6 +89,7 @@
         <item>0-600</item>
         <item>600-1200</item>
         <item>1200-2000</item>
+        <item>2000+</item>
     </string-array>
 
     <string-array name = "cholesterolArray">
@@ -90,6 +97,7 @@
         <item>0-50</item>
         <item>50-100</item>
         <item>100-150</item>
+        <item>150+</item>
     </string-array>
 
     <string-array name = "fiberArray">
@@ -97,6 +105,7 @@
         <item>0-5</item>
         <item>5-15</item>
         <item>15-30</item>
+        <item>30+</item>
     </string-array>
 
     <string-array name = "sugarArray">
@@ -104,6 +113,7 @@
         <item>0-15</item>
         <item>15-25</item>
         <item>25-40</item>
+        <item>40+</item>
     </string-array>
 
     <string-array name="mealTimeArray">

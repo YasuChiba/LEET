@@ -10,7 +10,9 @@ import android.widget.LinearLayout;
 
 import com.github.mikephil.charting.charts.LineChart;
 import com.github.mikephil.charting.components.AxisBase;
+import com.github.mikephil.charting.components.LimitLine;
 import com.github.mikephil.charting.components.XAxis;
+import com.github.mikephil.charting.components.YAxis;
 import com.github.mikephil.charting.data.Entry;
 import com.github.mikephil.charting.data.LineData;
 import com.github.mikephil.charting.data.LineDataSet;
@@ -93,14 +95,13 @@ public class StatisticsWeeklyListViewHeader extends LinearLayout implements View
         graphView.setPinchZoom(true);
         graphView.getLegend().setEnabled(false);
         graphView.getXAxis().setPosition(XAxis.XAxisPosition.BOTTOM);
-
     }
 
     public void setListner(StatisticsWeeklyViewInterface.StatisticsWeeklyListViewHeaderListener listener) {
         this.mListner = listener;
     }
 
-    public void setDataToGraph(final ArrayList<String> labelList , final ArrayList<Float> val) {
+    public void setDataToGraph(final ArrayList<String> labelList , final ArrayList<Float> val, float goal) {
         ArrayList<Float> tmp = new ArrayList<>();
 
         if(val == null) {
@@ -135,6 +136,10 @@ public class StatisticsWeeklyListViewHeader extends LinearLayout implements View
                 return labelList.get((int)value);
             }
         });
+
+        YAxis yAxis = graphView.getAxisLeft();
+        yAxis.removeAllLimitLines();
+        yAxis.addLimitLine(new LimitLine(goal, "Goal"));
 
         graphView.invalidate();
 

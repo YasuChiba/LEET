@@ -4,6 +4,8 @@ import com.leet.leet.common.ViewBaseInterface;
 
 /**
  * Created by k3vn19 on 11/19/2017.
+ *
+ * THIS CLASS IS NO LONGER BEING USED
  */
 
 public interface SortMealInterface extends ViewBaseInterface{

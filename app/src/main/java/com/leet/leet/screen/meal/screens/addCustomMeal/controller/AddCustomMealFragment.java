@@ -12,8 +12,6 @@ import com.leet.leet.screen.meal.screens.addCustomMeal.model.AddCustomMealModel;
 import com.leet.leet.screen.meal.screens.addCustomMeal.view.AddCustomMealView;
 import com.leet.leet.screen.meal.screens.addCustomMeal.view.CustomMealInterface;
 
-import static java.security.AccessController.getContext;
-
 /**
  * Created by k3vn19 on 11/15/2017.
  *

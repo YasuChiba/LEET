@@ -5,6 +5,7 @@ import java.util.ArrayList;
 
 /**
  * Created by YasuhiraChiba on 2017/11/29.
+ * Implemented by k3vn19.
  */
 
 public class MealSortDialogModel {
@@ -21,6 +22,9 @@ public class MealSortDialogModel {
     private int fiberRange;
     private int sugarRange;
 
+    /*
+     * Getters and setters
+     */
     public void setPriceRange(int i){
         priceRange = i;
     }

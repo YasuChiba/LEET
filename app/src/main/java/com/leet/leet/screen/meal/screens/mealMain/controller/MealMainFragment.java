@@ -43,6 +43,10 @@ public class MealMainFragment extends Fragment implements MealMainViewInterface.
      *  This method changes the shifting from meal main page to the result page
      */
     @Override
+    /**
+     * This Method of MealMainViewListner to switch from meal main to a specific dining hall
+     *           menu.
+     */
     public void mealToResult(Enums.RestaurantName restaurantName) {
         mainListner.moveToResultFragment(restaurantName);
     }
@@ -51,6 +55,9 @@ public class MealMainFragment extends Fragment implements MealMainViewInterface.
      * This method changes the shifting from meal main page to the custom meal page
      */
     @Override
+    /**
+     * Purpose - Transition from main meal page to custom menu
+     */
     public void mealToCustom() { mainListner.moveToAddCustomFragment();}
 
 }

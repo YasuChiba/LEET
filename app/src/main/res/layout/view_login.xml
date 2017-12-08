@@ -10,18 +10,22 @@
     <!-- Xinhe Zhang, 11/05/2017 -->
 
     <FrameLayout
-        android:layout_width="match_parent"
-        android:layout_height="300dp"
-        android:layout_alignParentEnd="true"
+        android:id="@+id/frameLayout3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/table1"
         android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:background="@color/white"
-        android:id="@+id/frameLayout3">
+        android:background="@color/white">
 
         <ImageView
             android:id="@+id/imageView1"
+<<<<<<< HEAD
             android:layout_width="400dp"
             android:layout_height="249dp"
+=======
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+>>>>>>> 4edf74d625e3074064401edf431fea00d07efded
             android:src="@drawable/triton"></ImageView>
 
 
@@ -31,6 +35,7 @@
 
     <FrameLayout
         android:id="@+id/frameLayout"
+<<<<<<< HEAD
         android:layout_width="400dp"
         android:layout_height="450dp"
         android:layout_marginTop="226dp"
@@ -139,6 +144,121 @@
                 android:textSize="20sp"
                 android:textStyle="bold" />
         </TableLayout>
+=======
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="28dp">
+
+
+>>>>>>> 4edf74d625e3074064401edf431fea00d07efded
     </FrameLayout>
+
+    <TableLayout
+        android:id="@+id/table1"
+        android:layout_width="300dp"
+        android:layout_height="330dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+
+        android:layout_gravity="center"
+        android:background="@color/white"
+        android:weightSum="1">
+
+        <TextView
+            android:id="@+id/textview"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="10dp"
+            android:layout_weight="6.05"
+            android:gravity="center"
+            android:paddingBottom="30dp"
+            android:text="Triton Meal Planner"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textSize="30sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/textview1"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:gravity="center"
+            android:text="E-MAIL"
+            android:textAlignment="viewStart"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textIsSelectable="true"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/etEmail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="textEmailAddress" />
+
+        <TextView
+            android:id="@+id/textview2"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:gravity="center"
+            android:text="PASSWORD"
+            android:textAlignment="viewStart"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textIsSelectable="true"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/etPassword"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="textPassword" />
+
+        <Button
+            android:id="@+id/btLogin"
+            android:layout_width="150dp"
+            android:layout_height="33dp"
+            android:layout_gravity="center"
+            android:layout_marginBottom="15dp"
+            android:layout_marginLeft="50dp"
+            android:layout_marginRight="50dp"
+            android:background="@color/base_color"
+            android:text="@string/login"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/btGuest"
+            android:layout_width="wrap_content"
+            android:layout_height="33dp"
+            android:layout_gravity="center"
+            android:layout_marginBottom="15dp"
+            android:layout_marginLeft="50dp"
+            android:layout_marginRight="50dp"
+            android:background="@color/base_color"
+            android:text="@string/guest"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/btGotoSignup"
+            android:layout_width="fill_parent"
+            android:layout_height="33dp"
+            android:layout_gravity="center"
+            android:layout_marginBottom="15dp"
+            android:layout_marginLeft="50dp"
+            android:layout_marginRight="50dp"
+            android:background="@color/base_color"
+            android:text="@string/signup"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+    </TableLayout>
 
 </RelativeLayout>

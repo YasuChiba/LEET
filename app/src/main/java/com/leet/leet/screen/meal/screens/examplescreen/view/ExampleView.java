@@ -8,6 +8,8 @@ import com.leet.leet.R;
 
 /**
  * Created by YasuhiraChiba on 2017/11/16.
+ *
+ * THIS CLASS IS NOT USED, WAS USED AS AN EXAMPLE.
  */
 
 public class ExampleView implements ExampleViewInterface {
