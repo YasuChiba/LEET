@@ -151,8 +151,8 @@ public class StatisticsWeeklyModel {
                 callback.getData(true);
             }
         });
-
-        setDataTest();
+        
+        //setDataTest();
     }
 
     public void getUserGoal( final FirebaseDBCallaback<Boolean> callback) {
