@@ -36,6 +36,8 @@ public class DetailedMealView implements DetailedMealInterface, View.OnClickList
     private DetailedMealListener mListener;
     private boolean isFromMeal;
 
+    //if this view is called from Meal Result, isFromResultView should be true.
+    //if called from statistics page, should be false.
     public DetailedMealView(LayoutInflater inflater, ViewGroup container,boolean isFromResultView) {
         mRootView = inflater.inflate(R.layout.view_detailed_meal, container, false);
         this.isFromMeal = isFromResultView;

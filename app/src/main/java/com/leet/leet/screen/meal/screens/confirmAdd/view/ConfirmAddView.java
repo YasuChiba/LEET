@@ -52,7 +52,7 @@ public class ConfirmAddView implements ConfirmAddDialogViewInterface,AdapterView
      */
     public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
         switch (adapterView.getId()) {
-            case R.id.meal_sort_price_spinner:
+            case R.id.meal_time_spinner:
                 mListener.mealTimeSelected(i);
                 break;
         }

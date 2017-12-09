@@ -36,6 +36,7 @@ public class StatisticsView implements StatisticsViewInterface {
         container = (FrameLayout)mRootView.findViewById(R.id.statistics_container);
     }
 
+    //change the content of view
     public void setContent(FragmentManager fragmentManager, Fragment fragment, boolean isAddToStack) {
 
         FragmentTransaction ft = fragmentManager.beginTransaction();
@@ -44,6 +45,8 @@ public class StatisticsView implements StatisticsViewInterface {
                 R.anim.slide_in_left, R.anim.slide_out_right
         );
         ft.replace(R.id.statistics_container, fragment);
+
+        //if isAddToStack is true, back button work.
         if(isAddToStack) {
             ft = ft.addToBackStack(null);
         }

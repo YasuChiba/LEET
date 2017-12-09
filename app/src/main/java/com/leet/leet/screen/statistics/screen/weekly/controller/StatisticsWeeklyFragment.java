@@ -58,14 +58,17 @@ public class StatisticsWeeklyFragment extends Fragment implements StatisticsWeek
             }
         });
 
+        //get statts data from database and set to view.
         mModel.getStatisticsData(DateHelper.getPastDate(5),
                 DateHelper.getCurrentDate(),
                 new FirebaseDBCallaback<Boolean>() {
                     @Override
                     public void getData(Boolean success) {
+                        //set data to list view
                         mView.setupListView(getContext(),
                                 mModel.getAllList(),
                                 mModel.getUserGoalEntity());
+                        //set data to header's graph
                         mView.setDataToGraph(mModel.getWeekList(),mModel.getPriceList(),mModel.getUserGoalEntity().getPrice());
                     }
         });
@@ -95,9 +98,9 @@ public class StatisticsWeeklyFragment extends Fragment implements StatisticsWeek
         }
     }
 
+    //if the element of list view is tapped, this method called.
     @Override
     public void listElementTap(int index) {
         mListener.changeToDaily(mModel.getDayList().get(mModel.getDayList().size() - index));
-        //do something to move to daily view
     }
 }

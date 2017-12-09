@@ -37,12 +37,11 @@ public class MealResultModel {
      */
     public void getMenu(final FirebaseDBCallaback<Boolean> callback) {
 
-        //For if the user selected a dining hall
+        // If the user selects a dining hall, get that dining hall's menu
         if(currentRestaurantName != Enums.RestaurantName.Custom) {
-            //Log.d("If", "In if");
             FirebaseDBMenuDataHelper.getMenuData(currentRestaurantName,
                     DateHelper.getCurrentDate(),
-                    currentMealTime,
+                    currentMealTime, // default meal time is lunch, so initially load lunch menu
                     new FirebaseDBCallaback<ArrayList<MenuEntity>>() {
                         @Override
                         public void getData(ArrayList<MenuEntity> data) {
@@ -52,13 +51,10 @@ public class MealResultModel {
                         }
                     });
         }
-        else {
-            //Log.d("Else", "In else");
+        else { // get custom meal menu using different Firebase helper, if custom is selected
             FirebaseDBUserDataHelper.getCustomMenus(new FirebaseDBCallaback<ArrayList<MenuEntity>>() {
                 @Override
                 public void getData(ArrayList<MenuEntity> data) {
-                    Log.d("Custom", "In custom");
-
                     menuEntityList = data;
                     searchedMenuEntityList = data;
                     callback.getData(true);

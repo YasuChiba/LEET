@@ -23,9 +23,15 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"/>
 
+    </FrameLayout>
 
-
-
+    <FrameLayout
+        android:id="@+id/frameLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="28dp">
     </FrameLayout>
 
     <TableLayout
@@ -60,7 +66,7 @@
             android:layout_gravity="center_horizontal"
             android:gravity="center"
             android:text="E-MAIL"
-            android:textAlignment="viewStart"
+            android:textAlignment="center"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:textIsSelectable="true"
             android:textSize="18sp"
@@ -79,7 +85,7 @@
             android:layout_gravity="center_horizontal"
             android:gravity="center"
             android:text="PASSWORD"
-            android:textAlignment="viewStart"
+            android:textAlignment="center"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:textIsSelectable="true"
             android:textSize="18sp"

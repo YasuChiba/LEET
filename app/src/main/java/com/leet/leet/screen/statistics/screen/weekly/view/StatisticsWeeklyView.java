@@ -96,11 +96,13 @@ public class StatisticsWeeklyView implements StatisticsWeeklyViewInterface,
        header.setDataToGraph(labelList,val,goal);
     }
 
+    //if buttons (cal, price, etc..) are tapped, this method called.
     @Override
     public void buttonTap(Enums.GraphElements elem) {
         mListner.graphUpdateButtonTap(elem);
     }
 
+    //if list view's element is tapped, this method called.
     @Override
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
         mListner.listElementTap(i);

@@ -32,6 +32,7 @@ import org.joda.time.LocalDate;
  */
 
 
+//Base fragment of statistics page. Move to daily view by changing this fragment's view.
 public class StatisticsFragment extends Fragment implements StatisticsViewInterface.StatisticsViewListener,
         StatisticsWeeklyInterface,StatisticsDailyInterface, StatisticsDailyDetailInterface{
 
@@ -77,7 +78,7 @@ public class StatisticsFragment extends Fragment implements StatisticsViewInterf
         mView.setContent(getChildFragmentManager(),detailedMealFragment,true);
     }
 
-
+    //if "DELETE Menu" button in Detail view is clicked, this method called.
     @Override
     public void menuDeleted() {
         if(dailyFragment != null) {

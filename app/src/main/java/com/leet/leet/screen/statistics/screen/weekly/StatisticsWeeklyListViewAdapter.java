@@ -20,6 +20,7 @@ import java.util.Collections;
  * Created by YasuhiraChiba on 2017/11/22.
  */
 
+//adapter class for listview in stats weekly
 public class StatisticsWeeklyListViewAdapter extends BaseAdapter {
 
     private Context context;
@@ -35,6 +36,7 @@ public class StatisticsWeeklyListViewAdapter extends BaseAdapter {
     }
 
 
+    //set data to listview
     public void setData(ArrayList<SumModel> data,
                         UserGoalEntity goal) {
 
@@ -60,6 +62,7 @@ public class StatisticsWeeklyListViewAdapter extends BaseAdapter {
         return 0;
     }
 
+    //create view for each row
     @Override
     public View getView(int i, View view, ViewGroup viewGroup) {
         String week = DateHelper.getWeekByString(DateHelper.getStringByDate(data.get(i).day)).getString();
