@@ -8,43 +8,35 @@
 
     <!-- Xinhe Zhang, 11/05/2017 -->
 
-
     <FrameLayout
         android:id="@+id/frameLayout3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/frameLayout"
+        android:layout_above="@+id/table1"
         android:layout_alignParentStart="true"
         android:background="@color/white">
 
-        <ImageView
-            android:id="@+id/imageView1"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:src="@drawable/triton"></ImageView>
-
-
+    <ImageView
+        android:id="@+id/imageView1"
+        android:background="@drawable/triton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
     </FrameLayout>
 
 
-    <FrameLayout
-        android:id="@+id/frameLayout"
-        android:layout_width="400dp"
-        android:layout_height="460dp"
-        android:background="@color/white"
-        android:layout_marginTop="239dp"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentStart="true">
 
-        <TableLayout
+    <TableLayout
             android:id="@+id/table1"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
             android:layout_gravity="center"
+            android:background="@color/white"
             android:weightSum="1">
 
 
-            <TextView
+        <TextView
                 android:id="@+id/textview1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -142,7 +134,6 @@
 
         </TableLayout>
 
-    </FrameLayout>
 
 
 </RelativeLayout>
