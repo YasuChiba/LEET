@@ -26,25 +26,19 @@ public class StatisticsDailyModel {
 
     public UserGoalEntity userGoalEntity = new UserGoalEntity();
 
-    public float[] price;
-    public float[] calorie;
-    public float[] protein;
-    public float[] fat;
-    public float[] carbs;
-
-    private float price_B = 0;
+    private float price_B;
     private float calorie_B;
     private float protein_B;
     private float fat_B;
     private float carbs_B;
 
-    private float price_L = 0;
+    private float price_L;
     private float calorie_L;
     private float protein_L;
     private float fat_L;
     private float carbs_L;
 
-    private float price_D= 0;
+    private float price_D;
     private float calorie_D;
     private float protein_D;
     private float fat_D;
@@ -117,7 +111,7 @@ public class StatisticsDailyModel {
     }
 
     public float[] getPrice(){
-        float[] total = new float[] {calorie_B/100, calorie_L/100, calorie_D/100};
+        float[] total = new float[] {price_B, price_L, price_D};
         return total;
     }
 

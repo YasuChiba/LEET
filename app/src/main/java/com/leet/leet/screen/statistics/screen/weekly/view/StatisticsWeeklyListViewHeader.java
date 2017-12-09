@@ -142,6 +142,7 @@ public class StatisticsWeeklyListViewHeader extends LinearLayout implements View
         yAxis.removeAllLimitLines();
         yAxis.addLimitLine(new LimitLine(goal, "Goal"));
 
+        graphView.notifyDataSetChanged();
         graphView.invalidate();
 
     }

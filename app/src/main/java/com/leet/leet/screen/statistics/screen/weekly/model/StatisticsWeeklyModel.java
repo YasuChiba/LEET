@@ -38,8 +38,12 @@ public class StatisticsWeeklyModel {
 
     //set test data to database
     public void setDataTest() {
+        int min = 0;
+        int max = 2;
 
-        for(int i=0;i<10;i++){
+        Random r = new Random();
+        int i1 = r.nextInt(max - min);
+        for(int i=0;i<6;i++){
             LocalDate date = DateHelper.getPastDate(i);
 
             for(int j=0;j<3;j++){
@@ -48,7 +52,7 @@ public class StatisticsWeeklyModel {
                 if(j==1)time = Enums.MealTime.Lunch;
                 if(j==2)time = Enums.MealTime.Dinner;
 
-                for(int k=0;k<5;k++) {
+                for(int k=0;k<2;k++) {
                     final LocalDate d = date;
                     final Enums.MealTime t = time;
                     FirebaseDBMenuDataHelper.getMenuData(Enums.RestaurantName.CafeVentanas, DateHelper.getCurrentDate(), time,
@@ -56,7 +60,7 @@ public class StatisticsWeeklyModel {
                                 @Override
                                 public void getData(ArrayList<MenuEntity> data) {
                                     int ran = (int)(Math.random()*data.size());
-                                    FirebaseDBUserDataHelper.setStatisticsData(d, t,data.get(ran));
+                                    FirebaseDBUserDataHelper.setStatisticsData(d, t, data.get(ran));
                                 }
                             });
                 }
@@ -147,6 +151,8 @@ public class StatisticsWeeklyModel {
                 callback.getData(true);
             }
         });
+
+        setDataTest();
     }
 
     public void getUserGoal( final FirebaseDBCallaback<Boolean> callback) {
