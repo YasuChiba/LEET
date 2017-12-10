@@ -3,7 +3,7 @@ package com.leet.leet.utils.database.entities.menu;
 /**
  * Created by YasuhiraChiba on 2017/10/31.
  */
-//nh
+
 public class MenuEntity {
 
     private String name = "";

@@ -32,9 +32,7 @@ import android.widget.BaseExpandableListAdapter;
 import android.widget.TextView;
 
 /**
- * This will create expandable list view.
- *
- * Created by Pyeong Kyu Hwang on 2017/12/01.
+ * Created by YasuhiraChiba on 2017/11/22.
  */
 
 public class StatisticsDailyListViewAdapter extends BaseExpandableListAdapter {
@@ -49,21 +47,17 @@ public class StatisticsDailyListViewAdapter extends BaseExpandableListAdapter {
         initList();
     }
 
-    //initialize lists.
     private void initList() {
         expandableListDetail = new HashMap<String, List<MenuEntity>>();
         expandableListTitle = new ArrayList<String>();
 
     }
 
-    //input data on expandable list view.
     public void setDataToRow(List<MenuEntity> m_breakfast, List<MenuEntity> m_lunch,
                                 List<MenuEntity> m_dinner){
 
         ArrayList<MenuEntity> childList;
 
-        //Since the application handles breafast, lunch, and dinner intakes only;
-        //this creates three groups with empty childs.
         expandableListTitle = new ArrayList<>();
         expandableListTitle.add(
                 new String("Breakfast"));
@@ -72,37 +66,32 @@ public class StatisticsDailyListViewAdapter extends BaseExpandableListAdapter {
         expandableListTitle.add(
                 new String( "Dinner"));
 
-
         expandableListDetail = new HashMap<>();
 
-        //calls and enlists menus in expandableListDetail
         childList = new ArrayList<>();
         if(!m_breakfast.isEmpty()) {
             for (int i = 0; i < m_breakfast.size(); i++) {
                 childList.add(m_breakfast.get(i));
             }
         }
-        //connect enlisted menus with breakfast tab
+
         expandableListDetail.put(expandableListTitle.get(0), childList);
 
-        //calls and enlists menus in expandableListDetail
         childList = new ArrayList<>();
         if(!m_lunch.isEmpty()) {
             for (int i = 0; i < m_lunch.size(); i++) {
                 childList.add(m_lunch.get(i));
             }
         }
-        //connect enlisted menus with lunch tab
+
         expandableListDetail.put(expandableListTitle.get(1), childList);
 
-        //calls and enlists menus in expandableListDetail
         childList = new ArrayList<>();
         if(!m_dinner.isEmpty()) {
             for (int i = 0; i < m_dinner.size(); i++) {
                 childList.add(m_dinner.get(i));
             }
         }
-        //connect enlisted menus with dinner tab
         expandableListDetail.put(expandableListTitle.get(2), childList);
         this.notifyDataSetChanged();
     }

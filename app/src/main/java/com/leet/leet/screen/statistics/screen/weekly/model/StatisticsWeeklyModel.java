@@ -38,12 +38,8 @@ public class StatisticsWeeklyModel {
 
     //set test data to database
     public void setDataTest() {
-        int min = 0;
-        int max = 2;
 
-        Random r = new Random();
-        int i1 = r.nextInt(max - min);
-        for(int i=0;i<6;i++){
+        for(int i=0;i<10;i++){
             LocalDate date = DateHelper.getPastDate(i);
 
             for(int j=0;j<3;j++){
@@ -60,7 +56,7 @@ public class StatisticsWeeklyModel {
                                 @Override
                                 public void getData(ArrayList<MenuEntity> data) {
                                     int ran = (int)(Math.random()*data.size());
-                                    FirebaseDBUserDataHelper.setStatisticsData(d, t, data.get(ran));
+                                    FirebaseDBUserDataHelper.setStatisticsData(d, t,data.get(ran));
                                 }
                             });
                 }
@@ -151,7 +147,7 @@ public class StatisticsWeeklyModel {
                 callback.getData(true);
             }
         });
-        
+
         //setDataTest();
     }
 

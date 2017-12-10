@@ -21,7 +21,6 @@ import org.joda.time.LocalDate;
 
 
 /**
- * StatisticsDailyFragment is controller for the Statistics Daily Page.
  * Created by YasuhiraChiba on 2017/11/05.
  */
 
@@ -69,7 +68,6 @@ public class StatisticsDailyFragment extends Fragment implements StatisticsDaily
 
     }
 
-    //This elementTapped is implemented to handle menu drop down list.
     @Override
     public void elementTapped(Enums.MealTime time, int index) {
         Log.d("","");
