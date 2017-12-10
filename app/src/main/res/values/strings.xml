@@ -162,12 +162,13 @@
     <!-- General messages -->
     <string name="login">LOGIN</string>
     <string name="guest">LOGIN AS GUEST</string>
+    <string name="forget">FORGET PASSWORD ?</string>
     <string name="signup">SIGNUP</string>
     <string name="confirm">CONFIRM</string>
     <string name="back">BACK</string>
     <string name="username">User name</string>
-    <string name="email">Email</string>
-    <string name="password">Password</string>
+    <string name="email">EMAIL</string>
+    <string name="password">PASSWORD</string>
     <string name="reenter">Confirm Password</string>
     <string name="pattern">Password must be contains at least one digit and one letter</string>
     <string name="match">Re-entered password must match</string>

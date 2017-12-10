@@ -48,9 +48,6 @@ public class SignupActivity extends AppCompatActivity implements SignupViewInter
     final String EMPTY_PASSWORD = "Password cannot be empty";
     final String NEED_DIGIT = "You need at least one digit";
     final String NEED_LETTER = "You need at least one letter";
-    final String NEED_LOWERCASE = "You need at least one lowercase letter";
-    final String NEED_UPPERCASE = "You need at least one uppercase letter";
-    final String NEED_SPECIAL = "You need at least one special character";
     final String CONTAINS = "Password cannot be part of your email";
 
 
@@ -203,10 +200,10 @@ public class SignupActivity extends AppCompatActivity implements SignupViewInter
                 public void onComplete(@NonNull Task<Void> task) {
                     if (task.isSuccessful()) {
                         Log.d("SIGNUP", "send email successful");
-                        Toast.makeText(getApplicationContext(), "Send verification email to " + user.getEmail(), Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getApplicationContext(), "Send verification email to " + user.getEmail(), Toast.LENGTH_LONG).show();
                     } else {
                         Log.d("SIGNUP", "send email failed", task.getException());
-                        Toast.makeText(getApplicationContext(), "Fail to send verification email", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getApplicationContext(), "Fail to send verification email", Toast.LENGTH_LONG).show();
                     }
                 }
             });

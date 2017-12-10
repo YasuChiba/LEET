@@ -34,6 +34,8 @@
         android:layout_marginEnd="28dp">
     </FrameLayout>
 
+
+
     <TableLayout
         android:id="@+id/table1"
         android:layout_width="300dp"
@@ -45,6 +47,7 @@
         android:background="@color/white"
         android:weightSum="1">
 
+
         <TextView
             android:id="@+id/textview"
             android:layout_width="match_parent"
@@ -54,7 +57,7 @@
             android:layout_weight="6.05"
             android:gravity="center"
             android:paddingBottom="30dp"
-            android:text="Triton Meal Planner"
+            android:text="@string/app_name"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:textSize="30sp"
             android:textStyle="bold" />
@@ -65,7 +68,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:gravity="center"
-            android:text="E-MAIL"
+            android:text="@string/email"
             android:textAlignment="center"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:textIsSelectable="true"
@@ -84,7 +87,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:gravity="center"
-            android:text="PASSWORD"
+            android:text="@string/password"
             android:textAlignment="center"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:textIsSelectable="true"
@@ -138,6 +141,21 @@
             android:textColor="@color/white"
             android:textSize="20sp"
             android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/btForget"
+            android:layout_width="150dp"
+            android:layout_height="33dp"
+            android:layout_gravity="center"
+            android:layout_marginBottom="15dp"
+            android:layout_marginLeft="50dp"
+            android:layout_marginRight="50dp"
+            android:background="@color/white"
+            android:text="@string/forget"
+            android:textColor="@color/base_color"
+            android:textSize="18sp" />
+
     </TableLayout>
+
 
 </RelativeLayout>
