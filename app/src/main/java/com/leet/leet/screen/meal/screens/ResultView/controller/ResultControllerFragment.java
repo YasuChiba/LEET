@@ -161,5 +161,6 @@ public class ResultControllerFragment extends Fragment implements ResultViewInte
 
     public void isScreenShow(boolean isScreenShow) {
         this.isScreenShow = isScreenShow;
+        setHasOptionsMenu(isScreenShow);
     }
 }
