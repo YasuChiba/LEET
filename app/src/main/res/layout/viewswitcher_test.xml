@@ -120,8 +120,7 @@
                             android:maxLength="6"
                             android:textColor="@color/textColor"
                             android:textColorHint="@color/textColorHint"
-                            android:textSize="18sp">>
-
+                            android:textSize="18sp">
                             <requestFocus />
                         </EditText>
 
@@ -160,8 +159,7 @@
                             android:maxLength="5"
                             android:textColor="@color/textColor"
                             android:textColorHint="@color/textColorHint"
-                            android:textSize="18sp">>
-
+                            android:textSize="18sp">
                             <requestFocus />
                         </EditText>
 
@@ -200,8 +198,7 @@
                             android:maxLength="5"
                             android:textColor="@color/textColor"
                             android:textColorHint="@color/textColorHint"
-                            android:textSize="18sp">>
-
+                            android:textSize="18sp">
                             <requestFocus />
                         </EditText>
 
@@ -216,7 +213,6 @@
                             android:text="@string/Protein"
                             android:textColor="@color/light_red"
                             android:textSize="24sp" />
-
 
                     </RelativeLayout>
 
@@ -241,8 +237,7 @@
                             android:maxLength="5"
                             android:textColor="@color/textColor"
                             android:textColorHint="@color/textColorHint"
-                            android:textSize="18sp">>
-
+                            android:textSize="18sp">
                             <requestFocus />
                         </EditText>
 
@@ -348,6 +343,17 @@
                     android:orientation="vertical"
                     android:weightSum="1">
 
+                    <!--
+                    <TextView
+                        android:id="@+id/email"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="@string/Email"
+                        android:textColor="@color/LEET_LABEL"
+                        android:textSize="24sp" />
+                        -->
+
                     <RelativeLayout
                         android:layout_width="250dp"
                         android:layout_height="48dp"
@@ -357,34 +363,17 @@
                             android:id="@+id/Email"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_alignParentRight="true"
+                            android:layout_centerHorizontal="true"
                             android:layout_alignParentTop="true"
                             android:backgroundTint="#cfcfcf"
-                            android:ellipsize="end"
-                            android:maxLength="22"
-                            android:maxLines="1"
                             android:enabled="false"
                             android:gravity="right"
-                            android:hint="Email Here"
-                            android:inputType="textEmailAddress"
+                            android:singleLine="true"
                             android:textColor="#333333"
                             android:textColorHint="#cfcfcf"
-                            android:textSize="18dp">>
-
+                            android:textSize="18dp">
                             <requestFocus />
                         </TextView>
-
-                        <TextView
-                            android:id="@+id/email"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_alignBaseline="@+id/Email"
-                            android:layout_alignBottom="@+id/Email"
-                            android:layout_alignParentLeft="true"
-                            android:layout_alignParentStart="true"
-                            android:text="@string/Email"
-                            android:textColor="@color/LEET_LABEL"
-                            android:textSize="24sp" />
 
 
                     </RelativeLayout>
@@ -448,8 +437,7 @@
                             android:maxLength="3"
                             android:textColor="@color/textColor"
                             android:textColorHint="@color/textColorHint"
-                            android:textSize="18sp">>
-
+                            android:textSize="18sp">
                             <requestFocus />
                         </EditText>
 
