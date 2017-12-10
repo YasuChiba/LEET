@@ -23,6 +23,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
+ * This will create graph.
+ *
  * Created by BK Hwang on 2017-12-02.
  */
 
@@ -46,6 +48,11 @@ public class StatisticsDailyListViewHeader extends LinearLayout {
     }
 
 
+    /**
+     * This will initialize empty graph with xAxis labels
+     *
+     * @param context
+     */
     private void initializeView(Context context) {
         View.inflate(context, R.layout.customview_statistics_daily_list_view_header, this);
 
@@ -72,7 +79,7 @@ public class StatisticsDailyListViewHeader extends LinearLayout {
         XAxis xAxis = graphView.getXAxis();
         xAxis.setCenterAxisLabels(false);
 
-
+        //place label in correct place
         graphView.getXAxis().setPosition(XAxis.XAxisPosition.BOTTOM_INSIDE );
 
         xAxis.setValueFormatter(new IAxisValueFormatter() {
@@ -82,10 +89,21 @@ public class StatisticsDailyListViewHeader extends LinearLayout {
             }
         });
 
+        //to not make duplicated label
         xAxis.setGranularity(1f);
 
     }
 
+    /**
+     * This will set up values in the graph.
+     *
+     * @param price        : array of price of breakfast, lunch, and dinner
+     * @param calories     : array of calories of breakfast, lunch, and dinner
+     * @param carbs        : array of carbs of breakfast, lunch, and dinner
+     * @param fat           : array of fat of breakfast, lunch, and dinner
+     * @param protein       : array of protein of breakfast, lunch, and dinner
+     * @param goalEntity    : user goals
+     */
     public void setDataToGraph(float[] price,
                                float[] calories,
                                float[] carbs,
@@ -94,10 +112,9 @@ public class StatisticsDailyListViewHeader extends LinearLayout {
                                UserGoalEntity goalEntity
     )
     {
-        //data input
+        //create ArrayList to hold values of intakes and goals.
         ArrayList<BarEntry> entries_intakes = new ArrayList<BarEntry>();
         List<BarEntry> entries_goals = new ArrayList<>();
-
 
         entries_intakes.add(new BarEntry(0f, calories));
         entries_intakes.add(new BarEntry(1f, carbs));
@@ -105,19 +122,16 @@ public class StatisticsDailyListViewHeader extends LinearLayout {
         entries_intakes.add(new BarEntry(3f, protein));
         entries_intakes.add(new BarEntry(4f, price));
 
-        entries_goals.add(new BarEntry(0f, goalEntity.getCalorie()/100));
-        entries_goals.add(new BarEntry(1f, goalEntity.getCarbs()/10));
-        entries_goals.add(new BarEntry(2f, goalEntity.getFat()/10));
-        entries_goals.add(new BarEntry(3f, goalEntity.getProtein()/10));
+        entries_goals.add(new BarEntry(0f, goalEntity.getCalorie()));
+        entries_goals.add(new BarEntry(1f, goalEntity.getCarbs()));
+        entries_goals.add(new BarEntry(2f, goalEntity.getFat()));
+        entries_goals.add(new BarEntry(3f, goalEntity.getProtein()));
         entries_goals.add(new BarEntry(4f, goalEntity.getPrice()));
-
-
-        //BarDataSet set1 = new BarDataSet(entries_intakes, "");
-        //BarDataSet set2 = new BarDataSet(entries_goals, "Daily Goal");
 
         BarDataSet set1;
         BarDataSet set2 = null;
 
+        //data entry to graph.
         if (graphView.getData() != null &&
                 graphView.getData().getDataSetCount() > 0) {
             set1 = (BarDataSet) graphView.getData().getDataSetByIndex(0);
@@ -159,11 +173,14 @@ public class StatisticsDailyListViewHeader extends LinearLayout {
         //grouped bar
         graphView.groupBars(0f, groupSpace, barSpace);
 
-
         graphView.invalidate(); // refresh
     }
 
-    //Color setting for stacked bars
+    /**
+     * This sets up the colors of stacked bar
+     *
+     * @return int[] colors : color values
+     */
     private int[] getColors() {
         int stacksize = 3;
 

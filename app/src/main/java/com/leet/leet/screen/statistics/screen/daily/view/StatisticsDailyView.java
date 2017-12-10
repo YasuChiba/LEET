@@ -21,8 +21,10 @@ import java.util.HashMap;
 import java.util.List;
 
 /**
+ *
  * Created by YasuhiraChiba on 2017/11/05.
  *
+ * Modified by Pyeong Kyu Hwang on 2017/12/02.
  **/
 
 public class StatisticsDailyView implements StatisticsDailyViewInterface
@@ -33,8 +35,6 @@ public class StatisticsDailyView implements StatisticsDailyViewInterface
 
     private StatisticsDailyListViewAdapter adapter;
     private StatisticsDailyListViewHeader header;
-
-
 
     public StatisticsDailyView(LayoutInflater inflater, ViewGroup container,StatisticsDailyViewListener listener) {
         this.mListener = listener;
@@ -59,8 +59,6 @@ public class StatisticsDailyView implements StatisticsDailyViewInterface
         expListView.setAdapter(adapter);
         expListView.setOnChildClickListener(this);
 
-
-
     }
 
     @Override
@@ -68,6 +66,7 @@ public class StatisticsDailyView implements StatisticsDailyViewInterface
         return rootView;
     }
 
+    //calls setDataToGraph function in header.
     public void setDataToGraph(float[] price,
                                float[] calories,
                                float[] carbs,

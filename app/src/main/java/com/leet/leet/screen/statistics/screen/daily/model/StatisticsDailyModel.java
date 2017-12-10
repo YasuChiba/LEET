@@ -16,7 +16,11 @@ import java.util.HashMap;
 import java.util.List;
 
 /**
+ * Model for Daily Statistics page.
+ *
  * Created by YasuhiraChiba on 2017/11/05.
+ *
+ * Modified by Pyeong Kyu Hwang on 2017/11/27.
  */
 
 public class StatisticsDailyModel {
@@ -26,24 +30,21 @@ public class StatisticsDailyModel {
 
     public UserGoalEntity userGoalEntity = new UserGoalEntity();
 
-    public float[] price;
-    public float[] calorie;
-    public float[] protein;
-    public float[] fat;
-    public float[] carbs;
-
+    //floats to hold values of nutrition and price of breakfast
     private float price_B = 0;
     private float calorie_B;
     private float protein_B;
     private float fat_B;
     private float carbs_B;
 
+    //floats to hold values of nutrition and price of lunch
     private float price_L = 0;
     private float calorie_L;
     private float protein_L;
     private float fat_L;
     private float carbs_L;
 
+    //floats to hold values of nutrition and price of dinner
     private float price_D= 0;
     private float calorie_D;
     private float protein_D;
@@ -53,7 +54,11 @@ public class StatisticsDailyModel {
     private MenuEntity selectedMenuEntity;
     private Enums.MealTime selectedMealTime;
 
-
+    /**
+     * Retrive data from FireBase
+     *
+     * @param callback
+     */
     public void getStatisticsData(final FirebaseDBCallaback<Boolean> callback) {
 
         FirebaseDBUserDataHelper.getStatisticsData(date, date, new FirebaseDBCallaback<ArrayList<UserStatisticsEntity>>() {
@@ -78,6 +83,7 @@ public class StatisticsDailyModel {
                     fat_D = 0;
                     carbs_D = 0;
 
+                    //sum up price and nutrition from breakfast menus in user profile
                     for(MenuEntity menu : data.get(0).getBreakfastMenu()) {
                         price_B += menu.getPrice();
                         calorie_B += menu.getNutritions().getCalories();
@@ -86,6 +92,7 @@ public class StatisticsDailyModel {
                         carbs_B += menu.getNutritions().getCarb();
                     }
 
+                    //sum up price and nutrition from lunch menus in user profile
                     for(MenuEntity menu : data.get(0).getLunchMenu()) {
                         price_L += menu.getPrice();
                         calorie_L += menu.getNutritions().getCalories();
@@ -94,6 +101,7 @@ public class StatisticsDailyModel {
                         carbs_L += menu.getNutritions().getCarb();
                     }
 
+                    //sum up price and nutrition from dinner menus in user profile
                     for(MenuEntity menu : data.get(0).getDinnerMenu()) {
                         price_D += menu.getPrice();
                         calorie_D += menu.getNutritions().getCalories();
@@ -116,31 +124,63 @@ public class StatisticsDailyModel {
         });
     }
 
+    /**
+     * Create array of float to return each prices from breakfast, lunch, and dinner
+     *
+     * @return float[] total;
+     */
     public float[] getPrice(){
-        float[] total = new float[] {calorie_B/100, calorie_L/100, calorie_D/100};
+        float[] total = new float[] {price_B, price_L, price_D};
         return total;
     }
 
+    /**
+     * Create array of float to return each calories from breakfast, lunch, and dinner
+     * To make the value of calories with other nuritions and price, divide with 100
+     *
+     * @return float[] total;
+     */
     public float[] getCalorie() {
         float[] total = new float[] {calorie_B/100, calorie_L/100, calorie_D/100};
         return total;
     }
 
+    /**
+     * Create array of float to return each fats from breakfast, lunch, and dinner
+     * To make the value of fats with  price, divide with 10
+     *
+     * @return float[] total;
+     */
     public float[] getFat() {
         float[] total = new float[] {fat_B/10, fat_L/10, fat_D/10};
         return total;
     }
 
+    /**
+     * Create array of float to return each protein from breakfast, lunch, and dinner
+     * To make the value of protein with  price, divide with 10
+     *
+     * @return float[] total;
+     */
     public float[] getProtein() {
         float[] total = new float[] {protein_B/10, protein_L/10, protein_D/10};
         return total;
     }
 
+    /**
+     * Create array of float to return each Carbs from breakfast, lunch, and dinner
+     * To make the value of Carbs with  price, divide with 10
+     *
+     * @return float[] total;
+     */
     public float[] getCarbs() {
         float[] total = new float[]{carbs_B/10, carbs_L/10, carbs_D/10};
         return total;
     }
 
+    /**
+     * Function to call deleteStatisticsMenuData to delete selected item.
+     */
     public void deleteSelectedMeal() {
         FirebaseDBUserDataHelper.deleteStatisticsMenuData(date,selectedMealTime,selectedMenuEntity.getKey());
     }
@@ -150,6 +190,11 @@ public class StatisticsDailyModel {
         this.selectedMenuEntity = selectedMenuEntity;
     }
 
+    /**
+     * return list of breakfast menu in user profile
+     *
+     * @return null or statisticsData.getBreakfastMenu
+     */
     public List<MenuEntity> getBreakfastList() {
         if(statisticsData.getBreakfastMenu() == null) {
             return new ArrayList<>();
@@ -157,12 +202,23 @@ public class StatisticsDailyModel {
         return statisticsData.getBreakfastMenu();
     }
 
+    /**
+     * return list of lunch menu in user profile
+     *
+     * @return null or statisticsData.getLunchMenu
+     */
     public List<MenuEntity> getLunchList() {
         if(statisticsData.getLunchMenu() == null) {
             return new ArrayList<>();
         }
         return statisticsData.getLunchMenu();
     }
+
+    /**
+     * return list of dinner menu in user profile
+     *
+     * @return null or statisticsData.getDinnerMenu
+     */
 
     public List<MenuEntity> getDinnerList() {
         if(statisticsData.getDinnerMenu() == null) {
