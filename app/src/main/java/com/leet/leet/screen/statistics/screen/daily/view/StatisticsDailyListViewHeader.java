@@ -7,10 +7,12 @@ import android.view.View;
 import android.widget.LinearLayout;
 
 import com.github.mikephil.charting.charts.BarChart;
+import com.github.mikephil.charting.components.AxisBase;
 import com.github.mikephil.charting.components.XAxis;
 import com.github.mikephil.charting.data.BarData;
 import com.github.mikephil.charting.data.BarDataSet;
 import com.github.mikephil.charting.data.BarEntry;
+import com.github.mikephil.charting.formatter.IAxisValueFormatter;
 import com.github.mikephil.charting.formatter.IndexAxisValueFormatter;
 import com.github.mikephil.charting.interfaces.datasets.IBarDataSet;
 import com.github.mikephil.charting.utils.ColorTemplate;
@@ -59,7 +61,7 @@ public class StatisticsDailyListViewHeader extends LinearLayout {
 
 
         //X-Axis labels
-        ArrayList<String> labels = new ArrayList<>();
+        final ArrayList<String> labels = new ArrayList<>();
         labels.add("Cal");
         labels.add("Carb");
         labels.add("Fat");
@@ -70,8 +72,17 @@ public class StatisticsDailyListViewHeader extends LinearLayout {
         XAxis xAxis = graphView.getXAxis();
         xAxis.setCenterAxisLabels(false);
 
-        graphView.getXAxis().setValueFormatter(new IndexAxisValueFormatter(labels));
+
         graphView.getXAxis().setPosition(XAxis.XAxisPosition.BOTTOM_INSIDE );
+
+        xAxis.setValueFormatter(new IAxisValueFormatter() {
+            @Override
+            public String getFormattedValue(float value, AxisBase axis) {
+                return labels.get((int)value);
+            }
+        });
+
+        xAxis.setGranularity(1f);
 
     }
 
@@ -134,8 +145,8 @@ public class StatisticsDailyListViewHeader extends LinearLayout {
         //set1.setStackLabels(new String[]{"Breakfast", "Lunch", "Dinner"});
         set2.setColors(R.color.colorPrimary);
         float groupSpace = 0.08f;
-        float barSpace = 0.02f;
-        float barWidth = 0.40f;
+        float barSpace = 0.03f;
+        float barWidth = 0.35f;
 
         //set1 = (BarDataSet) graphView.getData().getDataSetByIndex(0);
         set1.setValues(entries_intakes);
