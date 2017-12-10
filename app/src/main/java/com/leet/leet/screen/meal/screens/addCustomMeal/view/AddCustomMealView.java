@@ -84,7 +84,7 @@ public class AddCustomMealView implements CustomMealInterface, View.OnClickListe
         return calories.getText().toString().length() == 0 ? "0" : calories.getText().toString();
     }
     public String getCarbsVal() {
-        return carbs.getText().toString().length() == 0 ? "0" : calories.getText().toString();
+        return carbs.getText().toString().length() == 0 ? "0" : carbs.getText().toString();
     }
     public String getTotalFatVal() {
         return totalFat.getText().toString().length() == 0 ? "0" : totalFat.getText().toString();
