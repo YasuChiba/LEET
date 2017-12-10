@@ -122,10 +122,10 @@ public class StatisticsDailyListViewHeader extends LinearLayout {
         entries_intakes.add(new BarEntry(3f, protein));
         entries_intakes.add(new BarEntry(4f, price));
 
-        entries_goals.add(new BarEntry(0f, goalEntity.getCalorie()));
-        entries_goals.add(new BarEntry(1f, goalEntity.getCarbs()));
-        entries_goals.add(new BarEntry(2f, goalEntity.getFat()));
-        entries_goals.add(new BarEntry(3f, goalEntity.getProtein()));
+        entries_goals.add(new BarEntry(0f, goalEntity.getCalorie()/100));
+        entries_goals.add(new BarEntry(1f, goalEntity.getCarbs()/10));
+        entries_goals.add(new BarEntry(2f, goalEntity.getFat()/10));
+        entries_goals.add(new BarEntry(3f, goalEntity.getProtein()/10));
         entries_goals.add(new BarEntry(4f, goalEntity.getPrice()));
 
         BarDataSet set1;
