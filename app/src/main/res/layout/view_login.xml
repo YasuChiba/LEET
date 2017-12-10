@@ -2,14 +2,16 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    android:isScrollContainer="false"
     android:fillViewport="true">
+
     <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:background="@color/white"
-        android:orientation="vertical"
-        >
+        android:orientation="vertical">
 
         <!-- Xinhe Zhang, 11/05/2017 -->
 
@@ -23,9 +25,9 @@
 
             <ImageView
                 android:id="@+id/imageView1"
-                android:background="@drawable/triton"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"/>
+                android:layout_height="match_parent"
+                android:background="@drawable/triton" />
 
         </FrameLayout>
 
@@ -35,9 +37,7 @@
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
             android:layout_alignParentEnd="true"
-            android:layout_marginEnd="28dp">
-        </FrameLayout>
-
+            android:layout_marginEnd="28dp"></FrameLayout>
 
 
         <TableLayout
