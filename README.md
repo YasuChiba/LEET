@@ -39,6 +39,5 @@ Kevin Barron - k1barron@ucsd.edu
 Daniel Gwag - dgwag@ucsd.edu
 Xinhe Zhang - xiz515@ucsd.edu
 Jesslyn Hernawan - jhernawa@ucsd.edu
-Xinhe Zhang - xiz515@eng.ucsd.edu
 Pyeong Hwang - pkhwang@ucsd.edu
 Danny Huang - hah059@ucsd.edu
