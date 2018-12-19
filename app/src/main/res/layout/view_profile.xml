@@ -11,6 +11,7 @@
         android:layout_width="202dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
+        android:layout_marginTop="15dp"
         android:gravity="center_vertical|center_horizontal"
         android:text="My Goals"
         android:textColor="@android:color/black"

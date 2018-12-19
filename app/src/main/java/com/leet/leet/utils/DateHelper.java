@@ -17,6 +17,13 @@ public class DateHelper {
 
     public static LocalDate getCurrentDate() {
         DateTime dt = new DateTime();
+        //DateTime dt = new DateTime(2017, 11, 4, 12, 12);
+        return dt.toLocalDate();
+    }
+
+    public static LocalDate getCurrentDate2() {
+        //DateTime dt = new DateTime();
+        DateTime dt = new DateTime(2017, 11, 4, 12, 12);
         return dt.toLocalDate();
     }
 

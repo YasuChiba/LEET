@@ -19,6 +19,7 @@
             android:layout_gravity="center"
             android:background="#07000000"
             android:gravity="center"
+            android:textSize="22sp"
             android:textStyle="bold" />
 
     </android.support.v7.widget.Toolbar>

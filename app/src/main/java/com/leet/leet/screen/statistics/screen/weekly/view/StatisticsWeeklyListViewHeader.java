@@ -134,7 +134,10 @@ public class StatisticsWeeklyListViewHeader extends LinearLayout implements View
         xAxis.setValueFormatter(new IAxisValueFormatter() {
             @Override
             public String getFormattedValue(float value, AxisBase axis) {
-                return labelList.get((int)value);
+                if(value >= 0) {
+                    return labelList.get((int) value);
+                }
+                return null;
             }
         });
 

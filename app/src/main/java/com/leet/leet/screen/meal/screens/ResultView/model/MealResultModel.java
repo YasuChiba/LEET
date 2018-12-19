@@ -40,7 +40,7 @@ public class MealResultModel {
         // If the user selects a dining hall, get that dining hall's menu
         if(currentRestaurantName != Enums.RestaurantName.Custom) {
             FirebaseDBMenuDataHelper.getMenuData(currentRestaurantName,
-                    DateHelper.getCurrentDate(),
+                    DateHelper.getCurrentDate2(),
                     currentMealTime, // default meal time is lunch, so initially load lunch menu
                     new FirebaseDBCallaback<ArrayList<MenuEntity>>() {
                         @Override
