@@ -1,4 +1,4 @@
-# LEET
+# Triton Meal Planner by LEET
 
 Student’s awareness about what constitutes a balanced diet has risen significantly. To know what it is to eat healthy is only one piece of the puzzle though; maintaining a healthy diet at UCSD is a common dilemma among students. To solve their issue, we, LEET, have developed an app that not only displays the nutrition facts of all foods served from dining halls, but enables students to keep track of what they have consumed and to compare their consumption with their goals. 
 
